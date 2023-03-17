@@ -1,0 +1,15 @@
+format: jb-book
+root: README.md
+options:
+  numbered: True
+chapters:
+  - file: REAMDE.md
+  - file: book/codequality/index.ipynb
+    sections:
+      - file: book/codequality/codestyle.ipynb
+      - file: book/codequality/memory.ipynb
+      - file: book/codequality/security.ipynb
+      - file: book/codequality/typing.ipynb
+  - file: book/cooltools/index.ipynb
+    sections:
+      - file: book/cooltools/Chapter.ipynb
