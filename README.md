@@ -12,11 +12,9 @@
     <h1 align="center">Delightful Data Science</h1>
 </div>
 
-<div align="center">
-
 ## Why this Book exists
 
-The story starts in December 2022 when I started writing daily LinkedIn posts sharing one short Python/Data Science tip per day. My main goal was to share what I learnt over the years with others. I thought "When it's useful for me, it will be probably useful for other people too".
+It was December 2022 when I started writing daily LinkedIn posts sharing one short Python/Data Science tip per day. My main goal was to share what I learnt over the years with others. I thought "When it's useful for me, it will be probably useful for other people too".
 
 As time went by, more and more people found the tips useful. Soon, I realized that these daily tips could be compiled into a comprehensive guide for anyone interested in becoming better Data Scientist.
 
