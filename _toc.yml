@@ -13,3 +13,38 @@ chapters:
   - file: book/cooltools/index.ipynb
     sections:
       - file: book/cooltools/Chapter.ipynb
+  - file: book/jupyternotebook/index.ipynb
+    sections:
+      - file: book/jupyternotebook/Chapter.ipynb
+  - file: book/machinelearning/index.ipynb
+    sections:
+      - file: book/machinelearning/dataaugmentation.ipynb
+      - file: book/machinelearning/eda.ipynb
+      - file: book/machinelearning/featureselection.ipynb
+      - file: book/machinelearning/getdata.ipynb
+      - file: book/machinelearning/modeltraining.ipynb
+      - file: book/machinelearning/outlierdetection.ipynb
+      - file: book/machinelearning/timeseries.ipynb
+  - file: book/numpy/index.ipynb
+    sections:
+      - file: book/numpy/Chapter.ipynb
+  - file: book/pandas/index.ipynb
+    sections:
+      - file: book/pandas/Chapter.ipynb
+      - file: book/pandas/additionallibs.ipynb
+  - file: book/pythontricks/index.ipynb
+    sections:
+      - file: book/pythontricks/Chapter.ipynb
+      - file: book/pythontricks/utility.ipynb
+  - file: book/selenium/index.ipynb
+    sections:
+      - file: book/selenium/Chapter.ipynb
+  - file: book/streamlit/index.ipynb
+    sections:
+      - file: book/streamlit/Chapter.ipynb
+  - file: book/testing/index.ipynb
+    sections:
+      - file: book/testing/Chapter.ipynb
+  - file: book/Other/index.ipynb
+    sections:
+      - file: book/Other/Chapter.ipynb
