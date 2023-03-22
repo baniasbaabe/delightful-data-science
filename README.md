@@ -2,7 +2,7 @@
 
 <a href="https://github.com/baniasbaabe/delightful-data-science">
 
-<img src="book/images/cover.png" alt="Delightful Data Science Logo" width="126" height="195" align="center">
+<img src="book/images/dds_logo.png" alt="Delightful Data Science Logo" align="center">
 
 </a>
 
@@ -20,7 +20,7 @@ As time went by, more and more people found the tips useful. Soon, I realized th
 
 Thus, the idea for "Delightful Data Science" was born. The book contains all the tips shared by the author on LinkedIn, as well as many more to come in the future.
 
-## Small Code Snippets, Big Upgrade
+## Small Snippets, Big Upgrades
 
 The book is called "Delightful Data Science" because it aims to make your data science journey more delightful by helping you become a better Data Scientist. By incorporating these tips and tricks into your workflow, you can make your Data Science projects more enjoyable and successful.
 
