@@ -46,6 +46,6 @@ chapters:
   - file: book/testing/index.ipynb
     sections:
       - file: book/testing/Chapter.ipynb
-  - file: book/Other/index.ipynb
+  - file: book/Miscellaneous/index.ipynb
     sections:
-      - file: book/Other/Chapter.ipynb
+      - file: book/Miscellaneous/Chapter.ipynb
