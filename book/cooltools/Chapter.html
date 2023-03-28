@@ -1,0 +1,998 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2.1. Cool Tools &#8212; Delightful Data Science</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/cooltools/Chapter';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Machine Learning" href="../machinelearning/index.html" />
+    <link rel="prev" title="2. Cool Tools" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Delightful Data Science</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Why this Book exists
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../codequality/index.html">1. Code Quality</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/codestyle.html">1.1. Code Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/memory.html">1.2. Memory Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/security.html">1.3. Security in Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/typing.html">1.4. Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">2. Cool Tools</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Cool Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../machinelearning/index.html">3. Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/dataaugmentation.html">3.1. Data Augmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/eda.html">3.2. EDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/featureselection.html">3.3. Feature Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/getdata.html">3.4. Get Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/modeltraining.html">3.5. Model Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/outlierdetection.html">3.6. Outlier Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/timeseries.html">3.7. Time Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/preprocessing.html">3.8. Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">4. NumPy Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/Chapter.html">4.1. NumPy Tips and Tricks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">5. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/Chapter.html">5.1. Pure Python + Built-in libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">5.2. Utility Libraries for Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">6. Selenium Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../selenium/Chapter.html">6.1. Selenium Tips and Tricks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../streamlit/index.html">7. Streamlit Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../streamlit/Chapter.html">7.1. Streamlit Tips and Tricks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">8. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">8.1. Pytest</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">9. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Miscellaneous/Chapter.html">9.1. Miscellaneous</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/baniasbaabe/delightful-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/baniasbaabe/delightful-data-science/issues/new?title=Issue%20on%20page%20%2Fbook/cooltools/Chapter.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/cooltools/Chapter.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Cool Tools</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-countries-currencies-subdivisions-and-more">2.1.1. Work with Countries, Currencies, Subdivisions, and more</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-better-requirements-files-with-pipreqs">2.1.2. Generate better requirements files with <code class="docutils literal notranslate"><span class="pre">pipreqs</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-a-package-and-its-dependencies-with-pip-autoremove">2.1.3. Remove a package and its dependencies with <code class="docutils literal notranslate"><span class="pre">pip-autoremove</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-distance-between-postal-codes">2.1.4. Get distance between postal codes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-units-with-pint">2.1.5. Working with units with <code class="docutils literal notranslate"><span class="pre">pint</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supercharge-your-python-profiling-with-scalene">2.1.6. Supercharge your Python profiling with <code class="docutils literal notranslate"><span class="pre">Scalene</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fix-unicode-errors-with-ftfy">2.1.7. Fix unicode errors with <code class="docutils literal notranslate"><span class="pre">ftfy</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-the-background-from-images-with-rembg">2.1.8. Remove the background from images with <code class="docutils literal notranslate"><span class="pre">rembg</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-modern-cli-apps-with-typer">2.1.9. Build modern CLI apps with <code class="docutils literal notranslate"><span class="pre">typer</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-realistic-fake-data-with-faker">2.1.10. Generate realistic fake data with <code class="docutils literal notranslate"><span class="pre">faker</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enrich-your-progress-bars-with-rich">2.1.11. Enrich your progress bars with <code class="docutils literal notranslate"><span class="pre">rich</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-description-for-tqdm-bars">2.1.12. Set the description for TQDM bars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-emojis-to-text-with-emot">2.1.13. Convert Emojis to Text with <code class="docutils literal notranslate"><span class="pre">emot</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-hardware-information-and-version-numbers">2.1.14. Print hardware information and version numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cache-requests-with-requests-cache">2.1.15. Cache requests with <code class="docutils literal notranslate"><span class="pre">requests-cache</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-messy-columns-with-unifyname">2.1.16. Unify messy columns with <code class="docutils literal notranslate"><span class="pre">unifyname</span></code></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="cool-tools">
+<h1><span class="section-number">2.1. </span>Cool Tools<a class="headerlink" href="#cool-tools" title="Permalink to this heading">#</a></h1>
+<section id="work-with-countries-currencies-subdivisions-and-more">
+<h2><span class="section-number">2.1.1. </span>Work with Countries, Currencies, Subdivisions, and more<a class="headerlink" href="#work-with-countries-currencies-subdivisions-and-more" title="Permalink to this heading">#</a></h2>
+<p>Do you work with international data?</p>
+<p>You probably know how important it is to use the correct codes for countries, currencies, languages, and subdivisions.</p>
+<p>To save the headache, try <code class="docutils literal notranslate"><span class="pre">pycountry</span></code> for Python!</p>
+<p><code class="docutils literal notranslate"><span class="pre">pycountry</span></code> makes it easy to work with these codes.</p>
+<p>It allows you to look up country and currency information by name or code based on ISO.</p>
+<p>But it can also be used to get the name or code for a specific currency or country.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pycountry
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pycountry</span>
+
+<span class="c1"># Get Country</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pycountry</span><span class="o">.</span><span class="n">countries</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">alpha_2</span><span class="o">=</span><span class="s2">&quot;DE&quot;</span><span class="p">))</span>
+
+<span class="c1"># Get Currency</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pycountry</span><span class="o">.</span><span class="n">currencies</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">alpha_3</span><span class="o">=</span><span class="s2">&quot;EUR&quot;</span><span class="p">))</span>
+
+<span class="c1"># Get Language</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pycountry</span><span class="o">.</span><span class="n">languages</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">alpha_2</span><span class="o">=</span><span class="s1">&#39;DE&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generate-better-requirements-files-with-pipreqs">
+<h2><span class="section-number">2.1.2. </span>Generate better requirements files with <code class="docutils literal notranslate"><span class="pre">pipreqs</span></code><a class="headerlink" href="#generate-better-requirements-files-with-pipreqs" title="Permalink to this heading">#</a></h2>
+<p>To generate a requirements.txt file, don’t do pip freeze &gt; requirements.txt</p>
+<p>It will save all packages in your environment including those you are not currently using in your project (but still have installed).</p>
+<p>Instead, use <code class="docutils literal notranslate"><span class="pre">pipreqs</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pipreqs</span></code> will only save those packages based on imports in your project.</p>
+<p>A very good option for plain virtual environments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pipreqs
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pipreqs .
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="remove-a-package-and-its-dependencies-with-pip-autoremove">
+<h2><span class="section-number">2.1.3. </span>Remove a package and its dependencies with <code class="docutils literal notranslate"><span class="pre">pip-autoremove</span></code><a class="headerlink" href="#remove-a-package-and-its-dependencies-with-pip-autoremove" title="Permalink to this heading">#</a></h2>
+<p>When you want to remove a package via pip, you will encounter following problem:</p>
+<p>pip will remove the desired package but not its unused dependencies.</p>
+<p>Instead, try <code class="docutils literal notranslate"><span class="pre">pip-autoremove</span></code>.</p>
+<p>It will automatically remove a package and its unused dependencies.</p>
+<p>A really good option when you are not using something like Poetry.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pip-autoremove
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip-autoremove flask -y
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="get-distance-between-postal-codes">
+<h2><span class="section-number">2.1.4. </span>Get distance between postal codes<a class="headerlink" href="#get-distance-between-postal-codes" title="Permalink to this heading">#</a></h2>
+<p>Do you want the distance between two postal codes?</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pgeocode</span></code>.</p>
+<p>Just specify your country + postal codes and get the distance in KM.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pgeocode
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pgeocode</span>
+
+<span class="n">dist</span> <span class="o">=</span> <span class="n">pgeocode</span><span class="o">.</span><span class="n">GeoDistance</span><span class="p">(</span><span class="s1">&#39;DE&#39;</span><span class="p">)</span>
+<span class="n">dist</span><span class="o">.</span><span class="n">query_postal_code</span><span class="p">(</span><span class="s1">&#39;10117&#39;</span><span class="p">,</span> <span class="s1">&#39;80331&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="working-with-units-with-pint">
+<h2><span class="section-number">2.1.5. </span>Working with units with <code class="docutils literal notranslate"><span class="pre">pint</span></code><a class="headerlink" href="#working-with-units-with-pint" title="Permalink to this heading">#</a></h2>
+<p>Have you ever struggled with units in Python?</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">pint</span></code>, you don’t have to.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pint</span></code> is a Python library for easy unit conversion and manipulation.</p>
+<p>You can handle physical quantities with units, perform conversions, and perform arithmetic with physical quantities.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">pint</span></code>, you keep track of your units and ensure accurate results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pint
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pint</span>
+
+<span class="c1"># Initializing the unit registry</span>
+<span class="n">ureg</span> <span class="o">=</span> <span class="n">pint</span><span class="o">.</span><span class="n">UnitRegistry</span><span class="p">()</span>
+
+<span class="c1"># Defining a physical quantity with units</span>
+<span class="n">distance</span> <span class="o">=</span> <span class="mf">33.0</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">kilometers</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>
+<span class="c1"># 33.0 kilometer</span>
+
+<span class="c1"># Converting between units</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">distance</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">feet</span><span class="p">))</span>
+<span class="c1"># 108267.71653543308 foot</span>
+
+<span class="c1"># Performing arithmetic operations</span>
+<span class="n">speed</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">distance</span> <span class="o">/</span> <span class="n">ureg</span><span class="o">.</span><span class="n">hour</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
+<span class="c1"># 198.0 kilometer / hour</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="supercharge-your-python-profiling-with-scalene">
+<h2><span class="section-number">2.1.6. </span>Supercharge your Python profiling with <code class="docutils literal notranslate"><span class="pre">Scalene</span></code><a class="headerlink" href="#supercharge-your-python-profiling-with-scalene" title="Permalink to this heading">#</a></h2>
+<p>Want to identify Python performance issues?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">Scalene</span></code>, your Profiler on steroids!</p>
+<p><code class="docutils literal notranslate"><span class="pre">Scalene</span></code> is a Python CPU + GPU + Memory profiler to identify bottlenecks.</p>
+<p>Even with AI-powered optimization proposals!</p>
+<p><code class="docutils literal notranslate"><span class="pre">Scalene</span></code> comes with an easy-to-use CLI and web-based GUI.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install scalene
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!scalene &lt;my_module.py&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fix-unicode-errors-with-ftfy">
+<h2><span class="section-number">2.1.7. </span>Fix unicode errors with <code class="docutils literal notranslate"><span class="pre">ftfy</span></code><a class="headerlink" href="#fix-unicode-errors-with-ftfy" title="Permalink to this heading">#</a></h2>
+<p>Have you ever struggled with Unicode errors in your Python code?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">ftfy</span></code>!</p>
+<p><code class="docutils literal notranslate"><span class="pre">ftfy</span></code> repairs scrambled text which occurs as a result of encoding or decoding problems.</p>
+<p>You will probably know it when text in a foreign language can’t appear correctly.</p>
+<p>In Python you only have to call one method from <code class="docutils literal notranslate"><span class="pre">ftfy</span></code> to fix it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install ftfy
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ftfy</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ftfy</span><span class="o">.</span><span class="n">fix_text</span><span class="p">(</span><span class="s1">&#39;What does â€œftfyâ€</span><span class="se">\x9d</span><span class="s1"> mean?&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ftfy</span><span class="o">.</span><span class="n">fix_text</span><span class="p">(</span><span class="s1">&#39;âœ” Check&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ftfy</span><span class="o">.</span><span class="n">fix_text</span><span class="p">(</span><span class="s1">&#39;The Mona Lisa doesnÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢t have eyebrows.&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="remove-the-background-from-images-with-rembg">
+<h2><span class="section-number">2.1.8. </span>Remove the background from images with <code class="docutils literal notranslate"><span class="pre">rembg</span></code><a class="headerlink" href="#remove-the-background-from-images-with-rembg" title="Permalink to this heading">#</a></h2>
+<p>Do you want to remove the background from images with Python?</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">rembg</span></code>.</p>
+<p>With its pre-trained models, <code class="docutils literal notranslate"><span class="pre">rembg</span></code> makes removing the background of your images easy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install rembg
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rembg</span> <span class="kn">import</span> <span class="n">remove</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+
+<span class="n">input_path</span> <span class="o">=</span> <span class="s1">&#39;car.jpg&#39;</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="s1">&#39;car2.jpg&#39;</span>
+
+<span class="n">input_file</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">input_path</span><span class="p">)</span>
+<span class="n">output_file</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">output_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="build-modern-cli-apps-with-typer">
+<h2><span class="section-number">2.1.9. </span>Build modern CLI apps with <code class="docutils literal notranslate"><span class="pre">typer</span></code><a class="headerlink" href="#build-modern-cli-apps-with-typer" title="Permalink to this heading">#</a></h2>
+<p>Tired of building clunky CLI for your Python applications?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">typer</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">typer</span></code> makes it easy to create clean, intuitive CLI apps that are easy to use and maintain.</p>
+<p>It also comes with auto-generated help messages.</p>
+<p>Ditch argparse.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install typer
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_script.py</span>
+<span class="kn">import</span> <span class="nn">typer</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">typer</span><span class="o">.</span><span class="n">Typer</span><span class="p">()</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">typer</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+    
+<span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">bye</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">typer</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bye, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!python hello_script.py hello John
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generate-realistic-fake-data-with-faker">
+<h2><span class="section-number">2.1.10. </span>Generate realistic fake data with <code class="docutils literal notranslate"><span class="pre">faker</span></code><a class="headerlink" href="#generate-realistic-fake-data-with-faker" title="Permalink to this heading">#</a></h2>
+<p>Creating realistic test data for your Python projects is annoying.</p>
+<p><code class="docutils literal notranslate"><span class="pre">faker</span></code> helps you to do that!</p>
+<p>With just a few lines of code, you can generate realistic and diverse test data, such as :</p>
+<ul class="simple">
+<li><p>Names</p></li>
+<li><p>Addresses</p></li>
+<li><p>Phone numbers</p></li>
+<li><p>Email addresses</p></li>
+<li><p>Jobs</p></li>
+</ul>
+<p>And more!</p>
+<p>You can even set the local or language for more diverse output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install faker
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">faker</span> <span class="kn">import</span> <span class="n">Faker</span>
+<span class="n">fake</span> <span class="o">=</span> <span class="n">Faker</span><span class="p">(</span><span class="s1">&#39;fr_FR&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fake</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fake</span><span class="o">.</span><span class="n">job</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fake</span><span class="o">.</span><span class="n">phone_number</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="enrich-your-progress-bars-with-rich">
+<h2><span class="section-number">2.1.11. </span>Enrich your progress bars with <code class="docutils literal notranslate"><span class="pre">rich</span></code><a class="headerlink" href="#enrich-your-progress-bars-with-rich" title="Permalink to this heading">#</a></h2>
+<p>Do you want a more colorful output for progress bars?</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">rich</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">rich</span></code> offers a beautiful progress bar, instead of tqdm’s boring output.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">rich.progress.track</span></code>, you can get a colorful output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install rich
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rich.progress</span> <span class="kn">import</span> <span class="n">track</span>
+<span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">track</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">25000000</span><span class="p">)):</span>
+    <span class="c1"># Do something</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-the-description-for-tqdm-bars">
+<h2><span class="section-number">2.1.12. </span>Set the description for TQDM bars<a class="headerlink" href="#set-the-description-for-tqdm-bars" title="Permalink to this heading">#</a></h2>
+<p>When you work with progress bars, you will probably use 𝐭𝐪𝐝𝐦.</p>
+<p>Do you know you can add descriptions to your bar?</p>
+<p>You can do that with <code class="docutils literal notranslate"><span class="pre">set_description()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tqdm</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;sample_data/*.csv&quot;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="n">files</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Read </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="convert-emojis-to-text-with-emot">
+<h2><span class="section-number">2.1.13. </span>Convert Emojis to Text with <code class="docutils literal notranslate"><span class="pre">emot</span></code><a class="headerlink" href="#convert-emojis-to-text-with-emot" title="Permalink to this heading">#</a></h2>
+<p>Analyzing emojis and emoticons in texts can give you useful insights.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">emot</span></code>, you can convert emoticons into words.</p>
+<p>Especially useful for sentiment analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install emot
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">emot</span> 
+<span class="n">emot_obj</span> <span class="o">=</span> <span class="n">emot</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">emot</span><span class="p">()</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;I love python ☮ 🙂 ❤ :-) :-( :-)))&quot;</span> 
+<span class="n">emot_obj</span><span class="o">.</span><span class="n">emoji</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="print-hardware-information-and-version-numbers">
+<h2><span class="section-number">2.1.14. </span>Print hardware information and version numbers<a class="headerlink" href="#print-hardware-information-and-version-numbers" title="Permalink to this heading">#</a></h2>
+<p>When raising an issue, you should provide version numbers and hardware information.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">watermark</span></code>, you can do that easily.</p>
+<p>Just install the package and print.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install watermark
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">watermark</span> <span class="kn">import</span> <span class="n">watermark</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">watermark</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cache-requests-with-requests-cache">
+<h2><span class="section-number">2.1.15. </span>Cache requests with <code class="docutils literal notranslate"><span class="pre">requests-cache</span></code><a class="headerlink" href="#cache-requests-with-requests-cache" title="Permalink to this heading">#</a></h2>
+<p>Do you want better performance for requests?</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">requests-cache</span></code>.</p>
+<p>It caches HTTP requests so you don’t have to make the same requests again and again.</p>
+<p>In the example below, a test endpoint with a 1-second delay will be called.</p>
+<p>With the standard <code class="docutils literal notranslate"><span class="pre">requests</span></code> library, this takes 60 seconds.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">requests-cache</span></code>, this takes 1 second.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install requests-cache
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This takes 60 seconds</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">60</span><span class="p">):</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/delay/1&#39;</span><span class="p">)</span>
+    
+    
+
+<span class="c1"># This takes 1 second</span>
+<span class="kn">import</span> <span class="nn">requests_cache</span>
+
+<span class="n">session</span> <span class="o">=</span> <span class="n">requests_cache</span><span class="o">.</span><span class="n">CachedSession</span><span class="p">(</span><span class="s1">&#39;test_cache&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">60</span><span class="p">):</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/delay/1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="unify-messy-columns-with-unifyname">
+<h2><span class="section-number">2.1.16. </span>Unify messy columns with <code class="docutils literal notranslate"><span class="pre">unifyname</span></code><a class="headerlink" href="#unify-messy-columns-with-unifyname" title="Permalink to this heading">#</a></h2>
+<p>Do you want to unify messy string columns?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">unifyname</span></code>, based on fuzzy string matching.</p>
+<p>This small library cleans up your messy columns with 100s of different variations for one word.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install unifyname
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">unifyname.utils</span> <span class="kn">import</span> <span class="n">unify_names</span><span class="p">,</span> <span class="n">deduplicate_list_string</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;BAIRRO DO IMOVEL&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">unify_names</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;BAIRRO DO IMOVEL&#39;</span><span class="p">,</span><span class="n">threshold_count</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;BAIRRO DO IMOVEL&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book\cooltools"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Cool Tools</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../machinelearning/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Machine Learning</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-countries-currencies-subdivisions-and-more">2.1.1. Work with Countries, Currencies, Subdivisions, and more</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-better-requirements-files-with-pipreqs">2.1.2. Generate better requirements files with <code class="docutils literal notranslate"><span class="pre">pipreqs</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-a-package-and-its-dependencies-with-pip-autoremove">2.1.3. Remove a package and its dependencies with <code class="docutils literal notranslate"><span class="pre">pip-autoremove</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-distance-between-postal-codes">2.1.4. Get distance between postal codes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-units-with-pint">2.1.5. Working with units with <code class="docutils literal notranslate"><span class="pre">pint</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supercharge-your-python-profiling-with-scalene">2.1.6. Supercharge your Python profiling with <code class="docutils literal notranslate"><span class="pre">Scalene</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fix-unicode-errors-with-ftfy">2.1.7. Fix unicode errors with <code class="docutils literal notranslate"><span class="pre">ftfy</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-the-background-from-images-with-rembg">2.1.8. Remove the background from images with <code class="docutils literal notranslate"><span class="pre">rembg</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-modern-cli-apps-with-typer">2.1.9. Build modern CLI apps with <code class="docutils literal notranslate"><span class="pre">typer</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-realistic-fake-data-with-faker">2.1.10. Generate realistic fake data with <code class="docutils literal notranslate"><span class="pre">faker</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enrich-your-progress-bars-with-rich">2.1.11. Enrich your progress bars with <code class="docutils literal notranslate"><span class="pre">rich</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-description-for-tqdm-bars">2.1.12. Set the description for TQDM bars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-emojis-to-text-with-emot">2.1.13. Convert Emojis to Text with <code class="docutils literal notranslate"><span class="pre">emot</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-hardware-information-and-version-numbers">2.1.14. Print hardware information and version numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cache-requests-with-requests-cache">2.1.15. Cache requests with <code class="docutils literal notranslate"><span class="pre">requests-cache</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-messy-columns-with-unifyname">2.1.16. Unify messy columns with <code class="docutils literal notranslate"><span class="pre">unifyname</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Banias Baabe
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
