@@ -403,7 +403,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#render-live-loss-of-deep-learning-models-in-jupyter-notebooks">3.2. Render Live loss of Deep Learning Models in Jupyter Notebooks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#render-live-loss-of-deep-learning-models-in-jupyter-notebooks">3.2. Render Live loss of Deep Learning Models in Jupyter Notebooks</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-latex-expressions-from-python-code">3.2.1. Generate LaTeX Expressions from Python Code</a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -522,6 +525,39 @@ document.write(`
 </div>
 </div>
 </div>
+<section id="generate-latex-expressions-from-python-code">
+<h2><span class="section-number">3.2.1. </span>Generate LaTeX Expressions from Python Code<a class="headerlink" href="#generate-latex-expressions-from-python-code" title="Permalink to this heading">#</a></h2>
+<p>With <code class="docutils literal notranslate"><span class="pre">latexify</span></code>, you can compile Python source code to a beautiful LaTeX expression.</p>
+<p>In a quick and easy way!</p>
+<p>Useful, when you don’t want to write the LaTeX expression by yourself.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install latexify-py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">latexify</span>
+<span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@latexify</span><span class="o">.</span><span class="n">function</span>
+<span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">solve</span><span class="p">)</span>
+<span class="n">solve</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -586,7 +622,10 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#render-live-loss-of-deep-learning-models-in-jupyter-notebooks">3.2. Render Live loss of Deep Learning Models in Jupyter Notebooks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#render-live-loss-of-deep-learning-models-in-jupyter-notebooks">3.2. Render Live loss of Deep Learning Models in Jupyter Notebooks</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-latex-expressions-from-python-code">3.2.1. Generate LaTeX Expressions from Python Code</a></li>
+</ul>
+</li>
 </ul>
 
   </nav></div>
