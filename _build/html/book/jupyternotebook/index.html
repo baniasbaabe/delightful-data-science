@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>9. Streamlit Tips and Tricks &#8212; Delightful Data Science</title>
+    <title>3. Jupyter Notebook Tricks and Tips &#8212; Delightful Data Science</title>
   
   
   
@@ -62,11 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/streamlit/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/jupyternotebook/index';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.1. Streamlit Tips and Tricks" href="Chapter.html" />
-    <link rel="prev" title="8.1. Selenium Tips and Tricks" href="../selenium/Chapter.html" />
+    <link rel="next" title="3.1. Identify your bottleneck with line_profiler" href="Chapter.html" />
+    <link rel="prev" title="2.1. Cool Tools" href="../cooltools/Chapter.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -163,8 +163,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../cooltools/Chapter.html">2.1. Cool Tools</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">3. Jupyter Notebook Tricks and Tips</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter.html">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
 
 </ul>
 </li>
@@ -197,8 +197,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../selenium/Chapter.html">8.1. Selenium Tips and Tricks</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">9. Streamlit Tips and Tricks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Chapter.html">9.1. Streamlit Tips and Tricks</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../streamlit/index.html">9. Streamlit Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../streamlit/Chapter.html">9.1. Streamlit Tips and Tricks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">10. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -280,7 +280,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/baniasbaabe/delightful-data-science/issues/new?title=Issue%20on%20page%20%2Fbook/streamlit/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/baniasbaabe/delightful-data-science/issues/new?title=Issue%20on%20page%20%2Fbook/jupyternotebook/index.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -310,7 +310,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/book/streamlit/index.ipynb" target="_blank"
+      <li><a href="../../_sources/book/jupyternotebook/index.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -390,7 +390,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Streamlit Tips and Tricks</h1>
+    <h1>Jupyter Notebook Tricks and Tips</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -404,8 +404,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="streamlit-tips-and-tricks">
-<h1><span class="section-number">9. </span>Streamlit Tips and Tricks<a class="headerlink" href="#streamlit-tips-and-tricks" title="Permalink to this heading">#</a></h1>
+  <section id="jupyter-notebook-tricks-and-tips">
+<h1><span class="section-number">3. </span>Jupyter Notebook Tricks and Tips<a class="headerlink" href="#jupyter-notebook-tricks-and-tips" title="Permalink to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -423,7 +423,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./book\streamlit"
+            path: "./book\jupyternotebook"
         },
         predefinedOutput: true
     }
@@ -439,12 +439,12 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../selenium/Chapter.html"
+       href="../cooltools/Chapter.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8.1. </span>Selenium Tips and Tricks</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>Cool Tools</p>
       </div>
     </a>
     <a class="right-next"
@@ -452,7 +452,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9.1. </span>Streamlit Tips and Tricks</p>
+        <p class="prev-next-title"><span class="section-number">3.1. </span>Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

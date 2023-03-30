@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Pandas Tips and Tricks &#8212; Delightful Data Science</title>
+    <title>6.1. Pandas Tips and Tricks &#8212; Delightful Data Science</title>
   
   
   
@@ -65,6 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/pandas/Chapter';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="6.2. Utility Libraries for Pandas" href="additionallibs.html" />
+    <link rel="prev" title="6. Pandas Tricks and Tips" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -149,7 +151,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../codequality/index.html">1. Code Quality</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../codequality/codestyle.html">1.1. Code Style</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../codequality/memory.html">1.2. Memory Optimization</a></li>
@@ -161,40 +163,50 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../cooltools/Chapter.html">2.1. Cool Tools</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../machinelearning/index.html">3. Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../machinelearning/dataaugmentation.html">3.1. Data Augmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../machinelearning/eda.html">3.2. EDA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../machinelearning/featureselection.html">3.3. Feature Selection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../machinelearning/getdata.html">3.4. Get Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../machinelearning/modeltraining.html">3.5. Model Training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../machinelearning/outlierdetection.html">3.6. Outlier Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../machinelearning/timeseries.html">3.7. Time Series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../machinelearning/preprocessing.html">3.8. Preprocessing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
+
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">4. NumPy Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../numpy/Chapter.html">4.1. NumPy Tips and Tricks</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../machinelearning/index.html">4. Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/dataaugmentation.html">4.1. Data Augmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/eda.html">4.2. EDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/featureselection.html">4.3. Feature Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/getdata.html">4.4. Get Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/modeltraining.html">4.5. Model Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/outlierdetection.html">4.6. Outlier Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/timeseries.html">4.7. Time Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/preprocessing.html">4.8. Preprocessing</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">5. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pythontricks/Chapter.html">5.1. Pure Python + Built-in libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">5.2. Utility Libraries for Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">5. NumPy Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/Chapter.html">5.1. NumPy Tips and Tricks</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">6. Selenium Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../selenium/Chapter.html">6.1. Selenium Tips and Tricks</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">6. Pandas Tricks and Tips</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.1. Pandas Tips and Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="additionallibs.html">6.2. Utility Libraries for Pandas</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../streamlit/index.html">7. Streamlit Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../streamlit/Chapter.html">7.1. Streamlit Tips and Tricks</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">7. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/Chapter.html">7.1. Pure Python + Built-in libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">7.2. Utility Libraries for Python</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">8. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">8.1. Pytest</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">8. Selenium Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../selenium/Chapter.html">8.1. Selenium Tips and Tricks</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">9. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Miscellaneous/Chapter.html">9.1. Miscellaneous</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../streamlit/index.html">9. Streamlit Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../streamlit/Chapter.html">9.1. Streamlit Tips and Tricks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">10. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">10.1. Pytest</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">11. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Miscellaneous/Chapter.html">11.1. Miscellaneous</a></li>
 </ul>
 </li>
 </ul>
@@ -390,8 +402,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-pandas-in-a-readable-format">Filter Pandas in a readable format</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-frequency-of-time-series-with-pd-infer-freq">Get frequency of time series with pd.infer_freq</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-pandas-in-a-readable-format">6.1.1. Filter Pandas in a readable format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-frequency-of-time-series-with-pd-infer-freq">6.1.2. Get frequency of time series with pd.infer_freq</a></li>
 </ul>
             </nav>
         </div>
@@ -404,9 +416,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="pandas-tips-and-tricks">
-<h1>Pandas Tips and Tricks<a class="headerlink" href="#pandas-tips-and-tricks" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">6.1. </span>Pandas Tips and Tricks<a class="headerlink" href="#pandas-tips-and-tricks" title="Permalink to this heading">#</a></h1>
 <section id="filter-pandas-in-a-readable-format">
-<h2>Filter Pandas in a readable format<a class="headerlink" href="#filter-pandas-in-a-readable-format" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.1.1. </span>Filter Pandas in a readable format<a class="headerlink" href="#filter-pandas-in-a-readable-format" title="Permalink to this heading">#</a></h2>
 <p>Do you need a more readable way to filter Dataframes in Pandas?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">df.query()</span></code>.</p>
 <p>You can specify the condition using a string.</p>
@@ -425,7 +437,7 @@ filtered_df = df.query(&quot;A &gt; 1 &amp; B &lt; 6&quot;)
 </div>
 </section>
 <section id="get-frequency-of-time-series-with-pd-infer-freq">
-<h2>Get frequency of time series with pd.infer_freq<a class="headerlink" href="#get-frequency-of-time-series-with-pd-infer-freq" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.1.2. </span>Get frequency of time series with pd.infer_freq<a class="headerlink" href="#get-frequency-of-time-series-with-pd-infer-freq" title="Permalink to this heading">#</a></h2>
 <p>When working with time series, it is useful to know the frequency of the data.</p>
 <p>But especially in larger datasets, it might be difficult to tell the frequency immediately.</p>
 <p>To get the frequency of a time series in Pandas, use <code class="docutils literal notranslate"><span class="pre">pd.infer_freq()</span></code>.</p>
@@ -473,6 +485,24 @@ pd.infer_freq(time_index)
                 <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Pandas Tricks and Tips</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="additionallibs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6.2. </span>Utility Libraries for Pandas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -488,8 +518,8 @@ pd.infer_freq(time_index)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-pandas-in-a-readable-format">Filter Pandas in a readable format</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-frequency-of-time-series-with-pd-infer-freq">Get frequency of time series with pd.infer_freq</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-pandas-in-a-readable-format">6.1.1. Filter Pandas in a readable format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-frequency-of-time-series-with-pd-infer-freq">6.1.2. Get frequency of time series with pd.infer_freq</a></li>
 </ul>
   </nav></div>
 

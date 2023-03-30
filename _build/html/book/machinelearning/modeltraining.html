@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3.5. Model Training &#8212; Delightful Data Science</title>
+    <title>4.5. Model Training &#8212; Delightful Data Science</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/machinelearning/modeltraining';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.6. Outlier Detection" href="outlierdetection.html" />
-    <link rel="prev" title="3.4. Get Data" href="getdata.html" />
+    <link rel="next" title="4.6. Outlier Detection" href="outlierdetection.html" />
+    <link rel="prev" title="4.4. Get Data" href="getdata.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -163,40 +163,50 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../cooltools/Chapter.html">2.1. Cool Tools</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">3. Machine Learning</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="dataaugmentation.html">3.1. Data Augmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eda.html">3.2. EDA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="featureselection.html">3.3. Feature Selection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getdata.html">3.4. Get Data</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.5. Model Training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="outlierdetection.html">3.6. Outlier Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="timeseries.html">3.7. Time Series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">3.8. Preprocessing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
+
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">4. NumPy Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../numpy/Chapter.html">4.1. NumPy Tips and Tricks</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">4. Machine Learning</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dataaugmentation.html">4.1. Data Augmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eda.html">4.2. EDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="featureselection.html">4.3. Feature Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getdata.html">4.4. Get Data</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.5. Model Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outlierdetection.html">4.6. Outlier Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeseries.html">4.7. Time Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">4.8. Preprocessing</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">5. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pythontricks/Chapter.html">5.1. Pure Python + Built-in libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">5.2. Utility Libraries for Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">5. NumPy Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/Chapter.html">5.1. NumPy Tips and Tricks</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">6. Selenium Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../selenium/Chapter.html">6.1. Selenium Tips and Tricks</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/index.html">6. Pandas Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/Chapter.html">6.1. Pandas Tips and Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/additionallibs.html">6.2. Utility Libraries for Pandas</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../streamlit/index.html">7. Streamlit Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../streamlit/Chapter.html">7.1. Streamlit Tips and Tricks</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">7. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/Chapter.html">7.1. Pure Python + Built-in libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">7.2. Utility Libraries for Python</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">8. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">8.1. Pytest</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">8. Selenium Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../selenium/Chapter.html">8.1. Selenium Tips and Tricks</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">9. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Miscellaneous/Chapter.html">9.1. Miscellaneous</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../streamlit/index.html">9. Streamlit Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../streamlit/Chapter.html">9.1. Streamlit Tips and Tricks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">10. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">10.1. Pytest</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">11. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Miscellaneous/Chapter.html">11.1. Miscellaneous</a></li>
 </ul>
 </li>
 </ul>
@@ -392,20 +402,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-class-weights">3.5.1. Compute Class Weights</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reset-tensorflow-keras-global-state">3.5.2. Reset TensorFlow/Keras Global State</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-dirty-labels-with-cleanlab">3.5.3. Find dirty labels with cleanlab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-your-classifier-with-classification-report">3.5.4. Evaluate your Classifier with classification_report</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtain-reproducible-optimizations-results-in-optuna">3.5.5. Obtain Reproducible Optimizations Results in Optuna</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-bad-labels-with-doubtlab">3.5.6. Find bad labels with doubtlab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-notified-when-your-model-is-finished-with-training">3.5.7. Get notified when your model is finished with training</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-model-summary-in-pytorch-with-torchinfo">3.5.8. Get Model Summary in PyTorch with torchinfo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boost-scikit-learns-performance-with-intel-extension">3.5.9. Boost scikit-learns performance with Intel Extension</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incorportate-domain-knowledge-into-xgboost-with-feature-interaction-constraints">3.5.10. Incorportate Domain Knowledge into XGBoost with Feature Interaction Constraints</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-automl-with-flaml">3.5.11. Powerful AutoML with FLAML</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspect-based-seniment-analysis-with-pyabsa">3.5.12. Aspect-based Seniment Analysis with PyABSA</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-xgboost-for-random-forests">3.5.13. Use XGBoost for Random Forests</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-problematic-images-with-cleanvision">3.5.14. Identify problematic images with cleanvision</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-class-weights">4.5.1. Compute Class Weights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reset-tensorflow-keras-global-state">4.5.2. Reset TensorFlow/Keras Global State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-dirty-labels-with-cleanlab">4.5.3. Find dirty labels with cleanlab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-your-classifier-with-classification-report">4.5.4. Evaluate your Classifier with classification_report</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtain-reproducible-optimizations-results-in-optuna">4.5.5. Obtain Reproducible Optimizations Results in Optuna</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-bad-labels-with-doubtlab">4.5.6. Find bad labels with doubtlab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-notified-when-your-model-is-finished-with-training">4.5.7. Get notified when your model is finished with training</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-model-summary-in-pytorch-with-torchinfo">4.5.8. Get Model Summary in PyTorch with torchinfo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boost-scikit-learns-performance-with-intel-extension">4.5.9. Boost scikit-learns performance with Intel Extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incorportate-domain-knowledge-into-xgboost-with-feature-interaction-constraints">4.5.10. Incorportate Domain Knowledge into XGBoost with Feature Interaction Constraints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-automl-with-flaml">4.5.11. Powerful AutoML with FLAML</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspect-based-seniment-analysis-with-pyabsa">4.5.12. Aspect-based Seniment Analysis with PyABSA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-xgboost-for-random-forests">4.5.13. Use XGBoost for Random Forests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-problematic-images-with-cleanvision">4.5.14. Identify problematic images with cleanvision</a></li>
 </ul>
             </nav>
         </div>
@@ -418,9 +428,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="model-training">
-<h1><span class="section-number">3.5. </span>Model Training<a class="headerlink" href="#model-training" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">4.5. </span>Model Training<a class="headerlink" href="#model-training" title="Permalink to this heading">#</a></h1>
 <section id="compute-class-weights">
-<h2><span class="section-number">3.5.1. </span>Compute Class Weights<a class="headerlink" href="#compute-class-weights" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5.1. </span>Compute Class Weights<a class="headerlink" href="#compute-class-weights" title="Permalink to this heading">#</a></h2>
 <p>To handle class imbalance in Machine Learning, there are several methods.
 <br><br>
 One of them is adjusting the class weights.
@@ -459,7 +469,7 @@ model.fit(X, y, class_weight=class_weights, ...)
 </div>
 </section>
 <section id="reset-tensorflow-keras-global-state">
-<h2><span class="section-number">3.5.2. </span>Reset TensorFlow/Keras Global State<a class="headerlink" href="#reset-tensorflow-keras-global-state" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5.2. </span>Reset TensorFlow/Keras Global State<a class="headerlink" href="#reset-tensorflow-keras-global-state" title="Permalink to this heading">#</a></h2>
 <p>In Tensorflow/Keras, when you create multiple models in a loop, you will need <code class="docutils literal notranslate"><span class="pre">tf.keras.backend.clear_session()</span></code>.</p>
 <p>Keras manages a global state, which includes configurations and the current values (weights and biases) of the models.</p>
 <p>So when you create a model in a loop, the global state gets bigger and bigger with every created model. To clear the state, 𝐝𝐞𝐥 𝐦𝐨𝐝𝐞𝐥 will not work because it will only delete the Python variable.</p>
@@ -488,7 +498,7 @@ for _ in range(20):
 </div>
 </section>
 <section id="find-dirty-labels-with-cleanlab">
-<h2><span class="section-number">3.5.3. </span>Find dirty labels with cleanlab<a class="headerlink" href="#find-dirty-labels-with-cleanlab" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5.3. </span>Find dirty labels with cleanlab<a class="headerlink" href="#find-dirty-labels-with-cleanlab" title="Permalink to this heading">#</a></h2>
 <p>Do you want to identify noisy labels in your dataset?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">cleanlab</span></code> for Python.</p>
 <p><code class="docutils literal notranslate"><span class="pre">cleanlab</span></code> is a data-centric AI package to automatically detect noisy labels and address dataset issues to fix them via confident learning algorithms.</p>
@@ -531,7 +541,7 @@ print(label_issues.query(&#39;is_label_issue == True&#39;))
 </div>
 </section>
 <section id="evaluate-your-classifier-with-classification-report">
-<h2><span class="section-number">3.5.4. </span>Evaluate your Classifier with classification_report<a class="headerlink" href="#evaluate-your-classifier-with-classification-report" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5.4. </span>Evaluate your Classifier with classification_report<a class="headerlink" href="#evaluate-your-classifier-with-classification-report" title="Permalink to this heading">#</a></h2>
 <p>Would you like to evaluate your Machine Learning model quickly?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">classification_report</span></code> from scikit-learn</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">classification_report</span></code>, you can quickly assess the performance of your model.</p>
@@ -569,7 +579,7 @@ weighted avg       0.70      0.60      0.61         5
 </div>
 </section>
 <section id="obtain-reproducible-optimizations-results-in-optuna">
-<h2><span class="section-number">3.5.5. </span>Obtain Reproducible Optimizations Results in Optuna<a class="headerlink" href="#obtain-reproducible-optimizations-results-in-optuna" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5.5. </span>Obtain Reproducible Optimizations Results in Optuna<a class="headerlink" href="#obtain-reproducible-optimizations-results-in-optuna" title="Permalink to this heading">#</a></h2>
 <p>Optuna is a powerful hyperparameter optimization framework that supports many machine learning frameworks, including TensorFlow, PyTorch, and XGBoost.</p>
 <p>But you need to be careful with reproducible results for hyperparameter tuning.tuple</p>
 <p>To achieve reproducible results, you need to set the seed for your Sampler.</p>
@@ -591,7 +601,7 @@ study.optimize(objective, n_trials=100)
 </div>
 </section>
 <section id="find-bad-labels-with-doubtlab">
-<h2><span class="section-number">3.5.6. </span>Find bad labels with doubtlab<a class="headerlink" href="#find-bad-labels-with-doubtlab" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5.6. </span>Find bad labels with doubtlab<a class="headerlink" href="#find-bad-labels-with-doubtlab" title="Permalink to this heading">#</a></h2>
 <p>Do you want to find bad labels in your data?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">doubtlab</span></code> for Python.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">doubtlab</span></code>, you can define reasons to doubt your labels and take a closer look.</p>
@@ -638,7 +648,7 @@ predicates = doubt.get_predicates(X, y)
 </div>
 </section>
 <section id="get-notified-when-your-model-is-finished-with-training">
-<h2><span class="section-number">3.5.7. </span>Get notified when your model is finished with training<a class="headerlink" href="#get-notified-when-your-model-is-finished-with-training" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5.7. </span>Get notified when your model is finished with training<a class="headerlink" href="#get-notified-when-your-model-is-finished-with-training" title="Permalink to this heading">#</a></h2>
 <p>Never stare at your screen, waiting for your model to finish training.</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">knockknock</span></code> for Python.</p>
 <p><code class="docutils literal notranslate"><span class="pre">knockknock</span></code> is a library that notifies you when your training is finished.</p>
@@ -673,7 +683,7 @@ def train_model(model, X, y):
 </div>
 </section>
 <section id="get-model-summary-in-pytorch-with-torchinfo">
-<h2><span class="section-number">3.5.8. </span>Get Model Summary in PyTorch with torchinfo<a class="headerlink" href="#get-model-summary-in-pytorch-with-torchinfo" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5.8. </span>Get Model Summary in PyTorch with torchinfo<a class="headerlink" href="#get-model-summary-in-pytorch-with-torchinfo" title="Permalink to this heading">#</a></h2>
 <p>Do you want a Model summary in PyTorch?</p>
 <p>Like in Keras with <code class="docutils literal notranslate"><span class="pre">model.summary()</span></code>?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">torchinfo</span></code>.</p>
@@ -739,7 +749,7 @@ Estimated Total Size (MB): 1.06
 </div>
 </section>
 <section id="boost-scikit-learns-performance-with-intel-extension">
-<h2><span class="section-number">3.5.9. </span>Boost scikit-learns performance with Intel Extension<a class="headerlink" href="#boost-scikit-learns-performance-with-intel-extension" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5.9. </span>Boost scikit-learns performance with Intel Extension<a class="headerlink" href="#boost-scikit-learns-performance-with-intel-extension" title="Permalink to this heading">#</a></h2>
 <p>Scikit-learn is one of the most popular ML packages for Python.</p>
 <p>But, to be honest, their algorithms are not the fastest ones.</p>
 <p>With Intel’s Extension for scikit-learn, <code class="docutils literal notranslate"><span class="pre">scikit-learn-intelex</span></code>. you can speed up training time for some favourite algorithms like:</p>
@@ -779,7 +789,7 @@ svr.fit(X, y)
 </div>
 </section>
 <section id="incorportate-domain-knowledge-into-xgboost-with-feature-interaction-constraints">
-<h2><span class="section-number">3.5.10. </span>Incorportate Domain Knowledge into XGBoost with Feature Interaction Constraints<a class="headerlink" href="#incorportate-domain-knowledge-into-xgboost-with-feature-interaction-constraints" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5.10. </span>Incorportate Domain Knowledge into XGBoost with Feature Interaction Constraints<a class="headerlink" href="#incorportate-domain-knowledge-into-xgboost-with-feature-interaction-constraints" title="Permalink to this heading">#</a></h2>
 <p>Want to incorporate your domain knowledge into <code class="docutils literal notranslate"><span class="pre">𝐗𝐆𝐁𝐨𝐨𝐬𝐭</span></code>?</p>
 <p>Try using 𝐅𝐞𝐚𝐭𝐮𝐫𝐞 𝐈𝐧𝐭𝐞𝐫𝐚𝐜𝐭𝐢𝐨𝐧 𝐂𝐨𝐧𝐬𝐭𝐫𝐚𝐢𝐧𝐭𝐬.</p>
 <p>Feature Interaction Constraints allow you to control which features are allowed to interact with each other and which are not while building the trees.</p>
@@ -810,7 +820,7 @@ model_with_constraints = xgb.train(params, dmatrix)
 </div>
 </section>
 <section id="powerful-automl-with-flaml">
-<h2><span class="section-number">3.5.11. </span>Powerful AutoML with FLAML<a class="headerlink" href="#powerful-automl-with-flaml" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5.11. </span>Powerful AutoML with FLAML<a class="headerlink" href="#powerful-automl-with-flaml" title="Permalink to this heading">#</a></h2>
 <p>Do you always hear about AutoML?</p>
 <p>And want to try it out?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">FLAML</span></code> for Python.</p>
@@ -837,7 +847,7 @@ automl.fit(X_train, y_train, task=&quot;classification&quot;)
 </div>
 </section>
 <section id="aspect-based-seniment-analysis-with-pyabsa">
-<h2><span class="section-number">3.5.12. </span>Aspect-based Seniment Analysis with PyABSA<a class="headerlink" href="#aspect-based-seniment-analysis-with-pyabsa" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5.12. </span>Aspect-based Seniment Analysis with PyABSA<a class="headerlink" href="#aspect-based-seniment-analysis-with-pyabsa" title="Permalink to this heading">#</a></h2>
 <p>Traditional sentiment analysis focuses on determining the overall sentiment of a piece of text.</p>
 <p>For example, the sentence :</p>
 <p>“The food was bad and the staff was rude”</p>
@@ -887,7 +897,7 @@ print(result)
 </div>
 </section>
 <section id="use-xgboost-for-random-forests">
-<h2><span class="section-number">3.5.13. </span>Use XGBoost for Random Forests<a class="headerlink" href="#use-xgboost-for-random-forests" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5.13. </span>Use XGBoost for Random Forests<a class="headerlink" href="#use-xgboost-for-random-forests" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from xgboost import XGBRFRegressor
@@ -904,7 +914,7 @@ xgbrf.fit(X, y)
 </div>
 </section>
 <section id="identify-problematic-images-with-cleanvision">
-<h2><span class="section-number">3.5.14. </span>Identify problematic images with cleanvision<a class="headerlink" href="#identify-problematic-images-with-cleanvision" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5.14. </span>Identify problematic images with cleanvision<a class="headerlink" href="#identify-problematic-images-with-cleanvision" title="Permalink to this heading">#</a></h2>
 <p>Your Deep Learning Model doesn’t perform?</p>
 <p>It’s probably because of your data.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">cleanvision</span></code>, you can detect issues in image data.</p>
@@ -1008,7 +1018,7 @@ imagelab.visualize(issue_types=[&#39;blurry&#39;])
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3.4. </span>Get Data</p>
+        <p class="prev-next-title"><span class="section-number">4.4. </span>Get Data</p>
       </div>
     </a>
     <a class="right-next"
@@ -1016,7 +1026,7 @@ imagelab.visualize(issue_types=[&#39;blurry&#39;])
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.6. </span>Outlier Detection</p>
+        <p class="prev-next-title"><span class="section-number">4.6. </span>Outlier Detection</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1035,20 +1045,20 @@ imagelab.visualize(issue_types=[&#39;blurry&#39;])
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-class-weights">3.5.1. Compute Class Weights</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reset-tensorflow-keras-global-state">3.5.2. Reset TensorFlow/Keras Global State</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-dirty-labels-with-cleanlab">3.5.3. Find dirty labels with cleanlab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-your-classifier-with-classification-report">3.5.4. Evaluate your Classifier with classification_report</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtain-reproducible-optimizations-results-in-optuna">3.5.5. Obtain Reproducible Optimizations Results in Optuna</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-bad-labels-with-doubtlab">3.5.6. Find bad labels with doubtlab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-notified-when-your-model-is-finished-with-training">3.5.7. Get notified when your model is finished with training</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-model-summary-in-pytorch-with-torchinfo">3.5.8. Get Model Summary in PyTorch with torchinfo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boost-scikit-learns-performance-with-intel-extension">3.5.9. Boost scikit-learns performance with Intel Extension</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incorportate-domain-knowledge-into-xgboost-with-feature-interaction-constraints">3.5.10. Incorportate Domain Knowledge into XGBoost with Feature Interaction Constraints</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-automl-with-flaml">3.5.11. Powerful AutoML with FLAML</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspect-based-seniment-analysis-with-pyabsa">3.5.12. Aspect-based Seniment Analysis with PyABSA</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-xgboost-for-random-forests">3.5.13. Use XGBoost for Random Forests</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-problematic-images-with-cleanvision">3.5.14. Identify problematic images with cleanvision</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-class-weights">4.5.1. Compute Class Weights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reset-tensorflow-keras-global-state">4.5.2. Reset TensorFlow/Keras Global State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-dirty-labels-with-cleanlab">4.5.3. Find dirty labels with cleanlab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-your-classifier-with-classification-report">4.5.4. Evaluate your Classifier with classification_report</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtain-reproducible-optimizations-results-in-optuna">4.5.5. Obtain Reproducible Optimizations Results in Optuna</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-bad-labels-with-doubtlab">4.5.6. Find bad labels with doubtlab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-notified-when-your-model-is-finished-with-training">4.5.7. Get notified when your model is finished with training</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-model-summary-in-pytorch-with-torchinfo">4.5.8. Get Model Summary in PyTorch with torchinfo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boost-scikit-learns-performance-with-intel-extension">4.5.9. Boost scikit-learns performance with Intel Extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incorportate-domain-knowledge-into-xgboost-with-feature-interaction-constraints">4.5.10. Incorportate Domain Knowledge into XGBoost with Feature Interaction Constraints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-automl-with-flaml">4.5.11. Powerful AutoML with FLAML</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspect-based-seniment-analysis-with-pyabsa">4.5.12. Aspect-based Seniment Analysis with PyABSA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-xgboost-for-random-forests">4.5.13. Use XGBoost for Random Forests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-problematic-images-with-cleanvision">4.5.14. Identify problematic images with cleanvision</a></li>
 </ul>
   </nav></div>
 
