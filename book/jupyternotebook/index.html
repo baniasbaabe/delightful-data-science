@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>6.1. Pandas Tips and Tricks &#8212; Delightful Data Science</title>
+    <title>3. Jupyter Notebook Tricks and Tips &#8212; Delightful Data Science</title>
   
   
   
@@ -62,11 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/pandas/Chapter';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/jupyternotebook/index';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="6.2. Utility Libraries for Pandas" href="additionallibs.html" />
-    <link rel="prev" title="6. Pandas Tricks and Tips" href="index.html" />
+    <link rel="next" title="3.1. Identify your bottleneck with line_profiler" href="Chapter.html" />
+    <link rel="prev" title="2.1. Cool Tools" href="../cooltools/Chapter.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -163,8 +163,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../cooltools/Chapter.html">2.1. Cool Tools</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">3. Jupyter Notebook Tricks and Tips</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter.html">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
 
 </ul>
 </li>
@@ -183,9 +183,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../numpy/Chapter.html">5.1. NumPy Tips and Tricks</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">6. Pandas Tricks and Tips</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.1. Pandas Tips and Tricks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="additionallibs.html">6.2. Utility Libraries for Pandas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/index.html">6. Pandas Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/Chapter.html">6.1. Pandas Tips and Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/additionallibs.html">6.2. Utility Libraries for Pandas</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">7. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -280,7 +280,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/baniasbaabe/delightful-data-science/issues/new?title=Issue%20on%20page%20%2Fbook/pandas/Chapter.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/baniasbaabe/delightful-data-science/issues/new?title=Issue%20on%20page%20%2Fbook/jupyternotebook/index.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -310,7 +310,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/book/pandas/Chapter.ipynb" target="_blank"
+      <li><a href="../../_sources/book/jupyternotebook/index.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -379,9 +379,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -392,20 +390,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Pandas Tips and Tricks</h1>
+    <h1>Jupyter Notebook Tricks and Tips</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-pandas-in-a-readable-format">6.1.1. Filter Pandas in a readable format</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-frequency-of-time-series-with-pd-infer-freq">6.1.2. Get frequency of time series with pd.infer_freq</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -415,46 +404,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="pandas-tips-and-tricks">
-<h1><span class="section-number">6.1. </span>Pandas Tips and Tricks<a class="headerlink" href="#pandas-tips-and-tricks" title="Permalink to this heading">#</a></h1>
-<section id="filter-pandas-in-a-readable-format">
-<h2><span class="section-number">6.1.1. </span>Filter Pandas in a readable format<a class="headerlink" href="#filter-pandas-in-a-readable-format" title="Permalink to this heading">#</a></h2>
-<p>Do you need a more readable way to filter Dataframes in Pandas?</p>
-<p>Try <code class="docutils literal notranslate"><span class="pre">df.query()</span></code>.</p>
-<p>You can specify the condition using a string.</p>
-<p>This can be sometimes more convenient and readable than boolean indexing.</p>
-<p>And it’s fast, due to the optimized Cython-based code used under the hood.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
-
-df = pd.DataFrame({&quot;A&quot;: [1,2,3], &quot;B&quot;: [4,5,6]})
-
-filtered_df = df.query(&quot;A &gt; 1 &amp; B &lt; 6&quot;)
-</pre></div>
+  <section id="jupyter-notebook-tricks-and-tips">
+<h1><span class="section-number">3. </span>Jupyter Notebook Tricks and Tips<a class="headerlink" href="#jupyter-notebook-tricks-and-tips" title="Permalink to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
 </div>
-</div>
-</div>
-</section>
-<section id="get-frequency-of-time-series-with-pd-infer-freq">
-<h2><span class="section-number">6.1.2. </span>Get frequency of time series with pd.infer_freq<a class="headerlink" href="#get-frequency-of-time-series-with-pd-infer-freq" title="Permalink to this heading">#</a></h2>
-<p>When working with time series, it is useful to know the frequency of the data.</p>
-<p>But especially in larger datasets, it might be difficult to tell the frequency immediately.</p>
-<p>To get the frequency of a time series in Pandas, use <code class="docutils literal notranslate"><span class="pre">pd.infer_freq()</span></code>.</p>
-<p>It infers the most likely frequency given the input index.</p>
-<p>Below you can see how to infer the most likely frequency for a <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
-time_index = pd.date_range(start=&#39;1/1/2020 20:00:00&#39;, end=&#39;10/1/2020 00:00:00&#39;)
-
-pd.infer_freq(time_index)
-&#39;D&#39;
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -470,7 +423,7 @@ pd.infer_freq(time_index)
         },
         kernelOptions: {
             name: "python3",
-            path: "./book\pandas"
+            path: "./book\jupyternotebook"
         },
         predefinedOutput: true
     }
@@ -486,20 +439,20 @@ pd.infer_freq(time_index)
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="../cooltools/Chapter.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Pandas Tricks and Tips</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>Cool Tools</p>
       </div>
     </a>
     <a class="right-next"
-       href="additionallibs.html"
+       href="Chapter.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6.2. </span>Utility Libraries for Pandas</p>
+        <p class="prev-next-title"><span class="section-number">3.1. </span>Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -509,21 +462,6 @@ pd.infer_freq(time_index)
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-pandas-in-a-readable-format">6.1.1. Filter Pandas in a readable format</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-frequency-of-time-series-with-pd-infer-freq">6.1.2. Get frequency of time series with pd.infer_freq</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
