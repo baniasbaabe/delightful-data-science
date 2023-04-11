@@ -406,6 +406,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shuffle-the-order-of-your-tests-with-pytest-randomly">10.1.2. Shuffle the order of your tests with pytest-randomly</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-test-coverage-with-pytest-cov">10.1.3. Get Test coverage with pytest-cov</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-your-plots-with-pytest-mpl">10.1.4. Test your plots with pytest-mpl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instantly-show-errors-in-your-test-suite">10.1.5. Instantly show errors in your Test Suite</a></li>
 </ul>
             </nav>
         </div>
@@ -562,6 +563,27 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="instantly-show-errors-in-your-test-suite">
+<h2><span class="section-number">10.1.5. </span>Instantly show errors in your Test Suite<a class="headerlink" href="#instantly-show-errors-in-your-test-suite" title="Permalink to this heading">#</a></h2>
+<p>When you run your tests with <code class="docutils literal notranslate"><span class="pre">pytest</span></code>, it will run all test cases and show you the results at the end.</p>
+<p>But you don’t want to wait until the end to see if some tests failed. You want to see the failed tests instantly.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pytest-instafail</span></code> is a plugin which shows failures immediately instead of waiting until the end.</p>
+<p>See below for an example of how to install and use it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pytest-instafail
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pytest --instafail
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -629,6 +651,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shuffle-the-order-of-your-tests-with-pytest-randomly">10.1.2. Shuffle the order of your tests with pytest-randomly</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-test-coverage-with-pytest-cov">10.1.3. Get Test coverage with pytest-cov</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-your-plots-with-pytest-mpl">10.1.4. Test your plots with pytest-mpl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instantly-show-errors-in-your-test-suite">10.1.5. Instantly show errors in your Test Suite</a></li>
 </ul>
   </nav></div>
 
