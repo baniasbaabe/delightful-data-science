@@ -416,6 +416,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspect-based-seniment-analysis-with-pyabsa">4.5.12. Aspect-based Seniment Analysis with PyABSA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-xgboost-for-random-forests">4.5.13. Use XGBoost for Random Forests</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-problematic-images-with-cleanvision">4.5.14. Identify problematic images with cleanvision</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-the-optimal-regularization-parameter">4.5.15. Select the optimal Regularization Parameter</a></li>
 </ul>
             </nav>
         </div>
@@ -982,6 +983,35 @@ imagelab.visualize(issue_types=[&#39;blurry&#39;])
 </div>
 </div>
 </section>
+<section id="select-the-optimal-regularization-parameter">
+<h2><span class="section-number">4.5.15. </span>Select the optimal Regularization Parameter<a class="headerlink" href="#select-the-optimal-regularization-parameter" title="Permalink to this heading">#</a></h2>
+<p>How do you choose your Regularization Parameter?</p>
+<p>Your model’s complexity decreases with a higher Regularization Parameter (Alpha).</p>
+<p>It shouldn’t be too high or too low.</p>
+<p>Yellowbrick’s <code class="docutils literal notranslate"><span class="pre">𝐀𝐥𝐩𝐡𝐚𝐒𝐞𝐥𝐞𝐜𝐭𝐢𝐨𝐧</span></code> can help you to find the best Alpha.</p>
+<p>It takes your model and visualizes the Alpha/Error curve so you can see how the model’s error responds to different alpha values.</p>
+<p>Below you can see how to do it with scikit-learn’s LassoCV.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+from sklearn.linear_model import LassoCV
+from yellowbrick.datasets import load_concrete
+from yellowbrick.regressor import AlphaSelection
+
+X, y = load_concrete()
+
+# Create a list of alphas to cross-validate against
+alphas = np.linspace(0, 10, 30)
+
+model = LassoCV(alphas=alphas)
+visualizer = AlphaSelection(model)
+visualizer.fit(X, y)
+visualizer.show()
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1059,6 +1089,7 @@ imagelab.visualize(issue_types=[&#39;blurry&#39;])
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspect-based-seniment-analysis-with-pyabsa">4.5.12. Aspect-based Seniment Analysis with PyABSA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-xgboost-for-random-forests">4.5.13. Use XGBoost for Random Forests</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-problematic-images-with-cleanvision">4.5.14. Identify problematic images with cleanvision</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-the-optimal-regularization-parameter">4.5.15. Select the optimal Regularization Parameter</a></li>
 </ul>
   </nav></div>
 
