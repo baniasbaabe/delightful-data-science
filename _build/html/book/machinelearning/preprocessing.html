@@ -403,6 +403,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-your-text-data-with-clean-text">4.8.1. Clean your text data with clean-text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-and-fix-your-data-quality-issues">4.8.2. Detect and Fix your Data Quality Issues</a></li>
 </ul>
             </nav>
         </div>
@@ -452,6 +453,65 @@ document.write(`
     <span class="n">no_punct</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>                 <span class="c1"># remove punctuations</span>
     <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;en&quot;</span>                      <span class="c1"># set to &#39;de&#39; for German special handling</span>
 <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="detect-and-fix-your-data-quality-issues">
+<h2><span class="section-number">4.8.2. </span>Detect and Fix your Data Quality Issues<a class="headerlink" href="#detect-and-fix-your-data-quality-issues" title="Permalink to this heading">#</a></h2>
+<p>Do you want to detect data quality issues?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">pandas_dq</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pandas_dq</span></code> is a relatively new library, focussing on detecting data quality issues and fixing them automatically like:</p>
+<ul class="simple">
+<li><p>Zero-Variance Columns</p></li>
+<li><p>Rare Categories</p></li>
+<li><p>Highly correlated Features</p></li>
+<li><p>Skewed Distributions</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pandas_dq -q
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pandas_dq</span> <span class="kn">import</span> <span class="n">dq_report</span><span class="p">,</span> <span class="n">Fix_DQ</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]],</span>
+                     <span class="n">columns</span><span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dq_report</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fdq</span> <span class="o">=</span> <span class="n">Fix_DQ</span><span class="p">()</span>
+<span class="n">data_transformed</span> <span class="o">=</span> <span class="n">fdq</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -521,6 +581,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-your-text-data-with-clean-text">4.8.1. Clean your text data with clean-text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-and-fix-your-data-quality-issues">4.8.2. Detect and Fix your Data Quality Issues</a></li>
 </ul>
   </nav></div>
 
