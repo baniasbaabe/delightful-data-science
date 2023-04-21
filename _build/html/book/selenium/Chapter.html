@@ -403,6 +403,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-your-webdrivers-with-webdriver-manager">8.1.1. Manage your Webdrivers with webdriver-manager</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-up-your-scraping-with-disabling-image-loading">8.1.2. Speed up your Scraping with disabling image loading</a></li>
 </ul>
             </nav>
         </div>
@@ -466,6 +467,29 @@ document.write(`
 
 <span class="c1"># Use specific version</span>
 <span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="n">ChromeDriverManager</span><span class="p">(</span><span class="s2">&quot;&lt;your_version&gt;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">install</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="speed-up-your-scraping-with-disabling-image-loading">
+<h2><span class="section-number">8.1.2. </span>Speed up your Scraping with disabling image loading<a class="headerlink" href="#speed-up-your-scraping-with-disabling-image-loading" title="Permalink to this heading">#</a></h2>
+<p>Do you want to speed up your web scraper?</p>
+<p>Disable image loading!</p>
+<p>Disabling image loading while scraping is a great way to speed up your scraper.</p>
+<p>You are wasting a lot of connection bandwidth.</p>
+<p>To disable image loading in Selenium, you only have to set one option (like below).</p>
+<p>This will save you time and money.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+
+<span class="n">chrome_options</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">ChromeOptions</span><span class="p">()</span>
+
+<span class="n">chrome_options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--blink-settings=imagesEnabled=false&#39;</span><span class="p">)</span>
+
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">chrome_options</span><span class="o">=</span><span class="n">chrome_options</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://www.instagram.com/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -535,6 +559,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-your-webdrivers-with-webdriver-manager">8.1.1. Manage your Webdrivers with webdriver-manager</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-up-your-scraping-with-disabling-image-loading">8.1.2. Speed up your Scraping with disabling image loading</a></li>
 </ul>
   </nav></div>
 
