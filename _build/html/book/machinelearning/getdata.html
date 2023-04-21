@@ -405,6 +405,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scrape-data-from-twitter-youtube-and-more-with-snscrape">4.4.1. Scrape Data from Twitter, Youtube and more with snscrape</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scrape-google-play-reviews">4.4.2. Scrape Google Play Reviews</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scrape-reviews-from-app-store">4.4.3. Scrape Reviews from App Store</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-csv-files-without-a-problem-with-clevercsv">4.4.4. Read CSV files without a problem with <code class="docutils literal notranslate"><span class="pre">clevercsv</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -508,6 +509,32 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="read-csv-files-without-a-problem-with-clevercsv">
+<h2><span class="section-number">4.4.4. </span>Read CSV files without a problem with <code class="docutils literal notranslate"><span class="pre">clevercsv</span></code><a class="headerlink" href="#read-csv-files-without-a-problem-with-clevercsv" title="Permalink to this heading">#</a></h2>
+<p>Do you want to read CSV files without problems?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">clevercsv</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">clevercsv</span></code> handles messy CSV files for you.</p>
+<p>The problem with CSV files is that CSV isn’t a standard file format.</p>
+<p>Thus, every CSV you face could be different.</p>
+<p>Pandas and the standard CSV module of Python throw errors if the CSV is too messy.</p>
+<p><code class="docutils literal notranslate"><span class="pre">clevercsv</span></code> detects the “real” dialect of the CSV and knows what to do.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install clevercsv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">clevercsv</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">clevercsv</span><span class="o">.</span><span class="n">read_dataframe</span><span class="p">(</span><span class="s1">&#39;imdb.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -574,6 +601,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scrape-data-from-twitter-youtube-and-more-with-snscrape">4.4.1. Scrape Data from Twitter, Youtube and more with snscrape</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scrape-google-play-reviews">4.4.2. Scrape Google Play Reviews</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scrape-reviews-from-app-store">4.4.3. Scrape Reviews from App Store</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-csv-files-without-a-problem-with-clevercsv">4.4.4. Read CSV files without a problem with <code class="docutils literal notranslate"><span class="pre">clevercsv</span></code></a></li>
 </ul>
   </nav></div>
 
