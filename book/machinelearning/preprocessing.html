@@ -405,6 +405,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-your-text-data-with-clean-text">4.8.1. Clean your text data with clean-text</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-and-fix-your-data-quality-issues">4.8.2. Detect and Fix your Data Quality Issues</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-natural-language-numbers-into-its-numerical-representation">4.8.3. Convert Natural Language Numbers into its Numerical Representation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-your-numbers-and-dates-human-friendly">4.8.4. Make your Numbers and dates human-friendly</a></li>
 </ul>
             </nav>
         </div>
@@ -552,6 +553,46 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="make-your-numbers-and-dates-human-friendly">
+<h2><span class="section-number">4.8.4. </span>Make your Numbers and dates human-friendly<a class="headerlink" href="#make-your-numbers-and-dates-human-friendly" title="Permalink to this heading">#</a></h2>
+<p>Looking to make your numbers human-friendly?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">humanize</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">humanize</span></code> formats your numbers and dates in a way that is intuitive to understand.</p>
+<p>It provides various functionalities like:</p>
+<ul class="simple">
+<li><p>Convert large integers of file sizes</p></li>
+<li><p>Convert floats to fractions</p></li>
+<li><p>Convert dates into a human-understandable format</p></li>
+<li><p>Make big integers more readable</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install humanize
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">humanize</span>
+
+<span class="c1"># Convert bytes to human readable format</span>
+<span class="n">humanize</span><span class="o">.</span><span class="n">naturalsize</span><span class="p">(</span><span class="mi">1024000</span><span class="p">)</span> <span class="c1"># Output: 1.0 MB</span>
+
+<span class="c1"># Convert a number to its word equivalent</span>
+<span class="n">humanize</span><span class="o">.</span><span class="n">intword</span><span class="p">(</span><span class="mi">123500000</span><span class="p">)</span> <span class="c1"># Output: 123.5 million</span>
+
+<span class="c1"># Convert a float to its fractional equivalent</span>
+<span class="n">humanize</span><span class="o">.</span><span class="n">fractional</span><span class="p">(</span><span class="mf">0.9</span><span class="p">)</span> <span class="c1"># Output: 9/10</span>
+
+<span class="c1"># Convert seconds to a readable format</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="n">humanize</span><span class="o">.</span><span class="n">naturaldelta</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span> <span class="o">=</span> <span class="mi">1200</span><span class="p">))</span> <span class="c1"># Output: 20 minutes</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -618,6 +659,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-your-text-data-with-clean-text">4.8.1. Clean your text data with clean-text</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-and-fix-your-data-quality-issues">4.8.2. Detect and Fix your Data Quality Issues</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-natural-language-numbers-into-its-numerical-representation">4.8.3. Convert Natural Language Numbers into its Numerical Representation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-your-numbers-and-dates-human-friendly">4.8.4. Make your Numbers and dates human-friendly</a></li>
 </ul>
   </nav></div>
 
