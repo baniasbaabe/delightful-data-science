@@ -164,8 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Jupyter Notebook Tips and Tricks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../machinelearning/index.html">4. Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -408,6 +407,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improve-readability-with-named-slices">7.1.4. Improve readability with Named slices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pythonic-way-for-matrix-multiplication">7.1.5. Pythonic way for matrix multiplication</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-guard-clauses-for-better-if-statements">7.1.6. Use Guard Clauses for better If statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hide-password-input-from-user">7.1.7. Hide Password Input from User</a></li>
 </ul>
             </nav>
         </div>
@@ -577,6 +577,28 @@ an iterable with as many elements as the shortest list.</p>
 </div>
 </div>
 </section>
+<section id="hide-password-input-from-user">
+<h2><span class="section-number">7.1.7. </span>Hide Password Input from User<a class="headerlink" href="#hide-password-input-from-user" title="Permalink to this heading">#</a></h2>
+<p>Do your Python Command-line apps include collecting secret keys or passwords?</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">getpass</span></code>, from the Python Standard Library.</p>
+<p><code class="docutils literal notranslate"><span class="pre">getpass</span></code> ensures the user’s inputs will not be echoed back to the screen.</p>
+<p>A cool tool for your next Command-line app!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span>
+
+<span class="n">username</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2"> is logged in.&quot;</span><span class="p">)</span>
+
+<span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Password entered is: </span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -646,6 +668,7 @@ an iterable with as many elements as the shortest list.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improve-readability-with-named-slices">7.1.4. Improve readability with Named slices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pythonic-way-for-matrix-multiplication">7.1.5. Pythonic way for matrix multiplication</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-guard-clauses-for-better-if-statements">7.1.6. Use Guard Clauses for better If statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hide-password-input-from-user">7.1.7. Hide Password Input from User</a></li>
 </ul>
   </nav></div>
 
