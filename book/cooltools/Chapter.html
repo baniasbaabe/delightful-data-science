@@ -164,8 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Jupyter Notebook Tips and Tricks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../machinelearning/index.html">4. Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -419,6 +418,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cache-requests-with-requests-cache">2.1.15. Cache requests with <code class="docutils literal notranslate"><span class="pre">requests-cache</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-messy-columns-with-unifyname">2.1.16. Unify messy columns with <code class="docutils literal notranslate"><span class="pre">unifyname</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-for-broken-links-in-a-website">2.1.17. Check for broken links in a website</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-for-your-terminal">2.1.18. Matplotlib for your Terminal</a></li>
 </ul>
             </nav>
         </div>
@@ -895,6 +895,26 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="matplotlib-for-your-terminal">
+<h2><span class="section-number">2.1.18. </span>Matplotlib for your Terminal<a class="headerlink" href="#matplotlib-for-your-terminal" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">bashplotlib</span></code> is a little library that displays basic ASCII graphs in your terminal.</p>
+<p>It provides a quick way to visualize your data.</p>
+<p>Currently, <code class="docutils literal notranslate"><span class="pre">bashplotlib</span></code> only supports histogram and scatter plots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install bashplotlib
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!hist --file test.txt
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -975,6 +995,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cache-requests-with-requests-cache">2.1.15. Cache requests with <code class="docutils literal notranslate"><span class="pre">requests-cache</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unify-messy-columns-with-unifyname">2.1.16. Unify messy columns with <code class="docutils literal notranslate"><span class="pre">unifyname</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-for-broken-links-in-a-website">2.1.17. Check for broken links in a website</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-for-your-terminal">2.1.18. Matplotlib for your Terminal</a></li>
 </ul>
   </nav></div>
 
