@@ -16,6 +16,9 @@ chapters:
   - file: book/jupyternotebook/index.ipynb
     sections:
       - file: book/jupyternotebook/Chapter.ipynb
+  - file: book/documentation/index.ipynb
+    sections:
+      - file: book/documentation/Chapter.ipynb
   - file: book/machinelearning/index.ipynb
     sections:
       - file: book/machinelearning/dataaugmentation.ipynb
