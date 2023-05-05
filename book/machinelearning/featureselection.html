@@ -408,6 +408,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-variance-inflation-factor-vif">5.3.1. Calculate Variance Inflation Factor (VIF)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-for-new-categories-in-test-set-with-deepchecks">5.3.2. Check for new categories in test set with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-permutation-importance-with-eli5">5.3.3. Get Permutation Importance with <code class="docutils literal notranslate"><span class="pre">eli5</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-most-predictive-variables-for-your-target-variable">5.3.4. Find the Most Predictive Variables for Your Target Variable</a></li>
 </ul>
             </nav>
         </div>
@@ -528,6 +529,44 @@ This can lead to unstable and inconsistent coefficients, making it difficult to 
 </div>
 </div>
 </section>
+<section id="find-the-most-predictive-variables-for-your-target-variable">
+<h2><span class="section-number">5.3.4. </span>Find the Most Predictive Variables for Your Target Variable<a class="headerlink" href="#find-the-most-predictive-variables-for-your-target-variable" title="Permalink to this heading">#</a></h2>
+<p>You know about Correlation. But do you know the Predictive Power Score?</p>
+<p>Predictive Power Score (PPS) is a data-type-agnostic score that can detect linear and non-linear relationships between two columns, with an output ranging from 0 to 1.</p>
+<p>So, a PPS of 1 means Column A is very likely to predict the values of Column B.</p>
+<p>You can use it to identify which variables are most useful to predict the target variable.</p>
+<p>In Python, you can use the <code class="docutils literal notranslate"><span class="pre">ppscore</span></code> library.</p>
+<p>It can calculate the PPS of all the features in a dataframe against a target.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install ppscore
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ppscore</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">iris</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">iris</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]],</span>
+                     <span class="n">columns</span><span class="o">=</span> <span class="n">iris</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ppscore</span><span class="o">.</span><span class="n">predictors</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;target&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -594,6 +633,7 @@ This can lead to unstable and inconsistent coefficients, making it difficult to 
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-variance-inflation-factor-vif">5.3.1. Calculate Variance Inflation Factor (VIF)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-for-new-categories-in-test-set-with-deepchecks">5.3.2. Check for new categories in test set with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-permutation-importance-with-eli5">5.3.3. Get Permutation Importance with <code class="docutils literal notranslate"><span class="pre">eli5</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-most-predictive-variables-for-your-target-variable">5.3.4. Find the Most Predictive Variables for Your Target Variable</a></li>
 </ul>
   </nav></div>
 
