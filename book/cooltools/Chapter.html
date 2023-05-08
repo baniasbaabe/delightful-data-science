@@ -164,7 +164,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Jupyter Notebook Tips and Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
+
+
+
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -424,6 +427,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-for-broken-links-in-a-website">2.1.17. Check for broken links in a website</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-for-your-terminal">2.1.18. Matplotlib for your Terminal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-a-dependency-tree-of-your-environment">2.1.19. Display a Dependency Tree of your Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sort-latex-acronyms-automatically">2.1.20. Sort LaTeX acronyms automatically</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-ascii-art-from-text">2.1.21. Make ASCII Art from Text</a></li>
 </ul>
             </nav>
         </div>
@@ -942,6 +947,57 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="sort-latex-acronyms-automatically">
+<h2><span class="section-number">2.1.20. </span>Sort LaTeX acronyms automatically<a class="headerlink" href="#sort-latex-acronyms-automatically" title="Permalink to this heading">#</a></h2>
+<p>I wrote a small library (<code class="docutils literal notranslate"><span class="pre">acrosort-tex</span></code>) to sort LaTeX acronyms with one command automatically.</p>
+<p>It was a fun Sunday project where I really learned how easy it is to publish a package with Poetry.</p>
+<p>Currently, it only supports acronyms in the following format:</p>
+<p>\𝒂𝒄𝒓𝒐{𝒂𝒃𝒃𝒓𝒆𝒗𝒊𝒂𝒕𝒊𝒐𝒏}[𝒔𝒉𝒐𝒓𝒕𝒇𝒐𝒓𝒎]{𝒍𝒐𝒏𝒈𝒇𝒐𝒓𝒎}</p>
+<p>but it’s a beginning :)</p>
+<p>See below for a small example.</p>
+<p>Link to the repository: https://lnkd.in/eTF8qs5w</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install acrosort_tex
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!acrosort old.tex new.tex
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="make-ascii-art-from-text">
+<h2><span class="section-number">2.1.21. </span>Make ASCII Art from Text<a class="headerlink" href="#make-ascii-art-from-text" title="Permalink to this heading">#</a></h2>
+<p>Create ASCII Art From Text in your Terminal</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">pyfiglet</span></code>, you can generate banner-like text with Python.</p>
+<p>This is a nice feature to introduce your users to your Python CLI apps.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pyfiglet
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Default font</span>
+<span class="n">ascii_art</span> <span class="o">=</span> <span class="n">pyfiglet</span><span class="o">.</span><span class="n">figlet_format</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
+
+<span class="c1"># Alphabet font</span>
+<span class="n">ascii_art</span> <span class="o">=</span> <span class="n">pyfiglet</span><span class="o">.</span><span class="n">figlet_format</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="s1">&#39;Alphabet&#39;</span><span class="p">)</span>
+
+<span class="c1"># Bubblehead font</span>
+<span class="n">ascii_art</span> <span class="o">=</span> <span class="n">pyfiglet</span><span class="o">.</span><span class="n">figlet_format</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="s1">&#39;bulbhead&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1024,6 +1080,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-for-broken-links-in-a-website">2.1.17. Check for broken links in a website</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-for-your-terminal">2.1.18. Matplotlib for your Terminal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-a-dependency-tree-of-your-environment">2.1.19. Display a Dependency Tree of your Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sort-latex-acronyms-automatically">2.1.20. Sort LaTeX acronyms automatically</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-ascii-art-from-text">2.1.21. Make ASCII Art from Text</a></li>
 </ul>
   </nav></div>
 
