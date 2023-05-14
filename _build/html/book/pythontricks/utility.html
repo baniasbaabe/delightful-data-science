@@ -164,7 +164,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Jupyter Notebook Tips and Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
+
+
+
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -408,6 +411,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-up-for-loop-with-joblib-parallel">8.2.1. Speed up For-Loop with joblib.Parallel</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-datetimes-easily-with-pendulum">8.2.2. Work with datetimes easily with pendulum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prettify-your-data-structures-with-pprint">8.2.3. Prettify your Data Structures with <code class="docutils literal notranslate"><span class="pre">pprint</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-logging-with-loguru">8.2.4. Easy Logging with <code class="docutils literal notranslate"><span class="pre">loguru</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -480,6 +484,52 @@ document.write(`
 <p>Using <code class="docutils literal notranslate"><span class="pre">print()</span></code> on your data structures can give you ugly outputs.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">pprint</span></code>, you can print data structures in a pretty way</p>
 <p>Don’t use plain <code class="docutils literal notranslate"><span class="pre">print()</span></code> for printing data structures anymore.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">{</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="s1">&#39;A&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="s1">&#39;B&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="s1">&#39;C&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;d&#39;</span><span class="p">:</span><span class="s1">&#39;D&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;e&#39;</span><span class="p">:</span><span class="s1">&#39;E&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;f&#39;</span><span class="p">:</span><span class="s1">&#39;F&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;g&#39;</span><span class="p">:</span><span class="s1">&#39;G&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;h&#39;</span><span class="p">:</span><span class="s1">&#39;H&#39;</span><span class="p">,</span>
+               <span class="p">})</span>
+         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+         <span class="p">]</span>
+         
+<span class="n">pprint</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="easy-logging-with-loguru">
+<h2><span class="section-number">8.2.4. </span>Easy Logging with <code class="docutils literal notranslate"><span class="pre">loguru</span></code><a class="headerlink" href="#easy-logging-with-loguru" title="Permalink to this heading">#</a></h2>
+<p>Are you too lazy for logging?</p>
+<p><code class="docutils literal notranslate"><span class="pre">loguru</span></code> makes logging in Python easy.</p>
+<p>It comes with pre-built formats and colors so you don’t have to set them manually.</p>
+<p>A more elegant alternative to Python’s standard logging module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">loguru</span> <span class="kn">import</span> <span class="n">logger</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;DEBUG message&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;INFO message&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;WARNING message&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;ERROR message&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;CRITICAL message&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -547,6 +597,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-up-for-loop-with-joblib-parallel">8.2.1. Speed up For-Loop with joblib.Parallel</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-datetimes-easily-with-pendulum">8.2.2. Work with datetimes easily with pendulum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prettify-your-data-structures-with-pprint">8.2.3. Prettify your Data Structures with <code class="docutils literal notranslate"><span class="pre">pprint</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-logging-with-loguru">8.2.4. Easy Logging with <code class="docutils literal notranslate"><span class="pre">loguru</span></code></a></li>
 </ul>
   </nav></div>
 
