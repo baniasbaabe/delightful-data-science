@@ -164,7 +164,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Jupyter Notebook Tips and Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
+
+
+
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -408,6 +411,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-pandas-in-a-readable-format">7.1.1. Filter Pandas in a readable format</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-frequency-of-time-series-with-pd-infer-freq">7.1.2. Get frequency of time series with pd.infer_freq</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-plotting-backend">7.1.3. Change the Plotting Backend</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#style-your-dataframes">7.1.4. Style your DataFrames</a></li>
 </ul>
             </nav>
         </div>
@@ -473,6 +477,33 @@ pd.options.plotting.backend = &#39;plotly&#39;
 df = pd.DataFrame(dict(a=[5,7,9,3], b=[1,6,4,10]))
 fig = df.plot()
 fig.show()
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="style-your-dataframes">
+<h2><span class="section-number">7.1.4. </span>Style your DataFrames<a class="headerlink" href="#style-your-dataframes" title="Permalink to this heading">#</a></h2>
+<p>Did you know you can style your DataFrames in Pandas?</p>
+<p>You just have to define a condition to apply colors in a function.</p>
+<p>And use <code class="docutils literal notranslate"><span class="pre">DataFrame.style.applymap()</span></code> to apply the condition.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+
+sales_data = sales_data = {
+    &#39;Product Name&#39;: [&#39;Product A&#39;, &#39;Product B&#39;, &#39;Product C&#39;, &#39;Product D&#39;],
+    &#39;Revenue&#39;: [10000, 5000, 15000, 1000],
+}
+
+sales_df = pd.DataFrame(sales_data)
+
+# Apply styles to the dataframe
+def coloring(val):
+    color = &#39;red&#39; if val &lt;= 10000 else &#39;green&#39;
+    return &#39;background-color: %s&#39; % color
+
+sales_df.style.applymap(coloring, subset=[&#39;Revenue&#39;])
 </pre></div>
 </div>
 </div>
@@ -544,6 +575,7 @@ fig.show()
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-pandas-in-a-readable-format">7.1.1. Filter Pandas in a readable format</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-frequency-of-time-series-with-pd-infer-freq">7.1.2. Get frequency of time series with pd.infer_freq</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-plotting-backend">7.1.3. Change the Plotting Backend</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#style-your-dataframes">7.1.4. Style your DataFrames</a></li>
 </ul>
   </nav></div>
 

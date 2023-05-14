@@ -164,7 +164,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Jupyter Notebook Tips and Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
+
+
+
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -409,6 +412,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-and-fix-your-data-quality-issues">5.8.2. Detect and Fix your Data Quality Issues</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-natural-language-numbers-into-its-numerical-representation">5.8.3. Convert Natural Language Numbers into its Numerical Representation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-your-numbers-and-dates-human-friendly">5.8.4. Make your Numbers and dates human-friendly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaner-pipeline-definition-in-scikit-learn">5.8.5. Cleaner Pipeline definition in Scikit-Learn</a></li>
 </ul>
             </nav>
         </div>
@@ -596,6 +600,23 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="cleaner-pipeline-definition-in-scikit-learn">
+<h2><span class="section-number">5.8.5. </span>Cleaner Pipeline definition in Scikit-Learn<a class="headerlink" href="#cleaner-pipeline-definition-in-scikit-learn" title="Permalink to this heading">#</a></h2>
+<p>When you build Pipelines in scikit-learn,</p>
+<p>use <code class="docutils literal notranslate"><span class="pre">make_pipeline</span></code> instead of the Pipeline class.</p>
+<p>The Pipeline class can be really long for more complex pipelines.</p>
+<p><code class="docutils literal notranslate"><span class="pre">make_pipeline</span></code> makes your pipeline definition short and elegant.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+
+<span class="n">num_pipeline</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">KNNImputer</span><span class="p">(),</span> <span class="n">RobustScaler</span><span class="p">())</span>
+<span class="n">cat_pipeline</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="p">(</span><span class="s2">&quot;most_frequent&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -663,6 +684,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-and-fix-your-data-quality-issues">5.8.2. Detect and Fix your Data Quality Issues</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-natural-language-numbers-into-its-numerical-representation">5.8.3. Convert Natural Language Numbers into its Numerical Representation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-your-numbers-and-dates-human-friendly">5.8.4. Make your Numbers and dates human-friendly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaner-pipeline-definition-in-scikit-learn">5.8.5. Cleaner Pipeline definition in Scikit-Learn</a></li>
 </ul>
   </nav></div>
 
