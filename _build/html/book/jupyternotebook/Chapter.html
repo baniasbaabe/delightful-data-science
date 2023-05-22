@@ -168,6 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -412,6 +413,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#render-live-loss-of-deep-learning-models-in-jupyter-notebooks">3.2. Render Live loss of Deep Learning Models in Jupyter Notebooks</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-latex-expressions-from-python-code">3.3. Generate LaTeX Expressions from Python Code</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#display-scikit-learn-pipelines-as-html">3.4. Display Scikit-Learn Pipelines as HTML</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#autoreload-your-modules-in-jupyter-notebook">3.5. Autoreload your Modules in Jupyter Notebook</a></li>
 </ul>
 
             </nav>
@@ -623,6 +625,32 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="autoreload-your-modules-in-jupyter-notebook">
+<h1><span class="section-number">3.5. </span>Autoreload your Modules in Jupyter Notebook<a class="headerlink" href="#autoreload-your-modules-in-jupyter-notebook" title="Permalink to this heading">#</a></h1>
+<p>When you work on a new Python module and test it in a Jupyter notebook</p>
+<p>You have to reload the module when you change it.</p>
+<p><code class="docutils literal notranslate"><span class="pre">autoreload</span></code> makes sure all modules will be reimported.</p>
+<p>Just by adding two lines.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">autoreload</span>
+<span class="o">%</span><span class="n">autoreload</span> <span class="mi">2</span>
+
+<span class="kn">from</span> <span class="nn">my_module</span> <span class="kn">import</span> <span class="n">my_function1</span><span class="p">,</span> <span class="n">my_function2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_function1</span><span class="p">()</span>
+
+<span class="n">my_function2</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -689,6 +717,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#render-live-loss-of-deep-learning-models-in-jupyter-notebooks">3.2. Render Live loss of Deep Learning Models in Jupyter Notebooks</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-latex-expressions-from-python-code">3.3. Generate LaTeX Expressions from Python Code</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#display-scikit-learn-pipelines-as-html">3.4. Display Scikit-Learn Pipelines as HTML</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#autoreload-your-modules-in-jupyter-notebook">3.5. Autoreload your Modules in Jupyter Notebook</a></li>
 </ul>
 
   </nav></div>
