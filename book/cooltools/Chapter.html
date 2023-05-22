@@ -168,6 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -429,6 +430,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-a-dependency-tree-of-your-environment">2.1.19. Display a Dependency Tree of your Environment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sort-latex-acronyms-automatically">2.1.20. Sort LaTeX acronyms automatically</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-ascii-art-from-text">2.1.21. Make ASCII Art from Text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-ner-with-spacy">2.1.22. Display NER with <code class="docutils literal notranslate"><span class="pre">spacy</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-tikz-pictures-with-python">2.1.23. Create TikZ pictures with Python</a></li>
 </ul>
             </nav>
         </div>
@@ -998,6 +1001,69 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="display-ner-with-spacy">
+<h2><span class="section-number">2.1.22. </span>Display NER with <code class="docutils literal notranslate"><span class="pre">spacy</span></code><a class="headerlink" href="#display-ner-with-spacy" title="Permalink to this heading">#</a></h2>
+<p>If you want to perform and visualize Named-entity Recognition, use <code class="docutils literal notranslate"><span class="pre">spacy.displacy</span></code>.</p>
+<p>It makes NER and visualizing detected entities super easy.</p>
+<p><code class="docutils literal notranslate"><span class="pre">displacy</span></code> has some other cool tools like visualizing dependencies within a sentence or visualizing spans, so check it out.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+<span class="kn">from</span> <span class="nn">spacy</span> <span class="kn">import</span> <span class="n">displacy</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Chelsea Football Club is an English professional football club based in Fulham, West London.</span><span class="se">\</span>
+<span class="s2">        Founded in 1905, they play their home games at Stamford Bridge. </span><span class="se">\</span>
+<span class="s2">        The club competes in the Premier League, the top division of English football. </span><span class="se">\</span>
+<span class="s2">        They won their first major honour, the League championship, in 1955.&quot;</span>
+
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_sm&quot;</span><span class="p">)</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="n">displacy</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;ent&quot;</span><span class="p">,</span> <span class="n">jupyter</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-tikz-pictures-with-python">
+<h2><span class="section-number">2.1.23. </span>Create TikZ pictures with Python<a class="headerlink" href="#create-tikz-pictures-with-python" title="Permalink to this heading">#</a></h2>
+<p>If you have ever written a paper in LaTeX, you probably used TikZ for your graphics.</p>
+<p>TikZ is probably the most powerful tool to create graphic elements.</p>
+<p>And notoriously hard to learn.</p>
+<p>No need to worry, you can create TikZ-figures in Python too.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">tikzplotlib</span></code>, you can convert matplotlib figures into TikZ.</p>
+<p>You can then insert the resulting plot in your LaTeX file.</p>
+<p>Really useful when you don’t want the hassle with TikZ.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install tikzplotlib
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tikzplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">4.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">4.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Voltage (mV)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Simple plot $</span><span class="se">\\</span><span class="s2">frac{</span><span class="se">\\</span><span class="s2">alpha}</span><span class="si">{2}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">tikzplotlib</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;mytikz.tex&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1082,6 +1148,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-a-dependency-tree-of-your-environment">2.1.19. Display a Dependency Tree of your Environment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sort-latex-acronyms-automatically">2.1.20. Sort LaTeX acronyms automatically</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-ascii-art-from-text">2.1.21. Make ASCII Art from Text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-ner-with-spacy">2.1.22. Display NER with <code class="docutils literal notranslate"><span class="pre">spacy</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-tikz-pictures-with-python">2.1.23. Create TikZ pictures with Python</a></li>
 </ul>
   </nav></div>
 
