@@ -164,7 +164,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Jupyter Notebook Tips and Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
+
+
+
+
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -408,6 +412,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-and-visualize-data-interactively-with-d-tale">5.2.1. Analyze and visualize data interactively with D-Tale</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-dark-mode-in-matplotlib">5.2.2. Use Dark Mode in Matplotlib</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-code-eda-with-pandasgui">5.2.3. No-Code EDA with <code class="docutils literal notranslate"><span class="pre">PandasGUI</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-missing-values-with-missingno">5.2.4. Analyze Missing Values with <code class="docutils literal notranslate"><span class="pre">missingno</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -489,6 +494,32 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="analyze-missing-values-with-missingno">
+<h2><span class="section-number">5.2.4. </span>Analyze Missing Values with <code class="docutils literal notranslate"><span class="pre">missingno</span></code><a class="headerlink" href="#analyze-missing-values-with-missingno" title="Permalink to this heading">#</a></h2>
+<p>If you want to analyze missing values in your data</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">missingno</span></code>’s nullity correlation.</p>
+<p>It lets us understand how the missing value of one column is related to missing values in other columns.</p>
+<p>The heatmap works great for picking out data completeness relationships between variable pairs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install missingno
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">missingno</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;your_data.csv&quot;</span><span class="p">)</span>
+
+<span class="n">missingno</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -555,6 +586,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-and-visualize-data-interactively-with-d-tale">5.2.1. Analyze and visualize data interactively with D-Tale</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-dark-mode-in-matplotlib">5.2.2. Use Dark Mode in Matplotlib</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-code-eda-with-pandasgui">5.2.3. No-Code EDA with <code class="docutils literal notranslate"><span class="pre">PandasGUI</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-missing-values-with-missingno">5.2.4. Analyze Missing Values with <code class="docutils literal notranslate"><span class="pre">missingno</span></code></a></li>
 </ul>
   </nav></div>
 

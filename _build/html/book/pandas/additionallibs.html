@@ -164,7 +164,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Jupyter Notebook Tips and Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
+
+
+
+
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -407,6 +411,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-up-pandas-apply">7.2.1. Speed up Pandas’ <code class="docutils literal notranslate"><span class="pre">apply()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduce-dataframe-memory-with-dtype-diet">7.2.2. Reduce DataFrame Memory with dtype_diet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-pandas-dataframes-with-pandera">7.2.3. Validate Pandas DataFrames with <code class="docutils literal notranslate"><span class="pre">pandera</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -487,6 +492,46 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="validate-pandas-dataframes-with-pandera">
+<h2><span class="section-number">7.2.3. </span>Validate Pandas DataFrames with <code class="docutils literal notranslate"><span class="pre">pandera</span></code><a class="headerlink" href="#validate-pandas-dataframes-with-pandera" title="Permalink to this heading">#</a></h2>
+<p>Do you want to validate your Pandas DataFrames?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">pandera</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pandera</span></code> is a data validation library for Pandas DataFrames and Series.</p>
+<p>It provides a convenient way to define and enforce data quality constraints.</p>
+<p>You can even define complex constraints or use the in-built constraints.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pandera
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pandera</span> <span class="k">as</span> <span class="nn">pa</span>
+
+<span class="n">schema</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">DataFrameSchema</span><span class="p">({</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">pa</span><span class="o">.</span><span class="n">String</span><span class="p">),</span>
+    <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">pa</span><span class="o">.</span><span class="n">Int</span><span class="p">,</span> <span class="n">checks</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">pa</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">element_wise</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">pa</span><span class="o">.</span><span class="n">Check</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">,</span> <span class="n">element_wise</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="p">]),</span>
+<span class="p">})</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+
+<span class="n">schema</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -552,6 +597,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-up-pandas-apply">7.2.1. Speed up Pandas’ <code class="docutils literal notranslate"><span class="pre">apply()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduce-dataframe-memory-with-dtype-diet">7.2.2. Reduce DataFrame Memory with dtype_diet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-pandas-dataframes-with-pandera">7.2.3. Validate Pandas DataFrames with <code class="docutils literal notranslate"><span class="pre">pandera</span></code></a></li>
 </ul>
   </nav></div>
 

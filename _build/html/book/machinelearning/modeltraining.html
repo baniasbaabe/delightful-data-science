@@ -164,7 +164,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Jupyter Notebook Tips and Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
+
+
+
+
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -420,6 +424,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-xgboost-for-random-forests">5.5.13. Use XGBoost for Random Forests</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-problematic-images-with-cleanvision">5.5.14. Identify problematic images with cleanvision</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-the-optimal-regularization-parameter">5.5.15. Select the optimal Regularization Parameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-forests-in-tensorflow">5.5.16. Decision Forests in TensorFlow</a></li>
 </ul>
             </nav>
         </div>
@@ -1015,6 +1020,57 @@ visualizer.show()
 </div>
 </div>
 </section>
+<section id="decision-forests-in-tensorflow">
+<h2><span class="section-number">5.5.16. </span>Decision Forests in TensorFlow<a class="headerlink" href="#decision-forests-in-tensorflow" title="Permalink to this heading">#</a></h2>
+<p>Did you know there are Decision Forests from TensorFlow?</p>
+<p><code class="docutils literal notranslate"><span class="pre">tensorflow_decision_forests</span></code> implements decision forest models like Random Forest or GBDT for classification, regression, and ranking.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!pip install tensorflow_decision_forests
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import pandas as pd
+import tensorflow as tf
+import tensorflow_decision_forests as tfdf
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dataset_path = tf.keras.utils.get_file(
+      &quot;adult.csv&quot;,
+      &quot;https://raw.githubusercontent.com/google/yggdrasil-decision-forests/&quot;
+      &quot;main/yggdrasil_decision_forests/test_data/dataset/adult.csv&quot;)
+
+dataset_df = pd.read_csv(dataset_path)
+test_indices = np.random.rand(len(dataset_df)) &lt; 0.30
+test_ds_pd = dataset_df[test_indices]
+train_ds_pd = dataset_df[~test_indices]
+
+
+train_ds = tfdf.keras.pd_dataframe_to_tf_dataset(train_ds_pd, label=&quot;income&quot;)
+test_ds = tfdf.keras.pd_dataframe_to_tf_dataset(test_ds_pd, label=&quot;income&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>model = tfdf.keras.GradientBoostedTreesModel(verbose=2)
+model.fit(train_ds)
+
+print(model.summary())
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1093,6 +1149,7 @@ visualizer.show()
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-xgboost-for-random-forests">5.5.13. Use XGBoost for Random Forests</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-problematic-images-with-cleanvision">5.5.14. Identify problematic images with cleanvision</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-the-optimal-regularization-parameter">5.5.15. Select the optimal Regularization Parameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-forests-in-tensorflow">5.5.16. Decision Forests in TensorFlow</a></li>
 </ul>
   </nav></div>
 
