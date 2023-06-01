@@ -12,6 +12,10 @@
     <h1 align="center">Delightful Data Science</h1>
 </div>
 
+# Delightful Data Science
+
+[![View on GitHub](https://img.shields.io/badge/GitHub-View_on_GitHub-blue?logo=GitHub)](https://github.com/baniasbaabe/delightful-data-science) [![View Book](https://img.shields.io/badge/Book-View%20Book-red?style=plastic&logo=book)](https://baniasbaabe.github.io/delightful-data-science/README.html)
+
 ## Why this Book exists
 
 It was December 2022 when I started writing daily LinkedIn posts sharing one short Python/Data Science tip per day. My main goal was to share what I learnt over the years (and what I am currently learning) with others. I thought "When it's useful for me, it will be probably useful for other people too".
