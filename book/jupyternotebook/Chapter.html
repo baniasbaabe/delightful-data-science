@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3.1. Identify your bottleneck with line_profiler &#8212; Delightful Data Science</title>
+    <title>3.1. Jupyter Notebook Tips and Tricks &#8212; Delightful Data Science</title>
   
   
   
@@ -147,7 +147,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../README.html">
-                    Why this Book exists
+                    Delightful Data Science
                 </a>
             </li>
         </ul>
@@ -164,15 +164,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">3. Jupyter Notebook Tricks and Tips</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
-
-
-
-
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.1. Jupyter Notebook Tips and Tricks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/Chapter.html">4.1. Auto-generate Documentation for your API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/Chapter.html">4.1. Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../machinelearning/index.html">5. Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -399,7 +395,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Identify your bottleneck with line_profiler</h1>
+    <h1>Jupyter Notebook Tips and Tricks</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -409,13 +405,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#render-live-loss-of-deep-learning-models-in-jupyter-notebooks">3.2. Render Live loss of Deep Learning Models in Jupyter Notebooks</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-latex-expressions-from-python-code">3.3. Generate LaTeX Expressions from Python Code</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#display-scikit-learn-pipelines-as-html">3.4. Display Scikit-Learn Pipelines as HTML</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#autoreload-your-modules-in-jupyter-notebook">3.5. Autoreload your Modules in Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-your-bottleneck-with-line-profiler">3.1.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#render-live-loss-of-deep-learning-models-in-jupyter-notebooks">3.1.2. Render Live loss of Deep Learning Models in Jupyter Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-latex-expressions-from-python-code">3.1.3. Generate LaTeX Expressions from Python Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-scikit-learn-pipelines-as-html">3.1.4. Display Scikit-Learn Pipelines as HTML</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autoreload-your-modules-in-jupyter-notebook">3.1.5. Autoreload your Modules in Jupyter Notebook</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -426,8 +421,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="identify-your-bottleneck-with-line-profiler">
-<h1><span class="section-number">3.1. </span>Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code><a class="headerlink" href="#identify-your-bottleneck-with-line-profiler" title="Permalink to this heading">#</a></h1>
+  <section id="jupyter-notebook-tips-and-tricks">
+<h1><span class="section-number">3.1. </span>Jupyter Notebook Tips and Tricks<a class="headerlink" href="#jupyter-notebook-tips-and-tricks" title="Permalink to this heading">#</a></h1>
+<section id="identify-your-bottleneck-with-line-profiler">
+<h2><span class="section-number">3.1.1. </span>Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code><a class="headerlink" href="#identify-your-bottleneck-with-line-profiler" title="Permalink to this heading">#</a></h2>
 <p>Want to identify the bottleneck in your Python code?</p>
 <p>Try the module <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code> for Python.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code>, you will get a line-by-line profiling of your functions.</p>
@@ -484,7 +481,7 @@ document.write(`
 </div>
 </section>
 <section id="render-live-loss-of-deep-learning-models-in-jupyter-notebooks">
-<h1><span class="section-number">3.2. </span>Render Live loss of Deep Learning Models in Jupyter Notebooks<a class="headerlink" href="#render-live-loss-of-deep-learning-models-in-jupyter-notebooks" title="Permalink to this heading">#</a></h1>
+<h2><span class="section-number">3.1.2. </span>Render Live loss of Deep Learning Models in Jupyter Notebooks<a class="headerlink" href="#render-live-loss-of-deep-learning-models-in-jupyter-notebooks" title="Permalink to this heading">#</a></h2>
 <p>Plot your live training loss in Jupyter Notebooks with <code class="docutils literal notranslate"><span class="pre">livelossplot</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">livelossplot</span></code> lets you track your model’s training process in real time, only adding one callback.</p>
 <p>A nice alternative to TensorBoard, if you want to train a small model and visualize its progress quickly.</p>
@@ -534,7 +531,7 @@ document.write(`
 </div>
 </section>
 <section id="generate-latex-expressions-from-python-code">
-<h1><span class="section-number">3.3. </span>Generate LaTeX Expressions from Python Code<a class="headerlink" href="#generate-latex-expressions-from-python-code" title="Permalink to this heading">#</a></h1>
+<h2><span class="section-number">3.1.3. </span>Generate LaTeX Expressions from Python Code<a class="headerlink" href="#generate-latex-expressions-from-python-code" title="Permalink to this heading">#</a></h2>
 <p>With <code class="docutils literal notranslate"><span class="pre">latexify</span></code>, you can compile Python source code to a beautiful LaTeX expression.</p>
 <p>In a quick and easy way!</p>
 <p>Useful, when you don’t want to write the LaTeX expression by yourself.</p>
@@ -567,7 +564,7 @@ document.write(`
 </div>
 </section>
 <section id="display-scikit-learn-pipelines-as-html">
-<h1><span class="section-number">3.4. </span>Display Scikit-Learn Pipelines as HTML<a class="headerlink" href="#display-scikit-learn-pipelines-as-html" title="Permalink to this heading">#</a></h1>
+<h2><span class="section-number">3.1.4. </span>Display Scikit-Learn Pipelines as HTML<a class="headerlink" href="#display-scikit-learn-pipelines-as-html" title="Permalink to this heading">#</a></h2>
 <p>You can display an interactive HTML diagram of scikit-learn pipelines.</p>
 <p>Just set the config to <code class="docutils literal notranslate"><span class="pre">diagram</span></code> (you can still switch back to <code class="docutils literal notranslate"><span class="pre">text</span></code>).</p>
 <div class="cell docutils container">
@@ -626,7 +623,7 @@ document.write(`
 </div>
 </section>
 <section id="autoreload-your-modules-in-jupyter-notebook">
-<h1><span class="section-number">3.5. </span>Autoreload your Modules in Jupyter Notebook<a class="headerlink" href="#autoreload-your-modules-in-jupyter-notebook" title="Permalink to this heading">#</a></h1>
+<h2><span class="section-number">3.1.5. </span>Autoreload your Modules in Jupyter Notebook<a class="headerlink" href="#autoreload-your-modules-in-jupyter-notebook" title="Permalink to this heading">#</a></h2>
 <p>When you work on a new Python module and test it in a Jupyter notebook</p>
 <p>You have to reload the module when you change it.</p>
 <p><code class="docutils literal notranslate"><span class="pre">autoreload</span></code> makes sure all modules will be reimported.</p>
@@ -650,6 +647,7 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -713,13 +711,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#render-live-loss-of-deep-learning-models-in-jupyter-notebooks">3.2. Render Live loss of Deep Learning Models in Jupyter Notebooks</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-latex-expressions-from-python-code">3.3. Generate LaTeX Expressions from Python Code</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#display-scikit-learn-pipelines-as-html">3.4. Display Scikit-Learn Pipelines as HTML</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#autoreload-your-modules-in-jupyter-notebook">3.5. Autoreload your Modules in Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-your-bottleneck-with-line-profiler">3.1.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#render-live-loss-of-deep-learning-models-in-jupyter-notebooks">3.1.2. Render Live loss of Deep Learning Models in Jupyter Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-latex-expressions-from-python-code">3.1.3. Generate LaTeX Expressions from Python Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-scikit-learn-pipelines-as-html">3.1.4. Display Scikit-Learn Pipelines as HTML</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autoreload-your-modules-in-jupyter-notebook">3.1.5. Autoreload your Modules in Jupyter Notebook</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
