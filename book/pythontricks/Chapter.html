@@ -147,7 +147,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../README.html">
-                    Why this Book exists
+                    Delightful Data Science
                 </a>
             </li>
         </ul>
@@ -168,7 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/Chapter.html">4.1. Auto-generate Documentation for your API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/Chapter.html">4.1. Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../machinelearning/index.html">5. Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -412,6 +412,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pythonic-way-for-matrix-multiplication">8.1.5. Pythonic way for matrix multiplication</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-guard-clauses-for-better-if-statements">8.1.6. Use Guard Clauses for better If statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hide-password-input-from-user">8.1.7. Hide Password Input from User</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turn-classes-into-callables">8.1.8. Turn Classes into Callables</a></li>
 </ul>
             </nav>
         </div>
@@ -603,6 +604,23 @@ an iterable with as many elements as the shortest list.</p>
 </div>
 </div>
 </section>
+<section id="turn-classes-into-callables">
+<h2><span class="section-number">8.1.8. </span>Turn Classes into Callables<a class="headerlink" href="#turn-classes-into-callables" title="Permalink to this heading">#</a></h2>
+<p>Did you know you can have callable objects in Python?</p>
+<p>You have to override the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method to call the object like a function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Example</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I was called!&quot;</span><span class="p">)</span>
+    
+<span class="n">example_instance</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
+<span class="n">example_instance</span><span class="p">()</span> <span class="c1"># Will call the __call__ method</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -673,6 +691,7 @@ an iterable with as many elements as the shortest list.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pythonic-way-for-matrix-multiplication">8.1.5. Pythonic way for matrix multiplication</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-guard-clauses-for-better-if-statements">8.1.6. Use Guard Clauses for better If statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hide-password-input-from-user">8.1.7. Hide Password Input from User</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turn-classes-into-callables">8.1.8. Turn Classes into Callables</a></li>
 </ul>
   </nav></div>
 
