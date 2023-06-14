@@ -1,6 +1,5 @@
 title: Delightful Data Science
 author: Banias Baabe
-logo: book/images/testimage.png
 only_build_toc_files: true
 execute:
   execute_notebooks: off

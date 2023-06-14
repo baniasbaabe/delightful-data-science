@@ -147,7 +147,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../README.html">
-                    Why this Book exists
+                    Delightful Data Science
                 </a>
             </li>
         </ul>
@@ -164,15 +164,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Identify your bottleneck with <code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a></li>
-
-
-
-
+<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Jupyter Notebook Tips and Tricks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/Chapter.html">4.1. Auto-generate Documentation for your API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/Chapter.html">4.1. Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../machinelearning/index.html">5. Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -432,6 +428,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-ascii-art-from-text">2.1.21. Make ASCII Art from Text</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-ner-with-spacy">2.1.22. Display NER with <code class="docutils literal notranslate"><span class="pre">spacy</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-tikz-pictures-with-python">2.1.23. Create TikZ pictures with Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#human-readable-regex-with-pregex">2.1.24. Human-readable RegEx with <code class="docutils literal notranslate"><span class="pre">PRegEx</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1064,6 +1061,50 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="human-readable-regex-with-pregex">
+<h2><span class="section-number">2.1.24. </span>Human-readable RegEx with <code class="docutils literal notranslate"><span class="pre">PRegEx</span></code><a class="headerlink" href="#human-readable-regex-with-pregex" title="Permalink to this heading">#</a></h2>
+<p>RegEx is notoriously nasty to read and write.</p>
+<p>For a human-readable alternative, try <code class="docutils literal notranslate"><span class="pre">PRegEx</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">PRegEx</span></code> is a Python library aiming to have an easy-to-remember syntax to write RegEx patterns.</p>
+<p>It offers a way to easily break down a complex pattern into multiple simpler ones that can then be combined.</p>
+<p>See below how we can write a pattern that matches any URL that ends with either “.com” or “.org” as well as any IP address for which a 4-digit port number is specified.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pregex.core.classes</span> <span class="kn">import</span> <span class="n">AnyLetter</span><span class="p">,</span> <span class="n">AnyDigit</span><span class="p">,</span> <span class="n">AnyFrom</span>
+<span class="kn">from</span> <span class="nn">pregex.core.quantifiers</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">AtLeastAtMost</span>
+<span class="kn">from</span> <span class="nn">pregex.core.operators</span> <span class="kn">import</span> <span class="n">Either</span>
+<span class="kn">from</span> <span class="nn">pregex.core.groups</span> <span class="kn">import</span> <span class="n">Capture</span>
+<span class="kn">from</span> <span class="nn">pregex.core.pre</span> <span class="kn">import</span> <span class="n">Pregex</span>
+
+<span class="n">http_protocol</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;http&#39;</span> <span class="o">+</span> <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;://&#39;</span><span class="p">)</span>
+
+<span class="n">www</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;www.&#39;</span><span class="p">)</span>
+
+<span class="n">alphanum</span> <span class="o">=</span> <span class="n">AnyLetter</span><span class="p">()</span> <span class="o">|</span> <span class="n">AnyDigit</span><span class="p">()</span>
+
+<span class="n">domain_name</span> <span class="o">=</span> \
+  <span class="n">alphanum</span> <span class="o">+</span> \
+  <span class="n">AtLeastAtMost</span><span class="p">(</span><span class="n">alphanum</span> <span class="o">|</span> <span class="n">AnyFrom</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">61</span><span class="p">)</span> <span class="o">+</span> \
+  <span class="n">alphanum</span>
+
+<span class="n">tld</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">Either</span><span class="p">(</span><span class="s1">&#39;com&#39;</span><span class="p">,</span> <span class="s1">&#39;org&#39;</span><span class="p">)</span>
+
+<span class="n">ip_octet</span> <span class="o">=</span> <span class="n">AnyDigit</span><span class="p">()</span><span class="o">.</span><span class="n">at_least_at_most</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">port_number</span> <span class="o">=</span> <span class="p">(</span><span class="n">AnyDigit</span><span class="p">()</span> <span class="o">-</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">AnyDigit</span><span class="p">()</span>
+
+<span class="c1"># Combine sub-patterns together.</span>
+<span class="n">pre</span><span class="p">:</span> <span class="n">Pregex</span> <span class="o">=</span> \
+    <span class="n">http_protocol</span> <span class="o">+</span> \
+    <span class="n">Either</span><span class="p">(</span>
+        <span class="n">www</span> <span class="o">+</span> <span class="n">Capture</span><span class="p">(</span><span class="n">domain_name</span><span class="p">)</span> <span class="o">+</span> <span class="n">tld</span><span class="p">,</span>
+        <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">ip_octet</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">ip_octet</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="n">port_number</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1150,6 +1191,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-ascii-art-from-text">2.1.21. Make ASCII Art from Text</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-ner-with-spacy">2.1.22. Display NER with <code class="docutils literal notranslate"><span class="pre">spacy</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-tikz-pictures-with-python">2.1.23. Create TikZ pictures with Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#human-readable-regex-with-pregex">2.1.24. Human-readable RegEx with <code class="docutils literal notranslate"><span class="pre">PRegEx</span></code></a></li>
 </ul>
   </nav></div>
 
