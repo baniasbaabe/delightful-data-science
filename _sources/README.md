@@ -2,14 +2,10 @@
 
 <a href="https://github.com/baniasbaabe/delightful-data-science">
 
-<img src="book/images/dds_logo.png" alt="Delightful Data Science Logo" align="center">
+<img src="book/images/dds_logo.png" alt="Delightful Data Science Logo" width="152" height="221" align="center">
 
 </a>
 
-</div>
-
-<div align="center">
-    <h1 align="center">Delightful Data Science</h1>
 </div>
 
 # Delightful Data Science
