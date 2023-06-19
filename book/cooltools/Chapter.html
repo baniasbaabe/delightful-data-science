@@ -429,6 +429,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-ner-with-spacy">2.1.22. Display NER with <code class="docutils literal notranslate"><span class="pre">spacy</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-tikz-pictures-with-python">2.1.23. Create TikZ pictures with Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#human-readable-regex-with-pregex">2.1.24. Human-readable RegEx with <code class="docutils literal notranslate"><span class="pre">PRegEx</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-ocr-with-easyocr">2.1.25. Perform OCR with <code class="docutils literal notranslate"><span class="pre">easyOCR</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1105,6 +1106,36 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="perform-ocr-with-easyocr">
+<h2><span class="section-number">2.1.25. </span>Perform OCR with <code class="docutils literal notranslate"><span class="pre">easyOCR</span></code><a class="headerlink" href="#perform-ocr-with-easyocr" title="Permalink to this heading">#</a></h2>
+<p>Effortlessly extract text from Images with <code class="docutils literal notranslate"><span class="pre">EasyOCR</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">EasyOCR</span></code> is a Python library for Optical Character Recognition (OCR), built on top of PyTorch.</p>
+<p>It supports over 80 languages and writing scripts like Latin, Chinese, Arabic and Cyrillic.</p>
+<p>See below how easy we can extract text from a given image.</p>
+<p>PS: Even if it’s working on CPU, running on GPU is recommended.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install easyocr
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">easyocr</span>
+
+<span class="n">reader</span> <span class="o">=</span> <span class="n">easyocr</span><span class="o">.</span><span class="n">Reader</span><span class="p">([</span><span class="s1">&#39;en&#39;</span><span class="p">])</span>
+<span class="n">image_path</span> <span class="o">=</span> <span class="s1">&#39;english_image.png&#39;</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">readtext</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1192,6 +1223,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-ner-with-spacy">2.1.22. Display NER with <code class="docutils literal notranslate"><span class="pre">spacy</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-tikz-pictures-with-python">2.1.23. Create TikZ pictures with Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#human-readable-regex-with-pregex">2.1.24. Human-readable RegEx with <code class="docutils literal notranslate"><span class="pre">PRegEx</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-ocr-with-easyocr">2.1.25. Perform OCR with <code class="docutils literal notranslate"><span class="pre">easyOCR</span></code></a></li>
 </ul>
   </nav></div>
 

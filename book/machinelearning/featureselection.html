@@ -409,6 +409,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-for-new-categories-in-test-set-with-deepchecks">5.3.2. Check for new categories in test set with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-permutation-importance-with-eli5">5.3.3. Get Permutation Importance with <code class="docutils literal notranslate"><span class="pre">eli5</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-most-predictive-variables-for-your-target-variable">5.3.4. Find the Most Predictive Variables for Your Target Variable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection-at-scale-with-mrmr">5.3.5. Feature Selection at Scale with <code class="docutils literal notranslate"><span class="pre">mrmr</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -567,6 +568,50 @@ This can lead to unstable and inconsistent coefficients, making it difficult to 
 </div>
 </div>
 </section>
+<section id="feature-selection-at-scale-with-mrmr">
+<h2><span class="section-number">5.3.5. </span>Feature Selection at Scale with <code class="docutils literal notranslate"><span class="pre">mrmr</span></code><a class="headerlink" href="#feature-selection-at-scale-with-mrmr" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>Do you want to do Feature Selection automatically?
+
+Try mrmr.
+
+mrmr (minimum-Redundancy-Maximum-Relevance) is a minimal-optimal feature selection algorithm at scale.
+
+It means mrmr will find the smallest relevant subset of features your ML Model needs.
+
+mrmr supports common tools like Pandas, Polars and Spark.
+
+See below how we want to select the best K features.
+
+The output is a ranked list of the relevant features.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install mrmr_selection
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span> <span class="nn">mrmr</span> <span class="kn">import</span> <span class="n">mrmr_classif</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">n_informative</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n_redundant</span> <span class="o">=</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="n">selected_features</span> <span class="o">=</span> <span class="n">mrmr_classif</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -634,6 +679,7 @@ This can lead to unstable and inconsistent coefficients, making it difficult to 
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-for-new-categories-in-test-set-with-deepchecks">5.3.2. Check for new categories in test set with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-permutation-importance-with-eli5">5.3.3. Get Permutation Importance with <code class="docutils literal notranslate"><span class="pre">eli5</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-most-predictive-variables-for-your-target-variable">5.3.4. Find the Most Predictive Variables for Your Target Variable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection-at-scale-with-mrmr">5.3.5. Feature Selection at Scale with <code class="docutils literal notranslate"><span class="pre">mrmr</span></code></a></li>
 </ul>
   </nav></div>
 
