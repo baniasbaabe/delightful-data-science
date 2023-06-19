@@ -423,6 +423,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-forests-in-tensorflow">5.5.16. Decision Forests in TensorFlow</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automl-with-autogluon">5.5.17. AutoML with <code class="docutils literal notranslate"><span class="pre">AutoGluon</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-keras-models-with-visualkeras">5.5.18. Visualize Keras Models with <code class="docutils literal notranslate"><span class="pre">visualkeras</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-multilabel-stratified-kfold-with-iterative-stratification">5.5.19. Perform Multilabel Stratified KFold with <code class="docutils literal notranslate"><span class="pre">iterative-stratification</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1145,6 +1146,41 @@ visualkeras.layered_view(model, legend=True, to_file=&#39;output.png&#39;).show(
 </div>
 </div>
 </section>
+<section id="perform-multilabel-stratified-kfold-with-iterative-stratification">
+<h2><span class="section-number">5.5.19. </span>Perform Multilabel Stratified KFold with <code class="docutils literal notranslate"><span class="pre">iterative-stratification</span></code><a class="headerlink" href="#perform-multilabel-stratified-kfold-with-iterative-stratification" title="Permalink to this heading">#</a></h2>
+<p>When doing Cross-Validation for classification,</p>
+<p>StratifiedKFold from scikit-learn is a common choice.</p>
+<p>Stratification aims to guarantee that every fold represents all strata of the data.</p>
+<p>But, scikit-learn doesn’t support stratifying multilabel data.</p>
+<p>For this use case, try the <code class="docutils literal notranslate"><span class="pre">iterative-stratification</span></code> package.</p>
+<p>It offers implementations for stratyfing multilabel data in different ways.</p>
+<p>See below how we can use MultilabelStratifiedKFold.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!pip install iterative-stratification
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from iterstrat.ml_stratifiers import MultilabelStratifiedKFold
+import numpy as np
+
+X = np.array([[1,2], [3,4], [1,2], [3,4], [1,2], [3,4], [1,2], [3,4]])
+y = np.array([[0,0], [0,0], [0,1], [0,1], [1,1], [1,1], [1,0], [1,0]])
+
+mskf = MultilabelStratifiedKFold(n_splits=2, shuffle=True, random_state=0)
+
+for train_index, test_index in mskf.split(X, y):
+   print(&quot;TRAIN:&quot;, train_index, &quot;TEST:&quot;, test_index)
+   X_train, X_test = X[train_index], X[test_index]
+   y_train, y_test = y[train_index], y[test_index]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1226,6 +1262,7 @@ visualkeras.layered_view(model, legend=True, to_file=&#39;output.png&#39;).show(
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-forests-in-tensorflow">5.5.16. Decision Forests in TensorFlow</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automl-with-autogluon">5.5.17. AutoML with <code class="docutils literal notranslate"><span class="pre">AutoGluon</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-keras-models-with-visualkeras">5.5.18. Visualize Keras Models with <code class="docutils literal notranslate"><span class="pre">visualkeras</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-multilabel-stratified-kfold-with-iterative-stratification">5.5.19. Perform Multilabel Stratified KFold with <code class="docutils literal notranslate"><span class="pre">iterative-stratification</span></code></a></li>
 </ul>
   </nav></div>
 

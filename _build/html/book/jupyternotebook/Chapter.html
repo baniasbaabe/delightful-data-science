@@ -410,6 +410,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-latex-expressions-from-python-code">3.1.3. Generate LaTeX Expressions from Python Code</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-scikit-learn-pipelines-as-html">3.1.4. Display Scikit-Learn Pipelines as HTML</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autoreload-your-modules-in-jupyter-notebook">3.1.5. Autoreload your Modules in Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-code-quality-tools-to-jupyter-notebooks">3.1.6. Apply Code Quality Tools to Jupyter Notebooks</a></li>
 </ul>
             </nav>
         </div>
@@ -648,6 +649,35 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="apply-code-quality-tools-to-jupyter-notebooks">
+<h2><span class="section-number">3.1.6. </span>Apply Code Quality Tools to Jupyter Notebooks<a class="headerlink" href="#apply-code-quality-tools-to-jupyter-notebooks" title="Permalink to this heading">#</a></h2>
+<p>Do you look for Code quality within Jupyter Notebooks?</p>
+<p>One limitation of widespread tools like black, flake8 or isort is the incompatibility with notebooks.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">nbqa</span></code>, you can effortlessly apply code quality tools to notebooks.</p>
+<p>See below how we can apply black and isort on notebooks.</p>
+<p>Say hello to clean(er) notebooks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install &quot;nbqa[toolchain]&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!nbqa black my_notebook.ipynb
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!nbqa isort my_notebook.ipynb --float-to-top
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -716,6 +746,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-latex-expressions-from-python-code">3.1.3. Generate LaTeX Expressions from Python Code</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-scikit-learn-pipelines-as-html">3.1.4. Display Scikit-Learn Pipelines as HTML</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autoreload-your-modules-in-jupyter-notebook">3.1.5. Autoreload your Modules in Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-code-quality-tools-to-jupyter-notebooks">3.1.6. Apply Code Quality Tools to Jupyter Notebooks</a></li>
 </ul>
   </nav></div>
 
