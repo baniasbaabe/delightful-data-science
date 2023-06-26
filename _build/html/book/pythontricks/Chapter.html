@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/pythontricks/Chapter';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8.2. Utility Libraries for Python" href="utility.html" />
+    <link rel="next" title="8.2. Utilities for Python" href="utility.html" />
     <link rel="prev" title="8. Python Tips and Tricks" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -193,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">8. Python Tips and Tricks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">8.1. Pure Python + Built-in libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utility.html">8.2. Utility Libraries for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utility.html">8.2. Utilities for Python</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">9. Selenium Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -414,6 +414,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hide-password-input-from-user">8.1.7. Hide Password Input from User</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turn-classes-into-callables">8.1.8. Turn Classes into Callables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrap-text-with-textwrap">8.1.9. Wrap Text with <code class="docutils literal notranslate"><span class="pre">textwrap</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-lru-caching-to-your-functions">8.1.10. Add LRU Caching to your Functions</a></li>
 </ul>
             </nav>
         </div>
@@ -643,6 +644,28 @@ an iterable with as many elements as the shortest list.</p>
 </div>
 </div>
 </section>
+<section id="add-lru-caching-to-your-functions">
+<h2><span class="section-number">8.1.10. </span>Add LRU Caching to your Functions<a class="headerlink" href="#add-lru-caching-to-your-functions" title="Permalink to this heading">#</a></h2>
+<p>Python offers a neat way to add caching to functions.</p>
+<p>You just need to add the <code class="docutils literal notranslate"><span class="pre">lru_cache</span></code> decorator from <code class="docutils literal notranslate"><span class="pre">functools</span></code>.</p>
+<p>It takes a <code class="docutils literal notranslate"><span class="pre">maxsize</span></code> argument that specifies the maximum number of results to cache.</p>
+<p>When the function is called with the same arguments, it first checks the cache and returns the cached result if available.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -687,7 +710,7 @@ an iterable with as many elements as the shortest list.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8.2. </span>Utility Libraries for Python</p>
+        <p class="prev-next-title"><span class="section-number">8.2. </span>Utilities for Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -715,6 +738,7 @@ an iterable with as many elements as the shortest list.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hide-password-input-from-user">8.1.7. Hide Password Input from User</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turn-classes-into-callables">8.1.8. Turn Classes into Callables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrap-text-with-textwrap">8.1.9. Wrap Text with <code class="docutils literal notranslate"><span class="pre">textwrap</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-lru-caching-to-your-functions">8.1.10. Add LRU Caching to your Functions</a></li>
 </ul>
   </nav></div>
 
