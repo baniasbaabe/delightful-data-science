@@ -193,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">8. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pythontricks/Chapter.html">8.1. Pure Python + Built-in libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">8.2. Utility Libraries for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">8.2. Utilities for Python</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">9. Selenium Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -409,6 +409,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-dark-mode-in-matplotlib">5.2.2. Use Dark Mode in Matplotlib</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-code-eda-with-pandasgui">5.2.3. No-Code EDA with <code class="docutils literal notranslate"><span class="pre">PandasGUI</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-missing-values-with-missingno">5.2.4. Analyze Missing Values with <code class="docutils literal notranslate"><span class="pre">missingno</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-correlation-with-phik">5.2.5. Powerful Correlation with <code class="docutils literal notranslate"><span class="pre">phik</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -516,6 +517,56 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="powerful-correlation-with-phik">
+<h2><span class="section-number">5.2.5. </span>Powerful Correlation with <code class="docutils literal notranslate"><span class="pre">phik</span></code><a class="headerlink" href="#powerful-correlation-with-phik" title="Permalink to this heading">#</a></h2>
+<p>Do you look for a powerful correlation method?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">Phik</span></code>!</p>
+<p><code class="docutils literal notranslate"><span class="pre">Phik</span></code> (or ϕk) works consistently beween categorical, ordinal and interval variables while capturing non-linear dependencies.</p>
+<p>It reverts to Pearson’s correlation only for bivariate normal distribution of the input.</p>
+<p>See below how you can use it in Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install phik
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">phik</span>
+<span class="kn">from</span> <span class="nn">phik.report</span> <span class="kn">import</span> <span class="n">plot_correlation_matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span> <span class="n">phik</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="s1">&#39;fake_insurance_data.csv.gz&#39;</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">phik_matrix</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_correlation_matrix</span><span class="p">(</span><span class="n">corr_matrix</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
+                        <span class="n">x_labels</span><span class="o">=</span><span class="n">corr_matrix</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> 
+                        <span class="n">y_labels</span><span class="o">=</span><span class="n">corr_matrix</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> 
+                        <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+                        <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  
+                        <span class="n">color_map</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span>
+                        <span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;Correlation Matrix&quot;</span><span class="p">,</span> 
+                        <span class="n">fontsize_factor</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> 
+                        <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -583,6 +634,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-dark-mode-in-matplotlib">5.2.2. Use Dark Mode in Matplotlib</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-code-eda-with-pandasgui">5.2.3. No-Code EDA with <code class="docutils literal notranslate"><span class="pre">PandasGUI</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-missing-values-with-missingno">5.2.4. Analyze Missing Values with <code class="docutils literal notranslate"><span class="pre">missingno</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-correlation-with-phik">5.2.5. Powerful Correlation with <code class="docutils literal notranslate"><span class="pre">phik</span></code></a></li>
 </ul>
   </nav></div>
 

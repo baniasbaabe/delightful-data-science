@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>8.2. Utility Libraries for Python &#8212; Delightful Data Science</title>
+    <title>8.2. Utilities for Python &#8212; Delightful Data Science</title>
   
   
   
@@ -193,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">8. Python Tips and Tricks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Chapter.html">8.1. Pure Python + Built-in libraries</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.2. Utility Libraries for Python</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.2. Utilities for Python</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">9. Selenium Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -395,7 +395,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Utility Libraries for Python</h1>
+    <h1>Utilities for Python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -409,6 +409,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-datetimes-easily-with-pendulum">8.2.2. Work with datetimes easily with pendulum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prettify-your-data-structures-with-pprint">8.2.3. Prettify your Data Structures with <code class="docutils literal notranslate"><span class="pre">pprint</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-logging-with-loguru">8.2.4. Easy Logging with <code class="docutils literal notranslate"><span class="pre">loguru</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-truly-random-numbers">8.2.5. Generate Truly Random Numbers</a></li>
 </ul>
             </nav>
         </div>
@@ -420,8 +421,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="utility-libraries-for-python">
-<h1><span class="section-number">8.2. </span>Utility Libraries for Python<a class="headerlink" href="#utility-libraries-for-python" title="Permalink to this heading">#</a></h1>
+  <section id="utilities-for-python">
+<h1><span class="section-number">8.2. </span>Utilities for Python<a class="headerlink" href="#utilities-for-python" title="Permalink to this heading">#</a></h1>
 <section id="speed-up-for-loop-with-joblib-parallel">
 <h2><span class="section-number">8.2.1. </span>Speed up For-Loop with joblib.Parallel<a class="headerlink" href="#speed-up-for-loop-with-joblib-parallel" title="Permalink to this heading">#</a></h2>
 <p>Don’t use plain for loops in Python.</p>
@@ -528,6 +529,39 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="generate-truly-random-numbers">
+<h2><span class="section-number">8.2.5. </span>Generate Truly Random Numbers<a class="headerlink" href="#generate-truly-random-numbers" title="Permalink to this heading">#</a></h2>
+<p>How to generate <code class="docutils literal notranslate"><span class="pre">truly</span></code> random numbers?</p>
+<p>One problem with random number generators in your favourite programming language is:</p>
+<p>They are <code class="docutils literal notranslate"><span class="pre">pseudo-random</span></code>.</p>
+<p>That means they are generated using a deterministic algorithm.</p>
+<p>If you want to generate truly random numbers,</p>
+<p>You have to make an API request to <code class="docutils literal notranslate"><span class="pre">random(dot)org</span></code>.</p>
+<p>They create random numbers based on atmospheric noise.</p>
+<p>See below how you can use it with Python.</p>
+<p>What do the Query Parameters mean?</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">num=1</span></code>: Specifies that only one integer should be generated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min=1</span></code>: Specifies that the minimum value for the generated integer should be 1.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max=1000</span></code>: Specifies that the maximum value for the generated integer should be 1000.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">col=1</span></code>: Specifies that the output should be in a single column. Only useful for displaying purposes when you are generating more than one number.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">base=10</span></code>: Specifies that the generated integers should be in base 10 (decimal).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">format=plain</span></code>: Specifies that the output should be in plain text format.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rnd=new</span></code>: Specifies that a new random sequence should be used for each request.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.random.org/integers/?num=1&amp;min=1&amp;max=1000&amp;col=1&amp;base=10&amp;format=plain&amp;rnd=new&quot;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -595,6 +629,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-datetimes-easily-with-pendulum">8.2.2. Work with datetimes easily with pendulum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prettify-your-data-structures-with-pprint">8.2.3. Prettify your Data Structures with <code class="docutils literal notranslate"><span class="pre">pprint</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-logging-with-loguru">8.2.4. Easy Logging with <code class="docutils literal notranslate"><span class="pre">loguru</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-truly-random-numbers">8.2.5. Generate Truly Random Numbers</a></li>
 </ul>
   </nav></div>
 
