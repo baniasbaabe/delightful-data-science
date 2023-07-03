@@ -193,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">8. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pythontricks/Chapter.html">8.1. Pure Python + Built-in libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">8.2. Utility Libraries for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">8.2. Utilities for Python</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">9. Selenium Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -411,6 +411,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-your-numbers-and-dates-human-friendly">5.8.4. Make your Numbers and dates human-friendly</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaner-pipeline-definition-in-scikit-learn">5.8.5. Cleaner Pipeline definition in Scikit-Learn</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-columns-for-your-pipeline-easily">5.8.6. Select Columns for your Pipeline easily</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rare-label-encoding-with-feature-engine">5.8.7. Rare Label Encoding with <code class="docutils literal notranslate"><span class="pre">feature-engine</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -635,6 +636,38 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="rare-label-encoding-with-feature-engine">
+<h2><span class="section-number">5.8.7. </span>Rare Label Encoding with <code class="docutils literal notranslate"><span class="pre">feature-engine</span></code><a class="headerlink" href="#rare-label-encoding-with-feature-engine" title="Permalink to this heading">#</a></h2>
+<p>How to tackle Rare Labels in your dataset?</p>
+<p>Rare labels can cause issues during model training, as they may not have sufficient representation for the model to learn meaningful patterns.</p>
+<p>For this problem, use <code class="docutils literal notranslate"><span class="pre">RareLabelEncoder</span></code> from <code class="docutils literal notranslate"><span class="pre">feature_engine</span></code>.</p>
+<p>It will convert all rare labels (based on a threshold) to the label “Rare”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install feature_engine
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">feature_engine.encoding</span> <span class="kn">import</span> <span class="n">RareLabelEncoder</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;violet&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">})</span>
+
+<span class="n">rare_encoder</span> <span class="o">=</span> <span class="n">RareLabelEncoder</span><span class="p">(</span><span class="n">tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_categories</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">])</span>
+
+<span class="n">df_encoded</span> <span class="o">=</span> <span class="n">rare_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -704,6 +737,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-your-numbers-and-dates-human-friendly">5.8.4. Make your Numbers and dates human-friendly</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaner-pipeline-definition-in-scikit-learn">5.8.5. Cleaner Pipeline definition in Scikit-Learn</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-columns-for-your-pipeline-easily">5.8.6. Select Columns for your Pipeline easily</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rare-label-encoding-with-feature-engine">5.8.7. Rare Label Encoding with <code class="docutils literal notranslate"><span class="pre">feature-engine</span></code></a></li>
 </ul>
   </nav></div>
 
