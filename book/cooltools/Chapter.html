@@ -193,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">8. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pythontricks/Chapter.html">8.1. Pure Python + Built-in libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">8.2. Utility Libraries for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">8.2. Utilities for Python</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">9. Selenium Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -430,6 +430,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-tikz-pictures-with-python">2.1.23. Create TikZ pictures with Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#human-readable-regex-with-pregex">2.1.24. Human-readable RegEx with <code class="docutils literal notranslate"><span class="pre">PRegEx</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-ocr-with-easyocr">2.1.25. Perform OCR with <code class="docutils literal notranslate"><span class="pre">easyOCR</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagram-as-code-with-diagrams">2.1.26. Diagram-as-Code with <code class="docutils literal notranslate"><span class="pre">diagrams</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1136,6 +1137,37 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="diagram-as-code-with-diagrams">
+<h2><span class="section-number">2.1.26. </span>Diagram-as-Code with <code class="docutils literal notranslate"><span class="pre">diagrams</span></code><a class="headerlink" href="#diagram-as-code-with-diagrams" title="Permalink to this heading">#</a></h2>
+<p>With the package <code class="docutils literal notranslate"><span class="pre">diagrams</span></code>, you can draw various types of diagrams with Python code.</p>
+<p>It offers a simple syntax and nodes from many Cloud Providers like AWS, Azure or GCP.</p>
+<p>See below how easy it is to draw a simple architecture.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install diagrams
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diagrams</span> <span class="kn">import</span> <span class="n">Diagram</span>
+<span class="kn">from</span> <span class="nn">diagrams.aws.compute</span> <span class="kn">import</span> <span class="n">EC2</span>
+<span class="kn">from</span> <span class="nn">diagrams.aws.database</span> <span class="kn">import</span> <span class="n">RDS</span>
+<span class="kn">from</span> <span class="nn">diagrams.aws.network</span> <span class="kn">import</span> <span class="n">ELB</span>
+
+<span class="k">with</span> <span class="n">Diagram</span><span class="p">(</span><span class="s2">&quot;Grouped Workers&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;TB&quot;</span><span class="p">):</span>
+    <span class="n">ELB</span><span class="p">(</span><span class="s2">&quot;lb&quot;</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="n">EC2</span><span class="p">(</span><span class="s2">&quot;worker1&quot;</span><span class="p">),</span>
+                  <span class="n">EC2</span><span class="p">(</span><span class="s2">&quot;worker2&quot;</span><span class="p">),</span>
+                  <span class="n">EC2</span><span class="p">(</span><span class="s2">&quot;worker3&quot;</span><span class="p">),</span>
+                  <span class="n">EC2</span><span class="p">(</span><span class="s2">&quot;worker4&quot;</span><span class="p">),</span>
+                  <span class="n">EC2</span><span class="p">(</span><span class="s2">&quot;worker5&quot;</span><span class="p">)]</span> <span class="o">&gt;&gt;</span> <span class="n">RDS</span><span class="p">(</span><span class="s2">&quot;events&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="Example of a small Architecture" src="../../_images/aws_im.png" /></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1224,6 +1256,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-tikz-pictures-with-python">2.1.23. Create TikZ pictures with Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#human-readable-regex-with-pregex">2.1.24. Human-readable RegEx with <code class="docutils literal notranslate"><span class="pre">PRegEx</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-ocr-with-easyocr">2.1.25. Perform OCR with <code class="docutils literal notranslate"><span class="pre">easyOCR</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagram-as-code-with-diagrams">2.1.26. Diagram-as-Code with <code class="docutils literal notranslate"><span class="pre">diagrams</span></code></a></li>
 </ul>
   </nav></div>
 

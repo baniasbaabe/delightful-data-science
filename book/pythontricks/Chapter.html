@@ -418,6 +418,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-else-loops-in-python">8.1.11. For-Else Loops in Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heaps-in-python">8.1.12. Heaps in Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-str-and-repr">8.1.13. Difference between <code class="docutils literal notranslate"><span class="pre">__str__</span></code> and <code class="docutils literal notranslate"><span class="pre">__repr__</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neat-way-to-merge-dictionaries">8.1.14. Neat Way to Merge Dictionaries</a></li>
 </ul>
             </nav>
         </div>
@@ -740,6 +741,23 @@ object.</p>
 </div>
 </div>
 </section>
+<section id="neat-way-to-merge-dictionaries">
+<h2><span class="section-number">8.1.14. </span>Neat Way to Merge Dictionaries<a class="headerlink" href="#neat-way-to-merge-dictionaries" title="Permalink to this heading">#</a></h2>
+<p>Do you need a clean way to merge two dictionaries in Python?</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">|</span></code> operator (available since Python 3.9)</p>
+<p>Unlike other methods (like the .update method or unpacking), it offers a neat way to merge dictionaries.</p>
+<p>See below for a small example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dict_1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="n">dict_2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+
+<span class="n">dict_1</span> <span class="o">|</span> <span class="n">dict_2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -816,6 +834,7 @@ object.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-else-loops-in-python">8.1.11. For-Else Loops in Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heaps-in-python">8.1.12. Heaps in Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-str-and-repr">8.1.13. Difference between <code class="docutils literal notranslate"><span class="pre">__str__</span></code> and <code class="docutils literal notranslate"><span class="pre">__repr__</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neat-way-to-merge-dictionaries">8.1.14. Neat Way to Merge Dictionaries</a></li>
 </ul>
   </nav></div>
 

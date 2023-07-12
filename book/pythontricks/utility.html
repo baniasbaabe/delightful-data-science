@@ -410,6 +410,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prettify-your-data-structures-with-pprint">8.2.3. Prettify your Data Structures with <code class="docutils literal notranslate"><span class="pre">pprint</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-logging-with-loguru">8.2.4. Easy Logging with <code class="docutils literal notranslate"><span class="pre">loguru</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-truly-random-numbers">8.2.5. Generate Truly Random Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-dictionaries-with-python-benedict">8.2.6. Powerful Dictionaries with <code class="docutils literal notranslate"><span class="pre">python-benedict</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -562,6 +563,42 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="powerful-dictionaries-with-python-benedict">
+<h2><span class="section-number">8.2.6. </span>Powerful Dictionaries with <code class="docutils literal notranslate"><span class="pre">python-benedict</span></code><a class="headerlink" href="#powerful-dictionaries-with-python-benedict" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">python-benedict</span></code> is a library for dictionaries on steroids.</p>
+<p>You can access values of your nested dictionary with a neat syntax, perform searching and GroupBy, and much more.</p>
+<p>Of course, Pandas offers similar functionalities, but takes also much memory when installing. But 𝐩𝐲𝐭𝐡𝐨𝐧-𝐛𝐞𝐧𝐞𝐝𝐢𝐜𝐭 is more suitable for more unstructured data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install python-benedict
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">benedict</span> <span class="kn">import</span> <span class="n">benedict</span>
+
+<span class="n">my_dict</span> <span class="o">=</span> <span class="n">benedict</span><span class="p">({</span>
+    <span class="s1">&#39;person&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+        <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;street&#39;</span><span class="p">:</span> <span class="s1">&#39;123 Main St&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="s1">&#39;USA&#39;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="n">my_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;person.address.street&quot;</span><span class="p">)</span>
+
+<span class="n">my_dict</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -630,6 +667,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prettify-your-data-structures-with-pprint">8.2.3. Prettify your Data Structures with <code class="docutils literal notranslate"><span class="pre">pprint</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-logging-with-loguru">8.2.4. Easy Logging with <code class="docutils literal notranslate"><span class="pre">loguru</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-truly-random-numbers">8.2.5. Generate Truly Random Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-dictionaries-with-python-benedict">8.2.6. Powerful Dictionaries with <code class="docutils literal notranslate"><span class="pre">python-benedict</span></code></a></li>
 </ul>
   </nav></div>
 
