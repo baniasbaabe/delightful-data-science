@@ -193,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">8. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pythontricks/Chapter.html">8.1. Pure Python + Built-in libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">8.2. Utility Libraries for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">8.2. Utilities for Python</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">9. Selenium Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -424,6 +424,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automl-with-autogluon">5.5.17. AutoML with <code class="docutils literal notranslate"><span class="pre">AutoGluon</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-keras-models-with-visualkeras">5.5.18. Visualize Keras Models with <code class="docutils literal notranslate"><span class="pre">visualkeras</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-multilabel-stratified-kfold-with-iterative-stratification">5.5.19. Perform Multilabel Stratified KFold with <code class="docutils literal notranslate"><span class="pre">iterative-stratification</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpret-your-model-with-shapash">5.5.20. Interpret your Model with Shapash</a></li>
 </ul>
             </nav>
         </div>
@@ -1181,6 +1182,84 @@ for train_index, test_index in mskf.split(X, y):
 </div>
 </div>
 </section>
+<section id="interpret-your-model-with-shapash">
+<h2><span class="section-number">5.5.20. </span>Interpret your Model with Shapash<a class="headerlink" href="#interpret-your-model-with-shapash" title="Permalink to this heading">#</a></h2>
+<p>Nobody cares about your SOTA ML Model if nobody can’t understand the predictions.</p>
+<p>Therefore, interpretability of ML Models is a crucial point in industry cases.</p>
+<p>To overcome this hurdle, use <code class="docutils literal notranslate"><span class="pre">Shapash</span></code> for Python.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Shapash</span></code> offers several types of interpretability methods to understand your model’s predictions like:</p>
+<ul class="simple">
+<li><p>Feature Importance</p></li>
+<li><p>Feature Contribution</p></li>
+<li><p>LIME</p></li>
+<li><p>SHAP</p></li>
+</ul>
+<p>It comes also with an intuitive GUI to interact with.</p>
+<p>Check it out! Link is in the comments section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!pip install shapash
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+from category_encoders import OrdinalEncoder
+from lightgbm import LGBMRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import ExtraTreesRegressor
+
+from shapash.data.data_loader import data_loading
+house_df, house_dict = data_loading(&#39;house_prices&#39;)
+
+y_df=house_df[&#39;SalePrice&#39;].to_frame()
+X_df=house_df[house_df.columns.difference([&#39;SalePrice&#39;])]
+
+from category_encoders import OrdinalEncoder
+
+categorical_features = [col for col in X_df.columns if X_df[col].dtype == &#39;object&#39;]
+
+encoder = OrdinalEncoder(
+    cols=categorical_features,
+    handle_unknown=&#39;ignore&#39;,
+    return_df=True).fit(X_df)
+
+X_df=encoder.transform(X_df)
+
+Xtrain, Xtest, ytrain, ytest = train_test_split(X_df, y_df, train_size=0.75, random_state=1)
+
+regressor = LGBMRegressor(n_estimators=100).fit(Xtrain,ytrain)
+
+from shapash import SmartExplainer
+
+xpl = SmartExplainer(
+    model=regressor,
+    preprocessing=encoder,  
+    features_dict=house_dict  
+)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>xpl.compile(x=Xtest,
+            y_target=ytest 
+           )
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>app = xpl.run_app(title_story=&#39;House Prices&#39;, port=8020)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1263,6 +1342,7 @@ for train_index, test_index in mskf.split(X, y):
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automl-with-autogluon">5.5.17. AutoML with <code class="docutils literal notranslate"><span class="pre">AutoGluon</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-keras-models-with-visualkeras">5.5.18. Visualize Keras Models with <code class="docutils literal notranslate"><span class="pre">visualkeras</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-multilabel-stratified-kfold-with-iterative-stratification">5.5.19. Perform Multilabel Stratified KFold with <code class="docutils literal notranslate"><span class="pre">iterative-stratification</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpret-your-model-with-shapash">5.5.20. Interpret your Model with Shapash</a></li>
 </ul>
   </nav></div>
 
