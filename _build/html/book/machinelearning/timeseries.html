@@ -193,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">8. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pythontricks/Chapter.html">8.1. Pure Python + Built-in libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">8.2. Utility Libraries for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">8.2. Utilities for Python</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">9. Selenium Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -407,6 +407,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-seasonality-automatically-with-darts">5.7.1. Check Seasonality automatically with Darts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-for-time-series-data-with-timeseriessplit">5.7.2. Cross-validation for Time Series Data with TimeSeriesSplit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cross-validation-with-tscv">5.7.3. More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -469,6 +470,39 @@ document.write(`
 <span class="n">ts_cv</span> <span class="o">=</span> <span class="n">TimeSeriesSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
 <span class="n">scores</span> <span class="o">=</span> <span class="n">cross_validate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">ts_cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="more-cross-validation-with-tscv">
+<h2><span class="section-number">5.7.3. </span>More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code><a class="headerlink" href="#more-cross-validation-with-tscv" title="Permalink to this heading">#</a></h2>
+<p>How to do Cross-Validation with Time Series?</p>
+<p>Using standard K-Fold Cross-Validation will not work.</p>
+<p>In this case, you would simply partition the data into k folds, and then train and evaluate the model k times, each time using a different fold as the test set and the rest of the data as the training set.</p>
+<p>But, this can lead to issues because the model will be trained on data that is both before and after the test data.</p>
+<p>This can result in overfitting or biased estimates of model performance.</p>
+<p>Instead, use <code class="docutils literal notranslate"><span class="pre">tscv</span></code> package for Python.</p>
+<p><code class="docutils literal notranslate"><span class="pre">tscv</span></code> offers methods for correct splitting of your data with 3 classes implemented:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GapLeavePOut</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GapKFold</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GapRollForward</span></code></p></li>
+</ul>
+<p>This gives you a more accurate and less biased assessment of the model’s performance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install tscv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tscv</span> <span class="kn">import</span> <span class="n">GapRollForward</span>
+<span class="n">cv</span> <span class="o">=</span> <span class="n">GapRollForward</span><span class="p">(</span><span class="n">min_train_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">gap_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_test_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">cv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;train:&quot;</span><span class="p">,</span> <span class="n">train</span><span class="p">,</span> <span class="s2">&quot;test:&quot;</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -539,6 +573,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-seasonality-automatically-with-darts">5.7.1. Check Seasonality automatically with Darts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-for-time-series-data-with-timeseriessplit">5.7.2. Cross-validation for Time Series Data with TimeSeriesSplit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cross-validation-with-tscv">5.7.3. More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code></a></li>
 </ul>
   </nav></div>
 

@@ -431,6 +431,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#human-readable-regex-with-pregex">2.1.24. Human-readable RegEx with <code class="docutils literal notranslate"><span class="pre">PRegEx</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-ocr-with-easyocr">2.1.25. Perform OCR with <code class="docutils literal notranslate"><span class="pre">easyOCR</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagram-as-code-with-diagrams">2.1.26. Diagram-as-Code with <code class="docutils literal notranslate"><span class="pre">diagrams</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-retry-functionality-with-tenacity">2.1.27. Powerful Retry Functionality with <code class="docutils literal notranslate"><span class="pre">tenacity</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1168,6 +1169,58 @@ document.write(`
 </div>
 <p><img alt="Example of a small Architecture" src="../../_images/aws_im.png" /></p>
 </section>
+<section id="powerful-retry-functionality-with-tenacity">
+<h2><span class="section-number">2.1.27. </span>Powerful Retry Functionality with <code class="docutils literal notranslate"><span class="pre">tenacity</span></code><a class="headerlink" href="#powerful-retry-functionality-with-tenacity" title="Permalink to this heading">#</a></h2>
+<p>What, if an API call in your program fails?</p>
+<p>Because of, let’s say, instable internet connection?</p>
+<p>This is not so uncommon.</p>
+<p>You usually should have some sort of retry mechanism in your program.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">tenacity</span></code> in Python, this isn’t a problem anymore.</p>
+<p><code class="docutils literal notranslate"><span class="pre">tenacity</span></code> offers a retrying behaviour with a decorator with powerful features like:</p>
+<ul class="simple">
+<li><p>Define Stop Conditions</p></li>
+<li><p>Define Wait Conditions</p></li>
+<li><p>Customize retrying on Exception</p></li>
+<li><p>Retry on Coroutines</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install tenacity
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tenacity</span> <span class="k">as</span> <span class="nn">t</span>
+
+<span class="c1"># Stop after N attempts</span>
+<span class="nd">@retry</span><span class="p">(</span><span class="n">stop</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">tenacity</span><span class="o">.</span><span class="n">stop_after_attempt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">stop_after_5_attempts</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stopping after 5 attempts&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">Exception</span>
+    
+<span class="c1"># OR Condition</span>
+<span class="nd">@retry</span><span class="p">(</span><span class="n">stop</span><span class="o">=</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">stop_after_delay</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">|</span> <span class="n">t</span><span class="o">.</span><span class="n">stop_after_attempt</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+<span class="k">def</span> <span class="nf">stop_after_10_s_or_5_retries</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stopping after 10 seconds or 5 retries&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">Exception</span>
+<span class="c1"># Wait for X Seconds</span>
+<span class="nd">@retry</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="n">wait_fixed</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">wait_2_s</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wait 2 second between retries&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">Exception</span>
+    
+<span class="c1"># Retry for specific Exceptions</span>
+<span class="nd">@retry</span><span class="p">(</span><span class="n">retry</span><span class="o">=</span><span class="n">retry_if_exception_type</span><span class="p">(</span><span class="ne">IOError</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">might_io_error</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Retry forever with no wait if an IOError occurs, raise any other errors&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">Exception</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1257,6 +1310,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#human-readable-regex-with-pregex">2.1.24. Human-readable RegEx with <code class="docutils literal notranslate"><span class="pre">PRegEx</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-ocr-with-easyocr">2.1.25. Perform OCR with <code class="docutils literal notranslate"><span class="pre">easyOCR</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagram-as-code-with-diagrams">2.1.26. Diagram-as-Code with <code class="docutils literal notranslate"><span class="pre">diagrams</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-retry-functionality-with-tenacity">2.1.27. Powerful Retry Functionality with <code class="docutils literal notranslate"><span class="pre">tenacity</span></code></a></li>
 </ul>
   </nav></div>
 
