@@ -193,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">8. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pythontricks/Chapter.html">8.1. Pure Python + Built-in libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">8.2. Utility Libraries for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">8.2. Utilities for Python</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">9. Selenium Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -408,6 +408,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-up-pandas-apply">7.2.1. Speed up Pandas’ <code class="docutils literal notranslate"><span class="pre">apply()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduce-dataframe-memory-with-dtype-diet">7.2.2. Reduce DataFrame Memory with dtype_diet</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-pandas-dataframes-with-pandera">7.2.3. Validate Pandas DataFrames with <code class="docutils literal notranslate"><span class="pre">pandera</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boost-pandas-performance-with-one-line-with-modin">7.2.4. Boost Pandas’ Performance With One Line With <code class="docutils literal notranslate"><span class="pre">modin</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -528,6 +529,29 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="boost-pandas-performance-with-one-line-with-modin">
+<h2><span class="section-number">7.2.4. </span>Boost Pandas’ Performance With One Line With <code class="docutils literal notranslate"><span class="pre">modin</span></code><a class="headerlink" href="#boost-pandas-performance-with-one-line-with-modin" title="Permalink to this heading">#</a></h2>
+<p>If you already have a large codebase based on Pandas, think again.</p>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">modin</span></code> as a drop-in replacement for Pandas, with a 3X-5X speed-up.</p>
+<p>Just install <code class="docutils literal notranslate"><span class="pre">modin</span></code> and replace the import statement.</p>
+<p>It’s maybe not as fast as polars, but you will save hours of development time and gain some performance boost.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install &quot;modin[all]&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">modin.pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -594,6 +618,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-up-pandas-apply">7.2.1. Speed up Pandas’ <code class="docutils literal notranslate"><span class="pre">apply()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduce-dataframe-memory-with-dtype-diet">7.2.2. Reduce DataFrame Memory with dtype_diet</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-pandas-dataframes-with-pandera">7.2.3. Validate Pandas DataFrames with <code class="docutils literal notranslate"><span class="pre">pandera</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boost-pandas-performance-with-one-line-with-modin">7.2.4. Boost Pandas’ Performance With One Line With <code class="docutils literal notranslate"><span class="pre">modin</span></code></a></li>
 </ul>
   </nav></div>
 

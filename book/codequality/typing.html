@@ -193,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">8. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pythontricks/Chapter.html">8.1. Pure Python + Built-in libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">8.2. Utility Libraries for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">8.2. Utilities for Python</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">9. Selenium Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -407,6 +407,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enforce-types-with-typeguard">1.4.1. Enforce types with <code class="docutils literal notranslate"><span class="pre">typeguard</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-type-checking-with-mypy">1.4.2. Static type checking with <code class="docutils literal notranslate"><span class="pre">mypy</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faster-static-type-checking-with-pyright">1.4.3. Faster Static Type Checking with <code class="docutils literal notranslate"><span class="pre">pyright</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -488,6 +489,30 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="faster-static-type-checking-with-pyright">
+<h2><span class="section-number">1.4.3. </span>Faster Static Type Checking with <code class="docutils literal notranslate"><span class="pre">pyright</span></code><a class="headerlink" href="#faster-static-type-checking-with-pyright" title="Permalink to this heading">#</a></h2>
+<p>Do you wish to find type errors before they make problems in production?</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pyright</span></code>!</p>
+<p><code class="docutils literal notranslate"><span class="pre">pyright</span></code> is a fast static type checker for Python, which helps you find type errors even before you run your code.</p>
+<p>It checks your code to make sure that the types of your variables and functions match what is expected.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pyright</span></code> is written in TypeScript, so check the community version to avoid going through installing extra things (Link is below).</p>
+<p>It’s 3x-5x times than the OG static type checker, mypy.</p>
+<p>Whether it’s pyright or mypy, please consider to integrate static type checkers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pyright
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pyright
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -553,6 +578,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enforce-types-with-typeguard">1.4.1. Enforce types with <code class="docutils literal notranslate"><span class="pre">typeguard</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-type-checking-with-mypy">1.4.2. Static type checking with <code class="docutils literal notranslate"><span class="pre">mypy</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faster-static-type-checking-with-pyright">1.4.3. Faster Static Type Checking with <code class="docutils literal notranslate"><span class="pre">pyright</span></code></a></li>
 </ul>
   </nav></div>
 

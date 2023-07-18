@@ -425,6 +425,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-keras-models-with-visualkeras">5.5.18. Visualize Keras Models with <code class="docutils literal notranslate"><span class="pre">visualkeras</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-multilabel-stratified-kfold-with-iterative-stratification">5.5.19. Perform Multilabel Stratified KFold with <code class="docutils literal notranslate"><span class="pre">iterative-stratification</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpret-your-model-with-shapash">5.5.20. Interpret your Model with Shapash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-your-model-and-data-with-deepchecks">5.5.21. Validate Your Model and Data with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1260,6 +1261,60 @@ xpl = SmartExplainer(
 </div>
 </div>
 </section>
+<section id="validate-your-model-and-data-with-deepchecks">
+<h2><span class="section-number">5.5.21. </span>Validate Your Model and Data with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code><a class="headerlink" href="#validate-your-model-and-data-with-deepchecks" title="Permalink to this heading">#</a></h2>
+<p>Validating your Model and Data is crucial in ML.</p>
+<p>Not testing them will cause huge problems in production.</p>
+<p>To change that, use <code class="docutils literal notranslate"><span class="pre">deepchecks</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">deepchecks</span></code> is an open-source solution which offers a suite for detailed validation methods.</p>
+<p>It will calculate and visualize a bunch of things like:</p>
+<ul class="simple">
+<li><p>Train/Test Performance</p></li>
+<li><p>Predictive Power Score</p></li>
+<li><p>Feature Drift</p></li>
+<li><p>Label Drift</p></li>
+<li><p>Weak Segments for your model</p></li>
+</ul>
+<p>A powerful tool to consider for testing your models and datasets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!pip install deepchecks
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+
+from deepchecks.tabular.datasets.classification import iris
+from deepchecks.tabular import Dataset
+from deepchecks.tabular.suites import full_suite
+
+# Load Data
+iris_df = iris.load_data(data_format=&#39;Dataframe&#39;, as_train_test=False)
+label_col = &#39;target&#39;
+df_train, df_test = train_test_split(iris_df, stratify=iris_df[label_col], random_state=0)
+
+# Train Model
+rf_clf = RandomForestClassifier(random_state=0)
+rf_clf.fit(df_train.drop(label_col, axis=1), df_train[label_col])
+
+
+ds_train = Dataset(df_train, label=label_col, cat_features=[])
+ds_test =  Dataset(df_test,  label=label_col, cat_features=[])
+
+suite = full_suite()
+
+suite.run(train_dataset=ds_train, test_dataset=ds_test, model=rf_clf)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1343,6 +1398,7 @@ xpl = SmartExplainer(
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-keras-models-with-visualkeras">5.5.18. Visualize Keras Models with <code class="docutils literal notranslate"><span class="pre">visualkeras</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-multilabel-stratified-kfold-with-iterative-stratification">5.5.19. Perform Multilabel Stratified KFold with <code class="docutils literal notranslate"><span class="pre">iterative-stratification</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpret-your-model-with-shapash">5.5.20. Interpret your Model with Shapash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-your-model-and-data-with-deepchecks">5.5.21. Validate Your Model and Data with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
 </ul>
   </nav></div>
 
