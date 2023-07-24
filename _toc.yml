@@ -6,6 +6,7 @@ chapters:
   - file: REAMDE.md
   - file: book/codequality/index.ipynb
     sections:
+      - file: book/codequality/automation.ipynb
       - file: book/codequality/codestyle.ipynb
       - file: book/codequality/memory.ipynb
       - file: book/codequality/security.ipynb
