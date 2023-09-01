@@ -153,10 +153,11 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../codequality/index.html">1. Code Quality</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../codequality/codestyle.html">1.1. Code Style</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../codequality/memory.html">1.2. Memory Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../codequality/security.html">1.3. Security in Projects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../codequality/typing.html">1.4. Typing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/automation.html">1.1. Automation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/codestyle.html">1.2. Code Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/memory.html">1.3. Memory Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/security.html">1.4. Security in Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/typing.html">1.5. Typing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cooltools/index.html">2. Cool Tools</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -406,7 +407,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-up-pandas-apply">7.2.1. Speed up Pandas’ <code class="docutils literal notranslate"><span class="pre">apply()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduce-dataframe-memory-with-dtype-diet">7.2.2. Reduce DataFrame Memory with dtype_diet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduce-dataframe-memory-with-dtype-diet">7.2.2. Reduce DataFrame Memory with <code class="docutils literal notranslate"><span class="pre">dtype_diet</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-pandas-dataframes-with-pandera">7.2.3. Validate Pandas DataFrames with <code class="docutils literal notranslate"><span class="pre">pandera</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boost-pandas-performance-with-one-line-with-modin">7.2.4. Boost Pandas’ Performance With One Line With <code class="docutils literal notranslate"><span class="pre">modin</span></code></a></li>
 </ul>
@@ -461,7 +462,7 @@ document.write(`
 </div>
 </section>
 <section id="reduce-dataframe-memory-with-dtype-diet">
-<h2><span class="section-number">7.2.2. </span>Reduce DataFrame Memory with dtype_diet<a class="headerlink" href="#reduce-dataframe-memory-with-dtype-diet" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.2.2. </span>Reduce DataFrame Memory with <code class="docutils literal notranslate"><span class="pre">dtype_diet</span></code><a class="headerlink" href="#reduce-dataframe-memory-with-dtype-diet" title="Permalink to this heading">#</a></h2>
 <p>By default, Pandas DataFrames don’t use the smallest data types for its columns.</p>
 <p>This results in unnecessary memory usage.</p>
 <p>Changing data types can drastically reduce the memory usage of your DataFrame.</p>
@@ -616,7 +617,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-up-pandas-apply">7.2.1. Speed up Pandas’ <code class="docutils literal notranslate"><span class="pre">apply()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduce-dataframe-memory-with-dtype-diet">7.2.2. Reduce DataFrame Memory with dtype_diet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduce-dataframe-memory-with-dtype-diet">7.2.2. Reduce DataFrame Memory with <code class="docutils literal notranslate"><span class="pre">dtype_diet</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-pandas-dataframes-with-pandera">7.2.3. Validate Pandas DataFrames with <code class="docutils literal notranslate"><span class="pre">pandera</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boost-pandas-performance-with-one-line-with-modin">7.2.4. Boost Pandas’ Performance With One Line With <code class="docutils literal notranslate"><span class="pre">modin</span></code></a></li>
 </ul>

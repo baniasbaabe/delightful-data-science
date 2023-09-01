@@ -407,6 +407,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automate-bash-commands-with-makefile">1.1.1. Automate Bash Commands with <code class="docutils literal notranslate"><span class="pre">Makefile</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automate-testing-with-nox">1.1.2. Automate Testing with Nox</a></li>
 </ul>
             </nav>
         </div>
@@ -443,6 +444,50 @@ document.write(`
 <span class="nb">format</span><span class="p">:</span>
     <span class="nd">@echo</span> <span class="s2">&quot;Formatting ...&quot;</span>
     <span class="n">black</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="automate-testing-with-nox">
+<h2><span class="section-number">1.1.2. </span>Automate Testing with Nox<a class="headerlink" href="#automate-testing-with-nox" title="Permalink to this heading">#</a></h2>
+<p>Testing your code against multiple Python Versions is hard.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">Nox</span></code>, you can automate this step!</p>
+<p><code class="docutils literal notranslate"><span class="pre">Nox</span></code> is a command-line tool to automate testing in multiple Python Environments locally.</p>
+<p>You can customize the sessions with a Python script.</p>
+<p>See the example below, where we define a session (𝐭𝐞𝐬𝐭𝐬) in our 𝐧𝐨𝐱𝐟𝐢𝐥𝐞.𝐩𝐲 and define the Python versions we want to test against. Moreover we set up another session (𝐥𝐢𝐧𝐭) to run flake8 against our code.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Nox</span></code> is highly customizable, so check out their documentation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># noxfile.py</span>
+
+<span class="kn">import</span> <span class="nn">nox</span>
+
+<span class="nd">@nox</span><span class="o">.</span><span class="n">session</span><span class="p">(</span><span class="n">python</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;3.6&quot;</span><span class="p">,</span> <span class="s2">&quot;3.7&quot;</span><span class="p">,</span> <span class="s2">&quot;3.8&quot;</span><span class="p">,</span> <span class="s2">&quot;3.9&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">tests</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
+    <span class="c1"># Install testing dependency</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s1">&#39;pytest&#39;</span><span class="p">)</span>
+    <span class="c1"># Run tests</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;pytest&#39;</span><span class="p">)</span>
+    
+<span class="nd">@nox</span><span class="o">.</span><span class="n">session</span>
+<span class="k">def</span> <span class="nf">lint</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">&quot;flake8&quot;</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;flake8&quot;</span><span class="p">,</span> <span class="s2">&quot;example.py&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install nox
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!nox
 </pre></div>
 </div>
 </div>
@@ -512,6 +557,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automate-bash-commands-with-makefile">1.1.1. Automate Bash Commands with <code class="docutils literal notranslate"><span class="pre">Makefile</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automate-testing-with-nox">1.1.2. Automate Testing with Nox</a></li>
 </ul>
   </nav></div>
 

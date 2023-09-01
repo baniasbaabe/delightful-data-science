@@ -153,10 +153,11 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../codequality/index.html">1. Code Quality</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../codequality/codestyle.html">1.1. Code Style</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../codequality/memory.html">1.2. Memory Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../codequality/security.html">1.3. Security in Projects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../codequality/typing.html">1.4. Typing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/automation.html">1.1. Automation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/codestyle.html">1.2. Code Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/memory.html">1.3. Memory Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/security.html">1.4. Security in Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/typing.html">1.5. Typing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cooltools/index.html">2. Cool Tools</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -405,8 +406,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-seasonality-automatically-with-darts">5.7.1. Check Seasonality automatically with Darts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-for-time-series-data-with-timeseriessplit">5.7.2. Cross-validation for Time Series Data with TimeSeriesSplit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-seasonality-automatically-with-darts">5.7.1. Check Seasonality automatically with <code class="docutils literal notranslate"><span class="pre">darts</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-for-time-series-data-with-timeseriessplit">5.7.2. Cross-validation for Time Series Data with <code class="docutils literal notranslate"><span class="pre">TimeSeriesSplit</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cross-validation-with-tscv">5.7.3. More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code></a></li>
 </ul>
             </nav>
@@ -422,7 +423,7 @@ document.write(`
   <section id="time-series">
 <h1><span class="section-number">5.7. </span>Time Series<a class="headerlink" href="#time-series" title="Permalink to this heading">#</a></h1>
 <section id="check-seasonality-automatically-with-darts">
-<h2><span class="section-number">5.7.1. </span>Check Seasonality automatically with Darts<a class="headerlink" href="#check-seasonality-automatically-with-darts" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.7.1. </span>Check Seasonality automatically with <code class="docutils literal notranslate"><span class="pre">darts</span></code><a class="headerlink" href="#check-seasonality-automatically-with-darts" title="Permalink to this heading">#</a></h2>
 <p>Seasonality describes a pattern that repeats regularly over time.</p>
 <p>Identifying and understanding the seasonality in time series can boost the performance of your model.</p>
 <p>But you don’t have to find the seasonality effect and period by yourself.</p>
@@ -450,7 +451,7 @@ document.write(`
 </div>
 </section>
 <section id="cross-validation-for-time-series-data-with-timeseriessplit">
-<h2><span class="section-number">5.7.2. </span>Cross-validation for Time Series Data with TimeSeriesSplit<a class="headerlink" href="#cross-validation-for-time-series-data-with-timeseriessplit" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.7.2. </span>Cross-validation for Time Series Data with <code class="docutils literal notranslate"><span class="pre">TimeSeriesSplit</span></code><a class="headerlink" href="#cross-validation-for-time-series-data-with-timeseriessplit" title="Permalink to this heading">#</a></h2>
 <p>How to do Cross-Validation with Time Series?</p>
 <p>Using standard K-Fold Cross-Validation will not work.</p>
 <p>In this case, you would simply partition the data into k folds, and then train and evaluate the model k times, each time using a different fold as the test set and the rest of the data as the training set.</p>
@@ -571,8 +572,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-seasonality-automatically-with-darts">5.7.1. Check Seasonality automatically with Darts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-for-time-series-data-with-timeseriessplit">5.7.2. Cross-validation for Time Series Data with TimeSeriesSplit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-seasonality-automatically-with-darts">5.7.1. Check Seasonality automatically with <code class="docutils literal notranslate"><span class="pre">darts</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-for-time-series-data-with-timeseriessplit">5.7.2. Cross-validation for Time Series Data with <code class="docutils literal notranslate"><span class="pre">TimeSeriesSplit</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cross-validation-with-tscv">5.7.3. More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code></a></li>
 </ul>
   </nav></div>
