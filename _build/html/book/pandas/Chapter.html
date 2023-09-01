@@ -153,10 +153,11 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../codequality/index.html">1. Code Quality</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../codequality/codestyle.html">1.1. Code Style</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../codequality/memory.html">1.2. Memory Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../codequality/security.html">1.3. Security in Projects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../codequality/typing.html">1.4. Typing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/automation.html">1.1. Automation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/codestyle.html">1.2. Code Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/memory.html">1.3. Memory Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/security.html">1.4. Security in Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/typing.html">1.5. Typing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cooltools/index.html">2. Cool Tools</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -193,7 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">8. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pythontricks/Chapter.html">8.1. Pure Python + Built-in libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">8.2. Utility Libraries for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">8.2. Utilities for Python</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">9. Selenium Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -406,7 +407,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-pandas-in-a-readable-format">7.1.1. Filter Pandas in a readable format</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-frequency-of-time-series-with-pd-infer-freq">7.1.2. Get frequency of time series with pd.infer_freq</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-frequency-of-time-series-with-pd-infer-freq">7.1.2. Get frequency of time series with <code class="docutils literal notranslate"><span class="pre">pd.infer_freq</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-plotting-backend">7.1.3. Change the Plotting Backend</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#style-your-dataframes">7.1.4. Style your DataFrames</a></li>
 </ul>
@@ -442,7 +443,7 @@ filtered_df = df.query(&quot;A &gt; 1 &amp; B &lt; 6&quot;)
 </div>
 </section>
 <section id="get-frequency-of-time-series-with-pd-infer-freq">
-<h2><span class="section-number">7.1.2. </span>Get frequency of time series with pd.infer_freq<a class="headerlink" href="#get-frequency-of-time-series-with-pd-infer-freq" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.1.2. </span>Get frequency of time series with <code class="docutils literal notranslate"><span class="pre">pd.infer_freq</span></code><a class="headerlink" href="#get-frequency-of-time-series-with-pd-infer-freq" title="Permalink to this heading">#</a></h2>
 <p>When working with time series, it is useful to know the frequency of the data.</p>
 <p>But especially in larger datasets, it might be difficult to tell the frequency immediately.</p>
 <p>To get the frequency of a time series in Pandas, use <code class="docutils literal notranslate"><span class="pre">pd.infer_freq()</span></code>.</p>
@@ -570,7 +571,7 @@ sales_df.style.applymap(coloring, subset=[&#39;Revenue&#39;])
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-pandas-in-a-readable-format">7.1.1. Filter Pandas in a readable format</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-frequency-of-time-series-with-pd-infer-freq">7.1.2. Get frequency of time series with pd.infer_freq</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-frequency-of-time-series-with-pd-infer-freq">7.1.2. Get frequency of time series with <code class="docutils literal notranslate"><span class="pre">pd.infer_freq</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-plotting-backend">7.1.3. Change the Plotting Backend</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#style-your-dataframes">7.1.4. Style your DataFrames</a></li>
 </ul>

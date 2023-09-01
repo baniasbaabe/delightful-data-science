@@ -153,10 +153,11 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../codequality/index.html">1. Code Quality</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../codequality/codestyle.html">1.1. Code Style</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../codequality/memory.html">1.2. Memory Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../codequality/security.html">1.3. Security in Projects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../codequality/typing.html">1.4. Typing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/automation.html">1.1. Automation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/codestyle.html">1.2. Code Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/memory.html">1.3. Memory Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/security.html">1.4. Security in Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/typing.html">1.5. Typing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cooltools/index.html">2. Cool Tools</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -405,8 +406,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-up-for-loop-with-joblib-parallel">8.2.1. Speed up For-Loop with joblib.Parallel</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-datetimes-easily-with-pendulum">8.2.2. Work with datetimes easily with pendulum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-up-for-loop-with-joblib-parallel">8.2.1. Speed up For-Loop with <code class="docutils literal notranslate"><span class="pre">joblib.Parallel</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-datetimes-easily-with-pendulum">8.2.2. Work with datetimes easily with <code class="docutils literal notranslate"><span class="pre">pendulum</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prettify-your-data-structures-with-pprint">8.2.3. Prettify your Data Structures with <code class="docutils literal notranslate"><span class="pre">pprint</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-logging-with-loguru">8.2.4. Easy Logging with <code class="docutils literal notranslate"><span class="pre">loguru</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-truly-random-numbers">8.2.5. Generate Truly Random Numbers</a></li>
@@ -425,7 +426,7 @@ document.write(`
   <section id="utilities-for-python">
 <h1><span class="section-number">8.2. </span>Utilities for Python<a class="headerlink" href="#utilities-for-python" title="Permalink to this heading">#</a></h1>
 <section id="speed-up-for-loop-with-joblib-parallel">
-<h2><span class="section-number">8.2.1. </span>Speed up For-Loop with joblib.Parallel<a class="headerlink" href="#speed-up-for-loop-with-joblib-parallel" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.2.1. </span>Speed up For-Loop with <code class="docutils literal notranslate"><span class="pre">joblib.Parallel</span></code><a class="headerlink" href="#speed-up-for-loop-with-joblib-parallel" title="Permalink to this heading">#</a></h2>
 <p>Don’t use plain for loops in Python.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Joblib</span></code> provides a <code class="docutils literal notranslate"><span class="pre">Parallel</span></code> class to write parallel for loops using multiprocessing.</p>
 <p>Below you can see an example of how to use it with all of your processors to speed up your calculations.</p>
@@ -448,7 +449,7 @@ document.write(`
 </div>
 </section>
 <section id="work-with-datetimes-easily-with-pendulum">
-<h2><span class="section-number">8.2.2. </span>Work with datetimes easily with pendulum<a class="headerlink" href="#work-with-datetimes-easily-with-pendulum" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.2.2. </span>Work with datetimes easily with <code class="docutils literal notranslate"><span class="pre">pendulum</span></code><a class="headerlink" href="#work-with-datetimes-easily-with-pendulum" title="Permalink to this heading">#</a></h2>
 <p>Tired of the difficulties of working with dates and times in Python?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">pendulum</span></code>!</p>
 <p><code class="docutils literal notranslate"><span class="pre">pendulum</span></code> takes the built-in <code class="docutils literal notranslate"><span class="pre">datetime</span></code> library from Python to the next level with its intuitive and human-friendly way of handling dates and times.</p>
@@ -662,8 +663,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-up-for-loop-with-joblib-parallel">8.2.1. Speed up For-Loop with joblib.Parallel</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-datetimes-easily-with-pendulum">8.2.2. Work with datetimes easily with pendulum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-up-for-loop-with-joblib-parallel">8.2.1. Speed up For-Loop with <code class="docutils literal notranslate"><span class="pre">joblib.Parallel</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-datetimes-easily-with-pendulum">8.2.2. Work with datetimes easily with <code class="docutils literal notranslate"><span class="pre">pendulum</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prettify-your-data-structures-with-pprint">8.2.3. Prettify your Data Structures with <code class="docutils literal notranslate"><span class="pre">pprint</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-logging-with-loguru">8.2.4. Easy Logging with <code class="docutils literal notranslate"><span class="pre">loguru</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-truly-random-numbers">8.2.5. Generate Truly Random Numbers</a></li>
