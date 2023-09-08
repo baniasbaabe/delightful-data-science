@@ -433,6 +433,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-ocr-with-easyocr">2.1.25. Perform OCR with <code class="docutils literal notranslate"><span class="pre">easyOCR</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagram-as-code-with-diagrams">2.1.26. Diagram-as-Code with <code class="docutils literal notranslate"><span class="pre">diagrams</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-retry-functionality-with-tenacity">2.1.27. Powerful Retry Functionality with <code class="docutils literal notranslate"><span class="pre">tenacity</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performant-graph-analysis-with-python-igraph">2.1.28. Performant Graph Analysis with <code class="docutils literal notranslate"><span class="pre">python-igraph</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1222,6 +1223,49 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="performant-graph-analysis-with-python-igraph">
+<h2><span class="section-number">2.1.28. </span>Performant Graph Analysis with <code class="docutils literal notranslate"><span class="pre">python-igraph</span></code><a class="headerlink" href="#performant-graph-analysis-with-python-igraph" title="Permalink to this heading">#</a></h2>
+<p>When you want to work with graphs in Python</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">python-igraph</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">python-igraph</span></code> offers a Python Interface to igraph, a fast and open source C library to manipulate and analyze graphs.</p>
+<p>Due to its high performance, it can handle larger graphs for complex network research which you can visualize with matplotlib or plotly.</p>
+<p>It’s documentation also offers neat tutorials for different purposes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install igraph
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">igraph</span> <span class="k">as</span> <span class="nn">ig</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">ig</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span>
+    <span class="mi">6</span><span class="p">,</span>
+    <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
+<span class="p">)</span>
+
+<span class="n">g</span><span class="o">.</span><span class="n">es</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">g</span><span class="p">,</span>
+    <span class="n">target</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;circle&#39;</span><span class="p">,</span>
+    <span class="n">vertex_color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span>
+    <span class="n">vertex_label</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">vcount</span><span class="p">()),</span>
+    <span class="n">edge_width</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">es</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">],</span>
+    <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;#666&#39;</span><span class="p">,</span>
+    <span class="n">edge_background</span><span class="o">=</span><span class="s1">&#39;white&#39;</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1312,6 +1356,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-ocr-with-easyocr">2.1.25. Perform OCR with <code class="docutils literal notranslate"><span class="pre">easyOCR</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagram-as-code-with-diagrams">2.1.26. Diagram-as-Code with <code class="docutils literal notranslate"><span class="pre">diagrams</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-retry-functionality-with-tenacity">2.1.27. Powerful Retry Functionality with <code class="docutils literal notranslate"><span class="pre">tenacity</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performant-graph-analysis-with-python-igraph">2.1.28. Performant Graph Analysis with <code class="docutils literal notranslate"><span class="pre">python-igraph</span></code></a></li>
 </ul>
   </nav></div>
 

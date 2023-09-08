@@ -412,6 +412,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-missing-values-with-missingno">5.2.4. Analyze Missing Values with <code class="docutils literal notranslate"><span class="pre">missingno</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-correlation-with-phik">5.2.5. Powerful Correlation with <code class="docutils literal notranslate"><span class="pre">phik</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-x-axis-of-time-series-plots-correctly-with-autofmt-xdate">5.2.6. Display X-Axis of Time Series Plots Correctly with <code class="docutils literal notranslate"><span class="pre">autofmt_xdate()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beautiful-map-plots-with-plotly">5.2.7. Beautiful Map Plots with <code class="docutils literal notranslate"><span class="pre">Plotly</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -608,6 +609,28 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="beautiful-map-plots-with-plotly">
+<h2><span class="section-number">5.2.7. </span>Beautiful Map Plots with <code class="docutils literal notranslate"><span class="pre">Plotly</span></code><a class="headerlink" href="#beautiful-map-plots-with-plotly" title="Permalink to this heading">#</a></h2>
+<p>With <code class="docutils literal notranslate"><span class="pre">Plotly</span></code>, you can create beautiful geo maps with a few lines of code.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Plotly</span></code> supports map plots like:</p>
+<ul class="simple">
+<li><p>Filled areas on maps</p></li>
+<li><p>Bubble Maps</p></li>
+<li><p>Hexbin maps</p></li>
+<li><p>Lines on maps</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gapminder</span><span class="p">()</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;year == 2007&quot;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter_geo</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">locations</span><span class="o">=</span><span class="s2">&quot;iso_alpha&quot;</span><span class="p">,</span>
+                     <span class="n">size</span><span class="o">=</span><span class="s2">&quot;pop&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -677,6 +700,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-missing-values-with-missingno">5.2.4. Analyze Missing Values with <code class="docutils literal notranslate"><span class="pre">missingno</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-correlation-with-phik">5.2.5. Powerful Correlation with <code class="docutils literal notranslate"><span class="pre">phik</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-x-axis-of-time-series-plots-correctly-with-autofmt-xdate">5.2.6. Display X-Axis of Time Series Plots Correctly with <code class="docutils literal notranslate"><span class="pre">autofmt_xdate()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beautiful-map-plots-with-plotly">5.2.7. Beautiful Map Plots with <code class="docutils literal notranslate"><span class="pre">Plotly</span></code></a></li>
 </ul>
   </nav></div>
 
