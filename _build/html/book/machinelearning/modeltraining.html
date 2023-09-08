@@ -427,6 +427,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-multilabel-stratified-kfold-with-iterative-stratification">5.5.19. Perform Multilabel Stratified KFold with <code class="docutils literal notranslate"><span class="pre">iterative-stratification</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpret-your-model-with-shapash">5.5.20. Interpret your Model with <code class="docutils literal notranslate"><span class="pre">Shapash</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-your-model-and-data-with-deepchecks">5.5.21. Validate Your Model and Data with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-high-performance-features-with-optuna">5.5.22. Visualize high-performance Features with <code class="docutils literal notranslate"><span class="pre">Optuna</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-ensembling-with-combo">5.5.23. Model Ensembling with <code class="docutils literal notranslate"><span class="pre">combo</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1318,6 +1320,85 @@ suite.run(train_dataset=ds_train, test_dataset=ds_test, model=rf_clf)
 </div>
 </div>
 </section>
+<section id="visualize-high-performance-features-with-optuna">
+<h2><span class="section-number">5.5.22. </span>Visualize high-performance Features with <code class="docutils literal notranslate"><span class="pre">Optuna</span></code><a class="headerlink" href="#visualize-high-performance-features-with-optuna" title="Permalink to this heading">#</a></h2>
+<p>Optuna released a new feature for detecting high-performing parameters.</p>
+<p>Its <code class="docutils literal notranslate"><span class="pre">plot_rank()</span></code> function visualizes different parameters, with individual points representing individual trials.</p>
+<p>Since the plot is interactive, you can also hover over it and dive deeper into analysing your hyperparameter optimization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.ensemble import RandomForestClassifier
+
+import optuna
+
+
+def objective(trial):
+    clf = RandomForestClassifier(
+        n_estimators=50,
+        criterion=&quot;gini&quot;,
+        max_depth=trial.suggest_int(&#39;Mdpth&#39;, 2, 32, log=True),
+        min_samples_split=trial.suggest_int(&#39;mspl&#39;, 2, 32, log=True),
+        min_samples_leaf=trial.suggest_int(&#39;mlfs&#39;, 1, 32, log=True),
+        min_weight_fraction_leaf=trial.suggest_float(&#39;mwfr&#39;, 0.0, 0.5),
+        max_features=trial.suggest_int(&quot;Mfts&quot;, 1, 15),
+        max_leaf_nodes=trial.suggest_int(&#39;Mnods&#39;, 4, 100, log=True),
+        min_impurity_decrease=trial.suggest_float(&#39;mid&#39;, 0.0, 0.5),
+    )
+    clf.fit(X_train, y_train)
+    return clf.score(X_test, y_test)
+
+# Optimize
+study = optuna.create_study(direction=&#39;maximize&#39;)
+study.optimize(objective, n_trials=30)
+
+# Get parameters sorted by the importance values
+importances = optuna.importance.get_param_importances(study)
+params_sorted = list(importances.keys())
+
+# Plot
+fig = optuna.visualization.plot_rank(study, params=params_sorted[:4])
+fig.show()
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-ensembling-with-combo">
+<h2><span class="section-number">5.5.23. </span>Model Ensembling with <code class="docutils literal notranslate"><span class="pre">combo</span></code><a class="headerlink" href="#model-ensembling-with-combo" title="Permalink to this heading">#</a></h2>
+<p>Looking at the top solutions on Kaggle you will notice one thing:</p>
+<p>There is usually some sort of combination of various ML models involved.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">combo</span></code> for Python, you can combine</p>
+<ul class="simple">
+<li><p>Multiple Classifiers</p></li>
+<li><p>Multiple Anomaly Detection Models</p></li>
+<li><p>Multiple Clustering Models</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">combo</span></code> also offers multiple combination methods for every category.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!pip install combo
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from combo.models.cluster_comb import ClustererEnsemble
+
+estimators = [KMeans(n_clusters=n_clusters),
+              MiniBatchKMeans(n_clusters=n_clusters),
+              AgglomerativeClustering(n_clusters=n_clusters)]
+
+clf = ClustererEnsemble(estimators, n_clusters=n_clusters)
+clf.fit(X)
+
+aligned_labels = clf.aligned_labels_
+predicted_labels = clf.labels_
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1402,6 +1483,8 @@ suite.run(train_dataset=ds_train, test_dataset=ds_test, model=rf_clf)
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-multilabel-stratified-kfold-with-iterative-stratification">5.5.19. Perform Multilabel Stratified KFold with <code class="docutils literal notranslate"><span class="pre">iterative-stratification</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpret-your-model-with-shapash">5.5.20. Interpret your Model with <code class="docutils literal notranslate"><span class="pre">Shapash</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-your-model-and-data-with-deepchecks">5.5.21. Validate Your Model and Data with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-high-performance-features-with-optuna">5.5.22. Visualize high-performance Features with <code class="docutils literal notranslate"><span class="pre">Optuna</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-ensembling-with-combo">5.5.23. Model Ensembling with <code class="docutils literal notranslate"><span class="pre">combo</span></code></a></li>
 </ul>
   </nav></div>
 
