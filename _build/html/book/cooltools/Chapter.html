@@ -206,7 +206,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">11. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">11.1. Pytest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">11.1. Testing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">12. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -434,6 +434,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagram-as-code-with-diagrams">2.1.26. Diagram-as-Code with <code class="docutils literal notranslate"><span class="pre">diagrams</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-retry-functionality-with-tenacity">2.1.27. Powerful Retry Functionality with <code class="docutils literal notranslate"><span class="pre">tenacity</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performant-graph-analysis-with-python-igraph">2.1.28. Performant Graph Analysis with <code class="docutils literal notranslate"><span class="pre">python-igraph</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speedtests-via-cli-with-speedtest-cli">2.1.29. Speedtests via CLI with <code class="docutils literal notranslate"><span class="pre">speedtest-cli</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimalistic-database-for-python-with-tinydb">2.1.30. Minimalistic Database for Python with <code class="docutils literal notranslate"><span class="pre">tinydb</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1266,6 +1268,52 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="speedtests-via-cli-with-speedtest-cli">
+<h2><span class="section-number">2.1.29. </span>Speedtests via CLI with <code class="docutils literal notranslate"><span class="pre">speedtest-cli</span></code><a class="headerlink" href="#speedtests-via-cli-with-speedtest-cli" title="Permalink to this heading">#</a></h2>
+<p>If you want to test your internet bandwidth via your CLI</p>
+<p>try <code class="docutils literal notranslate"><span class="pre">speedtest-cli</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">speedtest-cli</span></code> tests your internet bandwidth via speedtest(dot)net.</p>
+<p>It’s installable via pip.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install speedtest-cli
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!speedtest-cli
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="minimalistic-database-for-python-with-tinydb">
+<h2><span class="section-number">2.1.30. </span>Minimalistic Database for Python with <code class="docutils literal notranslate"><span class="pre">tinydb</span></code><a class="headerlink" href="#minimalistic-database-for-python-with-tinydb" title="Permalink to this heading">#</a></h2>
+<p>Do you search for a minimalistic document-oriented database in Python?</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">tinydb</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">tinydb</span></code> is written in pure Python and offers a lightweight document-oriented database.</p>
+<p>It’s perfect for small apps and hobby projects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install tinydb
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tinydb</span> <span class="kn">import</span> <span class="n">TinyDB</span><span class="p">,</span> <span class="n">Query</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">TinyDB</span><span class="p">(</span><span class="s1">&#39;/path/to/db.json&#39;</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span><span class="s1">&#39;int&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;char&#39;</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">})</span>
+<span class="n">db</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span><span class="s1">&#39;int&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;char&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1357,6 +1405,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagram-as-code-with-diagrams">2.1.26. Diagram-as-Code with <code class="docutils literal notranslate"><span class="pre">diagrams</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-retry-functionality-with-tenacity">2.1.27. Powerful Retry Functionality with <code class="docutils literal notranslate"><span class="pre">tenacity</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performant-graph-analysis-with-python-igraph">2.1.28. Performant Graph Analysis with <code class="docutils literal notranslate"><span class="pre">python-igraph</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speedtests-via-cli-with-speedtest-cli">2.1.29. Speedtests via CLI with <code class="docutils literal notranslate"><span class="pre">speedtest-cli</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimalistic-database-for-python-with-tinydb">2.1.30. Minimalistic Database for Python with <code class="docutils literal notranslate"><span class="pre">tinydb</span></code></a></li>
 </ul>
   </nav></div>
 

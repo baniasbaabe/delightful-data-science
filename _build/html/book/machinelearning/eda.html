@@ -206,7 +206,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">11. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">11.1. Pytest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">11.1. Testing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">12. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -413,6 +413,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-correlation-with-phik">5.2.5. Powerful Correlation with <code class="docutils literal notranslate"><span class="pre">phik</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-x-axis-of-time-series-plots-correctly-with-autofmt-xdate">5.2.6. Display X-Axis of Time Series Plots Correctly with <code class="docutils literal notranslate"><span class="pre">autofmt_xdate()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beautiful-map-plots-with-plotly">5.2.7. Beautiful Map Plots with <code class="docutils literal notranslate"><span class="pre">Plotly</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosaic-plots-with-matplotlib">5.2.8. Mosaic Plots with <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -631,6 +632,32 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="mosaic-plots-with-matplotlib">
+<h2><span class="section-number">5.2.8. </span>Mosaic Plots with <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code><a class="headerlink" href="#mosaic-plots-with-matplotlib" title="Permalink to this heading">#</a></h2>
+<p>You can create a mosaic of subplots in Matplotlib.</p>
+<p><code class="docutils literal notranslate"><span class="pre">plt.subplot_mosaic()</span></code> allows you to arrange multiple subplots in a grid-like fashion, specifying their positions and sizes using a string.</p>
+<p>A powerful function to control your subplots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Define the layout of subplots</span>
+<span class="n">layout</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    AAE</span>
+<span class="s1">    C.E</span>
+<span class="s1">    &#39;&#39;&#39;</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">axd</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplot_mosaic</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axd</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Plot </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -701,6 +728,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-correlation-with-phik">5.2.5. Powerful Correlation with <code class="docutils literal notranslate"><span class="pre">phik</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-x-axis-of-time-series-plots-correctly-with-autofmt-xdate">5.2.6. Display X-Axis of Time Series Plots Correctly with <code class="docutils literal notranslate"><span class="pre">autofmt_xdate()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beautiful-map-plots-with-plotly">5.2.7. Beautiful Map Plots with <code class="docutils literal notranslate"><span class="pre">Plotly</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosaic-plots-with-matplotlib">5.2.8. Mosaic Plots with <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code></a></li>
 </ul>
   </nav></div>
 

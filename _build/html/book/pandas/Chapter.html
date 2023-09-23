@@ -206,7 +206,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">11. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">11.1. Pytest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">11.1. Testing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">12. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -410,6 +410,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-frequency-of-time-series-with-pd-infer-freq">7.1.2. Get frequency of time series with <code class="docutils literal notranslate"><span class="pre">pd.infer_freq</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-plotting-backend">7.1.3. Change the Plotting Backend</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#style-your-dataframes">7.1.4. Style your DataFrames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-precision-of-displayed-floats">7.1.5. Set Precision of Displayed Floats</a></li>
 </ul>
             </nav>
         </div>
@@ -507,6 +508,23 @@ sales_df.style.applymap(coloring, subset=[&#39;Revenue&#39;])
 </div>
 </div>
 </section>
+<section id="set-precision-of-displayed-floats">
+<h2><span class="section-number">7.1.5. </span>Set Precision of Displayed Floats<a class="headerlink" href="#set-precision-of-displayed-floats" title="Permalink to this heading">#</a></h2>
+<p>In Pandas, you can control the precision of the displayed values.</p>
+<p>Just use the .set_option() function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+
+pd.set_option(&#39;display.precision&#39;, 2)
+
+data = {&#39;Value&#39;: [1.2343129, 5.8956701, 6.224289]}
+df = pd.DataFrame(data)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -574,6 +592,7 @@ sales_df.style.applymap(coloring, subset=[&#39;Revenue&#39;])
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-frequency-of-time-series-with-pd-infer-freq">7.1.2. Get frequency of time series with <code class="docutils literal notranslate"><span class="pre">pd.infer_freq</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-plotting-backend">7.1.3. Change the Plotting Backend</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#style-your-dataframes">7.1.4. Style your DataFrames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-precision-of-displayed-floats">7.1.5. Set Precision of Displayed Floats</a></li>
 </ul>
   </nav></div>
 
