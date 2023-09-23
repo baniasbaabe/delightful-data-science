@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>11.1. Pytest &#8212; Delightful Data Science</title>
+    <title>11.1. Testing &#8212; Delightful Data Science</title>
   
   
   
@@ -206,7 +206,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">11. Testing in Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">11.1. Pytest</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">11.1. Testing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">12. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -396,7 +396,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Pytest</h1>
+    <h1>Testing</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -412,6 +412,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-your-plots-with-pytest-mpl">11.1.4. Test your plots with <code class="docutils literal notranslate"><span class="pre">pytest-mpl</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instantly-show-errors-in-your-test-suite">11.1.5. Instantly show errors in your Test Suite</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limit-pytest-s-output-to-a-minimum">11.1.6. Limit pytest’s output to a minimum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#property-based-testing-with-hypothesis">11.1.7. Property-based Testing with <code class="docutils literal notranslate"><span class="pre">hypothesis</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -423,8 +424,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="pytest">
-<h1><span class="section-number">11.1. </span>Pytest<a class="headerlink" href="#pytest" title="Permalink to this heading">#</a></h1>
+  <section id="testing">
+<h1><span class="section-number">11.1. </span>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">#</a></h1>
 <section id="pytest-on-steroids-parallelize-your-test-with-pytest-xdist">
 <h2><span class="section-number">11.1.1. </span>Pytest on steroids: Parallelize your test with <code class="docutils literal notranslate"><span class="pre">pytest-xdist</span></code><a class="headerlink" href="#pytest-on-steroids-parallelize-your-test-with-pytest-xdist" title="Permalink to this heading">#</a></h2>
 <p>Your test suite takes a very long time to run in Python?</p>
@@ -610,6 +611,31 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="property-based-testing-with-hypothesis">
+<h2><span class="section-number">11.1.7. </span>Property-based Testing with <code class="docutils literal notranslate"><span class="pre">hypothesis</span></code><a class="headerlink" href="#property-based-testing-with-hypothesis" title="Permalink to this heading">#</a></h2>
+<p>Looking for a smarter way to test your Python code?</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">hypothesis</span></code>.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">hypothesis</span></code>, you define properties your code should uphold, and it generates diverse test cases, uncovering edge cases and unexpected bugs.</p>
+<p>I encourage you to look into their documentation since it’s really upgrading your testing game.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install hypothesis
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span><span class="p">,</span> <span class="n">strategies</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="nd">@given</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">(),</span> <span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">())</span>
+<span class="k">def</span> <span class="nf">test_addition_commutative</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">==</span> <span class="n">b</span> <span class="o">+</span> <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -679,6 +705,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-your-plots-with-pytest-mpl">11.1.4. Test your plots with <code class="docutils literal notranslate"><span class="pre">pytest-mpl</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instantly-show-errors-in-your-test-suite">11.1.5. Instantly show errors in your Test Suite</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limit-pytest-s-output-to-a-minimum">11.1.6. Limit pytest’s output to a minimum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#property-based-testing-with-hypothesis">11.1.7. Property-based Testing with <code class="docutils literal notranslate"><span class="pre">hypothesis</span></code></a></li>
 </ul>
   </nav></div>
 

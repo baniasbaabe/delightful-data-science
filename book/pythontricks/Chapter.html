@@ -206,7 +206,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">11. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">11.1. Pytest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">11.1. Testing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">12. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -420,6 +420,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heaps-in-python">8.1.12. Heaps in Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-str-and-repr">8.1.13. Difference between <code class="docutils literal notranslate"><span class="pre">__str__</span></code> and <code class="docutils literal notranslate"><span class="pre">__repr__</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neat-way-to-merge-dictionaries">8.1.14. Neat Way to Merge Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#switch-case-statements-in-python">8.1.15. Switch Case Statements in Python</a></li>
 </ul>
             </nav>
         </div>
@@ -759,6 +760,33 @@ object.</p>
 </div>
 </div>
 </section>
+<section id="switch-case-statements-in-python">
+<h2><span class="section-number">8.1.15. </span>Switch Case Statements in Python<a class="headerlink" href="#switch-case-statements-in-python" title="Permalink to this heading">#</a></h2>
+<p>Did you know Python has switch-cases too?</p>
+<p>They’re called match-case and it was introduced in Python 3.10+.</p>
+<p>It allows you to perform (complex) pattern matching on values and execute code blocks based on the matched patterns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">match_example</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">match</span> <span class="n">value</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value is 1&quot;</span><span class="p">)</span>
+
+        <span class="k">case</span> <span class="mi">2</span> <span class="o">|</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value is 2 or 3&quot;</span><span class="p">)</span>
+        
+        <span class="k">case</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value is 4&quot;</span><span class="p">)</span>
+        
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value is something else&quot;</span><span class="p">)</span>
+
+<span class="n">match_example</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -836,6 +864,7 @@ object.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heaps-in-python">8.1.12. Heaps in Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-str-and-repr">8.1.13. Difference between <code class="docutils literal notranslate"><span class="pre">__str__</span></code> and <code class="docutils literal notranslate"><span class="pre">__repr__</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neat-way-to-merge-dictionaries">8.1.14. Neat Way to Merge Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#switch-case-statements-in-python">8.1.15. Switch Case Statements in Python</a></li>
 </ul>
   </nav></div>
 
