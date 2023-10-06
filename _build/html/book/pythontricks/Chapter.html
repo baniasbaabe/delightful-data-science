@@ -421,6 +421,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-str-and-repr">8.1.13. Difference between <code class="docutils literal notranslate"><span class="pre">__str__</span></code> and <code class="docutils literal notranslate"><span class="pre">__repr__</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neat-way-to-merge-dictionaries">8.1.14. Neat Way to Merge Dictionaries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#switch-case-statements-in-python">8.1.15. Switch Case Statements in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#walrus-operator-in-python">8.1.16. Walrus Operator in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#count-occurrences-in-an-iterable-with-counter">8.1.17. Count Occurrences in an Iterable with <code class="docutils literal notranslate"><span class="pre">Counter</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-default-values-for-dictionaries-with-defaultdict">8.1.18. Set Default Values for Dictionaries with <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-structured-tuples-with-namedtuple">8.1.19. More Structured Tuples with <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -787,6 +791,117 @@ object.</p>
 </div>
 </div>
 </section>
+<section id="walrus-operator-in-python">
+<h2><span class="section-number">8.1.16. </span>Walrus Operator in Python<a class="headerlink" href="#walrus-operator-in-python" title="Permalink to this heading">#</a></h2>
+<p>Do you know about the Walrus operator in Python?</p>
+<p>The Walrus operator allows you to assign a value to a variable as part of an expression.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># With Walrus Operator</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="o">:=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your name: &quot;</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, anonymous!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Without Walrus Operator</span>
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your name: &quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, anonymous!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="count-occurrences-in-an-iterable-with-counter">
+<h2><span class="section-number">8.1.17. </span>Count Occurrences in an Iterable with <code class="docutils literal notranslate"><span class="pre">Counter</span></code><a class="headerlink" href="#count-occurrences-in-an-iterable-with-counter" title="Permalink to this heading">#</a></h2>
+<p>Don’t count the occurrences of elements in your list manually.</p>
+<p>Instead, use <code class="docutils literal notranslate"><span class="pre">collections.Counter</span></code> in Python.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Counter</span></code> is used for counting the occurrences of elements in an iterable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># With Counter</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;kiwi&quot;</span><span class="p">]</span>
+
+<span class="n">fruit_counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+
+<span class="c1"># Output: Counter({&#39;apple&#39;: 2, &#39;banana&#39;: 2, &#39;orange&#39;: 1, &#39;kiwi&#39;: 1})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Without Counter</span>
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;kiwi&quot;</span><span class="p">]</span>
+
+<span class="n">fruit_counts</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="n">fruit_counts</span><span class="p">:</span>
+        <span class="n">fruit_counts</span><span class="p">[</span><span class="n">fruit</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fruit_counts</span><span class="p">[</span><span class="n">fruit</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-default-values-for-dictionaries-with-defaultdict">
+<h2><span class="section-number">8.1.18. </span>Set Default Values for Dictionaries with <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code><a class="headerlink" href="#set-default-values-for-dictionaries-with-defaultdict" title="Permalink to this heading">#</a></h2>
+<p>Don’t use dictionaries in Python.</p>
+<p>Instead use <code class="docutils literal notranslate"><span class="pre">defaultdicts</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">defaultdict</span></code> is similar to dictionaries, but it allows you to set a default value for new keys that haven’t been added yet.</p>
+<p>This is useful when you want to perform operations without checking if a key exists.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+      
+<span class="n">d</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="n">d</span><span class="p">[</span><span class="s2">&quot;Fruits&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Kiwi&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="p">[</span><span class="s2">&quot;Cars&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Mercedes&quot;</span><span class="p">)</span>
+  
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;Fruits&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;Cars&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;Animals&quot;</span><span class="p">])</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Output:</span>
+<span class="sd">[&#39;Kiwi&#39;]</span>
+<span class="sd">[&#39;Mercedes&#39;]</span>
+<span class="sd">[]</span>
+<span class="sd">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="more-structured-tuples-with-namedtuple">
+<h2><span class="section-number">8.1.19. </span>More Structured Tuples with <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code><a class="headerlink" href="#more-structured-tuples-with-namedtuple" title="Permalink to this heading">#</a></h2>
+<p>You don’t know about <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code>?</p>
+<p><code class="docutils literal notranslate"><span class="pre">namedtuple</span></code> are similar to regular tuples, but have named fields.</p>
+<p>This makes them more self-documenting and easier to work with.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+ 
+<span class="n">Point</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Point&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">3.2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -865,6 +980,10 @@ object.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-str-and-repr">8.1.13. Difference between <code class="docutils literal notranslate"><span class="pre">__str__</span></code> and <code class="docutils literal notranslate"><span class="pre">__repr__</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neat-way-to-merge-dictionaries">8.1.14. Neat Way to Merge Dictionaries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#switch-case-statements-in-python">8.1.15. Switch Case Statements in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#walrus-operator-in-python">8.1.16. Walrus Operator in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#count-occurrences-in-an-iterable-with-counter">8.1.17. Count Occurrences in an Iterable with <code class="docutils literal notranslate"><span class="pre">Counter</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-default-values-for-dictionaries-with-defaultdict">8.1.18. Set Default Values for Dictionaries with <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-structured-tuples-with-namedtuple">8.1.19. More Structured Tuples with <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code></a></li>
 </ul>
   </nav></div>
 
