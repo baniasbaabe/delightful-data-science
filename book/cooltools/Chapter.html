@@ -436,6 +436,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performant-graph-analysis-with-python-igraph">2.1.28. Performant Graph Analysis with <code class="docutils literal notranslate"><span class="pre">python-igraph</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speedtests-via-cli-with-speedtest-cli">2.1.29. Speedtests via CLI with <code class="docutils literal notranslate"><span class="pre">speedtest-cli</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimalistic-database-for-python-with-tinydb">2.1.30. Minimalistic Database for Python with <code class="docutils literal notranslate"><span class="pre">tinydb</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-code-metrics-with-radon">2.1.31. Calculate Code Metrics with <code class="docutils literal notranslate"><span class="pre">radon</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#better-alternative-to-requests">2.1.32. Better Alternative to <code class="docutils literal notranslate"><span class="pre">requests</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1314,6 +1316,64 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="calculate-code-metrics-with-radon">
+<h2><span class="section-number">2.1.31. </span>Calculate Code Metrics with <code class="docutils literal notranslate"><span class="pre">radon</span></code><a class="headerlink" href="#calculate-code-metrics-with-radon" title="Permalink to this heading">#</a></h2>
+<p>How do you ensure your codebase stays clean and maintainable?</p>
+<p>What if you can calculate how complex your codebase is?</p>
+<p>There are different metrics to do that:</p>
+<ul class="simple">
+<li><p>Raw Metrics like Source Lines of Code (SLOC) or Logical Lines of Code (LLOC). They are not a good estimator for the complexity.</p></li>
+<li><p>Cyclomatic Complexity: Corresponds to the number of decisions in the code + 1 (e.g. every for or if counts).</p></li>
+<li><p>Halstead Metrics: Metrics derived from the number of distinct and total operators and operands.</p></li>
+<li><p>Maintainability Index: Measures how maintainable the code is. It’s a mix of SLOC, Cyclomatic Complexity, and a Halstead Metric.</p></li>
+</ul>
+<p>With <code class="docutils literal notranslate"><span class="pre">radon</span></code>, you can calculate those metrics described above in Python (or via CLI).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install radon
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!radon cc example.py
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="better-alternative-to-requests">
+<h2><span class="section-number">2.1.32. </span>Better Alternative to <code class="docutils literal notranslate"><span class="pre">requests</span></code><a class="headerlink" href="#better-alternative-to-requests" title="Permalink to this heading">#</a></h2>
+<p>Want a better alternative to <code class="docutils literal notranslate"><span class="pre">requests</span></code>?</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">httpx</span></code> for Python.</p>
+<p><code class="docutils literal notranslate"><span class="pre">httpx</span></code> is a modern alternative to <code class="docutils literal notranslate"><span class="pre">requests</span></code> to make HTTP requests (while having a similar API).</p>
+<p>One of the main advantages is it supports asynchronous requests (while <code class="docutils literal notranslate"><span class="pre">requests</span></code> doesn’t).</p>
+<p>This can lead to performance improvements when dealing with multiple endpoints concurrently.</p>
+<p>Just try it for yourself.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install httpx
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">httpx</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/get&#39;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/put&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/delete&#39;</span><span class="p">)</span>
+
+<span class="c1"># Async support</span>
+<span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+     <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.example.com/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1407,6 +1467,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performant-graph-analysis-with-python-igraph">2.1.28. Performant Graph Analysis with <code class="docutils literal notranslate"><span class="pre">python-igraph</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speedtests-via-cli-with-speedtest-cli">2.1.29. Speedtests via CLI with <code class="docutils literal notranslate"><span class="pre">speedtest-cli</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimalistic-database-for-python-with-tinydb">2.1.30. Minimalistic Database for Python with <code class="docutils literal notranslate"><span class="pre">tinydb</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-code-metrics-with-radon">2.1.31. Calculate Code Metrics with <code class="docutils literal notranslate"><span class="pre">radon</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#better-alternative-to-requests">2.1.32. Better Alternative to <code class="docutils literal notranslate"><span class="pre">requests</span></code></a></li>
 </ul>
   </nav></div>
 
