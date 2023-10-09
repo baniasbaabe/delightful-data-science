@@ -206,7 +206,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">11. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">11.1. Pytest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">11.1. Testing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">12. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -429,6 +429,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-your-model-and-data-with-deepchecks">5.5.21. Validate Your Model and Data with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-high-performance-features-with-optuna">5.5.22. Visualize high-performance Features with <code class="docutils literal notranslate"><span class="pre">Optuna</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-ensembling-with-combo">5.5.23. Model Ensembling with <code class="docutils literal notranslate"><span class="pre">combo</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-plots-with-yellowbrick">5.5.24. Residual Plots with <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1399,6 +1400,36 @@ predicted_labels = clf.labels_
 </div>
 </div>
 </section>
+<section id="residual-plots-with-yellowbrick">
+<h2><span class="section-number">5.5.24. </span>Residual Plots with <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code><a class="headerlink" href="#residual-plots-with-yellowbrick" title="Permalink to this heading">#</a></h2>
+<p>To analyze the variance of the error of your Regression model</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">ResidualPlot</span></code> from <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code>.</p>
+<p>With Residual Plots, you can see how well-fitted your model is.</p>
+<p>If the data points exhibit a random distribution along the horizontal axis, a linear regression model is typically suitable, whereas in cases of non-random dispersion, a non-linear model is a better choice.</p>
+<p>See below how you can easily implement that with <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!pip install yellowbrick
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from yellowbrick.datasets import load_concrete
+from yellowbrick.regressor import ResidualsPlot
+
+model = Lasso()
+visualizer = ResidualsPlot(model)
+
+visualizer.fit(X_train, y_train)
+visualizer.score(X_test, y_test)
+visualizer.show() 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1485,6 +1516,7 @@ predicted_labels = clf.labels_
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-your-model-and-data-with-deepchecks">5.5.21. Validate Your Model and Data with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-high-performance-features-with-optuna">5.5.22. Visualize high-performance Features with <code class="docutils literal notranslate"><span class="pre">Optuna</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-ensembling-with-combo">5.5.23. Model Ensembling with <code class="docutils literal notranslate"><span class="pre">combo</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-plots-with-yellowbrick">5.5.24. Residual Plots with <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code></a></li>
 </ul>
   </nav></div>
 
