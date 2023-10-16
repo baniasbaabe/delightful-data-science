@@ -438,6 +438,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimalistic-database-for-python-with-tinydb">2.1.30. Minimalistic Database for Python with <code class="docutils literal notranslate"><span class="pre">tinydb</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-code-metrics-with-radon">2.1.31. Calculate Code Metrics with <code class="docutils literal notranslate"><span class="pre">radon</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#better-alternative-to-requests">2.1.32. Better Alternative to <code class="docutils literal notranslate"><span class="pre">requests</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-configurations-with-python-dotenv">2.1.33. Managing Configurations with <code class="docutils literal notranslate"><span class="pre">python-dotenv</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1201,7 +1202,7 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tenacity</span> <span class="k">as</span> <span class="nn">t</span>
 
 <span class="c1"># Stop after N attempts</span>
-<span class="nd">@retry</span><span class="p">(</span><span class="n">stop</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">tenacity</span><span class="o">.</span><span class="n">stop_after_attempt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="nd">@retry</span><span class="p">(</span><span class="n">stop</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">stop_after_attempt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 <span class="k">def</span> <span class="nf">stop_after_5_attempts</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stopping after 5 attempts&quot;</span><span class="p">)</span>
     <span class="k">raise</span> <span class="ne">Exception</span>
@@ -1212,13 +1213,13 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stopping after 10 seconds or 5 retries&quot;</span><span class="p">)</span>
     <span class="k">raise</span> <span class="ne">Exception</span>
 <span class="c1"># Wait for X Seconds</span>
-<span class="nd">@retry</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="n">wait_fixed</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nd">@retry</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">wait_fixed</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 <span class="k">def</span> <span class="nf">wait_2_s</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wait 2 second between retries&quot;</span><span class="p">)</span>
     <span class="k">raise</span> <span class="ne">Exception</span>
     
 <span class="c1"># Retry for specific Exceptions</span>
-<span class="nd">@retry</span><span class="p">(</span><span class="n">retry</span><span class="o">=</span><span class="n">retry_if_exception_type</span><span class="p">(</span><span class="ne">IOError</span><span class="p">))</span>
+<span class="nd">@retry</span><span class="p">(</span><span class="n">retry</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">retry_if_exception_type</span><span class="p">(</span><span class="ne">IOError</span><span class="p">))</span>
 <span class="k">def</span> <span class="nf">might_io_error</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Retry forever with no wait if an IOError occurs, raise any other errors&quot;</span><span class="p">)</span>
     <span class="k">raise</span> <span class="ne">Exception</span>
@@ -1374,6 +1375,46 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="managing-configurations-with-python-dotenv">
+<h2><span class="section-number">2.1.33. </span>Managing Configurations with <code class="docutils literal notranslate"><span class="pre">python-dotenv</span></code><a class="headerlink" href="#managing-configurations-with-python-dotenv" title="Permalink to this heading">#</a></h2>
+<p>Struggling with managing your Python project’s configuration?</p>
+<p>Try python-dotenv.</p>
+<p>python-dotenv reads key-value pairs from a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file and can set them as environment variables.</p>
+<p>You don’t have to hard-code those in your code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install python-dotenv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># .env</span>
+<span class="n">API_KEY</span><span class="o">=</span><span class="n">MySuperSecretAPIKey</span>
+<span class="n">DOMAIN</span><span class="o">=</span><span class="n">MyDomain</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span><span class="p">,</span> <span class="n">dotenv_values</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># Set environment variables defined in .env</span>
+<span class="n">load_dotenv</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">))</span>
+
+<span class="c1"># Or as a dictionary, without touching environment variables</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">dotenv_values</span><span class="p">(</span><span class="s2">&quot;.env&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;DOMAIN&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1469,6 +1510,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimalistic-database-for-python-with-tinydb">2.1.30. Minimalistic Database for Python with <code class="docutils literal notranslate"><span class="pre">tinydb</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-code-metrics-with-radon">2.1.31. Calculate Code Metrics with <code class="docutils literal notranslate"><span class="pre">radon</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#better-alternative-to-requests">2.1.32. Better Alternative to <code class="docutils literal notranslate"><span class="pre">requests</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-configurations-with-python-dotenv">2.1.33. Managing Configurations with <code class="docutils literal notranslate"><span class="pre">python-dotenv</span></code></a></li>
 </ul>
   </nav></div>
 
