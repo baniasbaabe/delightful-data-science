@@ -430,6 +430,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-high-performance-features-with-optuna">5.5.22. Visualize high-performance Features with <code class="docutils literal notranslate"><span class="pre">Optuna</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-ensembling-with-combo">5.5.23. Model Ensembling with <code class="docutils literal notranslate"><span class="pre">combo</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-plots-with-yellowbrick">5.5.24. Residual Plots with <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-and-distributed-hyperparameter-optimization-with-ray-tune">5.5.25. Powerful and Distributed Hyperparameter Optimization with <code class="docutils literal notranslate"><span class="pre">ray.tune</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1430,6 +1431,69 @@ visualizer.show()
 </div>
 </div>
 </section>
+<section id="powerful-and-distributed-hyperparameter-optimization-with-ray-tune">
+<h2><span class="section-number">5.5.25. </span>Powerful and Distributed Hyperparameter Optimization with <code class="docutils literal notranslate"><span class="pre">ray.tune</span></code><a class="headerlink" href="#powerful-and-distributed-hyperparameter-optimization-with-ray-tune" title="Permalink to this heading">#</a></h2>
+<p>Do you need hyperparameter tuning on steroids?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">tune</span></code> from <code class="docutils literal notranslate"><span class="pre">ray</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">tune</span></code> performs distributed hyperparameter tuning with multi-GPU and multi-node support, utilizing all the hardware you have.</p>
+<p>It supports the most popular ML libraries and integrates many other common hyperparameter optimization tools like Optuna or Hyperopt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!pip install &quot;ray[tune]&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># !pip install &quot;ray[tune]&quot;
+import sklearn.datasets
+import sklearn.metrics
+import sklearn.datasets
+import sklearn.metrics
+import xgboost as xgb
+from ray import train, tune
+from sklearn.model_selection import train_test_split
+
+
+def train_breast_cancer(config):
+    data, labels = sklearn.datasets.load_breast_cancer(return_X_y=True)
+    train_x, test_x, train_y, test_y = train_test_split(data, labels, test_size=0.25)
+    train_set = xgb.DMatrix(train_x, label=train_y)
+    test_set = xgb.DMatrix(test_x, label=test_y)
+    results = {}
+    xgb.train(
+        config,
+        train_set,
+        evals=[(test_set, &quot;eval&quot;)],
+        evals_result=results,
+        verbose_eval=False,
+    )
+    accuracy = 1.0 - results[&quot;eval&quot;][&quot;error&quot;][-1]
+    train.report({&quot;mean_accuracy&quot;: accuracy, &quot;done&quot;: True})
+
+
+config = {
+    &quot;objective&quot;: &quot;binary:logistic&quot;,
+    &quot;eval_metric&quot;: [&quot;logloss&quot;, &quot;error&quot;],
+    &quot;min_child_weight&quot;: tune.choice([1, 2, 3]),
+    &quot;subsample&quot;: tune.uniform(0.5, 1.0),
+}
+
+tuner = tune.Tuner(
+    train_breast_cancer,
+    tune_config=tune.TuneConfig(
+        num_samples=10,
+    ),
+    param_space=config,
+)
+results = tuner.fit()
+print(results.get_best_result(metric=&quot;mean_accuracy&quot;, mode=&quot;max&quot;).config)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1517,6 +1581,7 @@ visualizer.show()
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-high-performance-features-with-optuna">5.5.22. Visualize high-performance Features with <code class="docutils literal notranslate"><span class="pre">Optuna</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-ensembling-with-combo">5.5.23. Model Ensembling with <code class="docutils literal notranslate"><span class="pre">combo</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-plots-with-yellowbrick">5.5.24. Residual Plots with <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-and-distributed-hyperparameter-optimization-with-ray-tune">5.5.25. Powerful and Distributed Hyperparameter Optimization with <code class="docutils literal notranslate"><span class="pre">ray.tune</span></code></a></li>
 </ul>
   </nav></div>
 
