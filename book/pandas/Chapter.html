@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -433,11 +433,11 @@ document.write(`
 <p>And it’s fast, due to the optimized Cython-based code used under the hood.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-df = pd.DataFrame({&quot;A&quot;: [1,2,3], &quot;B&quot;: [4,5,6]})
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]})</span>
 
-filtered_df = df.query(&quot;A &gt; 1 &amp; B &lt; 6&quot;)
+<span class="n">filtered_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;A &gt; 1 &amp; B &lt; 6&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -452,11 +452,11 @@ filtered_df = df.query(&quot;A &gt; 1 &amp; B &lt; 6&quot;)
 <p>Below you can see how to infer the most likely frequency for a <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
-time_index = pd.date_range(start=&#39;1/1/2020 20:00:00&#39;, end=&#39;10/1/2020 00:00:00&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">time_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;1/1/2020 20:00:00&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;10/1/2020 00:00:00&#39;</span><span class="p">)</span>
 
-pd.infer_freq(time_index)
-&#39;D&#39;
+<span class="n">pd</span><span class="o">.</span><span class="n">infer_freq</span><span class="p">(</span><span class="n">time_index</span><span class="p">)</span>
+<span class="s1">&#39;D&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -469,13 +469,13 @@ pd.infer_freq(time_index)
 <p>See below how to do that with only one line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-pd.options.plotting.backend = &#39;plotly&#39;
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="s1">&#39;plotly&#39;</span>
 
-df = pd.DataFrame(dict(a=[5,7,9,3], b=[1,6,4,10]))
-fig = df.plot()
-fig.show()
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">b</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">]))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -488,21 +488,21 @@ fig.show()
 <p>And use <code class="docutils literal notranslate"><span class="pre">DataFrame.style.applymap()</span></code> to apply the condition.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-sales_data = sales_data = {
-    &#39;Product Name&#39;: [&#39;Product A&#39;, &#39;Product B&#39;, &#39;Product C&#39;, &#39;Product D&#39;],
-    &#39;Revenue&#39;: [10000, 5000, 15000, 1000],
-}
+<span class="n">sales_data</span> <span class="o">=</span> <span class="n">sales_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Product Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Product A&#39;</span><span class="p">,</span> <span class="s1">&#39;Product B&#39;</span><span class="p">,</span> <span class="s1">&#39;Product C&#39;</span><span class="p">,</span> <span class="s1">&#39;Product D&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Revenue&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">15000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span>
+<span class="p">}</span>
 
-sales_df = pd.DataFrame(sales_data)
+<span class="n">sales_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sales_data</span><span class="p">)</span>
 
-# Apply styles to the dataframe
-def coloring(val):
-    color = &#39;red&#39; if val &lt;= 10000 else &#39;green&#39;
-    return &#39;background-color: %s&#39; % color
+<span class="c1"># Apply styles to the dataframe</span>
+<span class="k">def</span> <span class="nf">coloring</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span> <span class="k">if</span> <span class="n">val</span> <span class="o">&lt;=</span> <span class="mi">10000</span> <span class="k">else</span> <span class="s1">&#39;green&#39;</span>
+    <span class="k">return</span> <span class="s1">&#39;background-color: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">color</span>
 
-sales_df.style.applymap(coloring, subset=[&#39;Revenue&#39;])
+<span class="n">sales_df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">coloring</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Revenue&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -514,12 +514,12 @@ sales_df.style.applymap(coloring, subset=[&#39;Revenue&#39;])
 <p>Just use the .set_option() function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-pd.set_option(&#39;display.precision&#39;, 2)
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.precision&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
-data = {&#39;Value&#39;: [1.2343129, 5.8956701, 6.224289]}
-df = pd.DataFrame(data)
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.2343129</span><span class="p">,</span> <span class="mf">5.8956701</span><span class="p">,</span> <span class="mf">6.224289</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -540,7 +540,7 @@ df = pd.DataFrame(data)
         },
         kernelOptions: {
             name: "python3",
-            path: "./book\pandas"
+            path: "./book/pandas"
         },
         predefinedOutput: true
     }
@@ -553,7 +553,10 @@ df = pd.DataFrame(data)
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="index.html"
@@ -573,7 +576,10 @@ df = pd.DataFrame(data)
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -601,7 +607,7 @@ df = pd.DataFrame(data)
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -631,7 +637,7 @@ By Banias Baabe
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -640,8 +646,8 @@ By Banias Baabe
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
