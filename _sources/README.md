@@ -23,7 +23,3 @@ Thus, the idea for "Delightful Data Science" was born. The book contains all the
 ## Small Snippets, Big Upgrades
 
 The book is called "Delightful Data Science" because it aims to make your data science journey more delightful by helping you become a better Data Scientist. By incorporating these tips and tricks into your workflow, you can make your Data Science projects more enjoyable and successful.
-
-## Support the Author:
-
-Buy me a coffee: https://www.buymeacoffee.com/banias
