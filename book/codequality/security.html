@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1.4. Security in Projects &#8212; Delightful Data Science</title>
+    <title>1.5. Security in Projects &#8212; Delightful Data Science</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/codequality/security';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1.5. Typing" href="typing.html" />
-    <link rel="prev" title="1.3. Memory Optimization" href="memory.html" />
+    <link rel="next" title="1.6. Typing" href="typing.html" />
+    <link rel="prev" title="1.4. Memory Optimization" href="memory.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,10 +154,11 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">1. Code Quality</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="automation.html">1.1. Automation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="codestyle.html">1.2. Code Style</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory.html">1.3. Memory Optimization</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.4. Security in Projects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="typing.html">1.5. Typing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cicd.html">1.2. CI/CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codestyle.html">1.3. Code Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory.html">1.4. Memory Optimization</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.5. Security in Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typing.html">1.6. Typing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cooltools/index.html">2. Cool Tools</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -406,9 +407,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-common-security-issues-with-bandit">1.4.1. Detect Common Security Issues with <code class="docutils literal notranslate"><span class="pre">bandit</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-vulnerabilities-in-your-environment">1.4.2. Detect vulnerabilities in your Environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#store-credentials-safely-with-keyring">1.4.3. Store Credentials safely with <code class="docutils literal notranslate"><span class="pre">keyring</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-common-security-issues-with-bandit">1.5.1. Detect Common Security Issues with <code class="docutils literal notranslate"><span class="pre">bandit</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-vulnerabilities-in-your-environment">1.5.2. Detect vulnerabilities in your Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#store-credentials-safely-with-keyring">1.5.3. Store Credentials safely with <code class="docutils literal notranslate"><span class="pre">keyring</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -421,9 +422,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="security-in-projects">
-<h1><span class="section-number">1.4. </span>Security in Projects<a class="headerlink" href="#security-in-projects" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1.5. </span>Security in Projects<a class="headerlink" href="#security-in-projects" title="Permalink to this heading">#</a></h1>
 <section id="detect-common-security-issues-with-bandit">
-<h2><span class="section-number">1.4.1. </span>Detect Common Security Issues with <code class="docutils literal notranslate"><span class="pre">bandit</span></code><a class="headerlink" href="#detect-common-security-issues-with-bandit" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.5.1. </span>Detect Common Security Issues with <code class="docutils literal notranslate"><span class="pre">bandit</span></code><a class="headerlink" href="#detect-common-security-issues-with-bandit" title="Permalink to this heading">#</a></h2>
 <p>Do you want to find potential security issues in your Python code?</p>
 <p>Try using <code class="docutils literal notranslate"><span class="pre">bandit</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">bandit</span></code> is a Python package to find common security issues and known vulnerabilities automatically.</p>
@@ -496,7 +497,7 @@ document.write(`
 </div>
 </section>
 <section id="detect-vulnerabilities-in-your-environment">
-<h2><span class="section-number">1.4.2. </span>Detect vulnerabilities in your Environment<a class="headerlink" href="#detect-vulnerabilities-in-your-environment" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.5.2. </span>Detect vulnerabilities in your Environment<a class="headerlink" href="#detect-vulnerabilities-in-your-environment" title="Permalink to this heading">#</a></h2>
 <p>Do you want to detect vulnerabilities in your Python environment?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">pip-audit</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip-audit</span></code> is a CLI tool to detect vulnerabilities in the packages installed in your Python environment.</p>
@@ -532,7 +533,7 @@ document.write(`
 </div>
 </section>
 <section id="store-credentials-safely-with-keyring">
-<h2><span class="section-number">1.4.3. </span>Store Credentials safely with <code class="docutils literal notranslate"><span class="pre">keyring</span></code><a class="headerlink" href="#store-credentials-safely-with-keyring" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.5.3. </span>Store Credentials safely with <code class="docutils literal notranslate"><span class="pre">keyring</span></code><a class="headerlink" href="#store-credentials-safely-with-keyring" title="Permalink to this heading">#</a></h2>
 <p>Almost every application needs credentials like password or API keys.</p>
 <p>But you should never store them in plain text files.
 They would be trivially accessible to anybody who has access to the text file.</p>
@@ -600,7 +601,7 @@ They would be trivially accessible to anybody who has access to the text file.</
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.3. </span>Memory Optimization</p>
+        <p class="prev-next-title"><span class="section-number">1.4. </span>Memory Optimization</p>
       </div>
     </a>
     <a class="right-next"
@@ -608,7 +609,7 @@ They would be trivially accessible to anybody who has access to the text file.</
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.5. </span>Typing</p>
+        <p class="prev-next-title"><span class="section-number">1.6. </span>Typing</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -630,9 +631,9 @@ They would be trivially accessible to anybody who has access to the text file.</
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-common-security-issues-with-bandit">1.4.1. Detect Common Security Issues with <code class="docutils literal notranslate"><span class="pre">bandit</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-vulnerabilities-in-your-environment">1.4.2. Detect vulnerabilities in your Environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#store-credentials-safely-with-keyring">1.4.3. Store Credentials safely with <code class="docutils literal notranslate"><span class="pre">keyring</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-common-security-issues-with-bandit">1.5.1. Detect Common Security Issues with <code class="docutils literal notranslate"><span class="pre">bandit</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-vulnerabilities-in-your-environment">1.5.2. Detect vulnerabilities in your Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#store-credentials-safely-with-keyring">1.5.3. Store Credentials safely with <code class="docutils literal notranslate"><span class="pre">keyring</span></code></a></li>
 </ul>
   </nav></div>
 

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1.5. Typing &#8212; Delightful Data Science</title>
+    <title>1.6. Typing &#8212; Delightful Data Science</title>
   
   
   
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="2. Cool Tools" href="../cooltools/index.html" />
-    <link rel="prev" title="1.4. Security in Projects" href="security.html" />
+    <link rel="prev" title="1.5. Security in Projects" href="security.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,10 +154,11 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">1. Code Quality</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="automation.html">1.1. Automation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="codestyle.html">1.2. Code Style</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory.html">1.3. Memory Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="security.html">1.4. Security in Projects</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.5. Typing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cicd.html">1.2. CI/CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codestyle.html">1.3. Code Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory.html">1.4. Memory Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">1.5. Security in Projects</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.6. Typing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cooltools/index.html">2. Cool Tools</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -406,9 +407,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enforce-types-with-typeguard">1.5.1. Enforce types with <code class="docutils literal notranslate"><span class="pre">typeguard</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-type-checking-with-mypy">1.5.2. Static type checking with <code class="docutils literal notranslate"><span class="pre">mypy</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faster-static-type-checking-with-pyright">1.5.3. Faster Static Type Checking with <code class="docutils literal notranslate"><span class="pre">pyright</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enforce-types-with-typeguard">1.6.1. Enforce types with <code class="docutils literal notranslate"><span class="pre">typeguard</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-type-checking-with-mypy">1.6.2. Static type checking with <code class="docutils literal notranslate"><span class="pre">mypy</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faster-static-type-checking-with-pyright">1.6.3. Faster Static Type Checking with <code class="docutils literal notranslate"><span class="pre">pyright</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -421,9 +422,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="typing">
-<h1><span class="section-number">1.5. </span>Typing<a class="headerlink" href="#typing" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1.6. </span>Typing<a class="headerlink" href="#typing" title="Permalink to this heading">#</a></h1>
 <section id="enforce-types-with-typeguard">
-<h2><span class="section-number">1.5.1. </span>Enforce types with <code class="docutils literal notranslate"><span class="pre">typeguard</span></code><a class="headerlink" href="#enforce-types-with-typeguard" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6.1. </span>Enforce types with <code class="docutils literal notranslate"><span class="pre">typeguard</span></code><a class="headerlink" href="#enforce-types-with-typeguard" title="Permalink to this heading">#</a></h2>
 <p>How to enforce types in Python easily?</p>
 <p>You can try type hinting and define the expected types.</p>
 <p>But you can still pass the wrong types and get away without an error.</p>
@@ -453,7 +454,7 @@ document.write(`
 </div>
 </section>
 <section id="static-type-checking-with-mypy">
-<h2><span class="section-number">1.5.2. </span>Static type checking with <code class="docutils literal notranslate"><span class="pre">mypy</span></code><a class="headerlink" href="#static-type-checking-with-mypy" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6.2. </span>Static type checking with <code class="docutils literal notranslate"><span class="pre">mypy</span></code><a class="headerlink" href="#static-type-checking-with-mypy" title="Permalink to this heading">#</a></h2>
 <p>Do you want to catch type errors before they cause problems in production?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">mypy</span></code>!</p>
 <p><code class="docutils literal notranslate"><span class="pre">mypy</span></code> is a static type checker for Python that can help you catch type errors before you even run your code.</p>
@@ -491,7 +492,7 @@ document.write(`
 </div>
 </section>
 <section id="faster-static-type-checking-with-pyright">
-<h2><span class="section-number">1.5.3. </span>Faster Static Type Checking with <code class="docutils literal notranslate"><span class="pre">pyright</span></code><a class="headerlink" href="#faster-static-type-checking-with-pyright" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6.3. </span>Faster Static Type Checking with <code class="docutils literal notranslate"><span class="pre">pyright</span></code><a class="headerlink" href="#faster-static-type-checking-with-pyright" title="Permalink to this heading">#</a></h2>
 <p>Do you wish to find type errors before they make problems in production?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">pyright</span></code>!</p>
 <p><code class="docutils literal notranslate"><span class="pre">pyright</span></code> is a fast static type checker for Python, which helps you find type errors even before you run your code.</p>
@@ -553,7 +554,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.4. </span>Security in Projects</p>
+        <p class="prev-next-title"><span class="section-number">1.5. </span>Security in Projects</p>
       </div>
     </a>
     <a class="right-next"
@@ -583,9 +584,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enforce-types-with-typeguard">1.5.1. Enforce types with <code class="docutils literal notranslate"><span class="pre">typeguard</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-type-checking-with-mypy">1.5.2. Static type checking with <code class="docutils literal notranslate"><span class="pre">mypy</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faster-static-type-checking-with-pyright">1.5.3. Faster Static Type Checking with <code class="docutils literal notranslate"><span class="pre">pyright</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enforce-types-with-typeguard">1.6.1. Enforce types with <code class="docutils literal notranslate"><span class="pre">typeguard</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-type-checking-with-mypy">1.6.2. Static type checking with <code class="docutils literal notranslate"><span class="pre">mypy</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faster-static-type-checking-with-pyright">1.6.3. Faster Static Type Checking with <code class="docutils literal notranslate"><span class="pre">pyright</span></code></a></li>
 </ul>
   </nav></div>
 

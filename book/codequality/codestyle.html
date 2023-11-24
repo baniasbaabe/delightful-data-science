@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1.2. Code Style &#8212; Delightful Data Science</title>
+    <title>1.3. Code Style &#8212; Delightful Data Science</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/codequality/codestyle';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1.3. Memory Optimization" href="memory.html" />
-    <link rel="prev" title="1.1. Automation" href="automation.html" />
+    <link rel="next" title="1.4. Memory Optimization" href="memory.html" />
+    <link rel="prev" title="1.2. CI/CD" href="cicd.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,10 +154,11 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">1. Code Quality</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="automation.html">1.1. Automation</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2. Code Style</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory.html">1.3. Memory Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="security.html">1.4. Security in Projects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="typing.html">1.5. Typing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cicd.html">1.2. CI/CD</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.3. Code Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory.html">1.4. Memory Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">1.5. Security in Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typing.html">1.6. Typing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cooltools/index.html">2. Cool Tools</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -406,13 +407,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-unused-lines-with-autoflake">1.2.1. Remove unused lines with <code class="docutils literal notranslate"><span class="pre">autoflake</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensure-documentation-with-interrogate">1.2.2. Ensure Documentation with <code class="docutils literal notranslate"><span class="pre">interrogate</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sort-your-imports-automatically-with-isort">1.2.3. Sort your imports automatically with <code class="docutils literal notranslate"><span class="pre">isort</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-your-code-automatically-with-black">1.2.4. Format your code automatically with <code class="docutils literal notranslate"><span class="pre">black</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lint-your-yaml-files-with-yamllint">1.2.5. Lint your YAML files with <code class="docutils literal notranslate"><span class="pre">yamllint</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blazingly-fast-linting-with-ruff">1.2.6. Blazingly fast linting with <code class="docutils literal notranslate"><span class="pre">ruff</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-python-code-in-documentation-files">1.2.7. Format Python Code in Documentation Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-unused-lines-with-autoflake">1.3.1. Remove unused lines with <code class="docutils literal notranslate"><span class="pre">autoflake</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensure-documentation-with-interrogate">1.3.2. Ensure Documentation with <code class="docutils literal notranslate"><span class="pre">interrogate</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sort-your-imports-automatically-with-isort">1.3.3. Sort your imports automatically with <code class="docutils literal notranslate"><span class="pre">isort</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-your-code-automatically-with-black">1.3.4. Format your code automatically with <code class="docutils literal notranslate"><span class="pre">black</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lint-your-yaml-files-with-yamllint">1.3.5. Lint your YAML files with <code class="docutils literal notranslate"><span class="pre">yamllint</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blazingly-fast-linting-with-ruff">1.3.6. Blazingly fast linting with <code class="docutils literal notranslate"><span class="pre">ruff</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-python-code-in-documentation-files">1.3.7. Format Python Code in Documentation Files</a></li>
 </ul>
             </nav>
         </div>
@@ -425,9 +426,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="code-style">
-<h1><span class="section-number">1.2. </span>Code Style<a class="headerlink" href="#code-style" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1.3. </span>Code Style<a class="headerlink" href="#code-style" title="Permalink to this heading">#</a></h1>
 <section id="remove-unused-lines-with-autoflake">
-<h2><span class="section-number">1.2.1. </span>Remove unused lines with <code class="docutils literal notranslate"><span class="pre">autoflake</span></code><a class="headerlink" href="#remove-unused-lines-with-autoflake" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.3.1. </span>Remove unused lines with <code class="docutils literal notranslate"><span class="pre">autoflake</span></code><a class="headerlink" href="#remove-unused-lines-with-autoflake" title="Permalink to this heading">#</a></h2>
 <p>Do you always remove your unused imports and variables in Python?</p>
 <p>If not, this can be problematic:</p>
 <ul class="simple">
@@ -454,7 +455,7 @@ document.write(`
 </div>
 </section>
 <section id="ensure-documentation-with-interrogate">
-<h2><span class="section-number">1.2.2. </span>Ensure Documentation with <code class="docutils literal notranslate"><span class="pre">interrogate</span></code><a class="headerlink" href="#ensure-documentation-with-interrogate" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.3.2. </span>Ensure Documentation with <code class="docutils literal notranslate"><span class="pre">interrogate</span></code><a class="headerlink" href="#ensure-documentation-with-interrogate" title="Permalink to this heading">#</a></h2>
 <p>One aspect of code quality and maintainability is documenting your code.</p>
 <p>In Python, there are docstrings to do this job.</p>
 <p>How about to check if all of your methods and classes use docstrings?</p>
@@ -478,7 +479,7 @@ document.write(`
 </div>
 </section>
 <section id="sort-your-imports-automatically-with-isort">
-<h2><span class="section-number">1.2.3. </span>Sort your imports automatically with <code class="docutils literal notranslate"><span class="pre">isort</span></code><a class="headerlink" href="#sort-your-imports-automatically-with-isort" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.3.3. </span>Sort your imports automatically with <code class="docutils literal notranslate"><span class="pre">isort</span></code><a class="headerlink" href="#sort-your-imports-automatically-with-isort" title="Permalink to this heading">#</a></h2>
 <p>When your Python app gets bigger, you will have more and more import statements.</p>
 <p>This can look nasty when you don’t order them.</p>
 <p>Don’t sort them manually.</p>
@@ -501,7 +502,7 @@ document.write(`
 </div>
 </section>
 <section id="format-your-code-automatically-with-black">
-<h2><span class="section-number">1.2.4. </span>Format your code automatically with <code class="docutils literal notranslate"><span class="pre">black</span></code><a class="headerlink" href="#format-your-code-automatically-with-black" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.3.4. </span>Format your code automatically with <code class="docutils literal notranslate"><span class="pre">black</span></code><a class="headerlink" href="#format-your-code-automatically-with-black" title="Permalink to this heading">#</a></h2>
 <p>If you want to avoid manual code formatting, use <code class="docutils literal notranslate"><span class="pre">black</span></code> for Python.</p>
 <p><code class="docutils literal notranslate"><span class="pre">black</span></code> is a library providing automatic formatting of Python code.</p>
 <p>It makes it easier for you to focus on writing high-quality code.</p>
@@ -522,7 +523,7 @@ document.write(`
 </div>
 </section>
 <section id="lint-your-yaml-files-with-yamllint">
-<h2><span class="section-number">1.2.5. </span>Lint your YAML files with <code class="docutils literal notranslate"><span class="pre">yamllint</span></code><a class="headerlink" href="#lint-your-yaml-files-with-yamllint" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.3.5. </span>Lint your YAML files with <code class="docutils literal notranslate"><span class="pre">yamllint</span></code><a class="headerlink" href="#lint-your-yaml-files-with-yamllint" title="Permalink to this heading">#</a></h2>
 <p>Are you tired of manually checking YAML files for errors and formatting issues?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">yamllint</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">yamllint</span></code> is a Python library to lint YAML files, ensuring that they are well-formed.</p>
@@ -543,7 +544,7 @@ document.write(`
 </div>
 </section>
 <section id="blazingly-fast-linting-with-ruff">
-<h2><span class="section-number">1.2.6. </span>Blazingly fast linting with <code class="docutils literal notranslate"><span class="pre">ruff</span></code><a class="headerlink" href="#blazingly-fast-linting-with-ruff" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.3.6. </span>Blazingly fast linting with <code class="docutils literal notranslate"><span class="pre">ruff</span></code><a class="headerlink" href="#blazingly-fast-linting-with-ruff" title="Permalink to this heading">#</a></h2>
 <p>Are you still using flake8 or pylint?</p>
 <p>Instead, use <code class="docutils literal notranslate"><span class="pre">ruff</span></code>, with 10x-100x faster performance.</p>
 <p><code class="docutils literal notranslate"><span class="pre">ruff</span></code> is a blazingly fast linter for Python, written in Rust.</p>
@@ -580,7 +581,7 @@ document.write(`
 </div>
 </section>
 <section id="format-python-code-in-documentation-files">
-<h2><span class="section-number">1.2.7. </span>Format Python Code in Documentation Files<a class="headerlink" href="#format-python-code-in-documentation-files" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.3.7. </span>Format Python Code in Documentation Files<a class="headerlink" href="#format-python-code-in-documentation-files" title="Permalink to this heading">#</a></h2>
 <p>Do you want to apply black on your documentation files?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">blacken-docs</span></code>!</p>
 <p><code class="docutils literal notranslate"><span class="pre">blacken-docs</span></code> apply the popular code formatting tool black in your documentation.</p>
@@ -640,12 +641,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="automation.html"
+       href="cicd.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.1. </span>Automation</p>
+        <p class="prev-next-title"><span class="section-number">1.2. </span>CI/CD</p>
       </div>
     </a>
     <a class="right-next"
@@ -653,7 +654,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.3. </span>Memory Optimization</p>
+        <p class="prev-next-title"><span class="section-number">1.4. </span>Memory Optimization</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -675,13 +676,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-unused-lines-with-autoflake">1.2.1. Remove unused lines with <code class="docutils literal notranslate"><span class="pre">autoflake</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensure-documentation-with-interrogate">1.2.2. Ensure Documentation with <code class="docutils literal notranslate"><span class="pre">interrogate</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sort-your-imports-automatically-with-isort">1.2.3. Sort your imports automatically with <code class="docutils literal notranslate"><span class="pre">isort</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-your-code-automatically-with-black">1.2.4. Format your code automatically with <code class="docutils literal notranslate"><span class="pre">black</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lint-your-yaml-files-with-yamllint">1.2.5. Lint your YAML files with <code class="docutils literal notranslate"><span class="pre">yamllint</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blazingly-fast-linting-with-ruff">1.2.6. Blazingly fast linting with <code class="docutils literal notranslate"><span class="pre">ruff</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-python-code-in-documentation-files">1.2.7. Format Python Code in Documentation Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-unused-lines-with-autoflake">1.3.1. Remove unused lines with <code class="docutils literal notranslate"><span class="pre">autoflake</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensure-documentation-with-interrogate">1.3.2. Ensure Documentation with <code class="docutils literal notranslate"><span class="pre">interrogate</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sort-your-imports-automatically-with-isort">1.3.3. Sort your imports automatically with <code class="docutils literal notranslate"><span class="pre">isort</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-your-code-automatically-with-black">1.3.4. Format your code automatically with <code class="docutils literal notranslate"><span class="pre">black</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lint-your-yaml-files-with-yamllint">1.3.5. Lint your YAML files with <code class="docutils literal notranslate"><span class="pre">yamllint</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blazingly-fast-linting-with-ruff">1.3.6. Blazingly fast linting with <code class="docutils literal notranslate"><span class="pre">ruff</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-python-code-in-documentation-files">1.3.7. Format Python Code in Documentation Files</a></li>
 </ul>
   </nav></div>
 
