@@ -410,6 +410,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-seasonality-automatically-with-darts">5.7.1. Check Seasonality automatically with <code class="docutils literal notranslate"><span class="pre">darts</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-for-time-series-data-with-timeseriessplit">5.7.2. Cross-validation for Time Series Data with <code class="docutils literal notranslate"><span class="pre">TimeSeriesSplit</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cross-validation-with-tscv">5.7.3. More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-machine-learning-with-mlforecast">5.7.4. Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -510,6 +511,38 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="time-series-forecasting-with-machine-learning-with-mlforecast">
+<h2><span class="section-number">5.7.4. </span>Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code><a class="headerlink" href="#time-series-forecasting-with-machine-learning-with-mlforecast" title="Permalink to this heading">#</a></h2>
+<p>Do you want to perform powerful time series forecasting?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code> by Nixtla.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mlforecast</span></code> lets you run Machine Learning models for time series forecasting, even on remote clusters like Ray or Spark.</p>
+<p>Feature Engineering, support for exogenous variables, and probabilistic forecasting are also included.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install mlforecast
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lightgbm</span> <span class="k">as</span> <span class="nn">lgb</span>
+
+<span class="kn">from</span> <span class="nn">mlforecast</span> <span class="kn">import</span> <span class="n">MLForecast</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="n">mlf</span> <span class="o">=</span> <span class="n">MLForecast</span><span class="p">(</span>
+    <span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="n">LinearRegression</span><span class="p">(),</span> <span class="n">lgb</span><span class="o">.</span><span class="n">LGBMRegressor</span><span class="p">()],</span>
+    <span class="n">lags</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span>
+    <span class="n">freq</span> <span class="o">=</span> <span class="s1">&#39;M&#39;</span>
+<span class="p">)</span>
+<span class="n">mlf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">mlf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -582,6 +615,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-seasonality-automatically-with-darts">5.7.1. Check Seasonality automatically with <code class="docutils literal notranslate"><span class="pre">darts</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-for-time-series-data-with-timeseriessplit">5.7.2. Cross-validation for Time Series Data with <code class="docutils literal notranslate"><span class="pre">TimeSeriesSplit</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cross-validation-with-tscv">5.7.3. More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-machine-learning-with-mlforecast">5.7.4. Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code></a></li>
 </ul>
   </nav></div>
 
