@@ -411,6 +411,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-for-time-series-data-with-timeseriessplit">5.7.2. Cross-validation for Time Series Data with <code class="docutils literal notranslate"><span class="pre">TimeSeriesSplit</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cross-validation-with-tscv">5.7.3. More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-machine-learning-with-mlforecast">5.7.4. Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lightning-fast-time-series-forecasting-with-statsforecast">5.7.5. Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -543,6 +544,38 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="lightning-fast-time-series-forecasting-with-statsforecast">
+<h2><span class="section-number">5.7.5. </span>Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code><a class="headerlink" href="#lightning-fast-time-series-forecasting-with-statsforecast" title="Permalink to this heading">#</a></h2>
+<p>Do you want to perform lightning fast time series forecasting?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code> by Nixtla.</p>
+<p><code class="docutils literal notranslate"><span class="pre">statsforecast</span></code> lets you run statistical models on your time series data.</p>
+<p>It’s up to 20x faster than existing libraries like pmdarima and statsmodels.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install statsforecast
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsforecast</span> <span class="kn">import</span> <span class="n">StatsForecast</span>
+<span class="kn">from</span> <span class="nn">statsforecast.models</span> <span class="kn">import</span> <span class="n">AutoARIMA</span>
+<span class="kn">from</span> <span class="nn">statsforecast.utils</span> <span class="kn">import</span> <span class="n">AirPassengersDF</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">AirPassengersDF</span>
+<span class="n">sf</span> <span class="o">=</span> <span class="n">StatsForecast</span><span class="p">(</span>
+    <span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="n">AutoARIMA</span><span class="p">(</span><span class="n">season_length</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)],</span>
+    <span class="n">freq</span> <span class="o">=</span> <span class="s1">&#39;M&#39;</span>
+<span class="p">)</span>
+
+<span class="n">sf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">sf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="mi">95</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -616,6 +649,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-for-time-series-data-with-timeseriessplit">5.7.2. Cross-validation for Time Series Data with <code class="docutils literal notranslate"><span class="pre">TimeSeriesSplit</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cross-validation-with-tscv">5.7.3. More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-machine-learning-with-mlforecast">5.7.4. Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lightning-fast-time-series-forecasting-with-statsforecast">5.7.5. Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code></a></li>
 </ul>
   </nav></div>
 
