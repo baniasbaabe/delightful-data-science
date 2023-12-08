@@ -411,6 +411,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scrape-google-play-reviews">5.4.2. Scrape Google Play Reviews</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scrape-reviews-from-app-store">5.4.3. Scrape Reviews from App Store</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-csv-files-without-a-problem-with-clevercsv">5.4.4. Read CSV files without a problem with <code class="docutils literal notranslate"><span class="pre">clevercsv</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-web-text-gathering-with-trafilatura">5.4.5. Powerful Web Text Gathering with <code class="docutils literal notranslate"><span class="pre">trafilatura</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -540,6 +541,31 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="powerful-web-text-gathering-with-trafilatura">
+<h2><span class="section-number">5.4.5. </span>Powerful Web Text Gathering with <code class="docutils literal notranslate"><span class="pre">trafilatura</span></code><a class="headerlink" href="#powerful-web-text-gathering-with-trafilatura" title="Permalink to this heading">#</a></h2>
+<p>Do you need a powerful text extractor on the web?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">trafilatura</span></code>!</p>
+<p>It’s a Python package for Web Crawling, Downloads and Scraping of text, metadata and comments from websites.</p>
+<p>Trafilatura supports different output formats like JSON, XML and CSV.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install trafilatura
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">trafilatura</span> <span class="kn">import</span> <span class="n">fetch_url</span><span class="p">,</span> <span class="n">extract</span>
+
+<span class="n">downloaded</span> <span class="o">=</span> <span class="n">fetch_url</span><span class="p">(</span><span class="s1">&#39;https://github.com/adbar/trafilatura&#39;</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">extract</span><span class="p">(</span><span class="n">downloaded</span><span class="p">,</span> <span class="n">output_format</span><span class="o">=</span><span class="s2">&quot;xml&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -613,6 +639,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scrape-google-play-reviews">5.4.2. Scrape Google Play Reviews</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scrape-reviews-from-app-store">5.4.3. Scrape Reviews from App Store</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-csv-files-without-a-problem-with-clevercsv">5.4.4. Read CSV files without a problem with <code class="docutils literal notranslate"><span class="pre">clevercsv</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-web-text-gathering-with-trafilatura">5.4.5. Powerful Web Text Gathering with <code class="docutils literal notranslate"><span class="pre">trafilatura</span></code></a></li>
 </ul>
   </nav></div>
 
