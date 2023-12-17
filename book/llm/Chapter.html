@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>7. NumPy Tips and Tricks &#8212; Delightful Data Science</title>
+    <title>6.1. LLM &#8212; Delightful Data Science</title>
   
   
   
@@ -62,11 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/numpy/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/llm/Chapter';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="7.1. NumPy Tips and Tricks" href="Chapter.html" />
-    <link rel="prev" title="6.1. LLM" href="../llm/Chapter.html" />
+    <link rel="next" title="7. NumPy Tips and Tricks" href="../numpy/index.html" />
+    <link rel="prev" title="6. LLM" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,12 +184,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../machinelearning/preprocessing.html">5.8. Preprocessing</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../llm/index.html">6. LLM</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../llm/Chapter.html">6.1. LLM</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">6. LLM</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.1. LLM</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">7. NumPy Tips and Tricks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Chapter.html">7.1. NumPy Tips and Tricks</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">7. NumPy Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/Chapter.html">7.1. NumPy Tips and Tricks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/index.html">8. Pandas Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -293,7 +293,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/baniasbaabe/delightful-data-science/issues/new?title=Issue%20on%20page%20%2Fbook/numpy/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/baniasbaabe/delightful-data-science/issues/new?title=Issue%20on%20page%20%2Fbook/llm/Chapter.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -323,7 +323,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/book/numpy/index.ipynb" target="_blank"
+      <li><a href="../../_sources/book/llm/Chapter.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -392,7 +392,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -403,11 +405,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>NumPy Tips and Tricks</h1>
+    <h1>LLM</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressing-prompts-with-no-loss-with-llmlingua">6.1.1. Compressing Prompts With No Loss with <code class="docutils literal notranslate"><span class="pre">llmlingua</span></code></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -417,10 +427,44 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="numpy-tips-and-tricks">
-<h1><span class="section-number">7. </span>NumPy Tips and Tricks<a class="headerlink" href="#numpy-tips-and-tricks" title="Permalink to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
+  <section id="llm">
+<h1><span class="section-number">6.1. </span>LLM<a class="headerlink" href="#llm" title="Permalink to this heading">#</a></h1>
+<section id="compressing-prompts-with-no-loss-with-llmlingua">
+<h2><span class="section-number">6.1.1. </span>Compressing Prompts With No Loss with <code class="docutils literal notranslate"><span class="pre">llmlingua</span></code><a class="headerlink" href="#compressing-prompts-with-no-loss-with-llmlingua" title="Permalink to this heading">#</a></h2>
+<p>Here is how to reduce the costs of working with LLMs.</p>
+<p>When working with LLMs, we often encountered problems like exceeding token limits, forgetting context, or paying much more for usage than expected.</p>
+<p>Researchers from Microsoft try to solve these problems with <code class="docutils literal notranslate"><span class="pre">llmlingua</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">llmlingua</span></code> compresses your prompt by taking a trained small LLM to detect unimportant tokens.</p>
+<p>They claim to achieve up to 20x compression with no or minimal performance loss.</p>
+<p>I tried it out by myself and I noticed no performance loss at all, but I would be cautious for critical applications.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install llmlingua
+</pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install llmlingua</span>
+
+<span class="kn">from</span> <span class="nn">llmlingua</span> <span class="kn">import</span> <span class="n">PromptCompressor</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_PROMPT&gt;&quot;</span>
+<span class="n">llm_lingua</span> <span class="o">=</span> <span class="n">PromptCompressor</span><span class="p">(</span><span class="s2">&quot;lgaalves/gpt2-dolly&quot;</span><span class="p">,)</span>
+
+<span class="n">compressed_prompt</span> <span class="o">=</span> <span class="n">llm_lingua</span><span class="o">.</span><span class="n">compress_prompt</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">instruction</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">target_token</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+<span class="c1"># {&#39;compressed_prompt&#39;: &#39;are- that turns into formatting &amp; with like &quot;[]&quot; best it.......&#39;</span>
+<span class="c1"># &#39;origin_tokens&#39;: 2430,</span>
+<span class="c1"># &#39;compressed_tokens&#39;: 261,</span>
+<span class="c1"># &#39;ratio&#39;: &#39;9.3x&#39;,</span>
+<span class="c1"># &#39;saving&#39;: &#39;Saving $0.1 in GPT-4.}&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -436,7 +480,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./book/numpy"
+            path: "./book/llm"
         },
         predefinedOutput: true
     }
@@ -455,20 +499,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../llm/Chapter.html"
+       href="index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6.1. </span>LLM</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>LLM</p>
       </div>
     </a>
     <a class="right-next"
-       href="Chapter.html"
+       href="../numpy/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7.1. </span>NumPy Tips and Tricks</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>NumPy Tips and Tricks</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -481,6 +525,20 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressing-prompts-with-no-loss-with-llmlingua">6.1.1. Compressing Prompts With No Loss with <code class="docutils literal notranslate"><span class="pre">llmlingua</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
