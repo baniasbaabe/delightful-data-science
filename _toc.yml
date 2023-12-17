@@ -31,6 +31,9 @@ chapters:
       - file: book/machinelearning/outlierdetection.ipynb
       - file: book/machinelearning/timeseries.ipynb
       - file: book/machinelearning/preprocessing.ipynb
+  - file: book/llm/index.ipynb
+    sections:
+      - file: book/llm/Chapter.ipynb
   - file: book/numpy/index.ipynb
     sections:
       - file: book/numpy/Chapter.ipynb
