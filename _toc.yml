@@ -41,6 +41,9 @@ chapters:
     sections:
       - file: book/pandas/Chapter.ipynb
       - file: book/pandas/additionallibs.ipynb
+  - file: book/polars/index.ipynb
+    sections:
+      - file: book/polars/Chapter.ipynb
   - file: book/pythontricks/index.ipynb
     sections:
       - file: book/pythontricks/Chapter.ipynb
