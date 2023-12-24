@@ -440,6 +440,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-ensembling-with-combo">5.5.23. Model Ensembling with <code class="docutils literal notranslate"><span class="pre">combo</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-plots-with-yellowbrick">5.5.24. Residual Plots with <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-and-distributed-hyperparameter-optimization-with-ray-tune">5.5.25. Powerful and Distributed Hyperparameter Optimization with <code class="docutils literal notranslate"><span class="pre">ray.tune</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-pytorch-with-scikit-learn-api-with-skorch">5.5.26. Use PyTorch with scikit-learn API with <code class="docutils literal notranslate"><span class="pre">skorch</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1503,6 +1504,63 @@ Keras.</p>
 </div>
 </div>
 </section>
+<section id="use-pytorch-with-scikit-learn-api-with-skorch">
+<h2><span class="section-number">5.5.26. </span>Use PyTorch with scikit-learn API with <code class="docutils literal notranslate"><span class="pre">skorch</span></code><a class="headerlink" href="#use-pytorch-with-scikit-learn-api-with-skorch" title="Permalink to this heading">#</a></h2>
+<p>PyTorch and scikit-learn are one of the most popular libraries for ML/DL.</p>
+<p>So, why not combine PyTorch with scikit-learn?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">skorch</span></code>!</p>
+<p><code class="docutils literal notranslate"><span class="pre">skorch</span></code> is a high-level library for PyTorch that provides a scikit-learn-compatible neural network module.</p>
+<p>It allows you to use the simple scikit-learn interface for PyTorch.</p>
+<p>Therefore you can integrate PyTorch models into scikit-learn workflows.</p>
+<p>See below for an example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>skorch
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">from</span> <span class="nn">skorch</span> <span class="kn">import</span> <span class="n">NeuralNetClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="k">class</span> <span class="nc">MyModule</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_units</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">nonlin</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">num_units</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nonlin</span> <span class="o">=</span> <span class="n">nonlin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">num_units</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">softmax</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Softmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nonlin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">X</span>
+
+<span class="n">net</span> <span class="o">=</span> <span class="n">NeuralNetClassifier</span><span class="p">(</span>
+    <span class="n">MyModule</span><span class="p">,</span>
+    <span class="n">max_epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">iterator_train__shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;scale&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+    <span class="p">(</span><span class="s1">&#39;net&#39;</span><span class="p">,</span> <span class="n">net</span><span class="p">),</span>
+<span class="p">])</span>
+
+<span class="n">pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_proba</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1597,6 +1655,7 @@ Keras.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-ensembling-with-combo">5.5.23. Model Ensembling with <code class="docutils literal notranslate"><span class="pre">combo</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-plots-with-yellowbrick">5.5.24. Residual Plots with <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-and-distributed-hyperparameter-optimization-with-ray-tune">5.5.25. Powerful and Distributed Hyperparameter Optimization with <code class="docutils literal notranslate"><span class="pre">ray.tune</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-pytorch-with-scikit-learn-api-with-skorch">5.5.26. Use PyTorch with scikit-learn API with <code class="docutils literal notranslate"><span class="pre">skorch</span></code></a></li>
 </ul>
   </nav></div>
 

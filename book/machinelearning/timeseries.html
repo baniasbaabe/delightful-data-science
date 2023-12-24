@@ -420,6 +420,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cross-validation-with-tscv">5.7.3. More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-machine-learning-with-mlforecast">5.7.4. Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lightning-fast-time-series-forecasting-with-statsforecast">5.7.5. Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-with-polars-backend-with-functime">5.7.6. Time Series with Polars Backend with <code class="docutils literal notranslate"><span class="pre">functime</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -584,6 +585,42 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="time-series-with-polars-backend-with-functime">
+<h2><span class="section-number">5.7.6. </span>Time Series with Polars Backend with <code class="docutils literal notranslate"><span class="pre">functime</span></code><a class="headerlink" href="#time-series-with-polars-backend-with-functime" title="Permalink to this heading">#</a></h2>
+<p>Fast time-series forecasting with <code class="docutils literal notranslate"><span class="pre">functime</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">functime</span></code> is a Python library for time series forecasting and feature extraction, built with Polars.</p>
+<p>Since it uses lazy Polars dataframes, <code class="docutils literal notranslate"><span class="pre">functime</span></code> speeds up forecasting and feature engineering.</p>
+<p>Backtesting, cross-validation splitters and metrics are included too.</p>
+<p>It even comes with a LLM agent to analyze and describe your forecasts.</p>
+<p>Check it out!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install functime
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="kn">from</span> <span class="nn">functime.cross_validation</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">functime.forecasting</span> <span class="kn">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">functime.metrics</span> <span class="kn">import</span> <span class="n">mase</span>
+
+<span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">test_size</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">forecaster</span> <span class="o">=</span> <span class="n">linear_model</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s2">&quot;1mo&quot;</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">forecaster</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">forecaster</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">fh</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">linear_model</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s2">&quot;1mo&quot;</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="mi">24</span><span class="p">)(</span><span class="n">y</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">fh</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="n">mase</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">=</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_train</span><span class="o">=</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -658,6 +695,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cross-validation-with-tscv">5.7.3. More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-machine-learning-with-mlforecast">5.7.4. Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lightning-fast-time-series-forecasting-with-statsforecast">5.7.5. Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-with-polars-backend-with-functime">5.7.6. Time Series with Polars Backend with <code class="docutils literal notranslate"><span class="pre">functime</span></code></a></li>
 </ul>
   </nav></div>
 
