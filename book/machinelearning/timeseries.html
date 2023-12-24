@@ -421,6 +421,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-machine-learning-with-mlforecast">5.7.4. Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lightning-fast-time-series-forecasting-with-statsforecast">5.7.5. Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-with-polars-backend-with-functime">5.7.6. Time Series with Polars Backend with <code class="docutils literal notranslate"><span class="pre">functime</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-deep-learning-with-neuralforecast">5.7.7. Time Series Forecasting with Deep Learning with <code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -621,6 +622,44 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="time-series-forecasting-with-deep-learning-with-neuralforecast">
+<h2><span class="section-number">5.7.7. </span>Time Series Forecasting with Deep Learning with <code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code><a class="headerlink" href="#time-series-forecasting-with-deep-learning-with-neuralforecast" title="Permalink to this heading">#</a></h2>
+<p>Do you want to perform powerful time series forecasting?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code> by nixtla.</p>
+<p><code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code> lets you run Deep Learning models for time series forecasting with models like N-BEATS or N-HiTS.</p>
+<p>Support for exogenous variables and probabilistic forecasting are also included.</p>
+<p>Check the example below!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install neuralforecast
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">neuralforecast</span> <span class="kn">import</span> <span class="n">NeuralForecast</span>
+<span class="kn">from</span> <span class="nn">neuralforecast.models</span> <span class="kn">import</span> <span class="n">NBEATS</span><span class="p">,</span> <span class="n">NHITS</span>
+<span class="kn">from</span> <span class="nn">neuralforecast.utils</span> <span class="kn">import</span> <span class="n">AirPassengersDF</span>
+
+<span class="n">Y_df</span> <span class="o">=</span> <span class="n">AirPassengersDF</span>
+<span class="n">Y_train_df</span> <span class="o">=</span> <span class="n">Y_df</span><span class="p">[</span><span class="n">Y_df</span><span class="o">.</span><span class="n">ds</span><span class="o">&lt;=</span><span class="s1">&#39;1959-12-31&#39;</span><span class="p">]</span>
+<span class="n">Y_test_df</span> <span class="o">=</span> <span class="n">Y_df</span><span class="p">[</span><span class="n">Y_df</span><span class="o">.</span><span class="n">ds</span><span class="o">&gt;</span><span class="s1">&#39;1959-12-31&#39;</span><span class="p">]</span>
+
+<span class="n">horizon</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="n">NBEATS</span><span class="p">(</span><span class="n">input_size</span><span class="o">=</span><span class="mi">2</span> <span class="o">*</span> <span class="n">horizon</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">horizon</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+          <span class="n">NHITS</span><span class="p">(</span><span class="n">input_size</span><span class="o">=</span><span class="mi">2</span> <span class="o">*</span> <span class="n">horizon</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">horizon</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="mi">50</span><span class="p">)]</span>
+
+<span class="n">nf</span> <span class="o">=</span> <span class="n">NeuralForecast</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="n">models</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+<span class="n">nf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">Y_train_df</span><span class="p">)</span>
+<span class="n">Y_hat_df</span> <span class="o">=</span> <span class="n">nf</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -696,6 +735,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-machine-learning-with-mlforecast">5.7.4. Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lightning-fast-time-series-forecasting-with-statsforecast">5.7.5. Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-with-polars-backend-with-functime">5.7.6. Time Series with Polars Backend with <code class="docutils literal notranslate"><span class="pre">functime</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-deep-learning-with-neuralforecast">5.7.7. Time Series Forecasting with Deep Learning with <code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code></a></li>
 </ul>
   </nav></div>
 
