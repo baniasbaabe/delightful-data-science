@@ -435,6 +435,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#count-occurrences-in-an-iterable-with-counter">10.1.18. Count Occurrences in an Iterable with <code class="docutils literal notranslate"><span class="pre">Counter</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-default-values-for-dictionaries-with-defaultdict">10.1.19. Set Default Values for Dictionaries with <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-structured-tuples-with-namedtuple">10.1.20. More Structured Tuples with <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutable-default-values-for-function-arguments">10.1.21. Mutable Default Values for Function Arguments</a></li>
 </ul>
             </nav>
         </div>
@@ -934,6 +935,40 @@ object.</p>
 </div>
 </div>
 </section>
+<section id="mutable-default-values-for-function-arguments">
+<h2><span class="section-number">10.1.21. </span>Mutable Default Values for Function Arguments<a class="headerlink" href="#mutable-default-values-for-function-arguments" title="Permalink to this heading">#</a></h2>
+<p>One big mistake in Python:</p>
+<p>Using mutable default values for function arguments.</p>
+<p>When using mutable objects like a list as a default value, you have to be careful.</p>
+<p>See the example below, where the default list is shared among all calls to the function.</p>
+<p>To fix this, set the default value to None and create a new list inside the function if no list is provided.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dangerous behaviour:</span>
+<span class="k">def</span> <span class="nf">increment_numbers</span><span class="p">(</span><span class="n">numbers</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Numbers: </span><span class="si">{</span><span class="n">numbers</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">increment_numbers</span><span class="p">()</span>  <span class="c1"># Output: Numbers: [0, 1, 2]</span>
+<span class="n">increment_numbers</span><span class="p">()</span>  <span class="c1"># Output: Numbers: [0, 1, 2, 0, 1, 2]</span>
+
+
+<span class="c1"># Better:</span>
+<span class="k">def</span> <span class="nf">increment_numbers</span><span class="p">(</span><span class="n">numbers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">numbers</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Numbers: </span><span class="si">{</span><span class="n">numbers</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">increment_numbers</span><span class="p">()</span>  <span class="c1"># Output: Numbers: [0, 1, 2]</span>
+<span class="n">increment_numbers</span><span class="p">()</span>  <span class="c1"># Output: Numbers: [0, 1, 2]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1023,6 +1058,7 @@ object.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#count-occurrences-in-an-iterable-with-counter">10.1.18. Count Occurrences in an Iterable with <code class="docutils literal notranslate"><span class="pre">Counter</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-default-values-for-dictionaries-with-defaultdict">10.1.19. Set Default Values for Dictionaries with <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-structured-tuples-with-namedtuple">10.1.20. More Structured Tuples with <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutable-default-values-for-function-arguments">10.1.21. Mutable Default Values for Function Arguments</a></li>
 </ul>
   </nav></div>
 

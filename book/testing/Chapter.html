@@ -422,6 +422,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instantly-show-errors-in-your-test-suite">13.1.5. Instantly show errors in your Test Suite</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limit-pytest-s-output-to-a-minimum">13.1.6. Limit pytest’s output to a minimum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#property-based-testing-with-hypothesis">13.1.7. Property-based Testing with <code class="docutils literal notranslate"><span class="pre">hypothesis</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mocking-dependencies-with-pytest-mock">13.1.8. Mocking Dependencies with <code class="docutils literal notranslate"><span class="pre">pytest-mock</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -645,6 +646,34 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="mocking-dependencies-with-pytest-mock">
+<h2><span class="section-number">13.1.8. </span>Mocking Dependencies with <code class="docutils literal notranslate"><span class="pre">pytest-mock</span></code><a class="headerlink" href="#mocking-dependencies-with-pytest-mock" title="Permalink to this heading">#</a></h2>
+<p>Testing is an essential part of Software projects.</p>
+<p>Especially unit testing, where you test the smallest piece of code that can be isolated.</p>
+<p>They should be independent, and fast &amp; cheap to execute.</p>
+<p>But, what if you have some dependencies like API calls or interactions with databases and systems?</p>
+<p>Here’s where mocking comes into play.</p>
+<p>Mocking allows you to replace dependencies and real objects with fake ones which mimic the real behavior.</p>
+<p>So, you don’t have to rely on the availability of your API, or ask for permission to interact with a database, but you can test your functions isolated and independently.</p>
+<p>In Python, you can perform mocking with <code class="docutils literal notranslate"><span class="pre">pytest-mock</span></code>, a wrapper around the built-in mock functionality of Python.</p>
+<p>See the example below, where we mock the file removal functionality. We can test it without deleting a file from the disk.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">class</span> <span class="nc">UnixFS</span><span class="p">:</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">rm</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_unix_fs</span><span class="p">(</span><span class="n">mocker</span><span class="p">):</span>
+    <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s1">&#39;os.remove&#39;</span><span class="p">)</span>
+    <span class="n">UnixFS</span><span class="o">.</span><span class="n">rm</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -721,6 +750,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instantly-show-errors-in-your-test-suite">13.1.5. Instantly show errors in your Test Suite</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limit-pytest-s-output-to-a-minimum">13.1.6. Limit pytest’s output to a minimum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#property-based-testing-with-hypothesis">13.1.7. Property-based Testing with <code class="docutils literal notranslate"><span class="pre">hypothesis</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mocking-dependencies-with-pytest-mock">13.1.8. Mocking Dependencies with <code class="docutils literal notranslate"><span class="pre">pytest-mock</span></code></a></li>
 </ul>
   </nav></div>
 
