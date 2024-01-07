@@ -422,6 +422,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lightning-fast-time-series-forecasting-with-statsforecast">5.7.5. Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-with-polars-backend-with-functime">5.7.6. Time Series with Polars Backend with <code class="docutils literal notranslate"><span class="pre">functime</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-deep-learning-with-neuralforecast">5.7.7. Time Series Forecasting with Deep Learning with <code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-preprocessing-and-feature-engineering-with-temporian">5.7.8. Efficient Preprocessing and Feature Engineering with <code class="docutils literal notranslate"><span class="pre">temporian</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -660,6 +661,36 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="efficient-preprocessing-and-feature-engineering-with-temporian">
+<h2><span class="section-number">5.7.8. </span>Efficient Preprocessing and Feature Engineering with <code class="docutils literal notranslate"><span class="pre">temporian</span></code><a class="headerlink" href="#efficient-preprocessing-and-feature-engineering-with-temporian" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">temporian</span></code> is a Python library for preprocessing and feature engineering temporal data to feed into ML libraries like XGBoost, Scikit-learn or PyTorch.</p>
+<p>It handles various types of temporal data like single- and multivariate data or flat- and multi-index data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install temporian
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">temporian</span> <span class="k">as</span> <span class="nn">tp</span>
+
+<span class="n">sales</span> <span class="o">=</span> <span class="n">tp</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="s2">&quot;sales.csv&quot;</span><span class="p">)</span>
+
+<span class="n">sales_per_store</span> <span class="o">=</span> <span class="n">sales</span><span class="o">.</span><span class="n">add_index</span><span class="p">(</span><span class="s2">&quot;store&quot;</span><span class="p">)</span>
+
+<span class="n">days</span> <span class="o">=</span> <span class="n">sales_per_store</span><span class="o">.</span><span class="n">tick_calendar</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
+<span class="n">work_days</span> <span class="o">=</span> <span class="p">(</span><span class="n">days</span><span class="o">.</span><span class="n">calendar_day_of_week</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">()</span>
+
+<span class="n">daily_revenue</span> <span class="o">=</span> <span class="n">sales_per_store</span><span class="p">[</span><span class="s2">&quot;revenue&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">moving_sum</span><span class="p">(</span>
+                     <span class="n">tp</span><span class="o">.</span><span class="n">duration</span><span class="o">.</span><span class="n">days</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> 
+                     <span class="n">sampling</span><span class="o">=</span><span class="n">work_days</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -736,6 +767,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lightning-fast-time-series-forecasting-with-statsforecast">5.7.5. Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-with-polars-backend-with-functime">5.7.6. Time Series with Polars Backend with <code class="docutils literal notranslate"><span class="pre">functime</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-deep-learning-with-neuralforecast">5.7.7. Time Series Forecasting with Deep Learning with <code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-preprocessing-and-feature-engineering-with-temporian">5.7.8. Efficient Preprocessing and Feature Engineering with <code class="docutils literal notranslate"><span class="pre">temporian</span></code></a></li>
 </ul>
   </nav></div>
 

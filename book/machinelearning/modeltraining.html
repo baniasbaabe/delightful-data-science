@@ -441,6 +441,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-plots-with-yellowbrick">5.5.24. Residual Plots with <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-and-distributed-hyperparameter-optimization-with-ray-tune">5.5.25. Powerful and Distributed Hyperparameter Optimization with <code class="docutils literal notranslate"><span class="pre">ray.tune</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-pytorch-with-scikit-learn-api-with-skorch">5.5.26. Use PyTorch with scikit-learn API with <code class="docutils literal notranslate"><span class="pre">skorch</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-ml-with-river">5.5.27. Online ML with <code class="docutils literal notranslate"><span class="pre">river</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sota-computer-vision-models-with-timm">5.5.28. SOTA Computer Vision Models with <code class="docutils literal notranslate"><span class="pre">timm</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1561,6 +1563,74 @@ Keras.</p>
 </div>
 </div>
 </section>
+<section id="online-ml-with-river">
+<h2><span class="section-number">5.5.27. </span>Online ML with <code class="docutils literal notranslate"><span class="pre">river</span></code><a class="headerlink" href="#online-ml-with-river" title="Permalink to this heading">#</a></h2>
+<p>Do you want ML models that learn on-the-fly from massive datasets?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">river</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">river</span></code> is a library for online machine learning.</p>
+<p>You can continuously update your model with streaming data without using the full dataset for training again.</p>
+<p>It provides online implementations for many algorithms like KNN, Tree-based models and Recommender systems.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>river
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">compose</span>
+<span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+<span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">datasets</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">Phishing</span><span class="p">()</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">compose</span><span class="o">.</span><span class="n">Pipeline</span><span class="p">(</span>
+    <span class="n">preprocessing</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">(),</span>
+    <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">metric</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">Accuracy</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">dataset</span><span class="p">:</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_one</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>     
+    <span class="n">metric</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>           
+    <span class="n">model</span><span class="o">.</span><span class="n">learn_one</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>              
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sota-computer-vision-models-with-timm">
+<h2><span class="section-number">5.5.28. </span>SOTA Computer Vision Models with <code class="docutils literal notranslate"><span class="pre">timm</span></code><a class="headerlink" href="#sota-computer-vision-models-with-timm" title="Permalink to this heading">#</a></h2>
+<p>Do you want to use SOTA computer vision models?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">timm</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">timm</span></code> (PyTorch Image Models) is a library which contains multiple computer vision models, layers, optimizers, etc.</p>
+<p>It provides models like Vision Transformer, MobileNet, Swin Transformer, ConvNeXt, DenseNet, and more.</p>
+<p>You just have to define the name of the model and if you want to have the pretrained weights of it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>timm
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">timm</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">timm</span><span class="o">.</span><span class="n">list_models</span><span class="p">())</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">timm</span><span class="o">.</span><span class="n">create_model</span><span class="p">(</span><span class="s1">&#39;densenet121&#39;</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1656,6 +1726,8 @@ Keras.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-plots-with-yellowbrick">5.5.24. Residual Plots with <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-and-distributed-hyperparameter-optimization-with-ray-tune">5.5.25. Powerful and Distributed Hyperparameter Optimization with <code class="docutils literal notranslate"><span class="pre">ray.tune</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-pytorch-with-scikit-learn-api-with-skorch">5.5.26. Use PyTorch with scikit-learn API with <code class="docutils literal notranslate"><span class="pre">skorch</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-ml-with-river">5.5.27. Online ML with <code class="docutils literal notranslate"><span class="pre">river</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sota-computer-vision-models-with-timm">5.5.28. SOTA Computer Vision Models with <code class="docutils literal notranslate"><span class="pre">timm</span></code></a></li>
 </ul>
   </nav></div>
 

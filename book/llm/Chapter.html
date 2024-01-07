@@ -416,6 +416,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressing-prompts-with-no-loss-with-llmlingua">6.1.1. Compressing Prompts With No Loss with <code class="docutils literal notranslate"><span class="pre">llmlingua</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-function-call-to-any-llm-with-litellm">6.1.2. One-Function Call to Any LLM with <code class="docutils literal notranslate"><span class="pre">litellm</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -460,6 +461,44 @@ document.write(`
 <span class="c1"># &#39;compressed_tokens&#39;: 261,</span>
 <span class="c1"># &#39;ratio&#39;: &#39;9.3x&#39;,</span>
 <span class="c1"># &#39;saving&#39;: &#39;Saving $0.1 in GPT-4.}&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="one-function-call-to-any-llm-with-litellm">
+<h2><span class="section-number">6.1.2. </span>One-Function Call to Any LLM with <code class="docutils literal notranslate"><span class="pre">litellm</span></code><a class="headerlink" href="#one-function-call-to-any-llm-with-litellm" title="Permalink to this heading">#</a></h2>
+<p>Do you want a One-Function call to any LLM in Python?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">litellm</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">litellm</span></code> is a Python package to call any LLM in a consistent format and to return a consistent output.</p>
+<p>You only need to set the API key of the provider and the model name.</p>
+<p>It also supports async calls and streaming the models response.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install litellm
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">litellm</span> <span class="kn">import</span> <span class="n">completion</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;your-api-key&quot;</span> 
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;ANTHROPIC_API_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;your-api-key&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MISTRAL_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;your-api-key&quot;</span>
+
+<span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello, how are you?&quot;</span><span class="p">,</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">}]</span>
+
+<span class="c1"># OpenAI</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">completion</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">)</span>
+
+<span class="c1"># Anthropic</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">completion</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;claude-instant-1&quot;</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">)</span>
+
+<span class="c1"># Mistral</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">completion</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;mistral/mistral-tiny&quot;</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -535,6 +574,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressing-prompts-with-no-loss-with-llmlingua">6.1.1. Compressing Prompts With No Loss with <code class="docutils literal notranslate"><span class="pre">llmlingua</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-function-call-to-any-llm-with-litellm">6.1.2. One-Function Call to Any LLM with <code class="docutils literal notranslate"><span class="pre">litellm</span></code></a></li>
 </ul>
   </nav></div>
 
