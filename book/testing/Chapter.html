@@ -423,6 +423,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limit-pytest-s-output-to-a-minimum">13.1.6. Limit pytest’s output to a minimum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#property-based-testing-with-hypothesis">13.1.7. Property-based Testing with <code class="docutils literal notranslate"><span class="pre">hypothesis</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mocking-dependencies-with-pytest-mock">13.1.8. Mocking Dependencies with <code class="docutils literal notranslate"><span class="pre">pytest-mock</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freeze-datetime-module-for-testing-with-freezegun">13.1.9. Freeze Datetime Module For Testing with <code class="docutils literal notranslate"><span class="pre">freezegun</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -674,6 +675,32 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="freeze-datetime-module-for-testing-with-freezegun">
+<h2><span class="section-number">13.1.9. </span>Freeze Datetime Module For Testing with <code class="docutils literal notranslate"><span class="pre">freezegun</span></code><a class="headerlink" href="#freeze-datetime-module-for-testing-with-freezegun" title="Permalink to this heading">#</a></h2>
+<p>When you want to test functions with datetime,</p>
+<p>Consider using <code class="docutils literal notranslate"><span class="pre">freezegun</span></code> for Python.</p>
+<p><code class="docutils literal notranslate"><span class="pre">freezegun</span></code> mocks the datetime module which makes testing deterministic.</p>
+<p>See below how we can specify a date and freeze the return value of datetime.datetime.now().</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install freezegun
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">freezegun</span> <span class="kn">import</span> <span class="n">freeze_time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="nd">@freeze_time</span><span class="p">(</span><span class="s2">&quot;2015-02-20&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">==</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -751,6 +778,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limit-pytest-s-output-to-a-minimum">13.1.6. Limit pytest’s output to a minimum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#property-based-testing-with-hypothesis">13.1.7. Property-based Testing with <code class="docutils literal notranslate"><span class="pre">hypothesis</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mocking-dependencies-with-pytest-mock">13.1.8. Mocking Dependencies with <code class="docutils literal notranslate"><span class="pre">pytest-mock</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freeze-datetime-module-for-testing-with-freezegun">13.1.9. Freeze Datetime Module For Testing with <code class="docutils literal notranslate"><span class="pre">freezegun</span></code></a></li>
 </ul>
   </nav></div>
 

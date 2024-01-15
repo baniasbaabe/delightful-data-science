@@ -423,6 +423,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-code-quality-tools-to-jupyter-notebooks">3.1.6. Apply Code Quality Tools to Jupyter Notebooks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-reuse-juptyer-notebook-templates">3.1.7. Create and Reuse Juptyer Notebook Templates</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-output-cells-automatically-with-nbstripout">3.1.8. Remove Output Cells Automatically with <code class="docutils literal notranslate"><span class="pre">nbstripout</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bring-llms-into-your-notebook-with-jupyter-ai">3.1.9. Bring LLMs Into Your Notebook with <code class="docutils literal notranslate"><span class="pre">jupyter-ai</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -741,6 +742,41 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="bring-llms-into-your-notebook-with-jupyter-ai">
+<h2><span class="section-number">3.1.9. </span>Bring LLMs Into Your Notebook with <code class="docutils literal notranslate"><span class="pre">jupyter-ai</span></code><a class="headerlink" href="#bring-llms-into-your-notebook-with-jupyter-ai" title="Permalink to this heading">#</a></h2>
+<p>Bring GenAI into your Jupyter Notebooks with <code class="docutils literal notranslate"><span class="pre">jupyter-ai</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">jupyter-ai</span></code> lets you use LLMs from vendors like OpenAI, Huggingface and Anthropic within your Notebook cells.</p>
+<p>You can just ask for a code snippet and the result will be rendered into your Notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">env</span> <span class="n">PROVIDER_API_KEY</span><span class="o">=</span><span class="n">YOUR_API_KEY_HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install jupyter_ai
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">jupyter_ai</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">ai</span> <span class="n">chatgpt</span>
+<span class="n">Provide</span> <span class="n">a</span> <span class="n">hello</span> <span class="n">world</span> <span class="n">function</span> <span class="ow">in</span> <span class="n">Python</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -818,6 +854,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-code-quality-tools-to-jupyter-notebooks">3.1.6. Apply Code Quality Tools to Jupyter Notebooks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-reuse-juptyer-notebook-templates">3.1.7. Create and Reuse Juptyer Notebook Templates</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-output-cells-automatically-with-nbstripout">3.1.8. Remove Output Cells Automatically with <code class="docutils literal notranslate"><span class="pre">nbstripout</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bring-llms-into-your-notebook-with-jupyter-ai">3.1.9. Bring LLMs Into Your Notebook with <code class="docutils literal notranslate"><span class="pre">jupyter-ai</span></code></a></li>
 </ul>
   </nav></div>
 
