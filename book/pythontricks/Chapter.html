@@ -437,6 +437,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-structured-tuples-with-namedtuple">10.1.20. More Structured Tuples with <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutable-default-values-for-function-arguments">10.1.21. Mutable Default Values for Function Arguments</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-your-python-objects-with-slots">10.1.22. Optimize Your Python Objects with <code class="docutils literal notranslate"><span class="pre">__slots__</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-print-statements">10.1.23. Modify Print Statements</a></li>
 </ul>
             </nav>
         </div>
@@ -994,6 +995,22 @@ object.</p>
 </div>
 </div>
 </section>
+<section id="modify-print-statements">
+<h2><span class="section-number">10.1.23. </span>Modify Print Statements<a class="headerlink" href="#modify-print-statements" title="Permalink to this heading">#</a></h2>
+<p>When printing multiple elements in Python, it starts a new line by default.</p>
+<p>But, you can change this default to whatever you like by setting the <code class="docutils literal notranslate"><span class="pre">end</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p>
+<p>See below where we change the <code class="docutils literal notranslate"><span class="pre">end</span></code> parameter to space.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sports</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;football&quot;</span><span class="p">,</span> <span class="s2">&quot;basketball&quot;</span><span class="p">,</span> <span class="s2">&quot;volleyball&quot;</span><span class="p">,</span> <span class="s2">&quot;tennis&quot;</span><span class="p">,</span> <span class="s2">&quot;handball&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">sport</span> <span class="ow">in</span> <span class="n">sports</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sport</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1085,6 +1102,7 @@ object.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-structured-tuples-with-namedtuple">10.1.20. More Structured Tuples with <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutable-default-values-for-function-arguments">10.1.21. Mutable Default Values for Function Arguments</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-your-python-objects-with-slots">10.1.22. Optimize Your Python Objects with <code class="docutils literal notranslate"><span class="pre">__slots__</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-print-statements">10.1.23. Modify Print Statements</a></li>
 </ul>
   </nav></div>
 

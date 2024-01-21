@@ -417,6 +417,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressing-prompts-with-no-loss-with-llmlingua">6.1.1. Compressing Prompts With No Loss with <code class="docutils literal notranslate"><span class="pre">llmlingua</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-function-call-to-any-llm-with-litellm">6.1.2. One-Function Call to Any LLM with <code class="docutils literal notranslate"><span class="pre">litellm</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#safeguard-your-llms-with-llmguard">6.1.3. Safeguard Your LLMs with <code class="docutils literal notranslate"><span class="pre">LLMGuard</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -504,6 +505,59 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="safeguard-your-llms-with-llmguard">
+<h2><span class="section-number">6.1.3. </span>Safeguard Your LLMs with <code class="docutils literal notranslate"><span class="pre">LLMGuard</span></code><a class="headerlink" href="#safeguard-your-llms-with-llmguard" title="Permalink to this heading">#</a></h2>
+<p>Safeguarding your LLMs against unwanting behavior is critical.</p>
+<p><code class="docutils literal notranslate"><span class="pre">LLMGuard</span></code>, a Python package, ensures a safe interaction between the user and LLM.</p>
+<p>It checks prompts and outputs for:</p>
+<ul class="simple">
+<li><p>Sensitive Information like credit card number and sanitizes it</p></li>
+<li><p>Toxic or harmful language</p></li>
+<li><p>Prompt injections</p></li>
+</ul>
+<p>Use <code class="docutils literal notranslate"><span class="pre">LLMGuard</span></code> to make your LLMs more safe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install llm-guard
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">llm_guard</span> <span class="kn">import</span> <span class="n">scan_output</span><span class="p">,</span> <span class="n">scan_prompt</span>
+<span class="kn">from</span> <span class="nn">llm_guard.input_scanners</span> <span class="kn">import</span> <span class="n">Anonymize</span><span class="p">,</span> <span class="n">PromptInjection</span><span class="p">,</span> <span class="n">Toxicity</span>
+<span class="kn">from</span> <span class="nn">llm_guard.vault</span> <span class="kn">import</span> <span class="n">Vault</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;OPENAIKEY&quot;</span><span class="p">)</span>
+<span class="n">vault</span> <span class="o">=</span> <span class="n">Vault</span><span class="p">()</span>
+<span class="n">input_scanners</span> <span class="o">=</span> <span class="p">[</span><span class="n">Anonymize</span><span class="p">(</span><span class="n">vault</span><span class="p">),</span> <span class="n">Toxicity</span><span class="p">(),</span> <span class="n">PromptInjection</span><span class="p">()]</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Make an SQL insert statement to add a new user to our database. Name is John Doe. </span><span class="se">\</span>
+<span class="s2">Email is test@test.com Phone number is 555-123-4567 and the IP address is 192.168.1.100. </span><span class="se">\</span>
+<span class="s2">And credit card number is 4567-8901-2345-6789.&quot;</span>
+
+<span class="n">sanitized_prompt</span><span class="p">,</span> <span class="n">results_valid</span><span class="p">,</span> <span class="n">results_score</span> <span class="o">=</span> <span class="n">scan_prompt</span><span class="p">(</span><span class="n">input_scanners</span><span class="p">,</span> <span class="n">prompt</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">sanitized_prompt</span><span class="p">},</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+
+<span class="c1"># Sanitized Prompt: </span>
+<span class="c1"># Make an SQL insert statement to add a new user to our database. </span>
+<span class="c1"># Name is [REDACTED_PERSON_1]. Email is [REDACTED_EMAIL_ADDRESS_1] Phone number is </span>
+<span class="c1"># [REDACTED_PHONE_NUMBER_1] and the IP address is [REDACTED_IP_ADDRESS_1]. </span>
+<span class="c1"># And credit card number is [REDACTED_CREDIT_CARD_RE_1].</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -575,6 +629,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressing-prompts-with-no-loss-with-llmlingua">6.1.1. Compressing Prompts With No Loss with <code class="docutils literal notranslate"><span class="pre">llmlingua</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-function-call-to-any-llm-with-litellm">6.1.2. One-Function Call to Any LLM with <code class="docutils literal notranslate"><span class="pre">litellm</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#safeguard-your-llms-with-llmguard">6.1.3. Safeguard Your LLMs with <code class="docutils literal notranslate"><span class="pre">LLMGuard</span></code></a></li>
 </ul>
   </nav></div>
 
