@@ -416,6 +416,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensembling-for-outlier-detection">5.6.1. Ensembling for Outlier Detection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robust-outlier-detection-with-puncc">5.6.2. Robust Outlier Detection with <code class="docutils literal notranslate"><span class="pre">puncc</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -481,6 +482,48 @@ document.write(`
     <span class="n">labels</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">labels_</span>
     
 <span class="n">majority_vote</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="robust-outlier-detection-with-puncc">
+<h2><span class="section-number">5.6.2. </span>Robust Outlier Detection with <code class="docutils literal notranslate"><span class="pre">puncc</span></code><a class="headerlink" href="#robust-outlier-detection-with-puncc" title="Permalink to this heading">#</a></h2>
+<p>Outlier Detection is notoriously hard.</p>
+<p>But it doesn’t have to.</p>
+<p><code class="docutils literal notranslate"><span class="pre">puncc</span></code> offers outlier detection, powered by Conformal Prediction, where the detection threshold will be calibrated.</p>
+<p>So, false alarms are reduced.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install puncc
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">IsolationForest</span>
+<span class="kn">from</span> <span class="nn">deel.puncc.anomaly_detection</span> <span class="kn">import</span> <span class="n">SplitCAD</span>
+<span class="kn">from</span> <span class="nn">deel.puncc.api.prediction</span> <span class="kn">import</span> <span class="n">BasePredictor</span>
+
+<span class="c1"># We need to redefine the predict to output the nonconformity scores.</span>
+<span class="k">class</span> <span class="nc">ADPredictor</span><span class="p">(</span><span class="n">BasePredictor</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">return</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Wrap Isolation Forest in a predictor</span>
+<span class="n">if_predictor</span> <span class="o">=</span> <span class="n">ADPredictor</span><span class="p">(</span><span class="n">IsolationForest</span><span class="p">())</span>
+
+<span class="c1"># Instantiate CAD on top of IF predictor</span>
+<span class="n">if_cad</span> <span class="o">=</span> <span class="n">SplitCAD</span><span class="p">(</span><span class="n">if_predictor</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="n">if_cad</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span> <span class="n">fit_ratio</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1"># Maximum false detection rate</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.01</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">if_cad</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -556,6 +599,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensembling-for-outlier-detection">5.6.1. Ensembling for Outlier Detection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robust-outlier-detection-with-puncc">5.6.2. Robust Outlier Detection with <code class="docutils literal notranslate"><span class="pre">puncc</span></code></a></li>
 </ul>
   </nav></div>
 

@@ -420,6 +420,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-plotting-backend">8.1.3. Change the Plotting Backend</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#style-your-dataframes">8.1.4. Style your DataFrames</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-precision-of-displayed-floats">8.1.5. Set Precision of Displayed Floats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faster-i-o-with-parquet">8.1.6. Faster I/O with Parquet</a></li>
 </ul>
             </nav>
         </div>
@@ -534,6 +535,34 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="faster-i-o-with-parquet">
+<h2><span class="section-number">8.1.6. </span>Faster I/O with Parquet<a class="headerlink" href="#faster-i-o-with-parquet" title="Permalink to this heading">#</a></h2>
+<p>Whenever you work with bigger datasets, please avoid using CSV format (or similar).</p>
+<p>CSV files are text files, which are human-readable, and therefore a popular option to store data.</p>
+<p>For small datasets, this is not a big issue.</p>
+<p>But, what if your data has millions of rows?</p>
+<p>It can get really slow to do read/write operations on them.</p>
+<p>On the other side, binary files exist too.</p>
+<p>They consist of 0s and 1s and are not meant to be human-readable but to be used by programs that know how to interpret them.</p>
+<p>Because of that, binary files are more compact and consume less space.</p>
+<p>Parquet is one popular binary file format, which is more memory-efficient than CSVs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Shape: (100000000, 5)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Time: 1m 58s</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Time: 8s</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s2">&quot;data.parquet&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -608,6 +637,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-plotting-backend">8.1.3. Change the Plotting Backend</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#style-your-dataframes">8.1.4. Style your DataFrames</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-precision-of-displayed-floats">8.1.5. Set Precision of Displayed Floats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faster-i-o-with-parquet">8.1.6. Faster I/O with Parquet</a></li>
 </ul>
   </nav></div>
 
