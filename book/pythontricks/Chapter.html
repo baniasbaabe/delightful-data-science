@@ -439,6 +439,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-your-python-objects-with-slots">10.1.22. Optimize Your Python Objects with <code class="docutils literal notranslate"><span class="pre">__slots__</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-print-statements">10.1.23. Modify Print Statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-variables-in-python-3-12">10.1.24. Type Variables in Python 3.12</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerations-in-python">10.1.25. Enumerations in Python</a></li>
 </ul>
             </nav>
         </div>
@@ -1031,6 +1032,36 @@ object.</p>
 </div>
 </div>
 </section>
+<section id="enumerations-in-python">
+<h2><span class="section-number">10.1.25. </span>Enumerations in Python<a class="headerlink" href="#enumerations-in-python" title="Permalink to this heading">#</a></h2>
+<p>To make your Python Code cleaner, use <code class="docutils literal notranslate"><span class="pre">Enums</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Enums</span></code> (or enumerations) are a way to represent a set of named values as symbolic names.</p>
+<p>It provides a way to work with meaningful names instead of raw integers or weird string constants.</p>
+<p>Python supports enums with its standard library.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Option 1</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">auto</span>
+
+<span class="k">class</span> <span class="nc">Color</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">RED</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">GREEN</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">BLUE</span> <span class="o">=</span> <span class="mi">3</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># Output: 1</span>
+
+<span class="c1"># Option 2: auto() assigns unique values starting by 1</span>
+<span class="k">class</span> <span class="nc">Status</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">PENDING</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">APPROVED</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">REJECTED</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">Status</span><span class="o">.</span><span class="n">PENDING</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="c1"># Output: 1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1124,6 +1155,7 @@ object.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-your-python-objects-with-slots">10.1.22. Optimize Your Python Objects with <code class="docutils literal notranslate"><span class="pre">__slots__</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-print-statements">10.1.23. Modify Print Statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-variables-in-python-3-12">10.1.24. Type Variables in Python 3.12</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerations-in-python">10.1.25. Enumerations in Python</a></li>
 </ul>
   </nav></div>
 

@@ -417,6 +417,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automate-bash-commands-with-makefile">1.1.1. Automate Bash Commands with <code class="docutils literal notranslate"><span class="pre">Makefile</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automate-testing-with-nox">1.1.2. Automate Testing with Nox</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-your-dependencies-automatically-with-pyup">1.1.3. Update Your Dependencies Automatically with <code class="docutils literal notranslate"><span class="pre">pyup</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -502,6 +503,36 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="update-your-dependencies-automatically-with-pyup">
+<h2><span class="section-number">1.1.3. </span>Update Your Dependencies Automatically with <code class="docutils literal notranslate"><span class="pre">pyup</span></code><a class="headerlink" href="#update-your-dependencies-automatically-with-pyup" title="Permalink to this heading">#</a></h2>
+<p>Do you need an easy way to update your project’s dependencies?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">pyup</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pyup</span></code> goes through your dependency files and searches for new package versions.</p>
+<p>It will then create a new branch in your repository, a new commit for every update and a pull request containing all commits.</p>
+<p>You only need to provide an access token (from GitHub or GitLab) and the repository name.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pyupio
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pyup --repo=username/repo --user-token=&lt;YOUR_TOKEN&gt; --initial # After running the first time, you can remove the --initial flag
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># gitlab.com:
+!pyup --provider gitlab --repo=username/repo --user-token=&lt;YOUR_TOKEN&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -573,6 +604,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automate-bash-commands-with-makefile">1.1.1. Automate Bash Commands with <code class="docutils literal notranslate"><span class="pre">Makefile</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automate-testing-with-nox">1.1.2. Automate Testing with Nox</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-your-dependencies-automatically-with-pyup">1.1.3. Update Your Dependencies Automatically with <code class="docutils literal notranslate"><span class="pre">pyup</span></code></a></li>
 </ul>
   </nav></div>
 
