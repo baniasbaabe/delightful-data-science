@@ -12,6 +12,7 @@ chapters:
       - file: book/codequality/memory.ipynb
       - file: book/codequality/security.ipynb
       - file: book/codequality/typing.ipynb
+      - file: book/codequality/principles.ipynb
   - file: book/cooltools/index.ipynb
     sections:
       - file: book/cooltools/Chapter.ipynb
@@ -48,6 +49,7 @@ chapters:
     sections:
       - file: book/pythontricks/Chapter.ipynb
       - file: book/pythontricks/utility.ipynb
+      - file: book/pythontricks/tooling.ipynb
   - file: book/selenium/index.ipynb
     sections:
       - file: book/selenium/Chapter.ipynb
