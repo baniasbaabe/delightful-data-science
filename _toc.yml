@@ -59,6 +59,9 @@ chapters:
   - file: book/testing/index.ipynb
     sections:
       - file: book/testing/Chapter.ipynb
+  - file: book/sql/index.ipynb
+    sections:
+      - file: book/sql/Chapter.ipynb
   - file: book/Miscellaneous/index.ipynb
     sections:
       - file: book/Miscellaneous/Chapter.ipynb
