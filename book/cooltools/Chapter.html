@@ -220,8 +220,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">13.1. Testing</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">14. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Miscellaneous/Chapter.html">14.1. Miscellaneous</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sql/index.html">14. SQL Tips &amp; Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sql/Chapter.html">14.1. SQL Tips &amp; Tricks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">15. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Miscellaneous/Chapter.html">15.1. Miscellaneous</a></li>
 </ul>
 </li>
 </ul>
@@ -452,6 +456,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-configurations-with-python-dotenv">2.1.33. Managing Configurations with <code class="docutils literal notranslate"><span class="pre">python-dotenv</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-notion-via-python-with">2.1.34. Work with Notion via Python with</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-query-builder-in-python">2.1.35. SQL Query Builder in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-to-speech-generation-with-melotts">2.1.36. Text-to-Speech Generation with <code class="docutils literal notranslate"><span class="pre">MeloTTS</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-sql-parser-and-transpiler-with-sqlglot">2.1.37. Powerful SQL Parser and Transpiler with <code class="docutils literal notranslate"><span class="pre">SQLGlot</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1490,6 +1496,79 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="text-to-speech-generation-with-melotts">
+<h2><span class="section-number">2.1.36. </span>Text-to-Speech Generation with <code class="docutils literal notranslate"><span class="pre">MeloTTS</span></code><a class="headerlink" href="#text-to-speech-generation-with-melotts" title="Permalink to this heading">#</a></h2>
+<p>Do you want high-quality text-to-speech in Python?</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">MeloTTS</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">MeloTTS</span></code> supports various languages for speech generation without needing a GPU.</p>
+<p>You can use it via CLI, Python API or Web UI.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!git clone https://github.com/myshell-ai/MeloTTS.git
+!cd MeloTTS
+!pip install -e .
+!python -m unidic download
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!melo &quot;Text to read&quot; output.wav --language EN
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!melo-ui
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">melo.api</span> <span class="kn">import</span> <span class="n">TTS</span>
+
+<span class="n">speed</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;cpu&#39;</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;La lueur dorée du soleil caresse les vagues, peignant le ciel d&#39;une palette éblouissante.&quot;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">TTS</span><span class="p">(</span><span class="n">language</span><span class="o">=</span><span class="s1">&#39;FR&#39;</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">speaker_ids</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">hps</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">spk2id</span>
+
+<span class="n">output_path</span> <span class="o">=</span> <span class="s1">&#39;fr.wav&#39;</span>
+<span class="n">model</span><span class="o">.</span><span class="n">tts_to_file</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">speaker_ids</span><span class="p">[</span><span class="s1">&#39;FR&#39;</span><span class="p">],</span> <span class="n">output_path</span><span class="p">,</span> <span class="n">speed</span><span class="o">=</span><span class="n">speed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="powerful-sql-parser-and-transpiler-with-sqlglot">
+<h2><span class="section-number">2.1.37. </span>Powerful SQL Parser and Transpiler with <code class="docutils literal notranslate"><span class="pre">SQLGlot</span></code><a class="headerlink" href="#powerful-sql-parser-and-transpiler-with-sqlglot" title="Permalink to this heading">#</a></h2>
+<p>With <code class="docutils literal notranslate"><span class="pre">SQLGlot</span></code>, you can parse, optimize, transpile and format SQL queries.</p>
+<p>You can even translate between 21 different flavours like DuckDB, Snowflake, Spark and Hive.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install sqlglot
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlglot</span>
+
+<span class="n">sqlglot</span><span class="o">.</span><span class="n">transpile</span><span class="p">(</span><span class="s2">&quot;SELECT TOP 1 salary FROM employees WHERE age &gt; 30&quot;</span><span class="p">,</span> <span class="n">read</span><span class="o">=</span><span class="s2">&quot;tsql&quot;</span><span class="p">,</span> <span class="n">write</span><span class="o">=</span><span class="s2">&quot;hive&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># SELECT salary FROM employees WHERE age &gt; 30 LIMIT 1</span>
+
+<span class="n">sqlglot</span><span class="o">.</span><span class="n">transpile</span><span class="p">(</span><span class="s2">&quot;SELECT foo FROM (SELECT baz FROM t&quot;</span><span class="p">)</span>
+<span class="c1">#ParseError: Expecting ). Line 1, Col: 34. SELECT foo FROM (SELECT baz FROM t</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1594,6 +1673,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-configurations-with-python-dotenv">2.1.33. Managing Configurations with <code class="docutils literal notranslate"><span class="pre">python-dotenv</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-notion-via-python-with">2.1.34. Work with Notion via Python with</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-query-builder-in-python">2.1.35. SQL Query Builder in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-to-speech-generation-with-melotts">2.1.36. Text-to-Speech Generation with <code class="docutils literal notranslate"><span class="pre">MeloTTS</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-sql-parser-and-transpiler-with-sqlglot">2.1.37. Powerful SQL Parser and Transpiler with <code class="docutils literal notranslate"><span class="pre">SQLGlot</span></code></a></li>
 </ul>
   </nav></div>
 

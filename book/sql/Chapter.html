@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>13. Testing in Python &#8212; Delightful Data Science</title>
+    <title>14.1. SQL Tips &amp; Tricks &#8212; Delightful Data Science</title>
   
   
   
@@ -62,11 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/testing/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/sql/Chapter';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="13.1. Testing" href="Chapter.html" />
-    <link rel="prev" title="12.1. Streamlit Tips and Tricks" href="../streamlit/Chapter.html" />
+    <link rel="next" title="15. Miscellaneous" href="../Miscellaneous/index.html" />
+    <link rel="prev" title="14. SQL Tips &amp; Tricks" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -216,12 +216,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../streamlit/Chapter.html">12.1. Streamlit Tips and Tricks</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">13. Testing in Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Chapter.html">13.1. Testing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">13. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">13.1. Testing</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../sql/index.html">14. SQL Tips &amp; Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../sql/Chapter.html">14.1. SQL Tips &amp; Tricks</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">14. SQL Tips &amp; Tricks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">14.1. SQL Tips &amp; Tricks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">15. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -299,7 +299,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/baniasbaabe/delightful-data-science/issues/new?title=Issue%20on%20page%20%2Fbook/testing/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/baniasbaabe/delightful-data-science/issues/new?title=Issue%20on%20page%20%2Fbook/sql/Chapter.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -329,7 +329,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/book/testing/index.ipynb" target="_blank"
+      <li><a href="../../_sources/book/sql/Chapter.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -398,7 +398,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -409,11 +411,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Testing in Python</h1>
+    <h1>SQL Tips & Tricks</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qualify-statement-for-cleaner-queries">14.1.1. <code class="docutils literal notranslate"><span class="pre">QUALIFY</span></code> Statement For Cleaner Queries</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -423,10 +433,44 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="testing-in-python">
-<h1><span class="section-number">13. </span>Testing in Python<a class="headerlink" href="#testing-in-python" title="Permalink to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
+  <section id="sql-tips-tricks">
+<h1><span class="section-number">14.1. </span>SQL Tips &amp; Tricks<a class="headerlink" href="#sql-tips-tricks" title="Permalink to this heading">#</a></h1>
+<section id="qualify-statement-for-cleaner-queries">
+<h2><span class="section-number">14.1.1. </span><code class="docutils literal notranslate"><span class="pre">QUALIFY</span></code> Statement For Cleaner Queries<a class="headerlink" href="#qualify-statement-for-cleaner-queries" title="Permalink to this heading">#</a></h2>
+<p>One underrated SQL command: <code class="docutils literal notranslate"><span class="pre">QUALIFY</span></code>.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">QUALIFY</span></code>, you can filter the results of a window function like <code class="docutils literal notranslate"><span class="pre">RANK()</span></code> without needing another <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement.</p>
+<p>See the example below where we want to get the 3rd highest earner in every department.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># With QUALIFY</span>
+<span class="n">SELECT</span>
+  <span class="n">employee_id</span><span class="p">,</span>
+  <span class="n">department_id</span><span class="p">,</span>
+  <span class="n">salary</span>
+  <span class="n">RANK</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">(</span><span class="n">PARTITION</span> <span class="n">BY</span> <span class="n">department_id</span> <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">salary</span> <span class="n">DESC</span><span class="p">)</span> <span class="n">AS</span> <span class="n">ranking</span>
+<span class="n">FROM</span> 
+  <span class="n">employees</span>
+<span class="n">QUALIFY</span>
+  <span class="n">ranking</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+  
+<span class="c1"># Without QUALIFY</span>
+<span class="n">SELECT</span> <span class="o">*</span>
+<span class="n">FROM</span> <span class="p">(</span>
+  <span class="n">SELECT</span>
+    <span class="n">employee_id</span><span class="p">,</span>
+    <span class="n">department_id</span><span class="p">,</span>
+    <span class="n">salary</span><span class="p">,</span>
+    <span class="n">RANK</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">(</span><span class="n">PARTITION</span> <span class="n">BY</span> <span class="n">department_id</span> <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">salary</span> <span class="n">DESC</span><span class="p">)</span> <span class="n">AS</span> <span class="n">ranking</span>
+  <span class="n">FROM</span> 
+    <span class="n">employees</span>
+<span class="p">)</span> <span class="n">AS</span> <span class="n">rank_employees</span>
+<span class="n">WHERE</span>
+  <span class="n">ranking</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</pre></div>
 </div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -442,7 +486,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./book/testing"
+            path: "./book/sql"
         },
         predefinedOutput: true
     }
@@ -461,20 +505,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../streamlit/Chapter.html"
+       href="index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">12.1. </span>Streamlit Tips and Tricks</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>SQL Tips &amp; Tricks</p>
       </div>
     </a>
     <a class="right-next"
-       href="Chapter.html"
+       href="../Miscellaneous/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">13.1. </span>Testing</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Miscellaneous</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -487,6 +531,20 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qualify-statement-for-cleaner-queries">14.1.1. <code class="docutils literal notranslate"><span class="pre">QUALIFY</span></code> Statement For Cleaner Queries</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
