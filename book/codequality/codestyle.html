@@ -429,6 +429,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blazingly-fast-linting-with-ruff">1.3.6. Blazingly fast linting with <code class="docutils literal notranslate"><span class="pre">ruff</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-python-code-in-documentation-files">1.3.7. Format Python Code in Documentation Files</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correct-misspellings-in-your-codebase-with-codespell">1.3.8. Correct Misspellings in Your Codebase with <code class="docutils literal notranslate"><span class="pre">codespell</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lint-your-dockerfile-with-hadolint">1.3.9. Lint Your Dockerfile with <code class="docutils literal notranslate"><span class="pre">hadolint</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -644,6 +645,20 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="lint-your-dockerfile-with-hadolint">
+<h2><span class="section-number">1.3.9. </span>Lint Your Dockerfile with <code class="docutils literal notranslate"><span class="pre">hadolint</span></code><a class="headerlink" href="#lint-your-dockerfile-with-hadolint" title="Permalink to this heading">#</a></h2>
+<p>Do you want to lint your Dockerfiles?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">hadolint</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">hadolint</span></code> enforces Dockerfile best practices by parsing the Dockerfile into an AST and performing rules.</p>
+<p>It’s available as a Docker container image.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!docker run -rm -i hadolint/hadolint &lt; Dockerfile
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -721,6 +736,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blazingly-fast-linting-with-ruff">1.3.6. Blazingly fast linting with <code class="docutils literal notranslate"><span class="pre">ruff</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-python-code-in-documentation-files">1.3.7. Format Python Code in Documentation Files</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correct-misspellings-in-your-codebase-with-codespell">1.3.8. Correct Misspellings in Your Codebase with <code class="docutils literal notranslate"><span class="pre">codespell</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lint-your-dockerfile-with-hadolint">1.3.9. Lint Your Dockerfile with <code class="docutils literal notranslate"><span class="pre">hadolint</span></code></a></li>
 </ul>
   </nav></div>
 
