@@ -226,6 +226,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">15. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Miscellaneous/Chapter.html">15.1. Miscellaneous</a></li>
+
 </ul>
 </li>
 </ul>
@@ -450,6 +451,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-ml-with-river">5.5.27. Online ML with <code class="docutils literal notranslate"><span class="pre">river</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sota-computer-vision-models-with-timm">5.5.28. SOTA Computer Vision Models with <code class="docutils literal notranslate"><span class="pre">timm</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-guaranteed-prediction-intervals-and-sets-with-mapie">5.5.29. Generate Guaranteed Prediction Intervals and Sets with <code class="docutils literal notranslate"><span class="pre">MAPIE</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-components-for-scikit-learn-with-scikit-lego">5.5.30. Extra Components For scikit-learn with <code class="docutils literal notranslate"><span class="pre">scikit-lego</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1671,6 +1673,39 @@ Keras.</p>
 </div>
 </div>
 </section>
+<section id="extra-components-for-scikit-learn-with-scikit-lego">
+<h2><span class="section-number">5.5.30. </span>Extra Components For scikit-learn with <code class="docutils literal notranslate"><span class="pre">scikit-lego</span></code><a class="headerlink" href="#extra-components-for-scikit-learn-with-scikit-lego" title="Permalink to this heading">#</a></h2>
+<p>scikit-learn is one of the most popular ML libraries.</p>
+<p>While it’s easy to write custom components, it would be nice to have all of them in a single place.</p>
+<p><code class="docutils literal notranslate"><span class="pre">scikit-lego</span></code> is such a library which contains many custom components like:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DebugPipeline</span></code>, which adds debug information to pipelines</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ImbalancedLinearRegression</span></code> to punish over-/underestimation of a model</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_lags</span></code> to add lag values to a DataFrame</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ZeroInflatedRegressor</span></code> which predicts zero or applies a regression based on a classifier</p></li>
+</ul>
+<p>and many more!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklego.preprocessing</span> <span class="kn">import</span> <span class="n">RandomAdder</span>
+<span class="kn">from</span> <span class="nn">sklego.mixture</span> <span class="kn">import</span> <span class="n">GMMClassifier</span>
+
+<span class="o">...</span>
+
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s2">&quot;scale&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+    <span class="p">(</span><span class="s2">&quot;random_noise&quot;</span><span class="p">,</span> <span class="n">RandomAdder</span><span class="p">()),</span>
+    <span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">GMMClassifier</span><span class="p">())</span>
+<span class="p">])</span>
+
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1769,6 +1804,7 @@ Keras.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-ml-with-river">5.5.27. Online ML with <code class="docutils literal notranslate"><span class="pre">river</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sota-computer-vision-models-with-timm">5.5.28. SOTA Computer Vision Models with <code class="docutils literal notranslate"><span class="pre">timm</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-guaranteed-prediction-intervals-and-sets-with-mapie">5.5.29. Generate Guaranteed Prediction Intervals and Sets with <code class="docutils literal notranslate"><span class="pre">MAPIE</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-components-for-scikit-learn-with-scikit-lego">5.5.30. Extra Components For scikit-learn with <code class="docutils literal notranslate"><span class="pre">scikit-lego</span></code></a></li>
 </ul>
   </nav></div>
 

@@ -226,6 +226,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">15. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Miscellaneous/Chapter.html">15.1. Miscellaneous</a></li>
+
 </ul>
 </li>
 </ul>
@@ -446,6 +447,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-print-statements">10.1.23. Modify Print Statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-variables-in-python-3-12">10.1.24. Type Variables in Python 3.12</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerations-in-python">10.1.25. Enumerations in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#never-use-eval">10.1.26. Never use <code class="docutils literal notranslate"><span class="pre">eval</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#never-use-import">10.1.27. Never use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1068,6 +1071,45 @@ object.</p>
 </div>
 </div>
 </section>
+<section id="never-use-eval">
+<h2><span class="section-number">10.1.26. </span>Never use <code class="docutils literal notranslate"><span class="pre">eval</span></code><a class="headerlink" href="#never-use-eval" title="Permalink to this heading">#</a></h2>
+<p>One big mistake in Python:</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">eval</span></code> in your code.</p>
+<p><code class="docutils literal notranslate"><span class="pre">eval</span></code>, like the name suggests, evaluates a Python expression.</p>
+<p>The big problem: One could inject malicious code which will be evaluated.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">expression</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">eval</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate</span><span class="p">(</span><span class="s2">&quot;5 + 5&quot;</span><span class="p">))</span>
+
+<span class="c1"># DON&#39;T RUN THIS LINE OF CODE</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate</span><span class="p">(</span><span class="s2">&quot;__import__(&#39;os&#39;).system(&#39;rm -rf /&#39;)&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="never-use-import">
+<h2><span class="section-number">10.1.27. </span>Never use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code><a class="headerlink" href="#never-use-import" title="Permalink to this heading">#</a></h2>
+<p>One nooby Python mistake:</p>
+<p>Running <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>.</p>
+<p>You will only pollute your namespace, leading to potential naming conflicts.</p>
+<p>Your code also becomes less readable and maintainable when it’s not clear where each name is coming from.</p>
+<p>Remember “<em>Explicit is better than implicit</em>”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ugly</span>
+<span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Better</span>
+<span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="n">Class1</span><span class="p">,</span> <span class="n">Class2</span><span class="p">,</span> <span class="n">Class3</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1162,6 +1204,8 @@ object.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-print-statements">10.1.23. Modify Print Statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-variables-in-python-3-12">10.1.24. Type Variables in Python 3.12</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerations-in-python">10.1.25. Enumerations in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#never-use-eval">10.1.26. Never use <code class="docutils literal notranslate"><span class="pre">eval</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#never-use-import">10.1.27. Never use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code></a></li>
 </ul>
   </nav></div>
 
