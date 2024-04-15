@@ -226,7 +226,6 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">15. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Miscellaneous/Chapter.html">15.1. Miscellaneous</a></li>
-
 </ul>
 </li>
 </ul>
@@ -460,6 +459,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-to-speech-generation-with-melotts">2.1.36. Text-to-Speech Generation with <code class="docutils literal notranslate"><span class="pre">MeloTTS</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-sql-parser-and-transpiler-with-sqlglot">2.1.37. Powerful SQL Parser and Transpiler with <code class="docutils literal notranslate"><span class="pre">SQLGlot</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prettify-python-errors-with-pretty-errors">2.1.38. Prettify Python Errors with <code class="docutils literal notranslate"><span class="pre">pretty_errors</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unified-python-dataframe-api-with-ibis">2.1.39. Unified Python DataFrame API with <code class="docutils literal notranslate"><span class="pre">ibis</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-beautiful-tables-with-great-tables">2.1.40. Create Beautiful Tables with <code class="docutils literal notranslate"><span class="pre">great_tables</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-checks-for-dataframes-with-cuallee">2.1.41. Data Quality Checks for Dataframes with <code class="docutils literal notranslate"><span class="pre">cuallee</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1608,6 +1610,121 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="unified-python-dataframe-api-with-ibis">
+<h2><span class="section-number">2.1.39. </span>Unified Python DataFrame API with <code class="docutils literal notranslate"><span class="pre">ibis</span></code><a class="headerlink" href="#unified-python-dataframe-api-with-ibis" title="Permalink to this heading">#</a></h2>
+<p>Are you annoyed by learning a new API for handling dataframes every week?</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">ibis</span></code>, you don’t have to anymore.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ibis</span></code> defines a Python dataframe API which runs on over 20+ backends.</p>
+<p>Polars, Pandas, PySpark, Snowflake, BigQuery - you name it.</p>
+<p>You just have to install <code class="docutils literal notranslate"><span class="pre">ibis</span></code> with the corresponding backend, the rest stays the same.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install &#39;ibis-framework[duckdb]&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibis</span>
+
+<span class="c1"># Set different backends</span>
+<span class="n">ibis</span><span class="o">.</span><span class="n">set_backend</span><span class="p">(</span><span class="s2">&quot;duckdb&quot;</span><span class="p">)</span> <span class="c1"># or ibis.set_backend(&quot;polars&quot;)</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">ibis</span><span class="o">.</span><span class="n">duckdb</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s2">&quot;data.parquet&quot;</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">group_by</span><span class="p">([</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="s2">&quot;island&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">count</span><span class="p">())</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-beautiful-tables-with-great-tables">
+<h2><span class="section-number">2.1.40. </span>Create Beautiful Tables with <code class="docutils literal notranslate"><span class="pre">great_tables</span></code><a class="headerlink" href="#create-beautiful-tables-with-great-tables" title="Permalink to this heading">#</a></h2>
+<p>Do you want to create nice-looking tables in Python?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">great_tables</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">great_tables</span></code> lets you create beautiful and high-quality tables with an easy API.</p>
+<p>You can use the pre-defined table components like footer, header, and table body by bringing your dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install great_tables
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">great_tables</span> <span class="kn">import</span> <span class="n">GT</span>
+<span class="kn">from</span> <span class="nn">great_tables.data</span> <span class="kn">import</span> <span class="n">sp500</span>
+
+<span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;2010-06-07&quot;</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="s2">&quot;2010-06-14&quot;</span>
+
+<span class="p">(</span>
+    <span class="n">GT</span><span class="p">(</span><span class="n">sp500</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">tab_header</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;S&amp;P 500&quot;</span><span class="p">,</span> <span class="n">subtitle</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">start_date</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">end_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">fmt_currency</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;open&quot;</span><span class="p">,</span> <span class="s2">&quot;high&quot;</span><span class="p">,</span> <span class="s2">&quot;low&quot;</span><span class="p">,</span> <span class="s2">&quot;close&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">fmt_date</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">date_style</span><span class="o">=</span><span class="s2">&quot;wd_m_day_year&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">fmt_number</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;volume&quot;</span><span class="p">,</span> <span class="n">compact</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">cols_hide</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;adj_close&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-quality-checks-for-dataframes-with-cuallee">
+<h2><span class="section-number">2.1.41. </span>Data Quality Checks for Dataframes with <code class="docutils literal notranslate"><span class="pre">cuallee</span></code><a class="headerlink" href="#data-quality-checks-for-dataframes-with-cuallee" title="Permalink to this heading">#</a></h2>
+<p>Do you want to make quality checks for your dataframes?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">cuallee</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cuallee</span></code> provides an API to validate your dataframe for common things like completeness, dates, anomalies or membership.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cuallee</span></code> supports the most popular libraries and providers like Polars, DuckDB, BigQuery, and Snowflake.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install cuallee
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cuallee</span> <span class="kn">import</span> <span class="n">Check</span><span class="p">,</span> <span class="n">CheckLevel</span>
+
+<span class="n">check</span> <span class="o">=</span> <span class="n">Check</span><span class="p">(</span><span class="n">CheckLevel</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span> <span class="s2">&quot;Completeness&quot;</span><span class="p">)</span>
+<span class="p">(</span>
+    <span class="n">check</span>
+    <span class="o">.</span><span class="n">is_complete</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">is_unique</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">check</span> <span class="o">=</span> <span class="n">Check</span><span class="p">(</span><span class="n">CheckLevel</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span> <span class="s2">&quot;CheckIsBetweenDates&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SELECT</span>
+<span class="sd">        explode(</span>
+<span class="sd">            sequence(</span>
+<span class="sd">                to_date(&#39;2022-01-01&#39;),</span>
+<span class="sd">                to_date(&#39;2022-01-10&#39;),</span>
+<span class="sd">                interval 1 day)) as date</span>
+<span class="sd">    &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="p">(</span>
+    <span class="n">check</span><span class="o">.</span><span class="n">is_between</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;2022-01-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2022-01-10&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;PASS&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1715,6 +1832,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-to-speech-generation-with-melotts">2.1.36. Text-to-Speech Generation with <code class="docutils literal notranslate"><span class="pre">MeloTTS</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-sql-parser-and-transpiler-with-sqlglot">2.1.37. Powerful SQL Parser and Transpiler with <code class="docutils literal notranslate"><span class="pre">SQLGlot</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prettify-python-errors-with-pretty-errors">2.1.38. Prettify Python Errors with <code class="docutils literal notranslate"><span class="pre">pretty_errors</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unified-python-dataframe-api-with-ibis">2.1.39. Unified Python DataFrame API with <code class="docutils literal notranslate"><span class="pre">ibis</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-beautiful-tables-with-great-tables">2.1.40. Create Beautiful Tables with <code class="docutils literal notranslate"><span class="pre">great_tables</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-checks-for-dataframes-with-cuallee">2.1.41. Data Quality Checks for Dataframes with <code class="docutils literal notranslate"><span class="pre">cuallee</span></code></a></li>
 </ul>
   </nav></div>
 

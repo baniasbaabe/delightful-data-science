@@ -225,7 +225,6 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">15. Miscellaneous</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">15.1. Miscellaneous</a></li>
-
 </ul>
 </li>
 </ul>
@@ -421,17 +420,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">15.1. Miscellaneous</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#must-have-vscode-extensions-for-python">15.1.1. Must-Have VSCode Extensions for Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-setup-from-templates-with-cookiecutter">15.1.2. Project Setup from Templates with <code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-scaffolding-with-smol-developer">15.1.3. Project Scaffolding with <code class="docutils literal notranslate"><span class="pre">smol-developer</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#well-commits-with-commitizen">15.1.4. Well Commits with <code class="docutils literal notranslate"><span class="pre">commitizen</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-best-practice-use-dockerignore">15.1.5. Docker Best Practice: Use <code class="docutils literal notranslate"><span class="pre">.dockerignore</span></code></a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dockerignore">15.2. .dockerignore</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -491,16 +485,20 @@ document.write(`
 <p>One Docker Tip:</p>
 <p>Use a <code class="docutils literal notranslate"><span class="pre">.dockerignore</span></code> file to avoid adding unnecessary files to the image.</p>
 <p>This will definitely reduce your Docker image size, but also more safe.</p>
-</section>
-</section>
-<section id="dockerignore">
-<h1><span class="section-number">15.2. </span>.dockerignore<a class="headerlink" href="#dockerignore" title="Permalink to this heading">#</a></h1>
-<p>.git
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># .dockerignore
+.git
 .cache
-<em>.md
-!README</em>.md
+*.md
+!README*.md
 README-secret.md
-.env</p>
+.env
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -561,17 +559,12 @@ README-secret.md
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">15.1. Miscellaneous</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#must-have-vscode-extensions-for-python">15.1.1. Must-Have VSCode Extensions for Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-setup-from-templates-with-cookiecutter">15.1.2. Project Setup from Templates with <code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-scaffolding-with-smol-developer">15.1.3. Project Scaffolding with <code class="docutils literal notranslate"><span class="pre">smol-developer</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#well-commits-with-commitizen">15.1.4. Well Commits with <code class="docutils literal notranslate"><span class="pre">commitizen</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-best-practice-use-dockerignore">15.1.5. Docker Best Practice: Use <code class="docutils literal notranslate"><span class="pre">.dockerignore</span></code></a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dockerignore">15.2. .dockerignore</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
