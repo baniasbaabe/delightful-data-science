@@ -462,6 +462,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unified-python-dataframe-api-with-ibis">2.1.39. Unified Python DataFrame API with <code class="docutils literal notranslate"><span class="pre">ibis</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-beautiful-tables-with-great-tables">2.1.40. Create Beautiful Tables with <code class="docutils literal notranslate"><span class="pre">great_tables</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-checks-for-dataframes-with-cuallee">2.1.41. Data Quality Checks for Dataframes with <code class="docutils literal notranslate"><span class="pre">cuallee</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-line-detection-and-layout-analysis-with-surya">2.1.42. OCR, Line Detection and Layout Analysis with <code class="docutils literal notranslate"><span class="pre">surya</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1725,6 +1726,38 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="ocr-line-detection-and-layout-analysis-with-surya">
+<h2><span class="section-number">2.1.42. </span>OCR, Line Detection and Layout Analysis with <code class="docutils literal notranslate"><span class="pre">surya</span></code><a class="headerlink" href="#ocr-line-detection-and-layout-analysis-with-surya" title="Permalink to this heading">#</a></h2>
+<p>Do you need an open-source OCR package?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">surya</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">surya</span></code> is an OCR + layout analysis + line detection library for Python, supporting over 90 languages.</p>
+<p>A great alternative to popular libraries like easyocr.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install surya-ocr
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">surya.ocr</span> <span class="kn">import</span> <span class="n">run_ocr</span>
+<span class="kn">from</span> <span class="nn">surya.model.detection</span> <span class="kn">import</span> <span class="n">segformer</span>
+<span class="kn">from</span> <span class="nn">surya.model.recognition.model</span> <span class="kn">import</span> <span class="n">load_model</span>
+<span class="kn">from</span> <span class="nn">surya.model.recognition.processor</span> <span class="kn">import</span> <span class="n">load_processor</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">IMAGE_PATH</span><span class="p">)</span>
+<span class="n">langs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;en&quot;</span><span class="p">]</span>
+<span class="n">det_processor</span><span class="p">,</span> <span class="n">det_model</span> <span class="o">=</span> <span class="n">segformer</span><span class="o">.</span><span class="n">load_processor</span><span class="p">(),</span> <span class="n">segformer</span><span class="o">.</span><span class="n">load_model</span><span class="p">()</span>
+<span class="n">rec_model</span><span class="p">,</span> <span class="n">rec_processor</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(),</span> <span class="n">load_processor</span><span class="p">()</span>
+
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">run_ocr</span><span class="p">([</span><span class="n">image</span><span class="p">],</span> <span class="p">[</span><span class="n">langs</span><span class="p">],</span> <span class="n">det_model</span><span class="p">,</span> <span class="n">det_processor</span><span class="p">,</span> <span class="n">rec_model</span><span class="p">,</span> <span class="n">rec_processor</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1835,6 +1868,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unified-python-dataframe-api-with-ibis">2.1.39. Unified Python DataFrame API with <code class="docutils literal notranslate"><span class="pre">ibis</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-beautiful-tables-with-great-tables">2.1.40. Create Beautiful Tables with <code class="docutils literal notranslate"><span class="pre">great_tables</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-checks-for-dataframes-with-cuallee">2.1.41. Data Quality Checks for Dataframes with <code class="docutils literal notranslate"><span class="pre">cuallee</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-line-detection-and-layout-analysis-with-surya">2.1.42. OCR, Line Detection and Layout Analysis with <code class="docutils literal notranslate"><span class="pre">surya</span></code></a></li>
 </ul>
   </nav></div>
 

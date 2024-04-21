@@ -424,6 +424,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressing-prompts-with-no-loss-with-llmlingua">6.1.1. Compressing Prompts With No Loss with <code class="docutils literal notranslate"><span class="pre">llmlingua</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-function-call-to-any-llm-with-litellm">6.1.2. One-Function Call to Any LLM with <code class="docutils literal notranslate"><span class="pre">litellm</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#safeguard-your-llms-with-llmguard">6.1.3. Safeguard Your LLMs with <code class="docutils literal notranslate"><span class="pre">LLMGuard</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-llms-with-uptrain">6.1.4. Evaluate LLMs with <code class="docutils literal notranslate"><span class="pre">uptrain</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -564,6 +565,46 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="evaluate-llms-with-uptrain">
+<h2><span class="section-number">6.1.4. </span>Evaluate LLMs with <code class="docutils literal notranslate"><span class="pre">uptrain</span></code><a class="headerlink" href="#evaluate-llms-with-uptrain" title="Permalink to this heading">#</a></h2>
+<p>Evaluating LLMs can be tricky.</p>
+<p>Luckily, <code class="docutils literal notranslate"><span class="pre">uptrain</span></code> offers a neat library to do that.</p>
+<p><code class="docutils literal notranslate"><span class="pre">uptrain</span></code> is a Python library to evaluate LLMs with 20+ preconfigured checks.</p>
+<p>This includes the quality of the responses (completeness, validity,…), language proficiency (tonality, conciseness, …) and code hallucination.</p>
+<p>It supports the biggest providers like OpenAI, Mistral, Claude and Ollama.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install uptrain
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uptrain</span> <span class="kn">import</span> <span class="n">EvalLLM</span><span class="p">,</span> <span class="n">Evals</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">OPENAI_API_KEY</span> <span class="o">=</span> <span class="s2">&quot;*******&quot;</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[{</span>
+    <span class="s1">&#39;question&#39;</span><span class="p">:</span> <span class="s1">&#39;Which is the most popular global sport?&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;context&#39;</span><span class="p">:</span> <span class="s2">&quot;The popularity of sports can be measured in various ways, including TV viewership...&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;response&#39;</span><span class="p">:</span> <span class="s1">&#39;Football is the most popular sport with around 4 billion followers worldwide&#39;</span>
+<span class="p">}]</span>
+
+<span class="n">eval_llm</span> <span class="o">=</span> <span class="n">EvalLLM</span><span class="p">(</span><span class="n">openai_api_key</span><span class="o">=</span><span class="n">OPENAI_API_KEY</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">eval_llm</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+    <span class="n">checks</span><span class="o">=</span><span class="p">[</span><span class="n">Evals</span><span class="o">.</span><span class="n">CONTEXT_RELEVANCE</span><span class="p">,</span> <span class="n">Evals</span><span class="o">.</span><span class="n">FACTUAL_ACCURACY</span><span class="p">,</span> <span class="n">Evals</span><span class="o">.</span><span class="n">RESPONSE_COMPLETENESS</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -636,6 +677,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressing-prompts-with-no-loss-with-llmlingua">6.1.1. Compressing Prompts With No Loss with <code class="docutils literal notranslate"><span class="pre">llmlingua</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-function-call-to-any-llm-with-litellm">6.1.2. One-Function Call to Any LLM with <code class="docutils literal notranslate"><span class="pre">litellm</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#safeguard-your-llms-with-llmguard">6.1.3. Safeguard Your LLMs with <code class="docutils literal notranslate"><span class="pre">LLMGuard</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-llms-with-uptrain">6.1.4. Evaluate LLMs with <code class="docutils literal notranslate"><span class="pre">uptrain</span></code></a></li>
 </ul>
   </nav></div>
 

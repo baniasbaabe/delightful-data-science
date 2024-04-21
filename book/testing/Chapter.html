@@ -430,6 +430,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#property-based-testing-with-hypothesis">13.1.7. Property-based Testing with <code class="docutils literal notranslate"><span class="pre">hypothesis</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mocking-dependencies-with-pytest-mock">13.1.8. Mocking Dependencies with <code class="docutils literal notranslate"><span class="pre">pytest-mock</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freeze-datetime-module-for-testing-with-freezegun">13.1.9. Freeze Datetime Module For Testing with <code class="docutils literal notranslate"><span class="pre">freezegun</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mock-aws-services-with-moto">13.1.10. Mock AWS Services with <code class="docutils literal notranslate"><span class="pre">moto</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -707,6 +708,39 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="mock-aws-services-with-moto">
+<h2><span class="section-number">13.1.10. </span>Mock AWS Services with <code class="docutils literal notranslate"><span class="pre">moto</span></code><a class="headerlink" href="#mock-aws-services-with-moto" title="Permalink to this heading">#</a></h2>
+<p>If you have worked with AWS Services and Python,</p>
+<p>you know how difficult testing your code can be.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">moto</span></code>, you can easily mock out AWS Services and write your tests without headaches.t</p>
+<p>Note: Not all services are covered, so check out the implementation coverage in their repository.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<span class="kn">from</span> <span class="nn">moto</span> <span class="kn">import</span> <span class="n">mock_aws</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s2">&quot;s3&quot;</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="s2">&quot;us-east-1&quot;</span><span class="p">)</span>
+        <span class="n">s3</span><span class="o">.</span><span class="n">put_object</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="s2">&quot;mybucket&quot;</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">Body</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+<span class="nd">@mock_aws</span>
+<span class="k">def</span> <span class="nf">test_my_model_save</span><span class="p">():</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s2">&quot;s3&quot;</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="s2">&quot;us-east-1&quot;</span><span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">create_bucket</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="s2">&quot;mybucket&quot;</span><span class="p">)</span>
+    <span class="n">model_instance</span> <span class="o">=</span> <span class="n">MyModel</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;testtest&quot;</span><span class="p">)</span>
+    <span class="n">model_instance</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="s2">&quot;mybucket&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()[</span><span class="s2">&quot;Body&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">body</span> <span class="o">==</span> <span class="s2">&quot;testtest&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -785,6 +819,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#property-based-testing-with-hypothesis">13.1.7. Property-based Testing with <code class="docutils literal notranslate"><span class="pre">hypothesis</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mocking-dependencies-with-pytest-mock">13.1.8. Mocking Dependencies with <code class="docutils literal notranslate"><span class="pre">pytest-mock</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freeze-datetime-module-for-testing-with-freezegun">13.1.9. Freeze Datetime Module For Testing with <code class="docutils literal notranslate"><span class="pre">freezegun</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mock-aws-services-with-moto">13.1.10. Mock AWS Services with <code class="docutils literal notranslate"><span class="pre">moto</span></code></a></li>
 </ul>
   </nav></div>
 
