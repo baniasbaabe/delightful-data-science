@@ -422,6 +422,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plugin-for-data-science-functions">9.1.1. Plugin for Data Science Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plugin-for-fitting-linear-models">9.1.2. Plugin for Fitting Linear Models</a></li>
 </ul>
             </nav>
         </div>
@@ -465,6 +466,31 @@ document.write(`
     <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;actual&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">num_ext</span><span class="o">.</span><span class="n">bce</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;predicted&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;log loss&quot;</span><span class="p">),</span>
     <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;actual&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">num_ext</span><span class="o">.</span><span class="n">binary_metrics_combo</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;predicted&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;combo&quot;</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">unnest</span><span class="p">(</span><span class="s2">&quot;combo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plugin-for-fitting-linear-models">
+<h2><span class="section-number">9.1.2. </span>Plugin for Fitting Linear Models<a class="headerlink" href="#plugin-for-fitting-linear-models" title="Permalink to this heading">#</a></h2>
+<p>In Polars, you can fit linear models with the <code class="docutils literal notranslate"><span class="pre">polars-ols</span></code> extension.</p>
+<p>You can use ordinary, weighted or regularized least squares like Lasso or Elastic Net.</p>
+<p>It can be 2x-88x times faster than popular libraries like sklearn or statsmodels.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install polars-ols
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="kn">import</span> <span class="nn">polars_ols</span> <span class="k">as</span> <span class="nn">pls</span>
+
+<span class="n">lasso_expr</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">least_squares</span><span class="o">.</span><span class="n">lasso</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">add_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">over</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">)</span>
+
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">lasso_expr</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;predictions_lasso&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -540,6 +566,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plugin-for-data-science-functions">9.1.1. Plugin for Data Science Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plugin-for-fitting-linear-models">9.1.2. Plugin for Fitting Linear Models</a></li>
 </ul>
   </nav></div>
 

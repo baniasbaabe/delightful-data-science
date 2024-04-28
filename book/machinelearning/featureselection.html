@@ -586,25 +586,13 @@ This can lead to unstable and inconsistent coefficients, making it difficult to 
 </section>
 <section id="feature-selection-at-scale-with-mrmr">
 <h2><span class="section-number">5.3.5. </span>Feature Selection at Scale with <code class="docutils literal notranslate"><span class="pre">mrmr</span></code><a class="headerlink" href="#feature-selection-at-scale-with-mrmr" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>Do you want to do Feature Selection automatically?
-
-Try mrmr.
-
-mrmr (minimum-Redundancy-Maximum-Relevance) is a minimal-optimal feature selection algorithm at scale.
-
-It means mrmr will find the smallest relevant subset of features your ML Model needs.
-
-mrmr supports common tools like Pandas, Polars and Spark.
-
-See below how we want to select the best K features.
-
-The output is a ranked list of the relevant features.
-</pre></div>
-</div>
-</div>
-</div>
+<p>Do you want to do Feature Selection automatically?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">mrmr</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mrmr</span></code> (minimum-Redundancy-Maximum-Relevance) is a minimal-optimal feature selection algorithm at scale.</p>
+<p>It means <code class="docutils literal notranslate"><span class="pre">mrmr</span></code> will find the smallest relevant subset of features your ML Model needs.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mrmr</span></code> supports common tools like Pandas, Polars and Spark.</p>
+<p>See below how we want to select the best K features.</p>
+<p>The output is a ranked list of the relevant features.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install mrmr_selection
