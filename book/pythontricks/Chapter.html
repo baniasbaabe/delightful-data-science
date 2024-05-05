@@ -448,6 +448,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerations-in-python">10.1.25. Enumerations in Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#never-use-eval">10.1.26. Never use <code class="docutils literal notranslate"><span class="pre">eval</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#never-use-import">10.1.27. Never use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-what-gets-imported">10.1.28. Control What Gets Imported</a></li>
 </ul>
             </nav>
         </div>
@@ -1109,6 +1110,35 @@ object.</p>
 </div>
 </div>
 </section>
+<section id="control-what-gets-imported">
+<h2><span class="section-number">10.1.28. </span>Control What Gets Imported<a class="headerlink" href="#control-what-gets-imported" title="Permalink to this heading">#</a></h2>
+<p>How to control what gets imported when you use <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module</span> <span class="pre">import</span> <span class="pre">*</span></code> in Python?</p>
+<p><code class="docutils literal notranslate"><span class="pre">__all__</span></code> lets you specify which symbols should be imported when you run <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module</span> <span class="pre">import</span> <span class="pre">*</span></code>.</p>
+<p>By defining <code class="docutils literal notranslate"><span class="pre">__all__</span></code> in your module, you can explicitly control what gets exposed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># mymodule.py</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;my_function&#39;</span><span class="p">,</span> <span class="s1">&#39;MyClass&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">internal_helper</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="c1"># main.py</span>
+<span class="kn">from</span> <span class="nn">mymodule</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">my_function</span><span class="p">()</span>
+<span class="n">internal_helper</span><span class="p">()</span> <span class="c1"># Error</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1205,6 +1235,7 @@ object.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerations-in-python">10.1.25. Enumerations in Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#never-use-eval">10.1.26. Never use <code class="docutils literal notranslate"><span class="pre">eval</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#never-use-import">10.1.27. Never use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-what-gets-imported">10.1.28. Control What Gets Imported</a></li>
 </ul>
   </nav></div>
 
