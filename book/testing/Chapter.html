@@ -431,6 +431,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mocking-dependencies-with-pytest-mock">13.1.8. Mocking Dependencies with <code class="docutils literal notranslate"><span class="pre">pytest-mock</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freeze-datetime-module-for-testing-with-freezegun">13.1.9. Freeze Datetime Module For Testing with <code class="docutils literal notranslate"><span class="pre">freezegun</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mock-aws-services-with-moto">13.1.10. Mock AWS Services with <code class="docutils literal notranslate"><span class="pre">moto</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-output-diff-with-pytest-clarity">13.1.11. Clean Output Diff with <code class="docutils literal notranslate"><span class="pre">pytest-clarity</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -741,6 +742,26 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="clean-output-diff-with-pytest-clarity">
+<h2><span class="section-number">13.1.11. </span>Clean Output Diff with <code class="docutils literal notranslate"><span class="pre">pytest-clarity</span></code><a class="headerlink" href="#clean-output-diff-with-pytest-clarity" title="Permalink to this heading">#</a></h2>
+<p>Improving the output of pytest with one plugin?</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pytest-clarity</span></code>.</p>
+<p>It brings a coloured diff output which is much cleaner than pytest’s standard output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pytest-clarity
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pytest -vv --diff-width=60
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -820,6 +841,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mocking-dependencies-with-pytest-mock">13.1.8. Mocking Dependencies with <code class="docutils literal notranslate"><span class="pre">pytest-mock</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freeze-datetime-module-for-testing-with-freezegun">13.1.9. Freeze Datetime Module For Testing with <code class="docutils literal notranslate"><span class="pre">freezegun</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mock-aws-services-with-moto">13.1.10. Mock AWS Services with <code class="docutils literal notranslate"><span class="pre">moto</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-output-diff-with-pytest-clarity">13.1.11. Clean Output Diff with <code class="docutils literal notranslate"><span class="pre">pytest-clarity</span></code></a></li>
 </ul>
   </nav></div>
 

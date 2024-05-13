@@ -449,6 +449,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#never-use-eval">10.1.26. Never use <code class="docutils literal notranslate"><span class="pre">eval</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#never-use-import">10.1.27. Never use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-what-gets-imported">10.1.28. Control What Gets Imported</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-fields-keyword-only-in-dataclasses">10.1.29. Make Fields Keyword-Only in <code class="docutils literal notranslate"><span class="pre">dataclasses</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1139,6 +1140,25 @@ object.</p>
 </div>
 </div>
 </section>
+<section id="make-fields-keyword-only-in-dataclasses">
+<h2><span class="section-number">10.1.29. </span>Make Fields Keyword-Only in <code class="docutils literal notranslate"><span class="pre">dataclasses</span></code><a class="headerlink" href="#make-fields-keyword-only-in-dataclasses" title="Permalink to this heading">#</a></h2>
+<p>If you want to have keyword-only fields in Python, use the <code class="docutils literal notranslate"><span class="pre">kw_only</span></code> option from <code class="docutils literal notranslate"><span class="pre">dataclasses</span></code>.</p>
+<p>This will throw an error whenever you set parameters without the keyword.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">kw_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Example</span><span class="p">:</span>
+    <span class="n">a</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">b</span><span class="p">:</span> <span class="nb">int</span>
+
+<span class="n">example</span> <span class="o">=</span> <span class="n">Example</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">example</span> <span class="o">=</span> <span class="n">Example</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Error  </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1236,6 +1256,7 @@ object.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#never-use-eval">10.1.26. Never use <code class="docutils literal notranslate"><span class="pre">eval</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#never-use-import">10.1.27. Never use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-what-gets-imported">10.1.28. Control What Gets Imported</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-fields-keyword-only-in-dataclasses">10.1.29. Make Fields Keyword-Only in <code class="docutils literal notranslate"><span class="pre">dataclasses</span></code></a></li>
 </ul>
   </nav></div>
 
