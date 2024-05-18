@@ -428,6 +428,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-truly-random-numbers">10.2.5. Generate Truly Random Numbers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-dictionaries-with-python-benedict">10.2.6. Powerful Dictionaries with <code class="docutils literal notranslate"><span class="pre">python-benedict</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-exception-output-with-pretty-errors">10.2.7. Clear Exception Output with <code class="docutils literal notranslate"><span class="pre">pretty_errors</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deprecate-functions-with-deprecated">10.2.8. Deprecate Functions with <code class="docutils literal notranslate"><span class="pre">deprecated</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -642,6 +643,33 @@ Import it: <code class="docutils literal notranslate"><span class="pre">import</
 </div>
 </div>
 </section>
+<section id="deprecate-functions-with-deprecated">
+<h2><span class="section-number">10.2.8. </span>Deprecate Functions with <code class="docutils literal notranslate"><span class="pre">deprecated</span></code><a class="headerlink" href="#deprecate-functions-with-deprecated" title="Permalink to this heading">#</a></h2>
+<p>How to deprecate functions in Python?</p>
+<p>You can use the library <code class="docutils literal notranslate"><span class="pre">deprecation</span></code> which offers decorators to wrap functions.</p>
+<p>Proper warnings in documentation and in the console are displayed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install deprecation
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">deprecation</span> <span class="kn">import</span> <span class="n">deprecated</span>
+
+<span class="nd">@deprecated</span><span class="p">(</span><span class="n">deprecated_in</span><span class="o">=</span><span class="s2">&quot;0.10&quot;</span><span class="p">,</span> <span class="n">removed_in</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span> <span class="n">current_version</span><span class="o">=</span><span class="n">__version__</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="s2">&quot;Use my_func2 instead&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">my_func</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+  
+<span class="n">my_func</span><span class="p">()</span>
+<span class="c1"># UnsupportedWarning: my_func is unsupported as of 1.0. Use my_func2 instead</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -718,6 +746,7 @@ Import it: <code class="docutils literal notranslate"><span class="pre">import</
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-truly-random-numbers">10.2.5. Generate Truly Random Numbers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-dictionaries-with-python-benedict">10.2.6. Powerful Dictionaries with <code class="docutils literal notranslate"><span class="pre">python-benedict</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-exception-output-with-pretty-errors">10.2.7. Clear Exception Output with <code class="docutils literal notranslate"><span class="pre">pretty_errors</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deprecate-functions-with-deprecated">10.2.8. Deprecate Functions with <code class="docutils literal notranslate"><span class="pre">deprecated</span></code></a></li>
 </ul>
   </nav></div>
 
