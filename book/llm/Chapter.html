@@ -208,8 +208,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../pythontricks/tooling.html">10.3. Tooling for Python Projects</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">11. Selenium Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../selenium/Chapter.html">11.1. Selenium Tips and Tricks</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">11. Scraping Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../selenium/Chapter.html">11.1. Scraping Tips and Tricks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../streamlit/index.html">12. Streamlit Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -426,6 +426,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#safeguard-your-llms-with-llmguard">6.1.3. Safeguard Your LLMs with <code class="docutils literal notranslate"><span class="pre">LLMGuard</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-llms-with-uptrain">6.1.4. Evaluate LLMs with <code class="docutils literal notranslate"><span class="pre">uptrain</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embed-any-type-of-file">6.1.5. Embed Any Type of File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-llm-output-with-outlines">6.1.6. Structured LLM Output with <code class="docutils literal notranslate"><span class="pre">outlines</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -632,6 +633,38 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="structured-llm-output-with-outlines">
+<h2><span class="section-number">6.1.6. </span>Structured LLM Output with <code class="docutils literal notranslate"><span class="pre">outlines</span></code><a class="headerlink" href="#structured-llm-output-with-outlines" title="Permalink to this heading">#</a></h2>
+<p>Are you annoyed of unstructured outputs of LLMs?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">outlines</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">outlines</span></code> is a Python library for structured generation of your LLMs.</p>
+<p>There are multiple ways to enforce the output of the model like choices, type constraints, JSON output, and more.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install outlines
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">outlines</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">outlines</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">transformers</span><span class="p">(</span><span class="s2">&quot;mistralai/Mistral-7B-Instruct-v0.2&quot;</span><span class="p">)</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;You are a sentiment-labelling assistant.</span>
+<span class="s2">Is the following review positive or negative?</span>
+
+<span class="s2">Review: This restaurant is just awesome!</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">generator</span> <span class="o">=</span> <span class="n">outlines</span><span class="o">.</span><span class="n">generate</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Positive&quot;</span><span class="p">,</span> <span class="s2">&quot;Negative&quot;</span><span class="p">])</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -706,6 +739,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#safeguard-your-llms-with-llmguard">6.1.3. Safeguard Your LLMs with <code class="docutils literal notranslate"><span class="pre">LLMGuard</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-llms-with-uptrain">6.1.4. Evaluate LLMs with <code class="docutils literal notranslate"><span class="pre">uptrain</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embed-any-type-of-file">6.1.5. Embed Any Type of File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-llm-output-with-outlines">6.1.6. Structured LLM Output with <code class="docutils literal notranslate"><span class="pre">outlines</span></code></a></li>
 </ul>
   </nav></div>
 
