@@ -463,6 +463,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-beautiful-tables-with-great-tables">2.1.40. Create Beautiful Tables with <code class="docutils literal notranslate"><span class="pre">great_tables</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-checks-for-dataframes-with-cuallee">2.1.41. Data Quality Checks for Dataframes with <code class="docutils literal notranslate"><span class="pre">cuallee</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-line-detection-and-layout-analysis-with-surya">2.1.42. OCR, Line Detection and Layout Analysis with <code class="docutils literal notranslate"><span class="pre">surya</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decode-encode-jwts-with-pyjwt">2.1.43. Decode/Encode JWTs with <code class="docutils literal notranslate"><span class="pre">PyJWT</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1758,6 +1759,27 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="decode-encode-jwts-with-pyjwt">
+<h2><span class="section-number">2.1.43. </span>Decode/Encode JWTs with <code class="docutils literal notranslate"><span class="pre">PyJWT</span></code><a class="headerlink" href="#decode-encode-jwts-with-pyjwt" title="Permalink to this heading">#</a></h2>
+<p>For working with JWT in Python, use <code class="docutils literal notranslate"><span class="pre">PyJWT</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">PyJWT</span></code> is a Python library for encoding/decoding JWTs easily.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pyjwt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jwt</span>
+<span class="n">encoded_jwt</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">({</span><span class="s2">&quot;some&quot;</span><span class="p">:</span> <span class="s2">&quot;payload&quot;</span><span class="p">},</span> <span class="s2">&quot;secret&quot;</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;HS256&quot;</span><span class="p">)</span>
+<span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoded_jwt</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;HS256&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1869,6 +1891,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-beautiful-tables-with-great-tables">2.1.40. Create Beautiful Tables with <code class="docutils literal notranslate"><span class="pre">great_tables</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-checks-for-dataframes-with-cuallee">2.1.41. Data Quality Checks for Dataframes with <code class="docutils literal notranslate"><span class="pre">cuallee</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-line-detection-and-layout-analysis-with-surya">2.1.42. OCR, Line Detection and Layout Analysis with <code class="docutils literal notranslate"><span class="pre">surya</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decode-encode-jwts-with-pyjwt">2.1.43. Decode/Encode JWTs with <code class="docutils literal notranslate"><span class="pre">PyJWT</span></code></a></li>
 </ul>
   </nav></div>
 
