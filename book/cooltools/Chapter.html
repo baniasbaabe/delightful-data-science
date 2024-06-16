@@ -464,6 +464,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-checks-for-dataframes-with-cuallee">2.1.41. Data Quality Checks for Dataframes with <code class="docutils literal notranslate"><span class="pre">cuallee</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-line-detection-and-layout-analysis-with-surya">2.1.42. OCR, Line Detection and Layout Analysis with <code class="docutils literal notranslate"><span class="pre">surya</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decode-encode-jwts-with-pyjwt">2.1.43. Decode/Encode JWTs with <code class="docutils literal notranslate"><span class="pre">PyJWT</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-html-to-markdown-with-markdownify">2.1.44. Convert HTML to Markdown with <code class="docutils literal notranslate"><span class="pre">markdownify</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-web-apps-with-mesop">2.1.45. Build Web Apps with <code class="docutils literal notranslate"><span class="pre">mesop</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1780,6 +1782,56 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="convert-html-to-markdown-with-markdownify">
+<h2><span class="section-number">2.1.44. </span>Convert HTML to Markdown with <code class="docutils literal notranslate"><span class="pre">markdownify</span></code><a class="headerlink" href="#convert-html-to-markdown-with-markdownify" title="Permalink to this heading">#</a></h2>
+<p>To convert HTML to Markdown with Python, use <code class="docutils literal notranslate"><span class="pre">markdownify</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">markdownify</span></code> is a Python library which provides a simple function to convert HTML to markdown.</p>
+<p>It also supports many options like stripping out elements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install markdownify
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdownify</span> <span class="kn">import</span> <span class="n">markdownify</span> <span class="k">as</span> <span class="n">md</span>
+<span class="n">md</span><span class="p">(</span><span class="s1">&#39;&lt;b&gt;Yay&lt;/b&gt; &lt;a href=&quot;http://github.com&quot;&gt;GitHub&lt;/a&gt;&#39;</span><span class="p">)</span>  
+<span class="c1"># Output: &#39;**Yay** [GitHub](http://github.com)&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="build-web-apps-with-mesop">
+<h2><span class="section-number">2.1.45. </span>Build Web Apps with <code class="docutils literal notranslate"><span class="pre">mesop</span></code><a class="headerlink" href="#build-web-apps-with-mesop" title="Permalink to this heading">#</a></h2>
+<p>Google Devs published a new open-source Streamlit competitor.</p>
+<p>It’s called <code class="docutils literal notranslate"><span class="pre">mesop</span></code> to build web apps in Python rapidly.</p>
+<p>It provides ready-to-use components or you can build your ones, without writing HTML/CSS/JS code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install mesop
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mesop</span> <span class="k">as</span> <span class="nn">me</span>
+<span class="kn">import</span> <span class="nn">mesop.labs</span> <span class="k">as</span> <span class="nn">mel</span>
+
+<span class="nd">@me</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;/chat&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">chat</span><span class="p">():</span>
+  <span class="n">mel</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">mel</span><span class="o">.</span><span class="n">ChatMessage</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+  <span class="k">return</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">prompt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1892,6 +1944,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-checks-for-dataframes-with-cuallee">2.1.41. Data Quality Checks for Dataframes with <code class="docutils literal notranslate"><span class="pre">cuallee</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-line-detection-and-layout-analysis-with-surya">2.1.42. OCR, Line Detection and Layout Analysis with <code class="docutils literal notranslate"><span class="pre">surya</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decode-encode-jwts-with-pyjwt">2.1.43. Decode/Encode JWTs with <code class="docutils literal notranslate"><span class="pre">PyJWT</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-html-to-markdown-with-markdownify">2.1.44. Convert HTML to Markdown with <code class="docutils literal notranslate"><span class="pre">markdownify</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-web-apps-with-mesop">2.1.45. Build Web Apps with <code class="docutils literal notranslate"><span class="pre">mesop</span></code></a></li>
 </ul>
   </nav></div>
 
