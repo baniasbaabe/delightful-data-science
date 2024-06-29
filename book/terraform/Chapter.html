@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>12.1. Streamlit Tips and Tricks &#8212; Delightful Data Science</title>
+    <title>12.1. Terraform &#8212; Delightful Data Science</title>
   
   
   
@@ -62,11 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/streamlit/Chapter';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/terraform/Chapter';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="13. Testing in Python" href="../testing/index.html" />
-    <link rel="prev" title="12. Streamlit Tips and Tricks" href="index.html" />
+    <link rel="prev" title="12. Terraform" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -212,8 +212,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../selenium/Chapter.html">11.1. Scraping Tips and Tricks</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">12. Streamlit Tips and Tricks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">12.1. Streamlit Tips and Tricks</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">12. Terraform</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">12.1. Terraform</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">13. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -299,7 +299,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/baniasbaabe/delightful-data-science/issues/new?title=Issue%20on%20page%20%2Fbook/streamlit/Chapter.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/baniasbaabe/delightful-data-science/issues/new?title=Issue%20on%20page%20%2Fbook/terraform/Chapter.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -329,7 +329,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/book/streamlit/Chapter.ipynb" target="_blank"
+      <li><a href="../../_sources/book/terraform/Chapter.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -411,7 +411,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Streamlit Tips and Tricks</h1>
+    <h1>Terraform</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -421,7 +421,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embed-pandas-profiling-into-streamlit">12.1.1. Embed pandas-profiling into Streamlit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-code-analyzer-with-tflint">12.1.1. Static Code Analyzer with <code class="docutils literal notranslate"><span class="pre">TFLint</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-for-security-risks-with-tfsec">12.1.2. Check for Security Risks with <code class="docutils literal notranslate"><span class="pre">Tfsec</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -433,35 +434,54 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="streamlit-tips-and-tricks">
-<h1><span class="section-number">12.1. </span>Streamlit Tips and Tricks<a class="headerlink" href="#streamlit-tips-and-tricks" title="Permalink to this heading">#</a></h1>
-<section id="embed-pandas-profiling-into-streamlit">
-<h2><span class="section-number">12.1.1. </span>Embed pandas-profiling into Streamlit<a class="headerlink" href="#embed-pandas-profiling-into-streamlit" title="Permalink to this heading">#</a></h2>
-<p>Do you want to use pandas-profiling within your Streamlit app?</p>
-<p><code class="docutils literal notranslate"><span class="pre">pandas-profiling</span></code> is a popular library for one-line EDA of your data frames.</p>
-<p>But what, if you want to embed your report into your streamlit app?</p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">streamlit-pandas-profiling</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">streamlit-pandas-profiling</span></code> is a <code class="docutils literal notranslate"><span class="pre">pandas-profiling</span></code> component for streamlit where you can embed the generated reports into your Streamlit app.</p>
-<p>With one line of code.</p>
+  <section id="terraform">
+<h1><span class="section-number">12.1. </span>Terraform<a class="headerlink" href="#terraform" title="Permalink to this heading">#</a></h1>
+<section id="static-code-analyzer-with-tflint">
+<h2><span class="section-number">12.1.1. </span>Static Code Analyzer with <code class="docutils literal notranslate"><span class="pre">TFLint</span></code><a class="headerlink" href="#static-code-analyzer-with-tflint" title="Permalink to this heading">#</a></h2>
+<p>As your Terraform codebase grows, it’s more prone to errors.</p>
+<p>And they can become nasty.</p>
+<p>To analyze your files, use <code class="docutils literal notranslate"><span class="pre">TFLint</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TFLint</span></code> is a linting tool to check for common smells and issues before you even run your code.</p>
+<p>You can even define custom rules to tailor it to your team’s standards.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install streamlit-pandas-profiling
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>tflint
+
+Error: &quot;type_abc&quot; is an invalid value as instance_type (aws_instance_invalid_type)
+
+  on main.tf line 15:
+   15: instance_type = &quot;invalid_type&quot;
+When you run TFLint again, you’ll receive an error message indicating that the
+instance_type value is invalid. TFLint identifies this issue without applying the Terraform configuration,
+helping you catch errors early in your development workflow.
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="check-for-security-risks-with-tfsec">
+<h2><span class="section-number">12.1.2. </span>Check for Security Risks with <code class="docutils literal notranslate"><span class="pre">Tfsec</span></code><a class="headerlink" href="#check-for-security-risks-with-tfsec" title="Permalink to this heading">#</a></h2>
+<p>To check your Terraform files for common security issues, use <code class="docutils literal notranslate"><span class="pre">Tfsec</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TFsec</span></code> is a static code analyzer to detect security risks, with hundreds of built-in rules.</p>
+<p>It’s easy to set-up and run. Perfect for CI pipelines too.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">pandas_profiling</span>
-<span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>brew install tfsec
+tfsec .
 
-<span class="kn">from</span> <span class="nn">streamlit_pandas_profiling</span> <span class="kn">import</span> <span class="n">st_profile_report</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span><span class="p">)</span>
-<span class="n">report</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">profile_report</span><span class="p">()</span>
-
-<span class="n">st_profile_report</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+Result #1 CRITICAL Storage account uses an insecure TLS version.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  deployment/modules/storage_account/main.tf:1-8
+   via deployment/main.tf:23-28 (module.storage_account)
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    1    resource &quot;azurerm_storage_account&quot; &quot;storage_account&quot; {
+    2      name                     = var.account_name
+    3      resource_group_name      = var.resource_group_name
+    4      location                 = var.location
+    5      account_kind             = &quot;Storage&quot;
+    6      account_tier             = &quot;Standard&quot;
+    7      account_replication_type = &quot;LRS&quot;
+    8    }
 </pre></div>
 </div>
 </div>
@@ -482,7 +502,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./book/streamlit"
+            path: "./book/terraform"
         },
         predefinedOutput: true
     }
@@ -506,7 +526,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Streamlit Tips and Tricks</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Terraform</p>
       </div>
     </a>
     <a class="right-next"
@@ -536,7 +556,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embed-pandas-profiling-into-streamlit">12.1.1. Embed pandas-profiling into Streamlit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-code-analyzer-with-tflint">12.1.1. Static Code Analyzer with <code class="docutils literal notranslate"><span class="pre">TFLint</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-for-security-risks-with-tfsec">12.1.2. Check for Security Risks with <code class="docutils literal notranslate"><span class="pre">Tfsec</span></code></a></li>
 </ul>
   </nav></div>
 

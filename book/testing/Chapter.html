@@ -212,8 +212,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../selenium/Chapter.html">11.1. Scraping Tips and Tricks</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../streamlit/index.html">12. Streamlit Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../streamlit/Chapter.html">12.1. Streamlit Tips and Tricks</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../terraform/index.html">12. Terraform</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../terraform/Chapter.html">12.1. Terraform</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">13. Testing in Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
@@ -432,6 +432,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freeze-datetime-module-for-testing-with-freezegun">13.1.9. Freeze Datetime Module For Testing with <code class="docutils literal notranslate"><span class="pre">freezegun</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mock-aws-services-with-moto">13.1.10. Mock AWS Services with <code class="docutils literal notranslate"><span class="pre">moto</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-output-diff-with-pytest-clarity">13.1.11. Clean Output Diff with <code class="docutils literal notranslate"><span class="pre">pytest-clarity</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-environment-variables-with-pytest-env">13.1.12. Using Environment Variables with <code class="docutils literal notranslate"><span class="pre">pytest-env</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -762,6 +763,39 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="using-environment-variables-with-pytest-env">
+<h2><span class="section-number">13.1.12. </span>Using Environment Variables with <code class="docutils literal notranslate"><span class="pre">pytest-env</span></code><a class="headerlink" href="#using-environment-variables-with-pytest-env" title="Permalink to this heading">#</a></h2>
+<p>How to use environment variables when testing your code?</p>
+<p>It’s important to not mix up your test environment and local environment, especially when you want to define environment variables specifically for your tests.</p>
+<p>For this case, use <code class="docutils literal notranslate"><span class="pre">pytest-env</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pytest-env</span></code> is a pytest plugin to define your environment variables in a pytest.ini file.</p>
+<p>Those variables will be isolated from the local environment, perfect for writing and running tests.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pytest-env
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># pytest.ini</span>
+<span class="p">[</span><span class="n">pytest</span><span class="p">]</span>
+<span class="n">env</span> <span class="o">=</span>
+    <span class="n">API_KEY</span><span class="o">=</span><span class="n">example</span><span class="o">-</span><span class="n">key</span>
+    <span class="n">API_ENDPOINT</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">endpoint</span><span class="o">.</span><span class="n">net</span>
+    
+<span class="c1"># test_example.py</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">test_load_env_vars</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;example-key&quot;</span>
+    <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;API_ENDPOINT&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">endpoint</span><span class="o">.</span><span class="n">net</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -842,6 +876,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freeze-datetime-module-for-testing-with-freezegun">13.1.9. Freeze Datetime Module For Testing with <code class="docutils literal notranslate"><span class="pre">freezegun</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mock-aws-services-with-moto">13.1.10. Mock AWS Services with <code class="docutils literal notranslate"><span class="pre">moto</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-output-diff-with-pytest-clarity">13.1.11. Clean Output Diff with <code class="docutils literal notranslate"><span class="pre">pytest-clarity</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-environment-variables-with-pytest-env">13.1.12. Using Environment Variables with <code class="docutils literal notranslate"><span class="pre">pytest-env</span></code></a></li>
 </ul>
   </nav></div>
 
