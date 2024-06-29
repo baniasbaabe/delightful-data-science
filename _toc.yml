@@ -53,9 +53,9 @@ chapters:
   - file: book/selenium/index.ipynb
     sections:
       - file: book/selenium/Chapter.ipynb
-  - file: book/streamlit/index.ipynb
+  - file: book/terraform/index.ipynb
     sections:
-      - file: book/streamlit/Chapter.ipynb
+      - file: book/terraform/Chapter.ipynb
   - file: book/testing/index.ipynb
     sections:
       - file: book/testing/Chapter.ipynb
