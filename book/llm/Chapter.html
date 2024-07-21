@@ -427,6 +427,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-llms-with-uptrain">6.1.4. Evaluate LLMs with <code class="docutils literal notranslate"><span class="pre">uptrain</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embed-any-type-of-file">6.1.5. Embed Any Type of File</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-llm-output-with-outlines">6.1.6. Structured LLM Output with <code class="docutils literal notranslate"><span class="pre">outlines</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-rag-pipelines-with-ragas">6.1.7. Evaluating RAG Pipelines with <code class="docutils literal notranslate"><span class="pre">Ragas</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -665,6 +666,48 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="evaluating-rag-pipelines-with-ragas">
+<h2><span class="section-number">6.1.7. </span>Evaluating RAG Pipelines with <code class="docutils literal notranslate"><span class="pre">Ragas</span></code><a class="headerlink" href="#evaluating-rag-pipelines-with-ragas" title="Permalink to this heading">#</a></h2>
+<p>How do you evaluate your RAG application?</p>
+<p>Sure, you can look manually over your responses and see if it’s what you want.</p>
+<p>But, it’s not scalable.</p>
+<p>Instead, use <code class="docutils literal notranslate"><span class="pre">Ragas</span></code> in Python.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Ragas</span></code> is a library providing evaluation techniques and metrics for your RAG pipeline like Context Precision/Recall, Faithfulness and answer relevancy.</p>
+<p>See below how easy it is to run <code class="docutils literal notranslate"><span class="pre">Ragas</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install ragas
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">Dataset</span> 
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">ragas</span> <span class="kn">import</span> <span class="n">evaluate</span>
+<span class="kn">from</span> <span class="nn">ragas.metrics</span> <span class="kn">import</span> <span class="n">faithfulness</span><span class="p">,</span> <span class="n">answer_correctness</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;your-openai-key&quot;</span>
+
+<span class="n">data_samples</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;question&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;When was the first super bowl?&#39;</span><span class="p">,</span> <span class="s1">&#39;Who won the most super bowls?&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;answer&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;The first superbowl was held on Jan 15, 1967&#39;</span><span class="p">,</span> <span class="s1">&#39;The most super bowls have been won by The New England Patriots&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;contexts&#39;</span> <span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;The First AFL–NFL World Championship Game was an American football game played on January 15, 1967, at the Los Angeles Memorial Coliseum in Los Angeles,&#39;</span><span class="p">],</span> 
+    <span class="p">[</span><span class="s1">&#39;The Green Bay Packers...Green Bay, Wisconsin.&#39;</span><span class="p">,</span><span class="s1">&#39;The Packers compete...Football Conference&#39;</span><span class="p">]],</span>
+    <span class="s1">&#39;ground_truth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;The first superbowl was held on January 15, 1967&#39;</span><span class="p">,</span> <span class="s1">&#39;The New England Patriots have won the Super Bowl a record six times&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">Dataset</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">data_samples</span><span class="p">)</span>
+
+<span class="n">score</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">faithfulness</span><span class="p">,</span><span class="n">answer_correctness</span><span class="p">])</span>
+<span class="n">score</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -740,6 +783,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-llms-with-uptrain">6.1.4. Evaluate LLMs with <code class="docutils literal notranslate"><span class="pre">uptrain</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embed-any-type-of-file">6.1.5. Embed Any Type of File</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-llm-output-with-outlines">6.1.6. Structured LLM Output with <code class="docutils literal notranslate"><span class="pre">outlines</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-rag-pipelines-with-ragas">6.1.7. Evaluating RAG Pipelines with <code class="docutils literal notranslate"><span class="pre">Ragas</span></code></a></li>
 </ul>
   </nav></div>
 
