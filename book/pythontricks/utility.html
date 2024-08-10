@@ -429,6 +429,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-dictionaries-with-python-benedict">10.2.6. Powerful Dictionaries with <code class="docutils literal notranslate"><span class="pre">python-benedict</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-exception-output-with-pretty-errors">10.2.7. Clear Exception Output with <code class="docutils literal notranslate"><span class="pre">pretty_errors</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deprecate-functions-with-deprecated">10.2.8. Deprecate Functions with <code class="docutils literal notranslate"><span class="pre">deprecated</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-insensitive-dictionaries">10.2.9. Case Insensitive Dictionaries</a></li>
 </ul>
             </nav>
         </div>
@@ -670,6 +671,30 @@ Import it: <code class="docutils literal notranslate"><span class="pre">import</
 </div>
 </div>
 </section>
+<section id="case-insensitive-dictionaries">
+<h2><span class="section-number">10.2.9. </span>Case Insensitive Dictionaries<a class="headerlink" href="#case-insensitive-dictionaries" title="Permalink to this heading">#</a></h2>
+<p>Are you annoyed by case-sensitive dictionaries in Python?</p>
+<p>Try 𝐂𝐚𝐬𝐞𝐈𝐧𝐬𝐞𝐧𝐬𝐢𝐭𝐢𝐯𝐞𝐃𝐢𝐜𝐭𝐬.</p>
+<p>As the name says, you can access values by the key without paying attention to lowercase or uppercase.</p>
+<p>It’s useful for everyone who is scraping API data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">requests.structures</span> <span class="kn">import</span> <span class="n">CaseInsensitiveDict</span>
+
+<span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">CaseInsensitiveDict</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;content-type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;Mozilla/5.0&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Accept&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -747,6 +772,7 @@ Import it: <code class="docutils literal notranslate"><span class="pre">import</
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-dictionaries-with-python-benedict">10.2.6. Powerful Dictionaries with <code class="docutils literal notranslate"><span class="pre">python-benedict</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-exception-output-with-pretty-errors">10.2.7. Clear Exception Output with <code class="docutils literal notranslate"><span class="pre">pretty_errors</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deprecate-functions-with-deprecated">10.2.8. Deprecate Functions with <code class="docutils literal notranslate"><span class="pre">deprecated</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-insensitive-dictionaries">10.2.9. Case Insensitive Dictionaries</a></li>
 </ul>
   </nav></div>
 
