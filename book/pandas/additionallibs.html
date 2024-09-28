@@ -425,6 +425,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduce-dataframe-memory-with-dtype-diet">8.2.2. Reduce DataFrame Memory with <code class="docutils literal notranslate"><span class="pre">dtype_diet</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-pandas-dataframes-with-pandera">8.2.3. Validate Pandas DataFrames with <code class="docutils literal notranslate"><span class="pre">pandera</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boost-pandas-performance-with-one-line-with-modin">8.2.4. Boost Pandas’ Performance With One Line With <code class="docutils literal notranslate"><span class="pre">modin</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chat-with-your-dataframe-with-pandasai">8.2.5. Chat with your Dataframe with <code class="docutils literal notranslate"><span class="pre">PandasAI</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -568,6 +569,35 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="chat-with-your-dataframe-with-pandasai">
+<h2><span class="section-number">8.2.5. </span>Chat with your Dataframe with <code class="docutils literal notranslate"><span class="pre">PandasAI</span></code><a class="headerlink" href="#chat-with-your-dataframe-with-pandasai" title="Permalink to this heading">#</a></h2>
+<p>You can chat with your Pandas dataframe with a few lines of code.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">PandasAI</span></code>, you can use LLMs to analyze your data, generate visuals, and create a report with your words.</p>
+<p>Currently, <code class="docutils literal notranslate"><span class="pre">PandasAI</span></code> supports popular LLMs from providers like OpenAI, Anthropic, Google, Amazon, or Ollama for local LLMs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pandasai
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandasai</span> <span class="kn">import</span> <span class="n">SmartDataframe</span>
+<span class="kn">from</span> <span class="nn">pandasai.llm</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">pandasai.helpers.openai_info</span> <span class="kn">import</span> <span class="n">get_openai_callback</span>
+
+<span class="n">llm</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">SmartDataframe</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;llm&quot;</span><span class="p">:</span> <span class="n">llm</span><span class="p">,</span> <span class="s2">&quot;conversational&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
+
+<span class="k">with</span> <span class="n">get_openai_callback</span><span class="p">()</span> <span class="k">as</span> <span class="n">cb</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="s2">&quot;Calculate the sum of the gdp of north american countries&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -641,6 +671,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduce-dataframe-memory-with-dtype-diet">8.2.2. Reduce DataFrame Memory with <code class="docutils literal notranslate"><span class="pre">dtype_diet</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-pandas-dataframes-with-pandera">8.2.3. Validate Pandas DataFrames with <code class="docutils literal notranslate"><span class="pre">pandera</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boost-pandas-performance-with-one-line-with-modin">8.2.4. Boost Pandas’ Performance With One Line With <code class="docutils literal notranslate"><span class="pre">modin</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chat-with-your-dataframe-with-pandasai">8.2.5. Chat with your Dataframe with <code class="docutils literal notranslate"><span class="pre">PandasAI</span></code></a></li>
 </ul>
   </nav></div>
 

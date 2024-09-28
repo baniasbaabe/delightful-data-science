@@ -451,6 +451,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sota-computer-vision-models-with-timm">5.5.28. SOTA Computer Vision Models with <code class="docutils literal notranslate"><span class="pre">timm</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-guaranteed-prediction-intervals-and-sets-with-mapie">5.5.29. Generate Guaranteed Prediction Intervals and Sets with <code class="docutils literal notranslate"><span class="pre">MAPIE</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-components-for-scikit-learn-with-scikit-lego">5.5.30. Extra Components For scikit-learn with <code class="docutils literal notranslate"><span class="pre">scikit-lego</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantize-your-models-with-torchao">5.5.31. Quantize your Models with <code class="docutils literal notranslate"><span class="pre">torchao</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1712,6 +1713,28 @@ Keras.</p>
 </div>
 </div>
 </section>
+<section id="quantize-your-models-with-torchao">
+<h2><span class="section-number">5.5.31. </span>Quantize your Models with <code class="docutils literal notranslate"><span class="pre">torchao</span></code><a class="headerlink" href="#quantize-your-models-with-torchao" title="Permalink to this heading">#</a></h2>
+<p>Quantizing your Deep Learning models was never easier.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">torchao</span></code>, you can quantize and sparsify your models with 1 line of code.</p>
+<p>If you are unsure which method to use, you can even use the autoquant method to quantize your layers automatically.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>torchao
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torchao</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">torchao</span><span class="o">.</span><span class="n">autoquant</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;max-autotune&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1811,6 +1834,7 @@ Keras.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sota-computer-vision-models-with-timm">5.5.28. SOTA Computer Vision Models with <code class="docutils literal notranslate"><span class="pre">timm</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-guaranteed-prediction-intervals-and-sets-with-mapie">5.5.29. Generate Guaranteed Prediction Intervals and Sets with <code class="docutils literal notranslate"><span class="pre">MAPIE</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-components-for-scikit-learn-with-scikit-lego">5.5.30. Extra Components For scikit-learn with <code class="docutils literal notranslate"><span class="pre">scikit-lego</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantize-your-models-with-torchao">5.5.31. Quantize your Models with <code class="docutils literal notranslate"><span class="pre">torchao</span></code></a></li>
 </ul>
   </nav></div>
 
