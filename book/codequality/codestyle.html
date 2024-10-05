@@ -430,6 +430,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-python-code-in-documentation-files">1.3.7. Format Python Code in Documentation Files</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correct-misspellings-in-your-codebase-with-codespell">1.3.8. Correct Misspellings in Your Codebase with <code class="docutils literal notranslate"><span class="pre">codespell</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lint-your-dockerfile-with-hadolint">1.3.9. Lint Your Dockerfile with <code class="docutils literal notranslate"><span class="pre">hadolint</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-typos-in-your-codebase-with-typos">1.3.10. Detect Typos in your codebase with <code class="docutils literal notranslate"><span class="pre">typos</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -659,6 +660,26 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="detect-typos-in-your-codebase-with-typos">
+<h2><span class="section-number">1.3.10. </span>Detect Typos in your codebase with <code class="docutils literal notranslate"><span class="pre">typos</span></code><a class="headerlink" href="#detect-typos-in-your-codebase-with-typos" title="Permalink to this heading">#</a></h2>
+<p>To find typos in your code base, use <code class="docutils literal notranslate"><span class="pre">typos</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">typos</span></code> is a fast code spell checker written in Rust for high performance.</p>
+<p>It has a low false positive rate, so you can easily run it in your CI pipeline or as a pre-commit hook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!brew install typos-cli
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!typos
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -737,6 +758,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-python-code-in-documentation-files">1.3.7. Format Python Code in Documentation Files</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correct-misspellings-in-your-codebase-with-codespell">1.3.8. Correct Misspellings in Your Codebase with <code class="docutils literal notranslate"><span class="pre">codespell</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lint-your-dockerfile-with-hadolint">1.3.9. Lint Your Dockerfile with <code class="docutils literal notranslate"><span class="pre">hadolint</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-typos-in-your-codebase-with-typos">1.3.10. Detect Typos in your codebase with <code class="docutils literal notranslate"><span class="pre">typos</span></code></a></li>
 </ul>
   </nav></div>
 

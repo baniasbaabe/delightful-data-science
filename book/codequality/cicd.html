@@ -423,6 +423,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-github-actions-workflows-locally-with-act">1.2.1. Test GitHub Actions Workflows Locally with <code class="docutils literal notranslate"><span class="pre">act</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cache-python-dependencies-in-github-actions">1.2.2. Cache Python Dependencies in GitHub Actions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lint-github-actions-workflow-files-with-actionlint">1.2.3. Lint Github Actions Workflow Files with <code class="docutils literal notranslate"><span class="pre">actionlint</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -488,6 +489,33 @@ document.write(`
 
     <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Run</span> <span class="n">Python</span> <span class="n">unit</span> <span class="n">tests</span>
       <span class="n">run</span><span class="p">:</span> <span class="n">python3</span> <span class="o">-</span><span class="n">u</span> <span class="o">-</span><span class="n">m</span> <span class="n">unittest</span> <span class="n">tests</span><span class="o">/</span><span class="n">tests</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lint-github-actions-workflow-files-with-actionlint">
+<h2><span class="section-number">1.2.3. </span>Lint Github Actions Workflow Files with <code class="docutils literal notranslate"><span class="pre">actionlint</span></code><a class="headerlink" href="#lint-github-actions-workflow-files-with-actionlint" title="Permalink to this heading">#</a></h2>
+<p>To lint your Github actions workflow files, use <code class="docutils literal notranslate"><span class="pre">actionlint</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">actionlint</span></code> is a tool for detecting potential problems and smells in your workflow files.</p>
+<p>This includes</p>
+<ul class="simple">
+<li><p>Syntax checks</p></li>
+<li><p>Security checks</p></li>
+<li><p>Cron syntax checking</p></li>
+<li><p>Checks for access to non-existent properties</p></li>
+</ul>
+<p>It has a pre-commit hook too.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!go install github.com/rhysd/actionlint/cmd/actionlint@latest
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!actionlint
 </pre></div>
 </div>
 </div>
@@ -564,6 +592,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-github-actions-workflows-locally-with-act">1.2.1. Test GitHub Actions Workflows Locally with <code class="docutils literal notranslate"><span class="pre">act</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cache-python-dependencies-in-github-actions">1.2.2. Cache Python Dependencies in GitHub Actions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lint-github-actions-workflow-files-with-actionlint">1.2.3. Lint Github Actions Workflow Files with <code class="docutils literal notranslate"><span class="pre">actionlint</span></code></a></li>
 </ul>
   </nav></div>
 
