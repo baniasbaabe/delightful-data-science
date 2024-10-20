@@ -466,6 +466,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decode-encode-jwts-with-pyjwt">2.1.43. Decode/Encode JWTs with <code class="docutils literal notranslate"><span class="pre">PyJWT</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-html-to-markdown-with-markdownify">2.1.44. Convert HTML to Markdown with <code class="docutils literal notranslate"><span class="pre">markdownify</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-web-apps-with-mesop">2.1.45. Build Web Apps with <code class="docutils literal notranslate"><span class="pre">mesop</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymize-pii-data-with-presidio">2.1.46. Anonymize PII Data with <code class="docutils literal notranslate"><span class="pre">presidio</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1832,6 +1833,48 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="anonymize-pii-data-with-presidio">
+<h2><span class="section-number">2.1.46. </span>Anonymize PII Data with <code class="docutils literal notranslate"><span class="pre">presidio</span></code><a class="headerlink" href="#anonymize-pii-data-with-presidio" title="Permalink to this heading">#</a></h2>
+<p>Working with PII data can be a neckbreaker in some cases.</p>
+<p>Luckily, for fast anonymization, you can use presidio.</p>
+<p>presidio handles anonymization of popular entities like names, phone numbers, credit card numbers or Bitcoin wallets.</p>
+<p>It can even handle text in images!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install presidio_analyzer presidio_anonymizer
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!python -m spacy download en_core_web_lg
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">presidio_analyzer</span> <span class="kn">import</span> <span class="n">AnalyzerEngine</span>
+<span class="kn">from</span> <span class="nn">presidio_anonymizer</span> <span class="kn">import</span> <span class="n">AnonymizerEngine</span>
+
+<span class="n">text_to_anonymize</span> <span class="o">=</span> <span class="s2">&quot;His name is Mr. Jones. His phone number is 212-555-5555.&quot;</span>
+
+<span class="n">analyzer</span> <span class="o">=</span> <span class="n">AnalyzerEngine</span><span class="p">()</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">text_to_anonymize</span><span class="p">,</span> <span class="n">entities</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;PHONE_NUMBER&quot;</span><span class="p">,</span> <span class="s2">&quot;PERSON&quot;</span><span class="p">],</span> <span class="n">language</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">)</span>
+
+<span class="n">anonymizer</span> <span class="o">=</span> <span class="n">AnonymizerEngine</span><span class="p">()</span>
+
+<span class="n">anonymized_text</span> <span class="o">=</span> <span class="n">anonymizer</span><span class="o">.</span><span class="n">anonymize</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">text_to_anonymize</span><span class="p">,</span> <span class="n">analyzer_results</span><span class="o">=</span><span class="n">results</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">anonymized_text</span><span class="p">)</span>
+
+<span class="c1"># Output: His name is Mr. &lt;PERSON&gt;. His phone number is &lt;PHONE_NUMBER&gt;.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1946,6 +1989,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decode-encode-jwts-with-pyjwt">2.1.43. Decode/Encode JWTs with <code class="docutils literal notranslate"><span class="pre">PyJWT</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-html-to-markdown-with-markdownify">2.1.44. Convert HTML to Markdown with <code class="docutils literal notranslate"><span class="pre">markdownify</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-web-apps-with-mesop">2.1.45. Build Web Apps with <code class="docutils literal notranslate"><span class="pre">mesop</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymize-pii-data-with-presidio">2.1.46. Anonymize PII Data with <code class="docutils literal notranslate"><span class="pre">presidio</span></code></a></li>
 </ul>
   </nav></div>
 
