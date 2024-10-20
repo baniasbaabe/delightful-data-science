@@ -467,6 +467,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-html-to-markdown-with-markdownify">2.1.44. Convert HTML to Markdown with <code class="docutils literal notranslate"><span class="pre">markdownify</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-web-apps-with-mesop">2.1.45. Build Web Apps with <code class="docutils literal notranslate"><span class="pre">mesop</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymize-pii-data-with-presidio">2.1.46. Anonymize PII Data with <code class="docutils literal notranslate"><span class="pre">presidio</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-skills-from-job-postings-with-skillner">2.1.47. Extract Skills from Job Postings with <code class="docutils literal notranslate"><span class="pre">skillner</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1875,6 +1876,45 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="extract-skills-from-job-postings-with-skillner">
+<h2><span class="section-number">2.1.47. </span>Extract Skills from Job Postings with <code class="docutils literal notranslate"><span class="pre">skillner</span></code><a class="headerlink" href="#extract-skills-from-job-postings-with-skillner" title="Permalink to this heading">#</a></h2>
+<p>Extracting skills from unstructured data can be difficult.</p>
+<p>With 𝐬𝐤𝐢𝐥𝐥𝐧𝐞𝐫 it doesn’t have to be.</p>
+<p>𝐬𝐤𝐢𝐥𝐥𝐧𝐞𝐫 extracts skills and certifications from data based on an open source skills database.</p>
+<p>Based on spacy and some simple rules, it achieved good results in some tests I ran.</p>
+<p>Of course, you could also run an LLM on job ads, but do you need it?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install skillNer
+!python -m spacy download en_core_web_lg
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+<span class="kn">from</span> <span class="nn">spacy.matcher</span> <span class="kn">import</span> <span class="n">PhraseMatcher</span>
+<span class="kn">from</span> <span class="nn">skillNer.general_params</span> <span class="kn">import</span> <span class="n">SKILL_DB</span>
+<span class="kn">from</span> <span class="nn">skillNer.skill_extractor_class</span> <span class="kn">import</span> <span class="n">SkillExtractor</span>
+
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_lg&quot;</span><span class="p">)</span>
+<span class="n">skill_extractor</span> <span class="o">=</span> <span class="n">SkillExtractor</span><span class="p">(</span><span class="n">nlp</span><span class="p">,</span> <span class="n">SKILL_DB</span><span class="p">,</span> <span class="n">PhraseMatcher</span><span class="p">)</span>
+
+<span class="n">job_description</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You are a Python developer with a expertise in backend development</span>
+<span class="s2">and can manage projects. You quickly adapt to new environments</span>
+<span class="s2">and speak fluently English and German.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">annotations</span> <span class="o">=</span> <span class="n">skill_extractor</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">job_description</span><span class="p">)</span>
+
+<span class="n">skill_extractor</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">annotations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1990,6 +2030,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-html-to-markdown-with-markdownify">2.1.44. Convert HTML to Markdown with <code class="docutils literal notranslate"><span class="pre">markdownify</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-web-apps-with-mesop">2.1.45. Build Web Apps with <code class="docutils literal notranslate"><span class="pre">mesop</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymize-pii-data-with-presidio">2.1.46. Anonymize PII Data with <code class="docutils literal notranslate"><span class="pre">presidio</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-skills-from-job-postings-with-skillner">2.1.47. Extract Skills from Job Postings with <code class="docutils literal notranslate"><span class="pre">skillner</span></code></a></li>
 </ul>
   </nav></div>
 

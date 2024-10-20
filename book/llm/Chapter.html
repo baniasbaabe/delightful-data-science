@@ -428,6 +428,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embed-any-type-of-file">6.1.5. Embed Any Type of File</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-llm-output-with-outlines">6.1.6. Structured LLM Output with <code class="docutils literal notranslate"><span class="pre">outlines</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-rag-pipelines-with-ragas">6.1.7. Evaluating RAG Pipelines with <code class="docutils literal notranslate"><span class="pre">Ragas</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unified-reranker-api-with-rerankers">6.1.8. Unified Reranker API with <code class="docutils literal notranslate"><span class="pre">rerankers</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -708,6 +709,31 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="unified-reranker-api-with-rerankers">
+<h2><span class="section-number">6.1.8. </span>Unified Reranker API with <code class="docutils literal notranslate"><span class="pre">rerankers</span></code><a class="headerlink" href="#unified-reranker-api-with-rerankers" title="Permalink to this heading">#</a></h2>
+<p>An essential element of your RAG systems is reranking.</p>
+<p>Reranking involves a reranking model that outputs a similarity score for each retrieved document and the user query.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rerankers</span></code> library gives you a unified API to use with popular vendors and models such as Cohere, Jina or T5.</p>
+<p>The perfect API to easily test and replace many methods.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install rerankers
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rerankers</span> <span class="kn">import</span> <span class="n">Reranker</span>
+
+<span class="n">ranker</span> <span class="o">=</span> <span class="n">Reranker</span><span class="p">(</span><span class="s2">&quot;t5&quot;</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">ranker</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="s2">&quot;I love you&quot;</span><span class="p">,</span> <span class="n">docs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;I hate you&quot;</span><span class="p">,</span> <span class="s2">&quot;I really like you&quot;</span><span class="p">],</span> <span class="n">doc_ids</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -784,6 +810,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embed-any-type-of-file">6.1.5. Embed Any Type of File</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-llm-output-with-outlines">6.1.6. Structured LLM Output with <code class="docutils literal notranslate"><span class="pre">outlines</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-rag-pipelines-with-ragas">6.1.7. Evaluating RAG Pipelines with <code class="docutils literal notranslate"><span class="pre">Ragas</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unified-reranker-api-with-rerankers">6.1.8. Unified Reranker API with <code class="docutils literal notranslate"><span class="pre">rerankers</span></code></a></li>
 </ul>
   </nav></div>
 
