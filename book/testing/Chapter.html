@@ -433,6 +433,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mock-aws-services-with-moto">13.1.10. Mock AWS Services with <code class="docutils literal notranslate"><span class="pre">moto</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-output-diff-with-pytest-clarity">13.1.11. Clean Output Diff with <code class="docutils literal notranslate"><span class="pre">pytest-clarity</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-environment-variables-with-pytest-env">13.1.12. Using Environment Variables with <code class="docutils literal notranslate"><span class="pre">pytest-env</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mock-your-file-system-with-pyfakefs">13.1.13. Mock your File system with <code class="docutils literal notranslate"><span class="pre">pyfakefs</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -796,6 +797,33 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="mock-your-file-system-with-pyfakefs">
+<h2><span class="section-number">13.1.13. </span>Mock your File system with <code class="docutils literal notranslate"><span class="pre">pyfakefs</span></code><a class="headerlink" href="#mock-your-file-system-with-pyfakefs" title="Permalink to this heading">#</a></h2>
+<p>How do you write tests that interact with your filesystem?</p>
+<p>This can be tricky, as you don’t want to touch your real disc.</p>
+<p>For Python and pytest you can use <code class="docutils literal notranslate"><span class="pre">pyfakefs</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pyfakefs</span></code> is a pytest plugin that provides an empty in-memory filesystem at each test start.</p>
+<p>This allows you to test your file system interactions without breaking anything.</p>
+<p>It comes with the fs fixture, which you can use right after installation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pyfakefs
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">test_fakefs</span><span class="p">(</span><span class="n">fs</span><span class="p">):</span>
+    <span class="n">fs</span><span class="o">.</span><span class="n">create_file</span><span class="p">(</span><span class="s2">&quot;/var/data/xx1.txt&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;/var/data/xx1.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -877,6 +905,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mock-aws-services-with-moto">13.1.10. Mock AWS Services with <code class="docutils literal notranslate"><span class="pre">moto</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-output-diff-with-pytest-clarity">13.1.11. Clean Output Diff with <code class="docutils literal notranslate"><span class="pre">pytest-clarity</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-environment-variables-with-pytest-env">13.1.12. Using Environment Variables with <code class="docutils literal notranslate"><span class="pre">pytest-env</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mock-your-file-system-with-pyfakefs">13.1.13. Mock your File system with <code class="docutils literal notranslate"><span class="pre">pyfakefs</span></code></a></li>
 </ul>
   </nav></div>
 

@@ -429,6 +429,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-llm-output-with-outlines">6.1.6. Structured LLM Output with <code class="docutils literal notranslate"><span class="pre">outlines</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-rag-pipelines-with-ragas">6.1.7. Evaluating RAG Pipelines with <code class="docutils literal notranslate"><span class="pre">Ragas</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unified-reranker-api-with-rerankers">6.1.8. Unified Reranker API with <code class="docutils literal notranslate"><span class="pre">rerankers</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-embeddings-on-your-cpu-with-fastembed">6.1.9. Create Embeddings on your CPU with <code class="docutils literal notranslate"><span class="pre">fastembed</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -734,6 +735,38 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="create-embeddings-on-your-cpu-with-fastembed">
+<h2><span class="section-number">6.1.9. </span>Create Embeddings on your CPU with <code class="docutils literal notranslate"><span class="pre">fastembed</span></code><a class="headerlink" href="#create-embeddings-on-your-cpu-with-fastembed" title="Permalink to this heading">#</a></h2>
+<p>My favourite library for creating embeddings:</p>
+<p><code class="docutils literal notranslate"><span class="pre">fastembed</span></code>, developed by Qdrant.</p>
+<p><code class="docutils literal notranslate"><span class="pre">fastembed</span></code> is a lightweight and fast library for using popular embedding models.</p>
+<p>Without using your GPU.</p>
+<p>It also integrates seamlessly with Qdrant’s vector database.</p>
+<p>I would like to see more supported models though, as <code class="docutils literal notranslate"><span class="pre">fastembed</span></code> has so much potential.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install fastembed
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fastembed</span> <span class="kn">import</span> <span class="n">TextEmbedding</span>
+
+<span class="n">documents</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;This is some&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;example document&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">embedding_model</span> <span class="o">=</span> <span class="n">TextEmbedding</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;jinaai/jina-embeddings-v2-small-en&quot;</span><span class="p">)</span>
+
+<span class="n">embeddings</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">embedding_model</span><span class="o">.</span><span class="n">embed</span><span class="p">(</span><span class="n">documents</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -811,6 +844,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-llm-output-with-outlines">6.1.6. Structured LLM Output with <code class="docutils literal notranslate"><span class="pre">outlines</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-rag-pipelines-with-ragas">6.1.7. Evaluating RAG Pipelines with <code class="docutils literal notranslate"><span class="pre">Ragas</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unified-reranker-api-with-rerankers">6.1.8. Unified Reranker API with <code class="docutils literal notranslate"><span class="pre">rerankers</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-embeddings-on-your-cpu-with-fastembed">6.1.9. Create Embeddings on your CPU with <code class="docutils literal notranslate"><span class="pre">fastembed</span></code></a></li>
 </ul>
   </nav></div>
 
