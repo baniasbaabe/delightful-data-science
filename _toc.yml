@@ -25,6 +25,7 @@ chapters:
   - file: book/machinelearning/index.ipynb
     sections:
       - file: book/machinelearning/dataaugmentation.ipynb
+      - file: book/machinelearning/deployment.ipynb
       - file: book/machinelearning/eda.ipynb
       - file: book/machinelearning/featureselection.ipynb
       - file: book/machinelearning/getdata.ipynb
