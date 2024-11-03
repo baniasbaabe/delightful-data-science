@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>5.5. Model Training &#8212; Delightful Data Science</title>
+    <title>5.6. Model Training &#8212; Delightful Data Science</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/machinelearning/modeltraining';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5.6. Outlier Detection" href="outlierdetection.html" />
-    <link rel="prev" title="5.4. Get Data" href="getdata.html" />
+    <link rel="next" title="5.7. Outlier Detection" href="outlierdetection.html" />
+    <link rel="prev" title="5.5. Get Data" href="getdata.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,13 +176,14 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">5. Machine Learning</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dataaugmentation.html">5.1. Data Augmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eda.html">5.2. EDA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="featureselection.html">5.3. Feature Selection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getdata.html">5.4. Get Data</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.5. Model Training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="outlierdetection.html">5.6. Outlier Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="timeseries.html">5.7. Time Series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">5.8. Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html">5.2. Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eda.html">5.3. EDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="featureselection.html">5.4. Feature Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getdata.html">5.5. Get Data</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.6. Model Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outlierdetection.html">5.7. Outlier Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeseries.html">5.8. Time Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">5.9. Preprocessing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../llm/index.html">6. LLM</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -421,37 +422,37 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-class-weights">5.5.1. Compute Class Weights</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reset-tensorflow-keras-global-state">5.5.2. Reset TensorFlow/Keras Global State</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-dirty-labels-with-cleanlab">5.5.3. Find dirty labels with <code class="docutils literal notranslate"><span class="pre">cleanlab</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-your-classifier-with-sklearn-s-classification-report">5.5.4. Evaluate your Classifier with sklearn’s <code class="docutils literal notranslate"><span class="pre">classification_report</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtain-reproducible-optimizations-results-in-optuna">5.5.5. Obtain Reproducible Optimizations Results in Optuna</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-bad-labels-with-doubtlab">5.5.6. Find bad labels with <code class="docutils literal notranslate"><span class="pre">doubtlab</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-notified-when-your-model-is-finished-with-training">5.5.7. Get notified when your model is finished with training</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-model-summary-in-pytorch-with-torchinfo">5.5.8. Get Model Summary in PyTorch with <code class="docutils literal notranslate"><span class="pre">torchinfo</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boost-scikit-learns-performance-with-intel-extension">5.5.9. Boost scikit-learns performance with Intel Extension</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incorportate-domain-knowledge-into-xgboost-with-feature-interaction-constraints">5.5.10. Incorportate Domain Knowledge into XGBoost with Feature Interaction Constraints</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-automl-with-flaml">5.5.11. Powerful AutoML with <code class="docutils literal notranslate"><span class="pre">FLAML</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspect-based-seniment-analysis-with-pyabsa">5.5.12. Aspect-based Seniment Analysis with <code class="docutils literal notranslate"><span class="pre">PyABSA</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-xgboost-for-random-forests">5.5.13. Use XGBoost for Random Forests</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-problematic-images-with-cleanvision">5.5.14. Identify problematic images with <code class="docutils literal notranslate"><span class="pre">cleanvision</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-the-optimal-regularization-parameter">5.5.15. Select the optimal Regularization Parameter</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-forests-in-tensorflow">5.5.16. Decision Forests in TensorFlow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automl-with-autogluon">5.5.17. AutoML with <code class="docutils literal notranslate"><span class="pre">AutoGluon</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-keras-models-with-visualkeras">5.5.18. Visualize Keras Models with <code class="docutils literal notranslate"><span class="pre">visualkeras</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-multilabel-stratified-kfold-with-iterative-stratification">5.5.19. Perform Multilabel Stratified KFold with <code class="docutils literal notranslate"><span class="pre">iterative-stratification</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpret-your-model-with-shapash">5.5.20. Interpret your Model with <code class="docutils literal notranslate"><span class="pre">Shapash</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-your-model-and-data-with-deepchecks">5.5.21. Validate Your Model and Data with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-high-performance-features-with-optuna">5.5.22. Visualize high-performance Features with <code class="docutils literal notranslate"><span class="pre">Optuna</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-ensembling-with-combo">5.5.23. Model Ensembling with <code class="docutils literal notranslate"><span class="pre">combo</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-plots-with-yellowbrick">5.5.24. Residual Plots with <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-and-distributed-hyperparameter-optimization-with-ray-tune">5.5.25. Powerful and Distributed Hyperparameter Optimization with <code class="docutils literal notranslate"><span class="pre">ray.tune</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-pytorch-with-scikit-learn-api-with-skorch">5.5.26. Use PyTorch with scikit-learn API with <code class="docutils literal notranslate"><span class="pre">skorch</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-ml-with-river">5.5.27. Online ML with <code class="docutils literal notranslate"><span class="pre">river</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sota-computer-vision-models-with-timm">5.5.28. SOTA Computer Vision Models with <code class="docutils literal notranslate"><span class="pre">timm</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-guaranteed-prediction-intervals-and-sets-with-mapie">5.5.29. Generate Guaranteed Prediction Intervals and Sets with <code class="docutils literal notranslate"><span class="pre">MAPIE</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-components-for-scikit-learn-with-scikit-lego">5.5.30. Extra Components For scikit-learn with <code class="docutils literal notranslate"><span class="pre">scikit-lego</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantize-your-models-with-torchao">5.5.31. Quantize your Models with <code class="docutils literal notranslate"><span class="pre">torchao</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-class-weights">5.6.1. Compute Class Weights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reset-tensorflow-keras-global-state">5.6.2. Reset TensorFlow/Keras Global State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-dirty-labels-with-cleanlab">5.6.3. Find dirty labels with <code class="docutils literal notranslate"><span class="pre">cleanlab</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-your-classifier-with-sklearn-s-classification-report">5.6.4. Evaluate your Classifier with sklearn’s <code class="docutils literal notranslate"><span class="pre">classification_report</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtain-reproducible-optimizations-results-in-optuna">5.6.5. Obtain Reproducible Optimizations Results in Optuna</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-bad-labels-with-doubtlab">5.6.6. Find bad labels with <code class="docutils literal notranslate"><span class="pre">doubtlab</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-notified-when-your-model-is-finished-with-training">5.6.7. Get notified when your model is finished with training</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-model-summary-in-pytorch-with-torchinfo">5.6.8. Get Model Summary in PyTorch with <code class="docutils literal notranslate"><span class="pre">torchinfo</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boost-scikit-learns-performance-with-intel-extension">5.6.9. Boost scikit-learns performance with Intel Extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incorportate-domain-knowledge-into-xgboost-with-feature-interaction-constraints">5.6.10. Incorportate Domain Knowledge into XGBoost with Feature Interaction Constraints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-automl-with-flaml">5.6.11. Powerful AutoML with <code class="docutils literal notranslate"><span class="pre">FLAML</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspect-based-seniment-analysis-with-pyabsa">5.6.12. Aspect-based Seniment Analysis with <code class="docutils literal notranslate"><span class="pre">PyABSA</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-xgboost-for-random-forests">5.6.13. Use XGBoost for Random Forests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-problematic-images-with-cleanvision">5.6.14. Identify problematic images with <code class="docutils literal notranslate"><span class="pre">cleanvision</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-the-optimal-regularization-parameter">5.6.15. Select the optimal Regularization Parameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-forests-in-tensorflow">5.6.16. Decision Forests in TensorFlow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automl-with-autogluon">5.6.17. AutoML with <code class="docutils literal notranslate"><span class="pre">AutoGluon</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-keras-models-with-visualkeras">5.6.18. Visualize Keras Models with <code class="docutils literal notranslate"><span class="pre">visualkeras</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-multilabel-stratified-kfold-with-iterative-stratification">5.6.19. Perform Multilabel Stratified KFold with <code class="docutils literal notranslate"><span class="pre">iterative-stratification</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpret-your-model-with-shapash">5.6.20. Interpret your Model with <code class="docutils literal notranslate"><span class="pre">Shapash</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-your-model-and-data-with-deepchecks">5.6.21. Validate Your Model and Data with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-high-performance-features-with-optuna">5.6.22. Visualize high-performance Features with <code class="docutils literal notranslate"><span class="pre">Optuna</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-ensembling-with-combo">5.6.23. Model Ensembling with <code class="docutils literal notranslate"><span class="pre">combo</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-plots-with-yellowbrick">5.6.24. Residual Plots with <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-and-distributed-hyperparameter-optimization-with-ray-tune">5.6.25. Powerful and Distributed Hyperparameter Optimization with <code class="docutils literal notranslate"><span class="pre">ray.tune</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-pytorch-with-scikit-learn-api-with-skorch">5.6.26. Use PyTorch with scikit-learn API with <code class="docutils literal notranslate"><span class="pre">skorch</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-ml-with-river">5.6.27. Online ML with <code class="docutils literal notranslate"><span class="pre">river</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sota-computer-vision-models-with-timm">5.6.28. SOTA Computer Vision Models with <code class="docutils literal notranslate"><span class="pre">timm</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-guaranteed-prediction-intervals-and-sets-with-mapie">5.6.29. Generate Guaranteed Prediction Intervals and Sets with <code class="docutils literal notranslate"><span class="pre">MAPIE</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-components-for-scikit-learn-with-scikit-lego">5.6.30. Extra Components For scikit-learn with <code class="docutils literal notranslate"><span class="pre">scikit-lego</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantize-your-models-with-torchao">5.6.31. Quantize your Models with <code class="docutils literal notranslate"><span class="pre">torchao</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -464,9 +465,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="model-training">
-<h1><span class="section-number">5.5. </span>Model Training<a class="headerlink" href="#model-training" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5.6. </span>Model Training<a class="headerlink" href="#model-training" title="Permalink to this heading">#</a></h1>
 <section id="compute-class-weights">
-<h2><span class="section-number">5.5.1. </span>Compute Class Weights<a class="headerlink" href="#compute-class-weights" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.1. </span>Compute Class Weights<a class="headerlink" href="#compute-class-weights" title="Permalink to this heading">#</a></h2>
 <p>To handle class imbalance in Machine Learning, there are several methods.
 <br><br>
 One of them is adjusting the class weights.
@@ -505,7 +506,7 @@ To incorporate class weights in Tensorflow, use <code class="docutils literal no
 </div>
 </section>
 <section id="reset-tensorflow-keras-global-state">
-<h2><span class="section-number">5.5.2. </span>Reset TensorFlow/Keras Global State<a class="headerlink" href="#reset-tensorflow-keras-global-state" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.2. </span>Reset TensorFlow/Keras Global State<a class="headerlink" href="#reset-tensorflow-keras-global-state" title="Permalink to this heading">#</a></h2>
 <p>In Tensorflow/Keras, when you create multiple models in a loop, you will need <code class="docutils literal notranslate"><span class="pre">tf.keras.backend.clear_session()</span></code>.</p>
 <p>Keras manages a global state, which includes configurations and the current values (weights and biases) of the models.</p>
 <p>So when you create a model in a loop, the global state gets bigger and bigger with every created model. To clear the state, 𝐝𝐞𝐥 𝐦𝐨𝐝𝐞𝐥 will not work because it will only delete the Python variable.</p>
@@ -534,7 +535,7 @@ To incorporate class weights in Tensorflow, use <code class="docutils literal no
 </div>
 </section>
 <section id="find-dirty-labels-with-cleanlab">
-<h2><span class="section-number">5.5.3. </span>Find dirty labels with <code class="docutils literal notranslate"><span class="pre">cleanlab</span></code><a class="headerlink" href="#find-dirty-labels-with-cleanlab" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.3. </span>Find dirty labels with <code class="docutils literal notranslate"><span class="pre">cleanlab</span></code><a class="headerlink" href="#find-dirty-labels-with-cleanlab" title="Permalink to this heading">#</a></h2>
 <p>Do you want to identify noisy labels in your dataset?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">cleanlab</span></code> for Python.</p>
 <p><code class="docutils literal notranslate"><span class="pre">cleanlab</span></code> is a data-centric AI package to automatically detect noisy labels and address dataset issues to fix them via confident learning algorithms.</p>
@@ -577,7 +578,7 @@ To incorporate class weights in Tensorflow, use <code class="docutils literal no
 </div>
 </section>
 <section id="evaluate-your-classifier-with-sklearn-s-classification-report">
-<h2><span class="section-number">5.5.4. </span>Evaluate your Classifier with sklearn’s <code class="docutils literal notranslate"><span class="pre">classification_report</span></code><a class="headerlink" href="#evaluate-your-classifier-with-sklearn-s-classification-report" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.4. </span>Evaluate your Classifier with sklearn’s <code class="docutils literal notranslate"><span class="pre">classification_report</span></code><a class="headerlink" href="#evaluate-your-classifier-with-sklearn-s-classification-report" title="Permalink to this heading">#</a></h2>
 <p>Would you like to evaluate your Machine Learning model quickly?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">classification_report</span></code> from scikit-learn</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">classification_report</span></code>, you can quickly assess the performance of your model.</p>
@@ -615,7 +616,7 @@ To incorporate class weights in Tensorflow, use <code class="docutils literal no
 </div>
 </section>
 <section id="obtain-reproducible-optimizations-results-in-optuna">
-<h2><span class="section-number">5.5.5. </span>Obtain Reproducible Optimizations Results in Optuna<a class="headerlink" href="#obtain-reproducible-optimizations-results-in-optuna" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.5. </span>Obtain Reproducible Optimizations Results in Optuna<a class="headerlink" href="#obtain-reproducible-optimizations-results-in-optuna" title="Permalink to this heading">#</a></h2>
 <p>Optuna is a powerful hyperparameter optimization framework that supports many machine learning frameworks, including TensorFlow, PyTorch, and XGBoost.</p>
 <p>But you need to be careful with reproducible results for hyperparameter tuning.tuple</p>
 <p>To achieve reproducible results, you need to set the seed for your Sampler.</p>
@@ -637,7 +638,7 @@ To incorporate class weights in Tensorflow, use <code class="docutils literal no
 </div>
 </section>
 <section id="find-bad-labels-with-doubtlab">
-<h2><span class="section-number">5.5.6. </span>Find bad labels with <code class="docutils literal notranslate"><span class="pre">doubtlab</span></code><a class="headerlink" href="#find-bad-labels-with-doubtlab" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.6. </span>Find bad labels with <code class="docutils literal notranslate"><span class="pre">doubtlab</span></code><a class="headerlink" href="#find-bad-labels-with-doubtlab" title="Permalink to this heading">#</a></h2>
 <p>Do you want to find bad labels in your data?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">doubtlab</span></code> for Python.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">doubtlab</span></code>, you can define reasons to doubt your labels and take a closer look.</p>
@@ -684,7 +685,7 @@ To incorporate class weights in Tensorflow, use <code class="docutils literal no
 </div>
 </section>
 <section id="get-notified-when-your-model-is-finished-with-training">
-<h2><span class="section-number">5.5.7. </span>Get notified when your model is finished with training<a class="headerlink" href="#get-notified-when-your-model-is-finished-with-training" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.7. </span>Get notified when your model is finished with training<a class="headerlink" href="#get-notified-when-your-model-is-finished-with-training" title="Permalink to this heading">#</a></h2>
 <p>Never stare at your screen, waiting for your model to finish training.</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">knockknock</span></code> for Python.</p>
 <p><code class="docutils literal notranslate"><span class="pre">knockknock</span></code> is a library that notifies you when your training is finished.</p>
@@ -719,7 +720,7 @@ like:</p>
 </div>
 </section>
 <section id="get-model-summary-in-pytorch-with-torchinfo">
-<h2><span class="section-number">5.5.8. </span>Get Model Summary in PyTorch with <code class="docutils literal notranslate"><span class="pre">torchinfo</span></code><a class="headerlink" href="#get-model-summary-in-pytorch-with-torchinfo" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.8. </span>Get Model Summary in PyTorch with <code class="docutils literal notranslate"><span class="pre">torchinfo</span></code><a class="headerlink" href="#get-model-summary-in-pytorch-with-torchinfo" title="Permalink to this heading">#</a></h2>
 <p>Do you want a Model summary in PyTorch?</p>
 <p>Like in Keras with <code class="docutils literal notranslate"><span class="pre">model.summary()</span></code>?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">torchinfo</span></code>.</p>
@@ -785,7 +786,7 @@ Keras.</p>
 </div>
 </section>
 <section id="boost-scikit-learns-performance-with-intel-extension">
-<h2><span class="section-number">5.5.9. </span>Boost scikit-learns performance with Intel Extension<a class="headerlink" href="#boost-scikit-learns-performance-with-intel-extension" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.9. </span>Boost scikit-learns performance with Intel Extension<a class="headerlink" href="#boost-scikit-learns-performance-with-intel-extension" title="Permalink to this heading">#</a></h2>
 <p>Scikit-learn is one of the most popular ML packages for Python.</p>
 <p>But, to be honest, their algorithms are not the fastest ones.</p>
 <p>With Intel’s Extension for scikit-learn, <code class="docutils literal notranslate"><span class="pre">scikit-learn-intelex</span></code>. you can speed up training time for some favourite algorithms like:</p>
@@ -825,7 +826,7 @@ Keras.</p>
 </div>
 </section>
 <section id="incorportate-domain-knowledge-into-xgboost-with-feature-interaction-constraints">
-<h2><span class="section-number">5.5.10. </span>Incorportate Domain Knowledge into XGBoost with Feature Interaction Constraints<a class="headerlink" href="#incorportate-domain-knowledge-into-xgboost-with-feature-interaction-constraints" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.10. </span>Incorportate Domain Knowledge into XGBoost with Feature Interaction Constraints<a class="headerlink" href="#incorportate-domain-knowledge-into-xgboost-with-feature-interaction-constraints" title="Permalink to this heading">#</a></h2>
 <p>Want to incorporate your domain knowledge into <code class="docutils literal notranslate"><span class="pre">𝐗𝐆𝐁𝐨𝐨𝐬𝐭</span></code>?</p>
 <p>Try using 𝐅𝐞𝐚𝐭𝐮𝐫𝐞 𝐈𝐧𝐭𝐞𝐫𝐚𝐜𝐭𝐢𝐨𝐧 𝐂𝐨𝐧𝐬𝐭𝐫𝐚𝐢𝐧𝐭𝐬.</p>
 <p>Feature Interaction Constraints allow you to control which features are allowed to interact with each other and which are not while building the trees.</p>
@@ -856,7 +857,7 @@ Keras.</p>
 </div>
 </section>
 <section id="powerful-automl-with-flaml">
-<h2><span class="section-number">5.5.11. </span>Powerful AutoML with <code class="docutils literal notranslate"><span class="pre">FLAML</span></code><a class="headerlink" href="#powerful-automl-with-flaml" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.11. </span>Powerful AutoML with <code class="docutils literal notranslate"><span class="pre">FLAML</span></code><a class="headerlink" href="#powerful-automl-with-flaml" title="Permalink to this heading">#</a></h2>
 <p>Do you always hear about AutoML?</p>
 <p>And want to try it out?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">FLAML</span></code> for Python.</p>
@@ -883,7 +884,7 @@ Keras.</p>
 </div>
 </section>
 <section id="aspect-based-seniment-analysis-with-pyabsa">
-<h2><span class="section-number">5.5.12. </span>Aspect-based Seniment Analysis with <code class="docutils literal notranslate"><span class="pre">PyABSA</span></code><a class="headerlink" href="#aspect-based-seniment-analysis-with-pyabsa" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.12. </span>Aspect-based Seniment Analysis with <code class="docutils literal notranslate"><span class="pre">PyABSA</span></code><a class="headerlink" href="#aspect-based-seniment-analysis-with-pyabsa" title="Permalink to this heading">#</a></h2>
 <p>Traditional sentiment analysis focuses on determining the overall sentiment of a piece of text.</p>
 <p>For example, the sentence :</p>
 <p>“The food was bad and the staff was rude”</p>
@@ -933,7 +934,7 @@ Keras.</p>
 </div>
 </section>
 <section id="use-xgboost-for-random-forests">
-<h2><span class="section-number">5.5.13. </span>Use XGBoost for Random Forests<a class="headerlink" href="#use-xgboost-for-random-forests" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.13. </span>Use XGBoost for Random Forests<a class="headerlink" href="#use-xgboost-for-random-forests" title="Permalink to this heading">#</a></h2>
 <p>Are you still using Random Forests from sklearn?</p>
 <p>XGBoost implements Random Forests too, and much faster than sklearn.</p>
 <div class="cell docutils container">
@@ -952,7 +953,7 @@ Keras.</p>
 </div>
 </section>
 <section id="identify-problematic-images-with-cleanvision">
-<h2><span class="section-number">5.5.14. </span>Identify problematic images with <code class="docutils literal notranslate"><span class="pre">cleanvision</span></code><a class="headerlink" href="#identify-problematic-images-with-cleanvision" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.14. </span>Identify problematic images with <code class="docutils literal notranslate"><span class="pre">cleanvision</span></code><a class="headerlink" href="#identify-problematic-images-with-cleanvision" title="Permalink to this heading">#</a></h2>
 <p>Your Deep Learning Model doesn’t perform?</p>
 <p>It’s probably because of your data.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">cleanvision</span></code>, you can detect issues in image data.</p>
@@ -1021,7 +1022,7 @@ Keras.</p>
 </div>
 </section>
 <section id="select-the-optimal-regularization-parameter">
-<h2><span class="section-number">5.5.15. </span>Select the optimal Regularization Parameter<a class="headerlink" href="#select-the-optimal-regularization-parameter" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.15. </span>Select the optimal Regularization Parameter<a class="headerlink" href="#select-the-optimal-regularization-parameter" title="Permalink to this heading">#</a></h2>
 <p>How do you choose your Regularization Parameter?</p>
 <p>Your model’s complexity decreases with a higher Regularization Parameter (Alpha).</p>
 <p>It shouldn’t be too high or too low.</p>
@@ -1050,7 +1051,7 @@ Keras.</p>
 </div>
 </section>
 <section id="decision-forests-in-tensorflow">
-<h2><span class="section-number">5.5.16. </span>Decision Forests in TensorFlow<a class="headerlink" href="#decision-forests-in-tensorflow" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.16. </span>Decision Forests in TensorFlow<a class="headerlink" href="#decision-forests-in-tensorflow" title="Permalink to this heading">#</a></h2>
 <p>Did you know there are Decision Forests from TensorFlow?</p>
 <p><code class="docutils literal notranslate"><span class="pre">tensorflow_decision_forests</span></code> implements decision forest models like Random Forest or GBDT for classification, regression, and ranking.</p>
 <div class="cell docutils container">
@@ -1101,7 +1102,7 @@ Keras.</p>
 </div>
 </section>
 <section id="automl-with-autogluon">
-<h2><span class="section-number">5.5.17. </span>AutoML with <code class="docutils literal notranslate"><span class="pre">AutoGluon</span></code><a class="headerlink" href="#automl-with-autogluon" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.17. </span>AutoML with <code class="docutils literal notranslate"><span class="pre">AutoGluon</span></code><a class="headerlink" href="#automl-with-autogluon" title="Permalink to this heading">#</a></h2>
 <p>Do you always hear about AutoML?</p>
 <p>And want to try it out?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">AutoGluon</span></code> for Python.</p>
@@ -1142,7 +1143,7 @@ Keras.</p>
 </div>
 </section>
 <section id="visualize-keras-models-with-visualkeras">
-<h2><span class="section-number">5.5.18. </span>Visualize Keras Models with <code class="docutils literal notranslate"><span class="pre">visualkeras</span></code><a class="headerlink" href="#visualize-keras-models-with-visualkeras" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.18. </span>Visualize Keras Models with <code class="docutils literal notranslate"><span class="pre">visualkeras</span></code><a class="headerlink" href="#visualize-keras-models-with-visualkeras" title="Permalink to this heading">#</a></h2>
 <p>Do you want some cool visualization for your Deep Learning Models?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">visualkeras</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">visualkeras</span></code> visualizes your Keras models (as an alternative to model.summary())</p>
@@ -1177,7 +1178,7 @@ Keras.</p>
 </div>
 </section>
 <section id="perform-multilabel-stratified-kfold-with-iterative-stratification">
-<h2><span class="section-number">5.5.19. </span>Perform Multilabel Stratified KFold with <code class="docutils literal notranslate"><span class="pre">iterative-stratification</span></code><a class="headerlink" href="#perform-multilabel-stratified-kfold-with-iterative-stratification" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.19. </span>Perform Multilabel Stratified KFold with <code class="docutils literal notranslate"><span class="pre">iterative-stratification</span></code><a class="headerlink" href="#perform-multilabel-stratified-kfold-with-iterative-stratification" title="Permalink to this heading">#</a></h2>
 <p>When doing Cross-Validation for classification,</p>
 <p>StratifiedKFold from scikit-learn is a common choice.</p>
 <p>Stratification aims to guarantee that every fold represents all strata of the data.</p>
@@ -1212,7 +1213,7 @@ Keras.</p>
 </div>
 </section>
 <section id="interpret-your-model-with-shapash">
-<h2><span class="section-number">5.5.20. </span>Interpret your Model with <code class="docutils literal notranslate"><span class="pre">Shapash</span></code><a class="headerlink" href="#interpret-your-model-with-shapash" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.20. </span>Interpret your Model with <code class="docutils literal notranslate"><span class="pre">Shapash</span></code><a class="headerlink" href="#interpret-your-model-with-shapash" title="Permalink to this heading">#</a></h2>
 <p>Nobody cares about your SOTA ML Model if nobody can’t understand the predictions.</p>
 <p>Therefore, interpretability of ML Models is a crucial point in industry cases.</p>
 <p>To overcome this hurdle, use <code class="docutils literal notranslate"><span class="pre">Shapash</span></code> for Python.</p>
@@ -1290,7 +1291,7 @@ Keras.</p>
 </div>
 </section>
 <section id="validate-your-model-and-data-with-deepchecks">
-<h2><span class="section-number">5.5.21. </span>Validate Your Model and Data with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code><a class="headerlink" href="#validate-your-model-and-data-with-deepchecks" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.21. </span>Validate Your Model and Data with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code><a class="headerlink" href="#validate-your-model-and-data-with-deepchecks" title="Permalink to this heading">#</a></h2>
 <p>Validating your Model and Data is crucial in ML.</p>
 <p>Not testing them will cause huge problems in production.</p>
 <p>To change that, use <code class="docutils literal notranslate"><span class="pre">deepchecks</span></code>.</p>
@@ -1344,7 +1345,7 @@ Keras.</p>
 </div>
 </section>
 <section id="visualize-high-performance-features-with-optuna">
-<h2><span class="section-number">5.5.22. </span>Visualize high-performance Features with <code class="docutils literal notranslate"><span class="pre">Optuna</span></code><a class="headerlink" href="#visualize-high-performance-features-with-optuna" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.22. </span>Visualize high-performance Features with <code class="docutils literal notranslate"><span class="pre">Optuna</span></code><a class="headerlink" href="#visualize-high-performance-features-with-optuna" title="Permalink to this heading">#</a></h2>
 <p>Optuna released a new feature for detecting high-performing parameters.</p>
 <p>Its <code class="docutils literal notranslate"><span class="pre">plot_rank()</span></code> function visualizes different parameters, with individual points representing individual trials.</p>
 <p>Since the plot is interactive, you can also hover over it and dive deeper into analysing your hyperparameter optimization.</p>
@@ -1387,7 +1388,7 @@ Keras.</p>
 </div>
 </section>
 <section id="model-ensembling-with-combo">
-<h2><span class="section-number">5.5.23. </span>Model Ensembling with <code class="docutils literal notranslate"><span class="pre">combo</span></code><a class="headerlink" href="#model-ensembling-with-combo" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.23. </span>Model Ensembling with <code class="docutils literal notranslate"><span class="pre">combo</span></code><a class="headerlink" href="#model-ensembling-with-combo" title="Permalink to this heading">#</a></h2>
 <p>Looking at the top solutions on Kaggle you will notice one thing:</p>
 <p>There is usually some sort of combination of various ML models involved.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">combo</span></code> for Python, you can combine</p>
@@ -1423,7 +1424,7 @@ Keras.</p>
 </div>
 </section>
 <section id="residual-plots-with-yellowbrick">
-<h2><span class="section-number">5.5.24. </span>Residual Plots with <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code><a class="headerlink" href="#residual-plots-with-yellowbrick" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.24. </span>Residual Plots with <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code><a class="headerlink" href="#residual-plots-with-yellowbrick" title="Permalink to this heading">#</a></h2>
 <p>To analyze the variance of the error of your Regression model</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">ResidualPlot</span></code> from <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code>.</p>
 <p>With Residual Plots, you can see how well-fitted your model is.</p>
@@ -1453,7 +1454,7 @@ Keras.</p>
 </div>
 </section>
 <section id="powerful-and-distributed-hyperparameter-optimization-with-ray-tune">
-<h2><span class="section-number">5.5.25. </span>Powerful and Distributed Hyperparameter Optimization with <code class="docutils literal notranslate"><span class="pre">ray.tune</span></code><a class="headerlink" href="#powerful-and-distributed-hyperparameter-optimization-with-ray-tune" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.25. </span>Powerful and Distributed Hyperparameter Optimization with <code class="docutils literal notranslate"><span class="pre">ray.tune</span></code><a class="headerlink" href="#powerful-and-distributed-hyperparameter-optimization-with-ray-tune" title="Permalink to this heading">#</a></h2>
 <p>Do you need hyperparameter tuning on steroids?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">tune</span></code> from <code class="docutils literal notranslate"><span class="pre">ray</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">tune</span></code> performs distributed hyperparameter tuning with multi-GPU and multi-node support, utilizing all the hardware you have.</p>
@@ -1516,7 +1517,7 @@ Keras.</p>
 </div>
 </section>
 <section id="use-pytorch-with-scikit-learn-api-with-skorch">
-<h2><span class="section-number">5.5.26. </span>Use PyTorch with scikit-learn API with <code class="docutils literal notranslate"><span class="pre">skorch</span></code><a class="headerlink" href="#use-pytorch-with-scikit-learn-api-with-skorch" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.26. </span>Use PyTorch with scikit-learn API with <code class="docutils literal notranslate"><span class="pre">skorch</span></code><a class="headerlink" href="#use-pytorch-with-scikit-learn-api-with-skorch" title="Permalink to this heading">#</a></h2>
 <p>PyTorch and scikit-learn are one of the most popular libraries for ML/DL.</p>
 <p>So, why not combine PyTorch with scikit-learn?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">skorch</span></code>!</p>
@@ -1573,7 +1574,7 @@ Keras.</p>
 </div>
 </section>
 <section id="online-ml-with-river">
-<h2><span class="section-number">5.5.27. </span>Online ML with <code class="docutils literal notranslate"><span class="pre">river</span></code><a class="headerlink" href="#online-ml-with-river" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.27. </span>Online ML with <code class="docutils literal notranslate"><span class="pre">river</span></code><a class="headerlink" href="#online-ml-with-river" title="Permalink to this heading">#</a></h2>
 <p>Do you want ML models that learn on-the-fly from massive datasets?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">river</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">river</span></code> is a library for online machine learning.</p>
@@ -1613,7 +1614,7 @@ Keras.</p>
 </div>
 </section>
 <section id="sota-computer-vision-models-with-timm">
-<h2><span class="section-number">5.5.28. </span>SOTA Computer Vision Models with <code class="docutils literal notranslate"><span class="pre">timm</span></code><a class="headerlink" href="#sota-computer-vision-models-with-timm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.28. </span>SOTA Computer Vision Models with <code class="docutils literal notranslate"><span class="pre">timm</span></code><a class="headerlink" href="#sota-computer-vision-models-with-timm" title="Permalink to this heading">#</a></h2>
 <p>Do you want to use SOTA computer vision models?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">timm</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">timm</span></code> (PyTorch Image Models) is a library which contains multiple computer vision models, layers, optimizers, etc.</p>
@@ -1641,7 +1642,7 @@ Keras.</p>
 </div>
 </section>
 <section id="generate-guaranteed-prediction-intervals-and-sets-with-mapie">
-<h2><span class="section-number">5.5.29. </span>Generate Guaranteed Prediction Intervals and Sets with <code class="docutils literal notranslate"><span class="pre">MAPIE</span></code><a class="headerlink" href="#generate-guaranteed-prediction-intervals-and-sets-with-mapie" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.29. </span>Generate Guaranteed Prediction Intervals and Sets with <code class="docutils literal notranslate"><span class="pre">MAPIE</span></code><a class="headerlink" href="#generate-guaranteed-prediction-intervals-and-sets-with-mapie" title="Permalink to this heading">#</a></h2>
 <p>For quantifying uncertainties of your models, use MAPIE.</p>
 <p><code class="docutils literal notranslate"><span class="pre">MAPIE</span></code> (Model Agnostic Prediction Interval Estimator) takes your sklearn-/tensorflow-/pytorch-compatible model and generate prediction intervals or sets with guaranteed coverage.</p>
 <div class="cell docutils container">
@@ -1674,7 +1675,7 @@ Keras.</p>
 </div>
 </section>
 <section id="extra-components-for-scikit-learn-with-scikit-lego">
-<h2><span class="section-number">5.5.30. </span>Extra Components For scikit-learn with <code class="docutils literal notranslate"><span class="pre">scikit-lego</span></code><a class="headerlink" href="#extra-components-for-scikit-learn-with-scikit-lego" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.30. </span>Extra Components For scikit-learn with <code class="docutils literal notranslate"><span class="pre">scikit-lego</span></code><a class="headerlink" href="#extra-components-for-scikit-learn-with-scikit-lego" title="Permalink to this heading">#</a></h2>
 <p>scikit-learn is one of the most popular ML libraries.</p>
 <p>While it’s easy to write custom components, it would be nice to have all of them in a single place.</p>
 <p><code class="docutils literal notranslate"><span class="pre">scikit-lego</span></code> is such a library which contains many custom components like:</p>
@@ -1714,7 +1715,7 @@ Keras.</p>
 </div>
 </section>
 <section id="quantize-your-models-with-torchao">
-<h2><span class="section-number">5.5.31. </span>Quantize your Models with <code class="docutils literal notranslate"><span class="pre">torchao</span></code><a class="headerlink" href="#quantize-your-models-with-torchao" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.31. </span>Quantize your Models with <code class="docutils literal notranslate"><span class="pre">torchao</span></code><a class="headerlink" href="#quantize-your-models-with-torchao" title="Permalink to this heading">#</a></h2>
 <p>Quantizing your Deep Learning models was never easier.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">torchao</span></code>, you can quantize and sparsify your models with 1 line of code.</p>
 <p>If you are unsure which method to use, you can even use the autoquant method to quantize your layers automatically.</p>
@@ -1774,7 +1775,7 @@ Keras.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5.4. </span>Get Data</p>
+        <p class="prev-next-title"><span class="section-number">5.5. </span>Get Data</p>
       </div>
     </a>
     <a class="right-next"
@@ -1782,7 +1783,7 @@ Keras.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5.6. </span>Outlier Detection</p>
+        <p class="prev-next-title"><span class="section-number">5.7. </span>Outlier Detection</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1804,37 +1805,37 @@ Keras.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-class-weights">5.5.1. Compute Class Weights</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reset-tensorflow-keras-global-state">5.5.2. Reset TensorFlow/Keras Global State</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-dirty-labels-with-cleanlab">5.5.3. Find dirty labels with <code class="docutils literal notranslate"><span class="pre">cleanlab</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-your-classifier-with-sklearn-s-classification-report">5.5.4. Evaluate your Classifier with sklearn’s <code class="docutils literal notranslate"><span class="pre">classification_report</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtain-reproducible-optimizations-results-in-optuna">5.5.5. Obtain Reproducible Optimizations Results in Optuna</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-bad-labels-with-doubtlab">5.5.6. Find bad labels with <code class="docutils literal notranslate"><span class="pre">doubtlab</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-notified-when-your-model-is-finished-with-training">5.5.7. Get notified when your model is finished with training</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-model-summary-in-pytorch-with-torchinfo">5.5.8. Get Model Summary in PyTorch with <code class="docutils literal notranslate"><span class="pre">torchinfo</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boost-scikit-learns-performance-with-intel-extension">5.5.9. Boost scikit-learns performance with Intel Extension</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incorportate-domain-knowledge-into-xgboost-with-feature-interaction-constraints">5.5.10. Incorportate Domain Knowledge into XGBoost with Feature Interaction Constraints</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-automl-with-flaml">5.5.11. Powerful AutoML with <code class="docutils literal notranslate"><span class="pre">FLAML</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspect-based-seniment-analysis-with-pyabsa">5.5.12. Aspect-based Seniment Analysis with <code class="docutils literal notranslate"><span class="pre">PyABSA</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-xgboost-for-random-forests">5.5.13. Use XGBoost for Random Forests</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-problematic-images-with-cleanvision">5.5.14. Identify problematic images with <code class="docutils literal notranslate"><span class="pre">cleanvision</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-the-optimal-regularization-parameter">5.5.15. Select the optimal Regularization Parameter</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-forests-in-tensorflow">5.5.16. Decision Forests in TensorFlow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automl-with-autogluon">5.5.17. AutoML with <code class="docutils literal notranslate"><span class="pre">AutoGluon</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-keras-models-with-visualkeras">5.5.18. Visualize Keras Models with <code class="docutils literal notranslate"><span class="pre">visualkeras</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-multilabel-stratified-kfold-with-iterative-stratification">5.5.19. Perform Multilabel Stratified KFold with <code class="docutils literal notranslate"><span class="pre">iterative-stratification</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpret-your-model-with-shapash">5.5.20. Interpret your Model with <code class="docutils literal notranslate"><span class="pre">Shapash</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-your-model-and-data-with-deepchecks">5.5.21. Validate Your Model and Data with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-high-performance-features-with-optuna">5.5.22. Visualize high-performance Features with <code class="docutils literal notranslate"><span class="pre">Optuna</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-ensembling-with-combo">5.5.23. Model Ensembling with <code class="docutils literal notranslate"><span class="pre">combo</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-plots-with-yellowbrick">5.5.24. Residual Plots with <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-and-distributed-hyperparameter-optimization-with-ray-tune">5.5.25. Powerful and Distributed Hyperparameter Optimization with <code class="docutils literal notranslate"><span class="pre">ray.tune</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-pytorch-with-scikit-learn-api-with-skorch">5.5.26. Use PyTorch with scikit-learn API with <code class="docutils literal notranslate"><span class="pre">skorch</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-ml-with-river">5.5.27. Online ML with <code class="docutils literal notranslate"><span class="pre">river</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sota-computer-vision-models-with-timm">5.5.28. SOTA Computer Vision Models with <code class="docutils literal notranslate"><span class="pre">timm</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-guaranteed-prediction-intervals-and-sets-with-mapie">5.5.29. Generate Guaranteed Prediction Intervals and Sets with <code class="docutils literal notranslate"><span class="pre">MAPIE</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-components-for-scikit-learn-with-scikit-lego">5.5.30. Extra Components For scikit-learn with <code class="docutils literal notranslate"><span class="pre">scikit-lego</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantize-your-models-with-torchao">5.5.31. Quantize your Models with <code class="docutils literal notranslate"><span class="pre">torchao</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-class-weights">5.6.1. Compute Class Weights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reset-tensorflow-keras-global-state">5.6.2. Reset TensorFlow/Keras Global State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-dirty-labels-with-cleanlab">5.6.3. Find dirty labels with <code class="docutils literal notranslate"><span class="pre">cleanlab</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-your-classifier-with-sklearn-s-classification-report">5.6.4. Evaluate your Classifier with sklearn’s <code class="docutils literal notranslate"><span class="pre">classification_report</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtain-reproducible-optimizations-results-in-optuna">5.6.5. Obtain Reproducible Optimizations Results in Optuna</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-bad-labels-with-doubtlab">5.6.6. Find bad labels with <code class="docutils literal notranslate"><span class="pre">doubtlab</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-notified-when-your-model-is-finished-with-training">5.6.7. Get notified when your model is finished with training</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-model-summary-in-pytorch-with-torchinfo">5.6.8. Get Model Summary in PyTorch with <code class="docutils literal notranslate"><span class="pre">torchinfo</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boost-scikit-learns-performance-with-intel-extension">5.6.9. Boost scikit-learns performance with Intel Extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incorportate-domain-knowledge-into-xgboost-with-feature-interaction-constraints">5.6.10. Incorportate Domain Knowledge into XGBoost with Feature Interaction Constraints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-automl-with-flaml">5.6.11. Powerful AutoML with <code class="docutils literal notranslate"><span class="pre">FLAML</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspect-based-seniment-analysis-with-pyabsa">5.6.12. Aspect-based Seniment Analysis with <code class="docutils literal notranslate"><span class="pre">PyABSA</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-xgboost-for-random-forests">5.6.13. Use XGBoost for Random Forests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-problematic-images-with-cleanvision">5.6.14. Identify problematic images with <code class="docutils literal notranslate"><span class="pre">cleanvision</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-the-optimal-regularization-parameter">5.6.15. Select the optimal Regularization Parameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-forests-in-tensorflow">5.6.16. Decision Forests in TensorFlow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automl-with-autogluon">5.6.17. AutoML with <code class="docutils literal notranslate"><span class="pre">AutoGluon</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-keras-models-with-visualkeras">5.6.18. Visualize Keras Models with <code class="docutils literal notranslate"><span class="pre">visualkeras</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perform-multilabel-stratified-kfold-with-iterative-stratification">5.6.19. Perform Multilabel Stratified KFold with <code class="docutils literal notranslate"><span class="pre">iterative-stratification</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpret-your-model-with-shapash">5.6.20. Interpret your Model with <code class="docutils literal notranslate"><span class="pre">Shapash</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-your-model-and-data-with-deepchecks">5.6.21. Validate Your Model and Data with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-high-performance-features-with-optuna">5.6.22. Visualize high-performance Features with <code class="docutils literal notranslate"><span class="pre">Optuna</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-ensembling-with-combo">5.6.23. Model Ensembling with <code class="docutils literal notranslate"><span class="pre">combo</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residual-plots-with-yellowbrick">5.6.24. Residual Plots with <code class="docutils literal notranslate"><span class="pre">yellowbrick</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powerful-and-distributed-hyperparameter-optimization-with-ray-tune">5.6.25. Powerful and Distributed Hyperparameter Optimization with <code class="docutils literal notranslate"><span class="pre">ray.tune</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-pytorch-with-scikit-learn-api-with-skorch">5.6.26. Use PyTorch with scikit-learn API with <code class="docutils literal notranslate"><span class="pre">skorch</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-ml-with-river">5.6.27. Online ML with <code class="docutils literal notranslate"><span class="pre">river</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sota-computer-vision-models-with-timm">5.6.28. SOTA Computer Vision Models with <code class="docutils literal notranslate"><span class="pre">timm</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-guaranteed-prediction-intervals-and-sets-with-mapie">5.6.29. Generate Guaranteed Prediction Intervals and Sets with <code class="docutils literal notranslate"><span class="pre">MAPIE</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-components-for-scikit-learn-with-scikit-lego">5.6.30. Extra Components For scikit-learn with <code class="docutils literal notranslate"><span class="pre">scikit-lego</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantize-your-models-with-torchao">5.6.31. Quantize your Models with <code class="docutils literal notranslate"><span class="pre">torchao</span></code></a></li>
 </ul>
   </nav></div>
 

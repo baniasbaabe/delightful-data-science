@@ -176,13 +176,14 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../machinelearning/index.html">5. Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../machinelearning/dataaugmentation.html">5.1. Data Augmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../machinelearning/eda.html">5.2. EDA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../machinelearning/featureselection.html">5.3. Feature Selection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../machinelearning/getdata.html">5.4. Get Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../machinelearning/modeltraining.html">5.5. Model Training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../machinelearning/outlierdetection.html">5.6. Outlier Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../machinelearning/timeseries.html">5.7. Time Series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../machinelearning/preprocessing.html">5.8. Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/deployment.html">5.2. Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/eda.html">5.3. EDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/featureselection.html">5.4. Feature Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/getdata.html">5.5. Get Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/modeltraining.html">5.6. Model Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/outlierdetection.html">5.7. Outlier Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/timeseries.html">5.8. Time Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/preprocessing.html">5.9. Preprocessing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../llm/index.html">6. LLM</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -468,6 +469,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-web-apps-with-mesop">2.1.45. Build Web Apps with <code class="docutils literal notranslate"><span class="pre">mesop</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymize-pii-data-with-presidio">2.1.46. Anonymize PII Data with <code class="docutils literal notranslate"><span class="pre">presidio</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-skills-from-job-postings-with-skillner">2.1.47. Extract Skills from Job Postings with <code class="docutils literal notranslate"><span class="pre">skillner</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rate-limiting-fastapi-with-slowapi">2.1.48. Rate Limiting FastAPI with <code class="docutils literal notranslate"><span class="pre">slowapi</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1915,6 +1917,42 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="rate-limiting-fastapi-with-slowapi">
+<h2><span class="section-number">2.1.48. </span>Rate Limiting FastAPI with <code class="docutils literal notranslate"><span class="pre">slowapi</span></code><a class="headerlink" href="#rate-limiting-fastapi-with-slowapi" title="Permalink to this heading">#</a></h2>
+<p>Preventing abuse of your API is crucial.</p>
+<p>To implement rate limiting for FastAPI, you can use <code class="docutils literal notranslate"><span class="pre">slowapi</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">slowapi</span></code> offers utility functions to limit your FastAPI or Starlette app based on e.g. the IP address.</p>
+<p>In the example below, we limit our API to 5 requests per minute.</p>
+<p>A note from the author: This is alpha quality code still, the API may change, and things may fall apart while you try it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install slowapi
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">slowapi</span> <span class="kn">import</span> <span class="n">Limiter</span><span class="p">,</span> <span class="n">_rate_limit_exceeded_handler</span>
+<span class="kn">from</span> <span class="nn">slowapi.util</span> <span class="kn">import</span> <span class="n">get_remote_address</span>
+<span class="kn">from</span> <span class="nn">slowapi.errors</span> <span class="kn">import</span> <span class="n">RateLimitExceeded</span>
+
+<span class="c1"># Limiting based on user&#39;s IP address</span>
+<span class="n">limiter</span> <span class="o">=</span> <span class="n">Limiter</span><span class="p">(</span><span class="n">key_func</span><span class="o">=</span><span class="n">get_remote_address</span><span class="p">)</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">limiter</span> <span class="o">=</span> <span class="n">limiter</span>
+<span class="n">app</span><span class="o">.</span><span class="n">add_exception_handler</span><span class="p">(</span><span class="n">RateLimitExceeded</span><span class="p">,</span> <span class="n">_rate_limit_exceeded_handler</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/home&quot;</span><span class="p">)</span>
+<span class="nd">@limiter</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="s2">&quot;5/minute&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;response&quot;</span><span class="p">:</span><span class="s2">&quot;Hello&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2031,6 +2069,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-web-apps-with-mesop">2.1.45. Build Web Apps with <code class="docutils literal notranslate"><span class="pre">mesop</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymize-pii-data-with-presidio">2.1.46. Anonymize PII Data with <code class="docutils literal notranslate"><span class="pre">presidio</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-skills-from-job-postings-with-skillner">2.1.47. Extract Skills from Job Postings with <code class="docutils literal notranslate"><span class="pre">skillner</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rate-limiting-fastapi-with-slowapi">2.1.48. Rate Limiting FastAPI with <code class="docutils literal notranslate"><span class="pre">slowapi</span></code></a></li>
 </ul>
   </nav></div>
 

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>5.7. Time Series &#8212; Delightful Data Science</title>
+    <title>5.8. Time Series &#8212; Delightful Data Science</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/machinelearning/timeseries';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5.8. Preprocessing" href="preprocessing.html" />
-    <link rel="prev" title="5.6. Outlier Detection" href="outlierdetection.html" />
+    <link rel="next" title="5.9. Preprocessing" href="preprocessing.html" />
+    <link rel="prev" title="5.7. Outlier Detection" href="outlierdetection.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,13 +176,14 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">5. Machine Learning</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dataaugmentation.html">5.1. Data Augmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eda.html">5.2. EDA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="featureselection.html">5.3. Feature Selection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getdata.html">5.4. Get Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modeltraining.html">5.5. Model Training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="outlierdetection.html">5.6. Outlier Detection</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.7. Time Series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">5.8. Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html">5.2. Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eda.html">5.3. EDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="featureselection.html">5.4. Feature Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getdata.html">5.5. Get Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modeltraining.html">5.6. Model Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outlierdetection.html">5.7. Outlier Detection</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.8. Time Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">5.9. Preprocessing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../llm/index.html">6. LLM</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -421,16 +422,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-seasonality-automatically-with-darts">5.7.1. Check Seasonality automatically with <code class="docutils literal notranslate"><span class="pre">darts</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-for-time-series-data-with-timeseriessplit">5.7.2. Cross-validation for Time Series Data with <code class="docutils literal notranslate"><span class="pre">TimeSeriesSplit</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cross-validation-with-tscv">5.7.3. More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-machine-learning-with-mlforecast">5.7.4. Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lightning-fast-time-series-forecasting-with-statsforecast">5.7.5. Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-with-polars-backend-with-functime">5.7.6. Time Series with Polars Backend with <code class="docutils literal notranslate"><span class="pre">functime</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-deep-learning-with-neuralforecast">5.7.7. Time Series Forecasting with Deep Learning with <code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-preprocessing-and-feature-engineering-with-temporian">5.7.8. Efficient Preprocessing and Feature Engineering with <code class="docutils literal notranslate"><span class="pre">temporian</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-point-detection-with-ruptures">5.7.9. Change Point Detection with <code class="docutils literal notranslate"><span class="pre">ruptures</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-machine-learning-with-skpro">5.7.10. Probabilistic Machine Learning with <code class="docutils literal notranslate"><span class="pre">skpro</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-seasonality-automatically-with-darts">5.8.1. Check Seasonality automatically with <code class="docutils literal notranslate"><span class="pre">darts</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-for-time-series-data-with-timeseriessplit">5.8.2. Cross-validation for Time Series Data with <code class="docutils literal notranslate"><span class="pre">TimeSeriesSplit</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cross-validation-with-tscv">5.8.3. More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-machine-learning-with-mlforecast">5.8.4. Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lightning-fast-time-series-forecasting-with-statsforecast">5.8.5. Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-with-polars-backend-with-functime">5.8.6. Time Series with Polars Backend with <code class="docutils literal notranslate"><span class="pre">functime</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-deep-learning-with-neuralforecast">5.8.7. Time Series Forecasting with Deep Learning with <code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-preprocessing-and-feature-engineering-with-temporian">5.8.8. Efficient Preprocessing and Feature Engineering with <code class="docutils literal notranslate"><span class="pre">temporian</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-point-detection-with-ruptures">5.8.9. Change Point Detection with <code class="docutils literal notranslate"><span class="pre">ruptures</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-machine-learning-with-skpro">5.8.10. Probabilistic Machine Learning with <code class="docutils literal notranslate"><span class="pre">skpro</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -443,9 +444,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="time-series">
-<h1><span class="section-number">5.7. </span>Time Series<a class="headerlink" href="#time-series" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5.8. </span>Time Series<a class="headerlink" href="#time-series" title="Permalink to this heading">#</a></h1>
 <section id="check-seasonality-automatically-with-darts">
-<h2><span class="section-number">5.7.1. </span>Check Seasonality automatically with <code class="docutils literal notranslate"><span class="pre">darts</span></code><a class="headerlink" href="#check-seasonality-automatically-with-darts" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.1. </span>Check Seasonality automatically with <code class="docutils literal notranslate"><span class="pre">darts</span></code><a class="headerlink" href="#check-seasonality-automatically-with-darts" title="Permalink to this heading">#</a></h2>
 <p>Seasonality describes a pattern that repeats regularly over time.</p>
 <p>Identifying and understanding the seasonality in time series can boost the performance of your model.</p>
 <p>But you don’t have to find the seasonality effect and period by yourself.</p>
@@ -473,7 +474,7 @@ document.write(`
 </div>
 </section>
 <section id="cross-validation-for-time-series-data-with-timeseriessplit">
-<h2><span class="section-number">5.7.2. </span>Cross-validation for Time Series Data with <code class="docutils literal notranslate"><span class="pre">TimeSeriesSplit</span></code><a class="headerlink" href="#cross-validation-for-time-series-data-with-timeseriessplit" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.2. </span>Cross-validation for Time Series Data with <code class="docutils literal notranslate"><span class="pre">TimeSeriesSplit</span></code><a class="headerlink" href="#cross-validation-for-time-series-data-with-timeseriessplit" title="Permalink to this heading">#</a></h2>
 <p>How to do Cross-Validation with Time Series?</p>
 <p>Using standard K-Fold Cross-Validation will not work.</p>
 <p>In this case, you would simply partition the data into k folds, and then train and evaluate the model k times, each time using a different fold as the test set and the rest of the data as the training set.</p>
@@ -499,7 +500,7 @@ document.write(`
 </div>
 </section>
 <section id="more-cross-validation-with-tscv">
-<h2><span class="section-number">5.7.3. </span>More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code><a class="headerlink" href="#more-cross-validation-with-tscv" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.3. </span>More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code><a class="headerlink" href="#more-cross-validation-with-tscv" title="Permalink to this heading">#</a></h2>
 <p>How to do Cross-Validation with Time Series?</p>
 <p>Using standard K-Fold Cross-Validation will not work.</p>
 <p>In this case, you would simply partition the data into k folds, and then train and evaluate the model k times, each time using a different fold as the test set and the rest of the data as the training set.</p>
@@ -532,7 +533,7 @@ document.write(`
 </div>
 </section>
 <section id="time-series-forecasting-with-machine-learning-with-mlforecast">
-<h2><span class="section-number">5.7.4. </span>Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code><a class="headerlink" href="#time-series-forecasting-with-machine-learning-with-mlforecast" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.4. </span>Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code><a class="headerlink" href="#time-series-forecasting-with-machine-learning-with-mlforecast" title="Permalink to this heading">#</a></h2>
 <p>Do you want to perform powerful time series forecasting?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code> by Nixtla.</p>
 <p><code class="docutils literal notranslate"><span class="pre">mlforecast</span></code> lets you run Machine Learning models for time series forecasting, even on remote clusters like Ray or Spark.</p>
@@ -564,7 +565,7 @@ document.write(`
 </div>
 </section>
 <section id="lightning-fast-time-series-forecasting-with-statsforecast">
-<h2><span class="section-number">5.7.5. </span>Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code><a class="headerlink" href="#lightning-fast-time-series-forecasting-with-statsforecast" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.5. </span>Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code><a class="headerlink" href="#lightning-fast-time-series-forecasting-with-statsforecast" title="Permalink to this heading">#</a></h2>
 <p>Do you want to perform lightning fast time series forecasting?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code> by Nixtla.</p>
 <p><code class="docutils literal notranslate"><span class="pre">statsforecast</span></code> lets you run statistical models on your time series data.</p>
@@ -596,7 +597,7 @@ document.write(`
 </div>
 </section>
 <section id="time-series-with-polars-backend-with-functime">
-<h2><span class="section-number">5.7.6. </span>Time Series with Polars Backend with <code class="docutils literal notranslate"><span class="pre">functime</span></code><a class="headerlink" href="#time-series-with-polars-backend-with-functime" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.6. </span>Time Series with Polars Backend with <code class="docutils literal notranslate"><span class="pre">functime</span></code><a class="headerlink" href="#time-series-with-polars-backend-with-functime" title="Permalink to this heading">#</a></h2>
 <p>Fast time-series forecasting with <code class="docutils literal notranslate"><span class="pre">functime</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">functime</span></code> is a Python library for time series forecasting and feature extraction, built with Polars.</p>
 <p>Since it uses lazy Polars dataframes, <code class="docutils literal notranslate"><span class="pre">functime</span></code> speeds up forecasting and feature engineering.</p>
@@ -632,7 +633,7 @@ document.write(`
 </div>
 </section>
 <section id="time-series-forecasting-with-deep-learning-with-neuralforecast">
-<h2><span class="section-number">5.7.7. </span>Time Series Forecasting with Deep Learning with <code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code><a class="headerlink" href="#time-series-forecasting-with-deep-learning-with-neuralforecast" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.7. </span>Time Series Forecasting with Deep Learning with <code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code><a class="headerlink" href="#time-series-forecasting-with-deep-learning-with-neuralforecast" title="Permalink to this heading">#</a></h2>
 <p>Do you want to perform powerful time series forecasting?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code> by nixtla.</p>
 <p><code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code> lets you run Deep Learning models for time series forecasting with models like N-BEATS or N-HiTS.</p>
@@ -670,7 +671,7 @@ document.write(`
 </div>
 </section>
 <section id="efficient-preprocessing-and-feature-engineering-with-temporian">
-<h2><span class="section-number">5.7.8. </span>Efficient Preprocessing and Feature Engineering with <code class="docutils literal notranslate"><span class="pre">temporian</span></code><a class="headerlink" href="#efficient-preprocessing-and-feature-engineering-with-temporian" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.8. </span>Efficient Preprocessing and Feature Engineering with <code class="docutils literal notranslate"><span class="pre">temporian</span></code><a class="headerlink" href="#efficient-preprocessing-and-feature-engineering-with-temporian" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">temporian</span></code> is a Python library for preprocessing and feature engineering temporal data to feed into ML libraries like XGBoost, Scikit-learn or PyTorch.</p>
 <p>It handles various types of temporal data like single- and multivariate data or flat- and multi-index data.</p>
 <div class="cell docutils container">
@@ -700,7 +701,7 @@ document.write(`
 </div>
 </section>
 <section id="change-point-detection-with-ruptures">
-<h2><span class="section-number">5.7.9. </span>Change Point Detection with <code class="docutils literal notranslate"><span class="pre">ruptures</span></code><a class="headerlink" href="#change-point-detection-with-ruptures" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.9. </span>Change Point Detection with <code class="docutils literal notranslate"><span class="pre">ruptures</span></code><a class="headerlink" href="#change-point-detection-with-ruptures" title="Permalink to this heading">#</a></h2>
 <p>Change point detection was never easier in Python with `ruptures``</p>
 <p><code class="docutils literal notranslate"><span class="pre">ruptures</span></code> is a library which provides methods for detecting and displaying off-line change points.</p>
 <p>It offers multiple exact and approximation detection methods.</p>
@@ -734,7 +735,7 @@ document.write(`
 </div>
 </section>
 <section id="probabilistic-machine-learning-with-skpro">
-<h2><span class="section-number">5.7.10. </span>Probabilistic Machine Learning with <code class="docutils literal notranslate"><span class="pre">skpro</span></code><a class="headerlink" href="#probabilistic-machine-learning-with-skpro" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.10. </span>Probabilistic Machine Learning with <code class="docutils literal notranslate"><span class="pre">skpro</span></code><a class="headerlink" href="#probabilistic-machine-learning-with-skpro" title="Permalink to this heading">#</a></h2>
 <p>Use supervised probabilistic prediction like a pro with <code class="docutils literal notranslate"><span class="pre">skpro</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">skpro</span></code> is a scikit-learn-like library for probabilistic predictions and evaluations.</p>
 <p>It supports tabular regressors, survival prediction, and reductions to turn scikit-learn regressors into probabilistic <code class="docutils literal notranslate"><span class="pre">skpro</span></code> regressors.</p>
@@ -816,7 +817,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5.6. </span>Outlier Detection</p>
+        <p class="prev-next-title"><span class="section-number">5.7. </span>Outlier Detection</p>
       </div>
     </a>
     <a class="right-next"
@@ -824,7 +825,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5.8. </span>Preprocessing</p>
+        <p class="prev-next-title"><span class="section-number">5.9. </span>Preprocessing</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -846,16 +847,16 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-seasonality-automatically-with-darts">5.7.1. Check Seasonality automatically with <code class="docutils literal notranslate"><span class="pre">darts</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-for-time-series-data-with-timeseriessplit">5.7.2. Cross-validation for Time Series Data with <code class="docutils literal notranslate"><span class="pre">TimeSeriesSplit</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cross-validation-with-tscv">5.7.3. More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-machine-learning-with-mlforecast">5.7.4. Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lightning-fast-time-series-forecasting-with-statsforecast">5.7.5. Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-with-polars-backend-with-functime">5.7.6. Time Series with Polars Backend with <code class="docutils literal notranslate"><span class="pre">functime</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-deep-learning-with-neuralforecast">5.7.7. Time Series Forecasting with Deep Learning with <code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-preprocessing-and-feature-engineering-with-temporian">5.7.8. Efficient Preprocessing and Feature Engineering with <code class="docutils literal notranslate"><span class="pre">temporian</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-point-detection-with-ruptures">5.7.9. Change Point Detection with <code class="docutils literal notranslate"><span class="pre">ruptures</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-machine-learning-with-skpro">5.7.10. Probabilistic Machine Learning with <code class="docutils literal notranslate"><span class="pre">skpro</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-seasonality-automatically-with-darts">5.8.1. Check Seasonality automatically with <code class="docutils literal notranslate"><span class="pre">darts</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-for-time-series-data-with-timeseriessplit">5.8.2. Cross-validation for Time Series Data with <code class="docutils literal notranslate"><span class="pre">TimeSeriesSplit</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-cross-validation-with-tscv">5.8.3. More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-machine-learning-with-mlforecast">5.8.4. Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lightning-fast-time-series-forecasting-with-statsforecast">5.8.5. Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-with-polars-backend-with-functime">5.8.6. Time Series with Polars Backend with <code class="docutils literal notranslate"><span class="pre">functime</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-forecasting-with-deep-learning-with-neuralforecast">5.8.7. Time Series Forecasting with Deep Learning with <code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-preprocessing-and-feature-engineering-with-temporian">5.8.8. Efficient Preprocessing and Feature Engineering with <code class="docutils literal notranslate"><span class="pre">temporian</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-point-detection-with-ruptures">5.8.9. Change Point Detection with <code class="docutils literal notranslate"><span class="pre">ruptures</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-machine-learning-with-skpro">5.8.10. Probabilistic Machine Learning with <code class="docutils literal notranslate"><span class="pre">skpro</span></code></a></li>
 </ul>
   </nav></div>
 

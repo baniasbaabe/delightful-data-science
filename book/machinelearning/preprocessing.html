@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>5.8. Preprocessing &#8212; Delightful Data Science</title>
+    <title>5.9. Preprocessing &#8212; Delightful Data Science</title>
   
   
   
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="6. LLM" href="../llm/index.html" />
-    <link rel="prev" title="5.7. Time Series" href="timeseries.html" />
+    <link rel="prev" title="5.8. Time Series" href="timeseries.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,13 +176,14 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">5. Machine Learning</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dataaugmentation.html">5.1. Data Augmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eda.html">5.2. EDA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="featureselection.html">5.3. Feature Selection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getdata.html">5.4. Get Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modeltraining.html">5.5. Model Training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="outlierdetection.html">5.6. Outlier Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="timeseries.html">5.7. Time Series</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.8. Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html">5.2. Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eda.html">5.3. EDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="featureselection.html">5.4. Feature Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getdata.html">5.5. Get Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modeltraining.html">5.6. Model Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outlierdetection.html">5.7. Outlier Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeseries.html">5.8. Time Series</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.9. Preprocessing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../llm/index.html">6. LLM</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -421,13 +422,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-your-text-data-with-clean-text">5.8.1. Clean your text data with <code class="docutils literal notranslate"><span class="pre">clean-text</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-and-fix-your-data-quality-issues">5.8.2. Detect and Fix your Data Quality Issues</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-natural-language-numbers-into-its-numerical-representation">5.8.3. Convert Natural Language Numbers into its Numerical Representation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-your-numbers-and-dates-human-friendly">5.8.4. Make your Numbers and dates human-friendly</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaner-pipeline-definition-in-scikit-learn">5.8.5. Cleaner Pipeline definition in Scikit-Learn</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-columns-for-your-pipeline-easily">5.8.6. Select Columns for your Pipeline easily</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rare-label-encoding-with-feature-engine">5.8.7. Rare Label Encoding with <code class="docutils literal notranslate"><span class="pre">feature-engine</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-your-text-data-with-clean-text">5.9.1. Clean your text data with <code class="docutils literal notranslate"><span class="pre">clean-text</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-and-fix-your-data-quality-issues">5.9.2. Detect and Fix your Data Quality Issues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-natural-language-numbers-into-its-numerical-representation">5.9.3. Convert Natural Language Numbers into its Numerical Representation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-your-numbers-and-dates-human-friendly">5.9.4. Make your Numbers and dates human-friendly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaner-pipeline-definition-in-scikit-learn">5.9.5. Cleaner Pipeline definition in Scikit-Learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-columns-for-your-pipeline-easily">5.9.6. Select Columns for your Pipeline easily</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rare-label-encoding-with-feature-engine">5.9.7. Rare Label Encoding with <code class="docutils literal notranslate"><span class="pre">feature-engine</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -440,9 +441,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="preprocessing">
-<h1><span class="section-number">5.8. </span>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5.9. </span>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this heading">#</a></h1>
 <section id="clean-your-text-data-with-clean-text">
-<h2><span class="section-number">5.8.1. </span>Clean your text data with <code class="docutils literal notranslate"><span class="pre">clean-text</span></code><a class="headerlink" href="#clean-your-text-data-with-clean-text" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.9.1. </span>Clean your text data with <code class="docutils literal notranslate"><span class="pre">clean-text</span></code><a class="headerlink" href="#clean-your-text-data-with-clean-text" title="Permalink to this heading">#</a></h2>
 <p>Content on the Web and in Social Media is never clean.</p>
 <p><code class="docutils literal notranslate"><span class="pre">clean-text</span></code> does the Preprocessing for you.</p>
 <p>You can specify, if and how you want to clean your texts.</p>
@@ -483,7 +484,7 @@ document.write(`
 </div>
 </section>
 <section id="detect-and-fix-your-data-quality-issues">
-<h2><span class="section-number">5.8.2. </span>Detect and Fix your Data Quality Issues<a class="headerlink" href="#detect-and-fix-your-data-quality-issues" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.9.2. </span>Detect and Fix your Data Quality Issues<a class="headerlink" href="#detect-and-fix-your-data-quality-issues" title="Permalink to this heading">#</a></h2>
 <p>Do you want to detect data quality issues?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">pandas_dq</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">pandas_dq</span></code> is a relatively new library, focussing on detecting data quality issues and fixing them automatically like:</p>
@@ -542,7 +543,7 @@ document.write(`
 </div>
 </section>
 <section id="convert-natural-language-numbers-into-its-numerical-representation">
-<h2><span class="section-number">5.8.3. </span>Convert Natural Language Numbers into its Numerical Representation<a class="headerlink" href="#convert-natural-language-numbers-into-its-numerical-representation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.9.3. </span>Convert Natural Language Numbers into its Numerical Representation<a class="headerlink" href="#convert-natural-language-numbers-into-its-numerical-representation" title="Permalink to this heading">#</a></h2>
 <p>If you want to convert natural language numbers into numerical values, try numerizer.</p>
 <p><code class="docutils literal notranslate"><span class="pre">numerizer</span></code> is a Python library for converting numbers in texts to their corresponding numerical values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">numerizer</span></code> supports a wide range of numeric formats, including whole numbers, decimals, percentages and currencies.</p>
@@ -576,7 +577,7 @@ document.write(`
 </div>
 </section>
 <section id="make-your-numbers-and-dates-human-friendly">
-<h2><span class="section-number">5.8.4. </span>Make your Numbers and dates human-friendly<a class="headerlink" href="#make-your-numbers-and-dates-human-friendly" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.9.4. </span>Make your Numbers and dates human-friendly<a class="headerlink" href="#make-your-numbers-and-dates-human-friendly" title="Permalink to this heading">#</a></h2>
 <p>Looking to make your numbers human-friendly?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">humanize</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">humanize</span></code> formats your numbers and dates in a way that is intuitive to understand.</p>
@@ -616,7 +617,7 @@ document.write(`
 </div>
 </section>
 <section id="cleaner-pipeline-definition-in-scikit-learn">
-<h2><span class="section-number">5.8.5. </span>Cleaner Pipeline definition in Scikit-Learn<a class="headerlink" href="#cleaner-pipeline-definition-in-scikit-learn" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.9.5. </span>Cleaner Pipeline definition in Scikit-Learn<a class="headerlink" href="#cleaner-pipeline-definition-in-scikit-learn" title="Permalink to this heading">#</a></h2>
 <p>When you build Pipelines in scikit-learn,</p>
 <p>use <code class="docutils literal notranslate"><span class="pre">make_pipeline</span></code> instead of the Pipeline class.</p>
 <p>The Pipeline class can be really long for more complex pipelines.</p>
@@ -633,7 +634,7 @@ document.write(`
 </div>
 </section>
 <section id="select-columns-for-your-pipeline-easily">
-<h2><span class="section-number">5.8.6. </span>Select Columns for your Pipeline easily<a class="headerlink" href="#select-columns-for-your-pipeline-easily" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.9.6. </span>Select Columns for your Pipeline easily<a class="headerlink" href="#select-columns-for-your-pipeline-easily" title="Permalink to this heading">#</a></h2>
 <p>If you want a convenient way to select columns for your Scikit-learn pipelines</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">make_column_selector</span></code>.</p>
 <p>You can even provide complex regex patterns to select the columns you want.</p>
@@ -653,7 +654,7 @@ document.write(`
 </div>
 </section>
 <section id="rare-label-encoding-with-feature-engine">
-<h2><span class="section-number">5.8.7. </span>Rare Label Encoding with <code class="docutils literal notranslate"><span class="pre">feature-engine</span></code><a class="headerlink" href="#rare-label-encoding-with-feature-engine" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.9.7. </span>Rare Label Encoding with <code class="docutils literal notranslate"><span class="pre">feature-engine</span></code><a class="headerlink" href="#rare-label-encoding-with-feature-engine" title="Permalink to this heading">#</a></h2>
 <p>How to tackle Rare Labels in your dataset?</p>
 <p>Rare labels can cause issues during model training, as they may not have sufficient representation for the model to learn meaningful patterns.</p>
 <p>For this problem, use <code class="docutils literal notranslate"><span class="pre">RareLabelEncoder</span></code> from <code class="docutils literal notranslate"><span class="pre">feature_engine</span></code>.</p>
@@ -723,7 +724,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5.7. </span>Time Series</p>
+        <p class="prev-next-title"><span class="section-number">5.8. </span>Time Series</p>
       </div>
     </a>
     <a class="right-next"
@@ -753,13 +754,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-your-text-data-with-clean-text">5.8.1. Clean your text data with <code class="docutils literal notranslate"><span class="pre">clean-text</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-and-fix-your-data-quality-issues">5.8.2. Detect and Fix your Data Quality Issues</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-natural-language-numbers-into-its-numerical-representation">5.8.3. Convert Natural Language Numbers into its Numerical Representation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-your-numbers-and-dates-human-friendly">5.8.4. Make your Numbers and dates human-friendly</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaner-pipeline-definition-in-scikit-learn">5.8.5. Cleaner Pipeline definition in Scikit-Learn</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-columns-for-your-pipeline-easily">5.8.6. Select Columns for your Pipeline easily</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rare-label-encoding-with-feature-engine">5.8.7. Rare Label Encoding with <code class="docutils literal notranslate"><span class="pre">feature-engine</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-your-text-data-with-clean-text">5.9.1. Clean your text data with <code class="docutils literal notranslate"><span class="pre">clean-text</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detect-and-fix-your-data-quality-issues">5.9.2. Detect and Fix your Data Quality Issues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-natural-language-numbers-into-its-numerical-representation">5.9.3. Convert Natural Language Numbers into its Numerical Representation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-your-numbers-and-dates-human-friendly">5.9.4. Make your Numbers and dates human-friendly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaner-pipeline-definition-in-scikit-learn">5.9.5. Cleaner Pipeline definition in Scikit-Learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-columns-for-your-pipeline-easily">5.9.6. Select Columns for your Pipeline easily</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rare-label-encoding-with-feature-engine">5.9.7. Rare Label Encoding with <code class="docutils literal notranslate"><span class="pre">feature-engine</span></code></a></li>
 </ul>
   </nav></div>
 

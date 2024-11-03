@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>5.3. Feature Selection &#8212; Delightful Data Science</title>
+    <title>5.4. Feature Selection &#8212; Delightful Data Science</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/machinelearning/featureselection';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5.4. Get Data" href="getdata.html" />
-    <link rel="prev" title="5.2. EDA" href="eda.html" />
+    <link rel="next" title="5.5. Get Data" href="getdata.html" />
+    <link rel="prev" title="5.3. EDA" href="eda.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,13 +176,14 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">5. Machine Learning</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dataaugmentation.html">5.1. Data Augmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eda.html">5.2. EDA</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.3. Feature Selection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getdata.html">5.4. Get Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modeltraining.html">5.5. Model Training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="outlierdetection.html">5.6. Outlier Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="timeseries.html">5.7. Time Series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">5.8. Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html">5.2. Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eda.html">5.3. EDA</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.4. Feature Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getdata.html">5.5. Get Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modeltraining.html">5.6. Model Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outlierdetection.html">5.7. Outlier Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeseries.html">5.8. Time Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">5.9. Preprocessing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../llm/index.html">6. LLM</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -421,11 +422,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-variance-inflation-factor-vif">5.3.1. Calculate Variance Inflation Factor (VIF)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-for-new-categories-in-test-set-with-deepchecks">5.3.2. Check for new categories in test set with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-permutation-importance-with-eli5">5.3.3. Get Permutation Importance with <code class="docutils literal notranslate"><span class="pre">eli5</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-most-predictive-variables-for-your-target-variable">5.3.4. Find the Most Predictive Variables for Your Target Variable</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection-at-scale-with-mrmr">5.3.5. Feature Selection at Scale with <code class="docutils literal notranslate"><span class="pre">mrmr</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-variance-inflation-factor-vif">5.4.1. Calculate Variance Inflation Factor (VIF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-for-new-categories-in-test-set-with-deepchecks">5.4.2. Check for new categories in test set with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-permutation-importance-with-eli5">5.4.3. Get Permutation Importance with <code class="docutils literal notranslate"><span class="pre">eli5</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-most-predictive-variables-for-your-target-variable">5.4.4. Find the Most Predictive Variables for Your Target Variable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection-at-scale-with-mrmr">5.4.5. Feature Selection at Scale with <code class="docutils literal notranslate"><span class="pre">mrmr</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -438,9 +439,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="feature-selection">
-<h1><span class="section-number">5.3. </span>Feature Selection<a class="headerlink" href="#feature-selection" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5.4. </span>Feature Selection<a class="headerlink" href="#feature-selection" title="Permalink to this heading">#</a></h1>
 <section id="calculate-variance-inflation-factor-vif">
-<h2><span class="section-number">5.3.1. </span>Calculate Variance Inflation Factor (VIF)<a class="headerlink" href="#calculate-variance-inflation-factor-vif" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.4.1. </span>Calculate Variance Inflation Factor (VIF)<a class="headerlink" href="#calculate-variance-inflation-factor-vif" title="Permalink to this heading">#</a></h2>
 <p>How to detect Multicollinearity?</p>
 <p>Multicollinearity is a statistical phenomenon that occurs when two or more predictor variables in a multiple regression model are highly correlated.
 This can lead to unstable and inconsistent coefficients, making it difficult to interpret the model’s results.</p>
@@ -496,7 +497,7 @@ This can lead to unstable and inconsistent coefficients, making it difficult to 
 </div>
 </section>
 <section id="check-for-new-categories-in-test-set-with-deepchecks">
-<h2><span class="section-number">5.3.2. </span>Check for new categories in test set with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code><a class="headerlink" href="#check-for-new-categories-in-test-set-with-deepchecks" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.4.2. </span>Check for new categories in test set with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code><a class="headerlink" href="#check-for-new-categories-in-test-set-with-deepchecks" title="Permalink to this heading">#</a></h2>
 <p>Always check if your test set has new categories when training a Machine Learning Model.</p>
 <p>Some algorithms like CatBoost can handle unknown categories.</p>
 <p>But when you have more and more unknown categories, it will harm your model.</p>
@@ -517,7 +518,7 @@ This can lead to unstable and inconsistent coefficients, making it difficult to 
 </div>
 </section>
 <section id="get-permutation-importance-with-eli5">
-<h2><span class="section-number">5.3.3. </span>Get Permutation Importance with <code class="docutils literal notranslate"><span class="pre">eli5</span></code><a class="headerlink" href="#get-permutation-importance-with-eli5" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.4.3. </span>Get Permutation Importance with <code class="docutils literal notranslate"><span class="pre">eli5</span></code><a class="headerlink" href="#get-permutation-importance-with-eli5" title="Permalink to this heading">#</a></h2>
 <p>Use Permutation Importance method to obtain feature importances.</p>
 <p>Permutation Importance calculates feature importance by randomly shuffling the values of a feature and observing how the model’s performance changes.</p>
 <p>In comparison to Feature Importance, Permutation Importance works for every model (and not only for tree-based models).</p>
@@ -547,7 +548,7 @@ This can lead to unstable and inconsistent coefficients, making it difficult to 
 </div>
 </section>
 <section id="find-the-most-predictive-variables-for-your-target-variable">
-<h2><span class="section-number">5.3.4. </span>Find the Most Predictive Variables for Your Target Variable<a class="headerlink" href="#find-the-most-predictive-variables-for-your-target-variable" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.4.4. </span>Find the Most Predictive Variables for Your Target Variable<a class="headerlink" href="#find-the-most-predictive-variables-for-your-target-variable" title="Permalink to this heading">#</a></h2>
 <p>You know about Correlation. But do you know the Predictive Power Score?</p>
 <p>Predictive Power Score (PPS) is a data-type-agnostic score that can detect linear and non-linear relationships between two columns, with an output ranging from 0 to 1.</p>
 <p>So, a PPS of 1 means Column A is very likely to predict the values of Column B.</p>
@@ -585,7 +586,7 @@ This can lead to unstable and inconsistent coefficients, making it difficult to 
 </div>
 </section>
 <section id="feature-selection-at-scale-with-mrmr">
-<h2><span class="section-number">5.3.5. </span>Feature Selection at Scale with <code class="docutils literal notranslate"><span class="pre">mrmr</span></code><a class="headerlink" href="#feature-selection-at-scale-with-mrmr" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.4.5. </span>Feature Selection at Scale with <code class="docutils literal notranslate"><span class="pre">mrmr</span></code><a class="headerlink" href="#feature-selection-at-scale-with-mrmr" title="Permalink to this heading">#</a></h2>
 <p>Do you want to do Feature Selection automatically?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">mrmr</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">mrmr</span></code> (minimum-Redundancy-Maximum-Relevance) is a minimal-optimal feature selection algorithm at scale.</p>
@@ -655,7 +656,7 @@ This can lead to unstable and inconsistent coefficients, making it difficult to 
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5.2. </span>EDA</p>
+        <p class="prev-next-title"><span class="section-number">5.3. </span>EDA</p>
       </div>
     </a>
     <a class="right-next"
@@ -663,7 +664,7 @@ This can lead to unstable and inconsistent coefficients, making it difficult to 
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5.4. </span>Get Data</p>
+        <p class="prev-next-title"><span class="section-number">5.5. </span>Get Data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -685,11 +686,11 @@ This can lead to unstable and inconsistent coefficients, making it difficult to 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-variance-inflation-factor-vif">5.3.1. Calculate Variance Inflation Factor (VIF)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-for-new-categories-in-test-set-with-deepchecks">5.3.2. Check for new categories in test set with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-permutation-importance-with-eli5">5.3.3. Get Permutation Importance with <code class="docutils literal notranslate"><span class="pre">eli5</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-most-predictive-variables-for-your-target-variable">5.3.4. Find the Most Predictive Variables for Your Target Variable</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection-at-scale-with-mrmr">5.3.5. Feature Selection at Scale with <code class="docutils literal notranslate"><span class="pre">mrmr</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-variance-inflation-factor-vif">5.4.1. Calculate Variance Inflation Factor (VIF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-for-new-categories-in-test-set-with-deepchecks">5.4.2. Check for new categories in test set with <code class="docutils literal notranslate"><span class="pre">Deepchecks</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-permutation-importance-with-eli5">5.4.3. Get Permutation Importance with <code class="docutils literal notranslate"><span class="pre">eli5</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-most-predictive-variables-for-your-target-variable">5.4.4. Find the Most Predictive Variables for Your Target Variable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection-at-scale-with-mrmr">5.4.5. Feature Selection at Scale with <code class="docutils literal notranslate"><span class="pre">mrmr</span></code></a></li>
 </ul>
   </nav></div>
 

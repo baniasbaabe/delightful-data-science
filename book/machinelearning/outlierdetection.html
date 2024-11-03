@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>5.6. Outlier Detection &#8212; Delightful Data Science</title>
+    <title>5.7. Outlier Detection &#8212; Delightful Data Science</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/machinelearning/outlierdetection';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5.7. Time Series" href="timeseries.html" />
-    <link rel="prev" title="5.5. Model Training" href="modeltraining.html" />
+    <link rel="next" title="5.8. Time Series" href="timeseries.html" />
+    <link rel="prev" title="5.6. Model Training" href="modeltraining.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,13 +176,14 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">5. Machine Learning</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dataaugmentation.html">5.1. Data Augmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eda.html">5.2. EDA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="featureselection.html">5.3. Feature Selection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getdata.html">5.4. Get Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modeltraining.html">5.5. Model Training</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.6. Outlier Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="timeseries.html">5.7. Time Series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">5.8. Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html">5.2. Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eda.html">5.3. EDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="featureselection.html">5.4. Feature Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getdata.html">5.5. Get Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modeltraining.html">5.6. Model Training</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.7. Outlier Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeseries.html">5.8. Time Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">5.9. Preprocessing</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../llm/index.html">6. LLM</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -421,8 +422,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensembling-for-outlier-detection">5.6.1. Ensembling for Outlier Detection</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robust-outlier-detection-with-puncc">5.6.2. Robust Outlier Detection with <code class="docutils literal notranslate"><span class="pre">puncc</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensembling-for-outlier-detection">5.7.1. Ensembling for Outlier Detection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robust-outlier-detection-with-puncc">5.7.2. Robust Outlier Detection with <code class="docutils literal notranslate"><span class="pre">puncc</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -435,9 +436,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="outlier-detection">
-<h1><span class="section-number">5.6. </span>Outlier Detection<a class="headerlink" href="#outlier-detection" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5.7. </span>Outlier Detection<a class="headerlink" href="#outlier-detection" title="Permalink to this heading">#</a></h1>
 <section id="ensembling-for-outlier-detection">
-<h2><span class="section-number">5.6.1. </span>Ensembling for Outlier Detection<a class="headerlink" href="#ensembling-for-outlier-detection" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.7.1. </span>Ensembling for Outlier Detection<a class="headerlink" href="#ensembling-for-outlier-detection" title="Permalink to this heading">#</a></h2>
 <p>Due to its unsupervised nature, outlier detection methods often suffer from model instability.</p>
 <p>So, why not combine various models?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">PyOD</span></code>!</p>
@@ -494,7 +495,7 @@ document.write(`
 </div>
 </section>
 <section id="robust-outlier-detection-with-puncc">
-<h2><span class="section-number">5.6.2. </span>Robust Outlier Detection with <code class="docutils literal notranslate"><span class="pre">puncc</span></code><a class="headerlink" href="#robust-outlier-detection-with-puncc" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.7.2. </span>Robust Outlier Detection with <code class="docutils literal notranslate"><span class="pre">puncc</span></code><a class="headerlink" href="#robust-outlier-detection-with-puncc" title="Permalink to this heading">#</a></h2>
 <p>Outlier Detection is notoriously hard.</p>
 <p>But it doesn’t have to.</p>
 <p><code class="docutils literal notranslate"><span class="pre">puncc</span></code> offers outlier detection, powered by Conformal Prediction, where the detection threshold will be calibrated.</p>
@@ -574,7 +575,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5.5. </span>Model Training</p>
+        <p class="prev-next-title"><span class="section-number">5.6. </span>Model Training</p>
       </div>
     </a>
     <a class="right-next"
@@ -582,7 +583,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5.7. </span>Time Series</p>
+        <p class="prev-next-title"><span class="section-number">5.8. </span>Time Series</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -604,8 +605,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensembling-for-outlier-detection">5.6.1. Ensembling for Outlier Detection</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robust-outlier-detection-with-puncc">5.6.2. Robust Outlier Detection with <code class="docutils literal notranslate"><span class="pre">puncc</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensembling-for-outlier-detection">5.7.1. Ensembling for Outlier Detection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robust-outlier-detection-with-puncc">5.7.2. Robust Outlier Detection with <code class="docutils literal notranslate"><span class="pre">puncc</span></code></a></li>
 </ul>
   </nav></div>
 
