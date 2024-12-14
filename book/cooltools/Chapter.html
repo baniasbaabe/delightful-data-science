@@ -471,6 +471,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-skills-from-job-postings-with-skillner">2.1.47. Extract Skills from Job Postings with <code class="docutils literal notranslate"><span class="pre">skillner</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rate-limiting-fastapi-with-slowapi">2.1.48. Rate Limiting FastAPI with <code class="docutils literal notranslate"><span class="pre">slowapi</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-cli-out-of-any-python-object-with-fire">2.1.49. Create CLI out of any Python Object with <code class="docutils literal notranslate"><span class="pre">fire</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables-management-with-pydantic-settings">2.1.50. Environment Variables Management with <code class="docutils literal notranslate"><span class="pre">pydantic-settings</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -1987,6 +1988,54 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="environment-variables-management-with-pydantic-settings">
+<h2><span class="section-number">2.1.50. </span>Environment Variables Management with <code class="docutils literal notranslate"><span class="pre">pydantic-settings</span></code><a class="headerlink" href="#environment-variables-management-with-pydantic-settings" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pydantic-settings
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pydantic_settings</span> <span class="kn">import</span> <span class="n">BaseSettings</span><span class="p">,</span> <span class="n">SettingsConfigDict</span>
+<span class="kn">from</span> <span class="nn">pydanctic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+
+<span class="k">class</span> <span class="nc">Environment</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+    <span class="n">DEV</span> <span class="o">=</span> <span class="s1">&#39;dev&#39;</span>
+    <span class="n">STAGING</span> <span class="o">=</span> <span class="s1">&#39;staging&#39;</span>
+    <span class="n">PROD</span> <span class="o">=</span> <span class="s1">&#39;prod&#39;</span>
+    
+<span class="k">class</span> <span class="nc">RedisSettings</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">host</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">port</span><span class="p">:</span> <span class="nb">int</span>
+
+<span class="k">class</span> <span class="nc">AppSettings</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
+    <span class="n">model_config</span> <span class="o">=</span> <span class="n">SettingsConfigDict</span><span class="p">(</span><span class="n">env_file</span><span class="o">=</span><span class="s1">&#39;.env&#39;</span><span class="p">)</span>
+    
+    <span class="n">redis</span><span class="p">:</span> <span class="n">RedisSettings</span>
+    <span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">environment</span><span class="p">:</span> <span class="n">Environment</span>
+    <span class="n">debug_mode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    
+<span class="n">settings</span> <span class="o">=</span> <span class="n">AppSettings</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">host</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"># .env</span>
+<span class="sd">APP_NAME=YourAppName</span>
+<span class="sd">ENVIRONMENT=dev</span>
+<span class="sd">DEBUG_MODE=False</span>
+<span class="sd">REDIS=&#39;{&quot;host&quot;: &quot;localhost&quot;, &quot;port&quot;: 6379}&#39;</span>
+<span class="sd">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2105,6 +2154,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-skills-from-job-postings-with-skillner">2.1.47. Extract Skills from Job Postings with <code class="docutils literal notranslate"><span class="pre">skillner</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rate-limiting-fastapi-with-slowapi">2.1.48. Rate Limiting FastAPI with <code class="docutils literal notranslate"><span class="pre">slowapi</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-cli-out-of-any-python-object-with-fire">2.1.49. Create CLI out of any Python Object with <code class="docutils literal notranslate"><span class="pre">fire</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables-management-with-pydantic-settings">2.1.50. Environment Variables Management with <code class="docutils literal notranslate"><span class="pre">pydantic-settings</span></code></a></li>
 </ul>
   </nav></div>
 

@@ -425,6 +425,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-code-analyzer-with-tflint">12.1.1. Static Code Analyzer with <code class="docutils literal notranslate"><span class="pre">TFLint</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-for-security-risks-with-tfsec">12.1.2. Check for Security Risks with <code class="docutils literal notranslate"><span class="pre">Tfsec</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-least-privileges-with-pike">12.1.3. Generate Least Privileges with <code class="docutils literal notranslate"><span class="pre">Pike</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-code-analysis-tool-for-iac-with-checkov">12.1.4. Static Code Analysis Tool for IaC with <code class="docutils literal notranslate"><span class="pre">checkov</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -543,6 +544,26 @@ Result #1 CRITICAL Storage account uses an insecure TLS version.
 </div>
 </div>
 </section>
+<section id="static-code-analysis-tool-for-iac-with-checkov">
+<h2><span class="section-number">12.1.4. </span>Static Code Analysis Tool for IaC with <code class="docutils literal notranslate"><span class="pre">checkov</span></code><a class="headerlink" href="#static-code-analysis-tool-for-iac-with-checkov" title="Permalink to this heading">#</a></h2>
+<p>Catch security problems in your Terraform code before they reach production.</p>
+<p>This is easy to do with 𝗰𝗵𝗲𝗰𝗸𝗼𝘃.</p>
+<p>𝗰𝗵𝗲𝗰𝗸𝗼𝘃 is a static code analysis tool for IaC with over 1000 policies.</p>
+<p>As a CLI tool it is perfect for CI/CD pipelines.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install checkov
+!checkov --directory /user/path/to/iac/code
+
+# check: CKV_AWS_21: &quot;Ensure all data stored in the S3 bucket have versioning enabled&quot;
+#   FAILED for resource: aws_s3_bucket.customer
+#   File: /tf/tf.json:0-0
+#   Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-16-enable-versioning
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -615,6 +636,7 @@ Result #1 CRITICAL Storage account uses an insecure TLS version.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-code-analyzer-with-tflint">12.1.1. Static Code Analyzer with <code class="docutils literal notranslate"><span class="pre">TFLint</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-for-security-risks-with-tfsec">12.1.2. Check for Security Risks with <code class="docutils literal notranslate"><span class="pre">Tfsec</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-least-privileges-with-pike">12.1.3. Generate Least Privileges with <code class="docutils literal notranslate"><span class="pre">Pike</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-code-analysis-tool-for-iac-with-checkov">12.1.4. Static Code Analysis Tool for IaC with <code class="docutils literal notranslate"><span class="pre">checkov</span></code></a></li>
 </ul>
   </nav></div>
 

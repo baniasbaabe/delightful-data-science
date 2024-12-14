@@ -451,6 +451,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#never-use-import">10.1.27. Never use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-what-gets-imported">10.1.28. Control What Gets Imported</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-fields-keyword-only-in-dataclasses">10.1.29. Make Fields Keyword-Only in <code class="docutils literal notranslate"><span class="pre">dataclasses</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keyword-only-and-positional-only-arguments">10.1.30. Keyword-only and Positional-only Arguments</a></li>
 </ul>
             </nav>
         </div>
@@ -1160,6 +1161,39 @@ object.</p>
 </div>
 </div>
 </section>
+<section id="keyword-only-and-positional-only-arguments">
+<h2><span class="section-number">10.1.30. </span>Keyword-only and Positional-only Arguments<a class="headerlink" href="#keyword-only-and-positional-only-arguments" title="Permalink to this heading">#</a></h2>
+<p>How do you define keyword-only and positional arguments in Python?</p>
+<ul class="simple">
+<li><p>𝗞𝗲𝘆𝘄𝗼𝗿𝗱-𝗼𝗻𝗹𝘆 arguments: Specified after an 𝗮𝘀𝘁𝗲𝗿𝗶𝘀𝗸 in the function definition. Perfect for readability and when passing optional arguments to a function.</p></li>
+<li><p>𝗣𝗼𝘀𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗼𝗻𝗹𝘆: Specified before a 𝘀𝗹𝗮𝘀𝗵 in the function definition. Perfect for functions where argument names may change.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keyword-only</span>
+<span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="c1"># This works:</span>
+<span class="n">greet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+
+<span class="c1"># This raises an error:</span>
+<span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+
+<span class="c1"># Positional-only</span>
+<span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="c1"># This works:</span>
+<span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+
+<span class="c1"># This raises an error:</span>
+<span class="n">greet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1258,6 +1292,7 @@ object.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#never-use-import">10.1.27. Never use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-what-gets-imported">10.1.28. Control What Gets Imported</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-fields-keyword-only-in-dataclasses">10.1.29. Make Fields Keyword-Only in <code class="docutils literal notranslate"><span class="pre">dataclasses</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keyword-only-and-positional-only-arguments">10.1.30. Keyword-only and Positional-only Arguments</a></li>
 </ul>
   </nav></div>
 
