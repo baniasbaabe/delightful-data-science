@@ -1990,6 +1990,16 @@ document.write(`
 </section>
 <section id="environment-variables-management-with-pydantic-settings">
 <h2><span class="section-number">2.1.50. </span>Environment Variables Management with <code class="docutils literal notranslate"><span class="pre">pydantic-settings</span></code><a class="headerlink" href="#environment-variables-management-with-pydantic-settings" title="Permalink to this heading">#</a></h2>
+<p>Is this the best way to work with environment variables?</p>
+<p><strong>pydantic-settings</strong> makes it so easy to work with your environment variables in an easy way.</p>
+<p>Why it’s a great tool:</p>
+<ul class="simple">
+<li><p>Type-safe configuration with zero boilerplate</p></li>
+<li><p>Automatic environment variable loading</p></li>
+<li><p>Built-in validation and error handling</p></li>
+<li><p>Seamless .env file support</p></li>
+</ul>
+<p>For your settings, just create a class which inherits from <strong>BaseSettings</strong> and define your variables there.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pydantic-settings
