@@ -1,0 +1,1056 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>6.1. LLM &#8212; Python &amp; Chill</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/llm/Chapter';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7. NumPy Tips and Tricks" href="../numpy/index.html" />
+    <link rel="prev" title="6. LLM" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Python & Chill</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Python & Chill
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../codequality/index.html">1. Code Quality</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/automation.html">1.1. Automation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/cicd.html">1.2. CI/CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/codestyle.html">1.3. Code Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/memory.html">1.4. Memory Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/security.html">1.5. Security in Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/typing.html">1.6. Typing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codequality/principles.html">1.7. Principles for Code Quality</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cooltools/index.html">2. Cool Tools</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cooltools/Chapter.html">2.1. Cool Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Jupyter Notebook Tips and Tricks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/Chapter.html">4.1. Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../machinelearning/index.html">5. Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/dataaugmentation.html">5.1. Data Augmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/deployment.html">5.2. Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/eda.html">5.3. EDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/featureselection.html">5.4. Feature Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/getdata.html">5.5. Get Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/modeltraining.html">5.6. Model Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/outlierdetection.html">5.7. Outlier Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/timeseries.html">5.8. Time Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machinelearning/preprocessing.html">5.9. Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">6. LLM</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.1. LLM</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">7. NumPy Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../numpy/Chapter.html">7.1. NumPy Tips and Tricks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/index.html">8. Pandas Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/Chapter.html">8.1. Pandas Tips and Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/additionallibs.html">8.2. Utility Libraries for Pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../polars/index.html">9. Polars</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../polars/Chapter.html">9.1. Polars Tips &amp; Tricks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">10. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/Chapter.html">10.1. Pure Python + Built-in libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">10.2. Utilities for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythontricks/tooling.html">10.3. Tooling for Python Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">11. Scraping Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../selenium/Chapter.html">11.1. Scraping Tips and Tricks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../terraform/index.html">12. Terraform</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../terraform/Chapter.html">12.1. Terraform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">13. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">13.1. Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sql/index.html">14. SQL Tips &amp; Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sql/Chapter.html">14.1. SQL Tips &amp; Tricks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">15. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Miscellaneous/Chapter.html">15.1. Miscellaneous</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/baniasbaabe/delightful-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/baniasbaabe/delightful-data-science/issues/new?title=Issue%20on%20page%20%2Fbook/llm/Chapter.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/llm/Chapter.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>LLM</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressing-prompts-with-no-loss-with-llmlingua">6.1.1. Compressing Prompts With No Loss with <code class="docutils literal notranslate"><span class="pre">llmlingua</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-function-call-to-any-llm-with-litellm">6.1.2. One-Function Call to Any LLM with <code class="docutils literal notranslate"><span class="pre">litellm</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#safeguard-your-llms-with-llmguard">6.1.3. Safeguard Your LLMs with <code class="docutils literal notranslate"><span class="pre">LLMGuard</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-llms-with-uptrain">6.1.4. Evaluate LLMs with <code class="docutils literal notranslate"><span class="pre">uptrain</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embed-any-type-of-file">6.1.5. Embed Any Type of File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-llm-output-with-outlines">6.1.6. Structured LLM Output with <code class="docutils literal notranslate"><span class="pre">outlines</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-rag-pipelines-with-ragas">6.1.7. Evaluating RAG Pipelines with <code class="docutils literal notranslate"><span class="pre">Ragas</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unified-reranker-api-with-rerankers">6.1.8. Unified Reranker API with <code class="docutils literal notranslate"><span class="pre">rerankers</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-embeddings-on-your-cpu-with-fastembed">6.1.9. Create Embeddings on your CPU with <code class="docutils literal notranslate"><span class="pre">fastembed</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-files-to-markdown-json-with-docling">6.1.10. Convert Files to Markdown &amp; JSON with <code class="docutils literal notranslate"><span class="pre">docling</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-chunking-library-with-chonkie">6.1.11. Simple Chunking Library with <code class="docutils literal notranslate"><span class="pre">chonkie</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-safe-agentic-ai-with-pydantic-ai">6.1.12. Type-Safe Agentic AI with <code class="docutils literal notranslate"><span class="pre">pydantic-ai</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-files-into-markdown-with-markitdown">6.1.13. Convert Files into Markdown with <code class="docutils literal notranslate"><span class="pre">markitdown</span></code></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="llm">
+<h1><span class="section-number">6.1. </span>LLM<a class="headerlink" href="#llm" title="Permalink to this heading">#</a></h1>
+<section id="compressing-prompts-with-no-loss-with-llmlingua">
+<h2><span class="section-number">6.1.1. </span>Compressing Prompts With No Loss with <code class="docutils literal notranslate"><span class="pre">llmlingua</span></code><a class="headerlink" href="#compressing-prompts-with-no-loss-with-llmlingua" title="Permalink to this heading">#</a></h2>
+<p>Here is how to reduce the costs of working with LLMs.</p>
+<p>When working with LLMs, we often encountered problems like exceeding token limits, forgetting context, or paying much more for usage than expected.</p>
+<p>Researchers from Microsoft try to solve these problems with <code class="docutils literal notranslate"><span class="pre">llmlingua</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">llmlingua</span></code> compresses your prompt by taking a trained small LLM to detect unimportant tokens.</p>
+<p>They claim to achieve up to 20x compression with no or minimal performance loss.</p>
+<p>I tried it out by myself and I noticed no performance loss at all, but I would be cautious for critical applications.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install llmlingua
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install llmlingua</span>
+
+<span class="kn">from</span> <span class="nn">llmlingua</span> <span class="kn">import</span> <span class="n">PromptCompressor</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_PROMPT&gt;&quot;</span>
+<span class="n">llm_lingua</span> <span class="o">=</span> <span class="n">PromptCompressor</span><span class="p">(</span><span class="s2">&quot;lgaalves/gpt2-dolly&quot;</span><span class="p">,)</span>
+
+<span class="n">compressed_prompt</span> <span class="o">=</span> <span class="n">llm_lingua</span><span class="o">.</span><span class="n">compress_prompt</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">instruction</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">target_token</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+<span class="c1"># {&#39;compressed_prompt&#39;: &#39;are- that turns into formatting &amp; with like &quot;[]&quot; best it.......&#39;</span>
+<span class="c1"># &#39;origin_tokens&#39;: 2430,</span>
+<span class="c1"># &#39;compressed_tokens&#39;: 261,</span>
+<span class="c1"># &#39;ratio&#39;: &#39;9.3x&#39;,</span>
+<span class="c1"># &#39;saving&#39;: &#39;Saving $0.1 in GPT-4.}&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="one-function-call-to-any-llm-with-litellm">
+<h2><span class="section-number">6.1.2. </span>One-Function Call to Any LLM with <code class="docutils literal notranslate"><span class="pre">litellm</span></code><a class="headerlink" href="#one-function-call-to-any-llm-with-litellm" title="Permalink to this heading">#</a></h2>
+<p>Do you want a One-Function call to any LLM in Python?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">litellm</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">litellm</span></code> is a Python package to call any LLM in a consistent format and to return a consistent output.</p>
+<p>You only need to set the API key of the provider and the model name.</p>
+<p>It also supports async calls and streaming the models response.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install litellm
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">litellm</span> <span class="kn">import</span> <span class="n">completion</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;your-api-key&quot;</span> 
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;ANTHROPIC_API_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;your-api-key&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MISTRAL_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;your-api-key&quot;</span>
+
+<span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello, how are you?&quot;</span><span class="p">,</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">}]</span>
+
+<span class="c1"># OpenAI</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">completion</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">)</span>
+
+<span class="c1"># Anthropic</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">completion</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;claude-instant-1&quot;</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">)</span>
+
+<span class="c1"># Mistral</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">completion</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;mistral/mistral-tiny&quot;</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="safeguard-your-llms-with-llmguard">
+<h2><span class="section-number">6.1.3. </span>Safeguard Your LLMs with <code class="docutils literal notranslate"><span class="pre">LLMGuard</span></code><a class="headerlink" href="#safeguard-your-llms-with-llmguard" title="Permalink to this heading">#</a></h2>
+<p>Safeguarding your LLMs against unwanting behavior is critical.</p>
+<p><code class="docutils literal notranslate"><span class="pre">LLMGuard</span></code>, a Python package, ensures a safe interaction between the user and LLM.</p>
+<p>It checks prompts and outputs for:</p>
+<ul class="simple">
+<li><p>Sensitive Information like credit card number and sanitizes it</p></li>
+<li><p>Toxic or harmful language</p></li>
+<li><p>Prompt injections</p></li>
+</ul>
+<p>Use <code class="docutils literal notranslate"><span class="pre">LLMGuard</span></code> to make your LLMs more safe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install llm-guard
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">llm_guard</span> <span class="kn">import</span> <span class="n">scan_output</span><span class="p">,</span> <span class="n">scan_prompt</span>
+<span class="kn">from</span> <span class="nn">llm_guard.input_scanners</span> <span class="kn">import</span> <span class="n">Anonymize</span><span class="p">,</span> <span class="n">PromptInjection</span><span class="p">,</span> <span class="n">Toxicity</span>
+<span class="kn">from</span> <span class="nn">llm_guard.vault</span> <span class="kn">import</span> <span class="n">Vault</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;OPENAIKEY&quot;</span><span class="p">)</span>
+<span class="n">vault</span> <span class="o">=</span> <span class="n">Vault</span><span class="p">()</span>
+<span class="n">input_scanners</span> <span class="o">=</span> <span class="p">[</span><span class="n">Anonymize</span><span class="p">(</span><span class="n">vault</span><span class="p">),</span> <span class="n">Toxicity</span><span class="p">(),</span> <span class="n">PromptInjection</span><span class="p">()]</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Make an SQL insert statement to add a new user to our database. Name is John Doe. </span><span class="se">\</span>
+<span class="s2">Email is test@test.com Phone number is 555-123-4567 and the IP address is 192.168.1.100. </span><span class="se">\</span>
+<span class="s2">And credit card number is 4567-8901-2345-6789.&quot;</span>
+
+<span class="n">sanitized_prompt</span><span class="p">,</span> <span class="n">results_valid</span><span class="p">,</span> <span class="n">results_score</span> <span class="o">=</span> <span class="n">scan_prompt</span><span class="p">(</span><span class="n">input_scanners</span><span class="p">,</span> <span class="n">prompt</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">sanitized_prompt</span><span class="p">},</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+
+<span class="c1"># Sanitized Prompt: </span>
+<span class="c1"># Make an SQL insert statement to add a new user to our database. </span>
+<span class="c1"># Name is [REDACTED_PERSON_1]. Email is [REDACTED_EMAIL_ADDRESS_1] Phone number is </span>
+<span class="c1"># [REDACTED_PHONE_NUMBER_1] and the IP address is [REDACTED_IP_ADDRESS_1]. </span>
+<span class="c1"># And credit card number is [REDACTED_CREDIT_CARD_RE_1].</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="evaluate-llms-with-uptrain">
+<h2><span class="section-number">6.1.4. </span>Evaluate LLMs with <code class="docutils literal notranslate"><span class="pre">uptrain</span></code><a class="headerlink" href="#evaluate-llms-with-uptrain" title="Permalink to this heading">#</a></h2>
+<p>Evaluating LLMs can be tricky.</p>
+<p>Luckily, <code class="docutils literal notranslate"><span class="pre">uptrain</span></code> offers a neat library to do that.</p>
+<p><code class="docutils literal notranslate"><span class="pre">uptrain</span></code> is a Python library to evaluate LLMs with 20+ preconfigured checks.</p>
+<p>This includes the quality of the responses (completeness, validity,…), language proficiency (tonality, conciseness, …) and code hallucination.</p>
+<p>It supports the biggest providers like OpenAI, Mistral, Claude and Ollama.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install uptrain
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uptrain</span> <span class="kn">import</span> <span class="n">EvalLLM</span><span class="p">,</span> <span class="n">Evals</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">OPENAI_API_KEY</span> <span class="o">=</span> <span class="s2">&quot;*******&quot;</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[{</span>
+    <span class="s1">&#39;question&#39;</span><span class="p">:</span> <span class="s1">&#39;Which is the most popular global sport?&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;context&#39;</span><span class="p">:</span> <span class="s2">&quot;The popularity of sports can be measured in various ways, including TV viewership...&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;response&#39;</span><span class="p">:</span> <span class="s1">&#39;Football is the most popular sport with around 4 billion followers worldwide&#39;</span>
+<span class="p">}]</span>
+
+<span class="n">eval_llm</span> <span class="o">=</span> <span class="n">EvalLLM</span><span class="p">(</span><span class="n">openai_api_key</span><span class="o">=</span><span class="n">OPENAI_API_KEY</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">eval_llm</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+    <span class="n">checks</span><span class="o">=</span><span class="p">[</span><span class="n">Evals</span><span class="o">.</span><span class="n">CONTEXT_RELEVANCE</span><span class="p">,</span> <span class="n">Evals</span><span class="o">.</span><span class="n">FACTUAL_ACCURACY</span><span class="p">,</span> <span class="n">Evals</span><span class="o">.</span><span class="n">RESPONSE_COMPLETENESS</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="embed-any-type-of-file">
+<h2><span class="section-number">6.1.5. </span>Embed Any Type of File<a class="headerlink" href="#embed-any-type-of-file" title="Permalink to this heading">#</a></h2>
+<p>These days, everything is about Embeddings and LLMs.</p>
+<p>The Python library <code class="docutils literal notranslate"><span class="pre">embed-anything</span></code> makes it easy to generate embeddings from multiple sources like image, video, or audio.</p>
+<p>It’s built in Rust so it executes fast.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install embed-anything
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">embed_anything</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">embed_anything</span><span class="o">.</span><span class="n">embed_file</span><span class="p">(</span><span class="s2">&quot;filename.pdf&quot;</span><span class="p">,</span> <span class="n">embeder</span><span class="o">=</span> <span class="s2">&quot;Bert&quot;</span><span class="p">)</span>
+<span class="n">embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">data</span><span class="o">.</span><span class="n">embedding</span> <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">data</span><span class="p">])</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">embed_anything</span><span class="o">.</span><span class="n">embed_directory</span><span class="p">(</span><span class="s2">&quot;test_files&quot;</span><span class="p">,</span> <span class="n">embeder</span><span class="o">=</span> <span class="s2">&quot;Clip&quot;</span><span class="p">)</span>
+<span class="n">embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">data</span><span class="o">.</span><span class="n">embedding</span> <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">data</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="structured-llm-output-with-outlines">
+<h2><span class="section-number">6.1.6. </span>Structured LLM Output with <code class="docutils literal notranslate"><span class="pre">outlines</span></code><a class="headerlink" href="#structured-llm-output-with-outlines" title="Permalink to this heading">#</a></h2>
+<p>Are you annoyed of unstructured outputs of LLMs?</p>
+<p>Try <code class="docutils literal notranslate"><span class="pre">outlines</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">outlines</span></code> is a Python library for structured generation of your LLMs.</p>
+<p>There are multiple ways to enforce the output of the model like choices, type constraints, JSON output, and more.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install outlines
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">outlines</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">outlines</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">transformers</span><span class="p">(</span><span class="s2">&quot;mistralai/Mistral-7B-Instruct-v0.2&quot;</span><span class="p">)</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;You are a sentiment-labelling assistant.</span>
+<span class="s2">Is the following review positive or negative?</span>
+
+<span class="s2">Review: This restaurant is just awesome!</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">generator</span> <span class="o">=</span> <span class="n">outlines</span><span class="o">.</span><span class="n">generate</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Positive&quot;</span><span class="p">,</span> <span class="s2">&quot;Negative&quot;</span><span class="p">])</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="evaluating-rag-pipelines-with-ragas">
+<h2><span class="section-number">6.1.7. </span>Evaluating RAG Pipelines with <code class="docutils literal notranslate"><span class="pre">Ragas</span></code><a class="headerlink" href="#evaluating-rag-pipelines-with-ragas" title="Permalink to this heading">#</a></h2>
+<p>How do you evaluate your RAG application?</p>
+<p>Sure, you can look manually over your responses and see if it’s what you want.</p>
+<p>But, it’s not scalable.</p>
+<p>Instead, use <code class="docutils literal notranslate"><span class="pre">Ragas</span></code> in Python.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Ragas</span></code> is a library providing evaluation techniques and metrics for your RAG pipeline like Context Precision/Recall, Faithfulness and answer relevancy.</p>
+<p>See below how easy it is to run <code class="docutils literal notranslate"><span class="pre">Ragas</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install ragas
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">Dataset</span> 
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">ragas</span> <span class="kn">import</span> <span class="n">evaluate</span>
+<span class="kn">from</span> <span class="nn">ragas.metrics</span> <span class="kn">import</span> <span class="n">faithfulness</span><span class="p">,</span> <span class="n">answer_correctness</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;your-openai-key&quot;</span>
+
+<span class="n">data_samples</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;question&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;When was the first super bowl?&#39;</span><span class="p">,</span> <span class="s1">&#39;Who won the most super bowls?&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;answer&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;The first superbowl was held on Jan 15, 1967&#39;</span><span class="p">,</span> <span class="s1">&#39;The most super bowls have been won by The New England Patriots&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;contexts&#39;</span> <span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;The First AFL–NFL World Championship Game was an American football game played on January 15, 1967, at the Los Angeles Memorial Coliseum in Los Angeles,&#39;</span><span class="p">],</span> 
+    <span class="p">[</span><span class="s1">&#39;The Green Bay Packers...Green Bay, Wisconsin.&#39;</span><span class="p">,</span><span class="s1">&#39;The Packers compete...Football Conference&#39;</span><span class="p">]],</span>
+    <span class="s1">&#39;ground_truth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;The first superbowl was held on January 15, 1967&#39;</span><span class="p">,</span> <span class="s1">&#39;The New England Patriots have won the Super Bowl a record six times&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">Dataset</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">data_samples</span><span class="p">)</span>
+
+<span class="n">score</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">faithfulness</span><span class="p">,</span><span class="n">answer_correctness</span><span class="p">])</span>
+<span class="n">score</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="unified-reranker-api-with-rerankers">
+<h2><span class="section-number">6.1.8. </span>Unified Reranker API with <code class="docutils literal notranslate"><span class="pre">rerankers</span></code><a class="headerlink" href="#unified-reranker-api-with-rerankers" title="Permalink to this heading">#</a></h2>
+<p>An essential element of your RAG systems is reranking.</p>
+<p>Reranking involves a reranking model that outputs a similarity score for each retrieved document and the user query.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rerankers</span></code> library gives you a unified API to use with popular vendors and models such as Cohere, Jina or T5.</p>
+<p>The perfect API to easily test and replace many methods.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install rerankers
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rerankers</span> <span class="kn">import</span> <span class="n">Reranker</span>
+
+<span class="n">ranker</span> <span class="o">=</span> <span class="n">Reranker</span><span class="p">(</span><span class="s2">&quot;t5&quot;</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">ranker</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="s2">&quot;I love you&quot;</span><span class="p">,</span> <span class="n">docs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;I hate you&quot;</span><span class="p">,</span> <span class="s2">&quot;I really like you&quot;</span><span class="p">],</span> <span class="n">doc_ids</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-embeddings-on-your-cpu-with-fastembed">
+<h2><span class="section-number">6.1.9. </span>Create Embeddings on your CPU with <code class="docutils literal notranslate"><span class="pre">fastembed</span></code><a class="headerlink" href="#create-embeddings-on-your-cpu-with-fastembed" title="Permalink to this heading">#</a></h2>
+<p>My favourite library for creating embeddings:</p>
+<p><code class="docutils literal notranslate"><span class="pre">fastembed</span></code>, developed by Qdrant.</p>
+<p><code class="docutils literal notranslate"><span class="pre">fastembed</span></code> is a lightweight and fast library for using popular embedding models.</p>
+<p>Without using your GPU.</p>
+<p>It also integrates seamlessly with Qdrant’s vector database.</p>
+<p>I would like to see more supported models though, as <code class="docutils literal notranslate"><span class="pre">fastembed</span></code> has so much potential.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install fastembed
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fastembed</span> <span class="kn">import</span> <span class="n">TextEmbedding</span>
+
+<span class="n">documents</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;This is some&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;example document&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">embedding_model</span> <span class="o">=</span> <span class="n">TextEmbedding</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;jinaai/jina-embeddings-v2-small-en&quot;</span><span class="p">)</span>
+
+<span class="n">embeddings</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">embedding_model</span><span class="o">.</span><span class="n">embed</span><span class="p">(</span><span class="n">documents</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="convert-files-to-markdown-json-with-docling">
+<h2><span class="section-number">6.1.10. </span>Convert Files to Markdown &amp; JSON with <code class="docutils literal notranslate"><span class="pre">docling</span></code><a class="headerlink" href="#convert-files-to-markdown-json-with-docling" title="Permalink to this heading">#</a></h2>
+<p>Preparing your data for LLMs is a crucial step in RAG applications.</p>
+<p><code class="docutils literal notranslate"><span class="pre">docling</span></code> simplifies this step for you by converting popular document formats like PDF or PPT to Markdown or JSON.</p>
+<p>It uses two models, layout analyis model and table structure recognition model, to process the files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install docling
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">docling.document_converter</span> <span class="kn">import</span> <span class="n">DocumentConverter</span>
+
+<span class="n">source</span> <span class="o">=</span> <span class="s2">&quot;https://arxiv.org/pdf/2408.09869&quot;</span>
+<span class="n">converter</span> <span class="o">=</span> <span class="n">DocumentConverter</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">converter</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">document</span><span class="o">.</span><span class="n">export_to_markdown</span><span class="p">())</span>  
+<span class="c1"># Output: &quot;## Docling Technical Report[...]&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simple-chunking-library-with-chonkie">
+<h2><span class="section-number">6.1.11. </span>Simple Chunking Library with <code class="docutils literal notranslate"><span class="pre">chonkie</span></code><a class="headerlink" href="#simple-chunking-library-with-chonkie" title="Permalink to this heading">#</a></h2>
+<p>Having a great chunking library without installing 500 MB of subdependencies is my childhood’s dream.</p>
+<p>Luckily, <code class="docutils literal notranslate"><span class="pre">chonkie</span></code> provides you with the most important chunking strategies.</p>
+<p>Currently, it supports:</p>
+<ul class="simple">
+<li><p>Token chunker</p></li>
+<li><p>Word chunker</p></li>
+<li><p>Sentence chunker</p></li>
+<li><p>Semantic chunker</p></li>
+<li><p>Semantic Double-Pass Merge chunker</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install chonkie
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">chonkie</span> <span class="kn">import</span> <span class="n">SemanticChunker</span>
+
+<span class="n">chunker</span> <span class="o">=</span> <span class="n">SemanticChunker</span><span class="p">(</span>
+    <span class="n">embedding_model</span><span class="o">=</span><span class="s2">&quot;all-minilm-l6-v2&quot;</span><span class="p">,</span>
+    <span class="n">chunk_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+    <span class="n">similarity_threshold</span><span class="o">=</span><span class="mf">0.7</span>
+<span class="p">)</span>
+
+<span class="n">chunks</span> <span class="o">=</span> <span class="n">chunker</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="s2">&quot;Some text with semantic meaning to chunk appropriately.&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">chunks</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chunk: </span><span class="si">{</span><span class="n">chunk</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of semantic sentences: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="o">.</span><span class="n">sentences</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="type-safe-agentic-ai-with-pydantic-ai">
+<h2><span class="section-number">6.1.12. </span>Type-Safe Agentic AI with <code class="docutils literal notranslate"><span class="pre">pydantic-ai</span></code><a class="headerlink" href="#type-safe-agentic-ai-with-pydantic-ai" title="Permalink to this heading">#</a></h2>
+<p>A type-safe Python agent framework was on my Christmas wishlist.</p>
+<p>Luckily, 𝗣𝘆𝗱𝗮𝗻𝘁𝗶𝗰𝗔𝗜 came out earlier.</p>
+<p>𝗣𝘆𝗱𝗮𝗻𝘁𝗶𝗰𝗔𝗜 bridges the gap between LLMs and structured data validation.</p>
+<p>Type-safety is my favourite feature, while making structured responses and using custom models easy.</p>
+<p>Definitely something I have to go much deeper into it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pydantic-ai
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pydantic_ai</span> <span class="kn">import</span> <span class="n">Agent</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>  
+    <span class="s1">&#39;gemini-1.5-flash&#39;</span><span class="p">,</span>
+    <span class="n">system_prompt</span><span class="o">=</span><span class="s1">&#39;Be concise, reply with one sentence.&#39;</span><span class="p">,</span>  
+<span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run_sync</span><span class="p">(</span><span class="s1">&#39;Where does &quot;hello world&quot; come from?&#39;</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">The first known use of &quot;hello, world&quot; was in a 1974 textbook about the C programming language.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="convert-files-into-markdown-with-markitdown">
+<h2><span class="section-number">6.1.13. </span>Convert Files into Markdown with <code class="docutils literal notranslate"><span class="pre">markitdown</span></code><a class="headerlink" href="#convert-files-into-markdown-with-markitdown" title="Permalink to this heading">#</a></h2>
+<p>Preparing your data for LLMs can be hard.</p>
+<p>Different file formats like PPT, Excel or Audio files need different preprocessing steps.</p>
+<p>Luckily, with 𝗺𝗮𝗿𝗸𝗶𝘁𝗱𝗼𝘄𝗻 from Microsoft, this is easy.</p>
+<p>𝗺𝗮𝗿𝗸𝗶𝘁𝗱𝗼𝘄𝗻 converts various file formats to Markdown:</p>
+<p>Currently, it supports:</p>
+<ul class="simple">
+<li><p>PDF</p></li>
+<li><p>PPT</p></li>
+<li><p>Word</p></li>
+<li><p>Excel</p></li>
+<li><p>Images</p></li>
+<li><p>Audio</p></li>
+<li><p>HTML</p></li>
+<li><p>JSON, XML</p></li>
+<li><p>ZIP files</p></li>
+</ul>
+<p>What I really like is that for image descriptions, you can use LLMs and even adjust the prompt for it.</p>
+<p>Thanks to Jimi Vaubien for showing me this gem.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install markitdown
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markitdown</span> <span class="kn">import</span> <span class="n">MarkItDown</span>
+<span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">()</span>
+<span class="n">md</span> <span class="o">=</span> <span class="n">MarkItDown</span><span class="p">(</span><span class="n">llm_client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span> <span class="n">llm_model</span><span class="o">=</span><span class="s2">&quot;gpt-4o&quot;</span><span class="p">,</span> <span class="n">llm_prompt</span><span class="o">=</span><span class="s2">&quot;Describe the image without going into details like colors or shapes.&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;example.jpg&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">text_content</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/llm"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>LLM</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../numpy/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>NumPy Tips and Tricks</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressing-prompts-with-no-loss-with-llmlingua">6.1.1. Compressing Prompts With No Loss with <code class="docutils literal notranslate"><span class="pre">llmlingua</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-function-call-to-any-llm-with-litellm">6.1.2. One-Function Call to Any LLM with <code class="docutils literal notranslate"><span class="pre">litellm</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#safeguard-your-llms-with-llmguard">6.1.3. Safeguard Your LLMs with <code class="docutils literal notranslate"><span class="pre">LLMGuard</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-llms-with-uptrain">6.1.4. Evaluate LLMs with <code class="docutils literal notranslate"><span class="pre">uptrain</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embed-any-type-of-file">6.1.5. Embed Any Type of File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-llm-output-with-outlines">6.1.6. Structured LLM Output with <code class="docutils literal notranslate"><span class="pre">outlines</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-rag-pipelines-with-ragas">6.1.7. Evaluating RAG Pipelines with <code class="docutils literal notranslate"><span class="pre">Ragas</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unified-reranker-api-with-rerankers">6.1.8. Unified Reranker API with <code class="docutils literal notranslate"><span class="pre">rerankers</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-embeddings-on-your-cpu-with-fastembed">6.1.9. Create Embeddings on your CPU with <code class="docutils literal notranslate"><span class="pre">fastembed</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-files-to-markdown-json-with-docling">6.1.10. Convert Files to Markdown &amp; JSON with <code class="docutils literal notranslate"><span class="pre">docling</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-chunking-library-with-chonkie">6.1.11. Simple Chunking Library with <code class="docutils literal notranslate"><span class="pre">chonkie</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-safe-agentic-ai-with-pydantic-ai">6.1.12. Type-Safe Agentic AI with <code class="docutils literal notranslate"><span class="pre">pydantic-ai</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-files-into-markdown-with-markitdown">6.1.13. Convert Files into Markdown with <code class="docutils literal notranslate"><span class="pre">markitdown</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Banias Baabe
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
