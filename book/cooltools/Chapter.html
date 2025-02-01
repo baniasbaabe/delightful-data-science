@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2.1. Cool Tools &#8212; Delightful Data Science</title>
+    <title>2.1. Cool Tools &#8212; Python &amp; Chill</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,14 +38,16 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -138,7 +149,8 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-    <p class="title logo__title">Delightful Data Science</p>
+  
+    <p class="title logo__title">Python & Chill</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -147,7 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../README.html">
-                    Delightful Data Science
+                    Python & Chill
                 </a>
             </li>
         </ul>
@@ -384,10 +396,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -395,7 +407,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -472,6 +484,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rate-limiting-fastapi-with-slowapi">2.1.48. Rate Limiting FastAPI with <code class="docutils literal notranslate"><span class="pre">slowapi</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-cli-out-of-any-python-object-with-fire">2.1.49. Create CLI out of any Python Object with <code class="docutils literal notranslate"><span class="pre">fire</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables-management-with-pydantic-settings">2.1.50. Environment Variables Management with <code class="docutils literal notranslate"><span class="pre">pydantic-settings</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deduplicate-huge-datasets-with-semhash">2.1.51. Deduplicate Huge Datasets with <code class="docutils literal notranslate"><span class="pre">semhash</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-http-server-robyn">2.1.52. Fast HTTP Server: <code class="docutils literal notranslate"><span class="pre">robyn</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -2046,6 +2060,76 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="deduplicate-huge-datasets-with-semhash">
+<h2><span class="section-number">2.1.51. </span>Deduplicate Huge Datasets with <code class="docutils literal notranslate"><span class="pre">semhash</span></code><a class="headerlink" href="#deduplicate-huge-datasets-with-semhash" title="Permalink to this heading">#</a></h2>
+<p>Deduplicate your data at lightning speed in Python! 🔥</p>
+<p>Having duplicates in your dataset is annoying and needs to be removed as they do not contribute positively to model training.</p>
+<p>But they can be difficult to detect, especially semantic duplicates.</p>
+<p>Fortunately, 𝐬𝐞𝐦𝐡𝐚𝐬𝐡 has you covered!</p>
+<p>𝐬𝐞𝐦𝐡𝐚𝐬𝐡 deduplicates your dataset at lightning speed.</p>
+<p>It uses fast embedding generation with Model2Vec and optional ANN-based similarity search with Vicinity.</p>
+<p>For a dataset of 1.8M rows, 𝐬𝐞𝐦𝐡𝐚𝐬𝐡 takes 83 seconds to deduplicate. 🔥</p>
+<p>You can, of course, use any model supported by sentence-transformers, or bring your own model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install semhash
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
+<span class="kn">from</span> <span class="nn">semhash</span> <span class="kn">import</span> <span class="n">SemHash</span>
+
+<span class="n">texts</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;ag_news&quot;</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">)[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span>
+
+<span class="n">semhash</span> <span class="o">=</span> <span class="n">SemHash</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">records</span><span class="o">=</span><span class="n">texts</span><span class="p">)</span>
+
+<span class="n">deduplicated_texts</span> <span class="o">=</span> <span class="n">semhash</span><span class="o">.</span><span class="n">self_deduplicate</span><span class="p">()</span><span class="o">.</span><span class="n">deduplicated</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fast-http-server-robyn">
+<h2><span class="section-number">2.1.52. </span>Fast HTTP Server: <code class="docutils literal notranslate"><span class="pre">robyn</span></code><a class="headerlink" href="#fast-http-server-robyn" title="Permalink to this heading">#</a></h2>
+<p>Do you need a lightweight alternative to FastAPI?</p>
+<p>Try out 𝗿𝗼𝗯𝘆𝗻.</p>
+<p>𝗿𝗼𝗯𝘆𝗻 is a fast and lightweight web framework written in Rust (like everything else these days).</p>
+<p>It combines Python’s async capabilities with a Rust runtime.</p>
+<p>With a similar syntax and a great documentation, 𝗿𝗼𝗯𝘆𝗻 makes it easy to switch from other frameworks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install robyn
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># app.py</span>
+<span class="kn">from</span> <span class="nn">robyn</span> <span class="kn">import</span> <span class="n">Robyn</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Robyn</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;Hello, world!&quot;</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!python app.py
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2073,11 +2157,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="index.html"
@@ -2097,10 +2180,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -2165,6 +2245,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rate-limiting-fastapi-with-slowapi">2.1.48. Rate Limiting FastAPI with <code class="docutils literal notranslate"><span class="pre">slowapi</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-cli-out-of-any-python-object-with-fire">2.1.49. Create CLI out of any Python Object with <code class="docutils literal notranslate"><span class="pre">fire</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables-management-with-pydantic-settings">2.1.50. Environment Variables Management with <code class="docutils literal notranslate"><span class="pre">pydantic-settings</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deduplicate-huge-datasets-with-semhash">2.1.51. Deduplicate Huge Datasets with <code class="docutils literal notranslate"><span class="pre">semhash</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-http-server-robyn">2.1.52. Fast HTTP Server: <code class="docutils literal notranslate"><span class="pre">robyn</span></code></a></li>
 </ul>
   </nav></div>
 
@@ -2212,8 +2294,8 @@ By Banias Baabe
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>
