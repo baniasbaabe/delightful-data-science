@@ -447,6 +447,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-chunking-library-with-chonkie">6.1.11. Simple Chunking Library with <code class="docutils literal notranslate"><span class="pre">chonkie</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-safe-agentic-ai-with-pydantic-ai">6.1.12. Type-Safe Agentic AI with <code class="docutils literal notranslate"><span class="pre">pydantic-ai</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-files-into-markdown-with-markitdown">6.1.13. Convert Files into Markdown with <code class="docutils literal notranslate"><span class="pre">markitdown</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#route-queries-intelligently-with-routellm">6.1.14. Route Queries Intelligently with <code class="docutils literal notranslate"><span class="pre">RouteLLM</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -922,6 +923,51 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="route-queries-intelligently-with-routellm">
+<h2><span class="section-number">6.1.14. </span>Route Queries Intelligently with <code class="docutils literal notranslate"><span class="pre">RouteLLM</span></code><a class="headerlink" href="#route-queries-intelligently-with-routellm" title="Permalink to this heading">#</a></h2>
+<p>Using LLMs like o1/o3 or Claude Sonnet for every task is a waste of money.</p>
+<p>For simple tasks, you may switch to a much simpler and lightweight model to save on costs and compute time.</p>
+<p>With RouteLLM, queries will be routed intelligently to the right LLM for the job.</p>
+<p>RouteLLM acts as a traffic controller for your LLM workflows.</p>
+<p>Instead of blindly sending all requests to the most expensive model, it dynamically routes queries based on:
+-&gt; Complexity: Simple tasks for smaller, cheaper models
+-&gt; Accuracy needs: Critical tasks for heavyweight models</p>
+<p>And it’s open-source!</p>
+<p>See below for a simple example:
+-&gt; We use GPT-4 as our strong model and Mixtral 8x7B as our weak model
+-&gt; The router model <strong>router-mf-0.11593</strong> is the default routing model and sufficient for basic query routing. The threshold <strong>0.11593</strong> can be calibrated by yourself if you want to to say that e.g. ~30 % of the queries will be routed to the strong model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install &quot;routellm[serve,eval]&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">routellm.controller</span> <span class="kn">import</span> <span class="n">Controller</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;sk-XXXXXX&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;ANYSCALE_API_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;esecret_XXXXXX&quot;</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">(</span>
+  <span class="n">routers</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mf&quot;</span><span class="p">],</span>
+  <span class="n">strong_model</span><span class="o">=</span><span class="s2">&quot;gpt-4-1106-preview&quot;</span><span class="p">,</span>
+  <span class="n">weak_model</span><span class="o">=</span><span class="s2">&quot;anyscale/mistralai/Mixtral-8x7B-Instruct-v0.1&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+  <span class="n">model</span><span class="o">=</span><span class="s2">&quot;router-mf-0.11593&quot;</span><span class="p">,</span>
+  <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello!&quot;</span><span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1000,6 +1046,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-chunking-library-with-chonkie">6.1.11. Simple Chunking Library with <code class="docutils literal notranslate"><span class="pre">chonkie</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-safe-agentic-ai-with-pydantic-ai">6.1.12. Type-Safe Agentic AI with <code class="docutils literal notranslate"><span class="pre">pydantic-ai</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-files-into-markdown-with-markitdown">6.1.13. Convert Files into Markdown with <code class="docutils literal notranslate"><span class="pre">markitdown</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#route-queries-intelligently-with-routellm">6.1.14. Route Queries Intelligently with <code class="docutils literal notranslate"><span class="pre">RouteLLM</span></code></a></li>
 </ul>
   </nav></div>
 
