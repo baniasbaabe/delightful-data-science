@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>2.1. Cool Tools &#8212; Python &amp; Chill</title>
   
@@ -15,56 +14,51 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/cooltools/Chapter';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="3. Jupyter Notebook Tricks and Tips" href="../jupyternotebook/index.html" />
@@ -78,28 +72,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +110,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,6 +138,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../README.html">
@@ -153,7 +153,18 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Python & Chill</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -164,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../codequality/index.html">1. Code Quality</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../codequality/index.html">1. Code Quality</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../codequality/automation.html">1.1. Automation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../codequality/cicd.html">1.2. CI/CD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../codequality/codestyle.html">1.3. Code Style</a></li>
@@ -173,20 +184,20 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../codequality/typing.html">1.6. Typing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../codequality/principles.html">1.7. Principles for Code Quality</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">2. Cool Tools</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">2. Cool Tools</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Cool Tools</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Jupyter Notebook Tips and Tricks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../documentation/Chapter.html">4.1. Documentation</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../machinelearning/index.html">5. Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../machinelearning/index.html">5. Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../machinelearning/dataaugmentation.html">5.1. Data Augmentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../machinelearning/deployment.html">5.2. Deployment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../machinelearning/eda.html">5.3. EDA</a></li>
@@ -197,50 +208,50 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../machinelearning/timeseries.html">5.8. Time Series</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../machinelearning/preprocessing.html">5.9. Preprocessing</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../llm/index.html">6. LLM</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../llm/index.html">6. LLM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../llm/Chapter.html">6.1. LLM</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">7. NumPy Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">7. NumPy Tips and Tricks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../numpy/Chapter.html">7.1. NumPy Tips and Tricks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/index.html">8. Pandas Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/index.html">8. Pandas Tricks and Tips</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/Chapter.html">8.1. Pandas Tips and Tricks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/additionallibs.html">8.2. Utility Libraries for Pandas</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../polars/index.html">9. Polars</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../polars/index.html">9. Polars</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../polars/Chapter.html">9.1. Polars Tips &amp; Tricks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">10. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">10. Python Tips and Tricks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pythontricks/Chapter.html">10.1. Pure Python + Built-in libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">10.2. Utilities for Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pythontricks/tooling.html">10.3. Tooling for Python Projects</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">11. Scraping Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">11. Scraping Tips and Tricks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../selenium/Chapter.html">11.1. Scraping Tips and Tricks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../terraform/index.html">12. Terraform</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../terraform/index.html">12. Terraform</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../terraform/Chapter.html">12.1. Terraform</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">13. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">13. Testing in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">13.1. Testing</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../sql/index.html">14. SQL Tips &amp; Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sql/index.html">14. SQL Tips &amp; Tricks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../sql/Chapter.html">14.1. SQL Tips &amp; Tricks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">15. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">15. Miscellaneous</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Miscellaneous/Chapter.html">15.1. Miscellaneous</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -256,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -265,14 +276,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -394,26 +405,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -496,12 +509,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="cool-tools">
-<h1><span class="section-number">2.1. </span>Cool Tools<a class="headerlink" href="#cool-tools" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.1. </span>Cool Tools<a class="headerlink" href="#cool-tools" title="Link to this heading">#</a></h1>
 <section id="work-with-countries-currencies-subdivisions-and-more">
-<h2><span class="section-number">2.1.1. </span>Work with Countries, Currencies, Subdivisions, and more<a class="headerlink" href="#work-with-countries-currencies-subdivisions-and-more" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.1. </span>Work with Countries, Currencies, Subdivisions, and more<a class="headerlink" href="#work-with-countries-currencies-subdivisions-and-more" title="Link to this heading">#</a></h2>
 <p>Do you work with international data?</p>
 <p>You probably know how important it is to use the correct codes for countries, currencies, languages, and subdivisions.</p>
 <p>To save the headache, try <code class="docutils literal notranslate"><span class="pre">pycountry</span></code> for Python!</p>
@@ -510,14 +523,14 @@ document.write(`
 <p>But it can also be used to get the name or code for a specific currency or country.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pycountry
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pycountry</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pycountry</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pycountry</span>
 
 <span class="c1"># Get Country</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pycountry</span><span class="o">.</span><span class="n">countries</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">alpha_2</span><span class="o">=</span><span class="s2">&quot;DE&quot;</span><span class="p">))</span>
@@ -533,7 +546,7 @@ document.write(`
 </div>
 </section>
 <section id="generate-better-requirements-files-with-pipreqs">
-<h2><span class="section-number">2.1.2. </span>Generate better requirements files with <code class="docutils literal notranslate"><span class="pre">pipreqs</span></code><a class="headerlink" href="#generate-better-requirements-files-with-pipreqs" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.2. </span>Generate better requirements files with <code class="docutils literal notranslate"><span class="pre">pipreqs</span></code><a class="headerlink" href="#generate-better-requirements-files-with-pipreqs" title="Link to this heading">#</a></h2>
 <p>To generate a requirements.txt file, don’t do pip freeze &gt; requirements.txt</p>
 <p>It will save all packages in your environment including those you are not currently using in your project (but still have installed).</p>
 <p>Instead, use <code class="docutils literal notranslate"><span class="pre">pipreqs</span></code>.</p>
@@ -541,21 +554,21 @@ document.write(`
 <p>A very good option for plain virtual environments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pipreqs
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pipreqs</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pipreqs .
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pipreqs</span> <span class="o">.</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="remove-a-package-and-its-dependencies-with-pip-autoremove">
-<h2><span class="section-number">2.1.3. </span>Remove a package and its dependencies with <code class="docutils literal notranslate"><span class="pre">pip-autoremove</span></code><a class="headerlink" href="#remove-a-package-and-its-dependencies-with-pip-autoremove" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.3. </span>Remove a package and its dependencies with <code class="docutils literal notranslate"><span class="pre">pip-autoremove</span></code><a class="headerlink" href="#remove-a-package-and-its-dependencies-with-pip-autoremove" title="Link to this heading">#</a></h2>
 <p>When you want to remove a package via pip, you will encounter following problem:</p>
 <p>pip will remove the desired package but not its unused dependencies.</p>
 <p>Instead, try <code class="docutils literal notranslate"><span class="pre">pip-autoremove</span></code>.</p>
@@ -563,34 +576,34 @@ document.write(`
 <p>A really good option when you are not using something like Poetry.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pip-autoremove
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pip</span><span class="o">-</span><span class="n">autoremove</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip-autoremove flask -y
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span><span class="o">-</span><span class="n">autoremove</span> <span class="n">flask</span> <span class="o">-</span><span class="n">y</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="get-distance-between-postal-codes">
-<h2><span class="section-number">2.1.4. </span>Get distance between postal codes<a class="headerlink" href="#get-distance-between-postal-codes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.4. </span>Get distance between postal codes<a class="headerlink" href="#get-distance-between-postal-codes" title="Link to this heading">#</a></h2>
 <p>Do you want the distance between two postal codes?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">pgeocode</span></code>.</p>
 <p>Just specify your country + postal codes and get the distance in KM.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pgeocode
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pgeocode</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pgeocode</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pgeocode</span>
 
 <span class="n">dist</span> <span class="o">=</span> <span class="n">pgeocode</span><span class="o">.</span><span class="n">GeoDistance</span><span class="p">(</span><span class="s1">&#39;DE&#39;</span><span class="p">)</span>
 <span class="n">dist</span><span class="o">.</span><span class="n">query_postal_code</span><span class="p">(</span><span class="s1">&#39;10117&#39;</span><span class="p">,</span> <span class="s1">&#39;80331&#39;</span><span class="p">)</span>
@@ -600,7 +613,7 @@ document.write(`
 </div>
 </section>
 <section id="working-with-units-with-pint">
-<h2><span class="section-number">2.1.5. </span>Working with units with <code class="docutils literal notranslate"><span class="pre">pint</span></code><a class="headerlink" href="#working-with-units-with-pint" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.5. </span>Working with units with <code class="docutils literal notranslate"><span class="pre">pint</span></code><a class="headerlink" href="#working-with-units-with-pint" title="Link to this heading">#</a></h2>
 <p>Have you ever struggled with units in Python?</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">pint</span></code>, you don’t have to.</p>
 <p><code class="docutils literal notranslate"><span class="pre">pint</span></code> is a Python library for easy unit conversion and manipulation.</p>
@@ -608,14 +621,14 @@ document.write(`
 <p>With <code class="docutils literal notranslate"><span class="pre">pint</span></code>, you keep track of your units and ensure accurate results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pint
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pint</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pint</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pint</span>
 
 <span class="c1"># Initializing the unit registry</span>
 <span class="n">ureg</span> <span class="o">=</span> <span class="n">pint</span><span class="o">.</span><span class="n">UnitRegistry</span><span class="p">()</span>
@@ -639,7 +652,7 @@ document.write(`
 </div>
 </section>
 <section id="supercharge-your-python-profiling-with-scalene">
-<h2><span class="section-number">2.1.6. </span>Supercharge your Python profiling with <code class="docutils literal notranslate"><span class="pre">Scalene</span></code><a class="headerlink" href="#supercharge-your-python-profiling-with-scalene" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.6. </span>Supercharge your Python profiling with <code class="docutils literal notranslate"><span class="pre">Scalene</span></code><a class="headerlink" href="#supercharge-your-python-profiling-with-scalene" title="Link to this heading">#</a></h2>
 <p>Want to identify Python performance issues?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">Scalene</span></code>, your Profiler on steroids!</p>
 <p><code class="docutils literal notranslate"><span class="pre">Scalene</span></code> is a Python CPU + GPU + Memory profiler to identify bottlenecks.</p>
@@ -647,21 +660,21 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">Scalene</span></code> comes with an easy-to-use CLI and web-based GUI.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install scalene
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">scalene</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!scalene &lt;my_module.py&gt;
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">scalene</span> <span class="o">&lt;</span><span class="n">my_module</span><span class="o">.</span><span class="n">py</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="fix-unicode-errors-with-ftfy">
-<h2><span class="section-number">2.1.7. </span>Fix unicode errors with <code class="docutils literal notranslate"><span class="pre">ftfy</span></code><a class="headerlink" href="#fix-unicode-errors-with-ftfy" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.7. </span>Fix unicode errors with <code class="docutils literal notranslate"><span class="pre">ftfy</span></code><a class="headerlink" href="#fix-unicode-errors-with-ftfy" title="Link to this heading">#</a></h2>
 <p>Have you ever struggled with Unicode errors in your Python code?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">ftfy</span></code>!</p>
 <p><code class="docutils literal notranslate"><span class="pre">ftfy</span></code> repairs scrambled text which occurs as a result of encoding or decoding problems.</p>
@@ -669,14 +682,14 @@ document.write(`
 <p>In Python you only have to call one method from <code class="docutils literal notranslate"><span class="pre">ftfy</span></code> to fix it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install ftfy
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">ftfy</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ftfy</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ftfy</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">ftfy</span><span class="o">.</span><span class="n">fix_text</span><span class="p">(</span><span class="s1">&#39;What does â€œftfyâ€</span><span class="se">\x9d</span><span class="s1"> mean?&#39;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ftfy</span><span class="o">.</span><span class="n">fix_text</span><span class="p">(</span><span class="s1">&#39;âœ” Check&#39;</span><span class="p">))</span>
@@ -687,21 +700,21 @@ document.write(`
 </div>
 </section>
 <section id="remove-the-background-from-images-with-rembg">
-<h2><span class="section-number">2.1.8. </span>Remove the background from images with <code class="docutils literal notranslate"><span class="pre">rembg</span></code><a class="headerlink" href="#remove-the-background-from-images-with-rembg" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.8. </span>Remove the background from images with <code class="docutils literal notranslate"><span class="pre">rembg</span></code><a class="headerlink" href="#remove-the-background-from-images-with-rembg" title="Link to this heading">#</a></h2>
 <p>Do you want to remove the background from images with Python?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">rembg</span></code>.</p>
 <p>With its pre-trained models, <code class="docutils literal notranslate"><span class="pre">rembg</span></code> makes removing the background of your images easy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install rembg
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rembg</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rembg</span> <span class="kn">import</span> <span class="n">remove</span>
-<span class="kn">import</span> <span class="nn">cv2</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rembg</span><span class="w"> </span><span class="kn">import</span> <span class="n">remove</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
 
 <span class="n">input_path</span> <span class="o">=</span> <span class="s1">&#39;car.jpg&#39;</span>
 <span class="n">output_path</span> <span class="o">=</span> <span class="s1">&#39;car2.jpg&#39;</span>
@@ -715,7 +728,7 @@ document.write(`
 </div>
 </section>
 <section id="build-modern-cli-apps-with-typer">
-<h2><span class="section-number">2.1.9. </span>Build modern CLI apps with <code class="docutils literal notranslate"><span class="pre">typer</span></code><a class="headerlink" href="#build-modern-cli-apps-with-typer" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.9. </span>Build modern CLI apps with <code class="docutils literal notranslate"><span class="pre">typer</span></code><a class="headerlink" href="#build-modern-cli-apps-with-typer" title="Link to this heading">#</a></h2>
 <p>Tired of building clunky CLI for your Python applications?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">typer</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">typer</span></code> makes it easy to create clean, intuitive CLI apps that are easy to use and maintain.</p>
@@ -723,7 +736,7 @@ document.write(`
 <p>Ditch argparse.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install typer
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">typer</span>
 </pre></div>
 </div>
 </div>
@@ -731,16 +744,16 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello_script.py</span>
-<span class="kn">import</span> <span class="nn">typer</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typer</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">typer</span><span class="o">.</span><span class="n">Typer</span><span class="p">()</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="n">typer</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
     
 <span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">bye</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bye</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="n">typer</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bye, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
@@ -751,14 +764,14 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!python hello_script.py hello John
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">python</span> <span class="n">hello_script</span><span class="o">.</span><span class="n">py</span> <span class="n">hello</span> <span class="n">John</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="generate-realistic-fake-data-with-faker">
-<h2><span class="section-number">2.1.10. </span>Generate realistic fake data with <code class="docutils literal notranslate"><span class="pre">faker</span></code><a class="headerlink" href="#generate-realistic-fake-data-with-faker" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.10. </span>Generate realistic fake data with <code class="docutils literal notranslate"><span class="pre">faker</span></code><a class="headerlink" href="#generate-realistic-fake-data-with-faker" title="Link to this heading">#</a></h2>
 <p>Creating realistic test data for your Python projects is annoying.</p>
 <p><code class="docutils literal notranslate"><span class="pre">faker</span></code> helps you to do that!</p>
 <p>With just a few lines of code, you can generate realistic and diverse test data, such as :</p>
@@ -773,14 +786,14 @@ document.write(`
 <p>You can even set the local or language for more diverse output.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install faker
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">faker</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">faker</span> <span class="kn">import</span> <span class="n">Faker</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">faker</span><span class="w"> </span><span class="kn">import</span> <span class="n">Faker</span>
 <span class="n">fake</span> <span class="o">=</span> <span class="n">Faker</span><span class="p">(</span><span class="s1">&#39;fr_FR&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fake</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fake</span><span class="o">.</span><span class="n">job</span><span class="p">())</span>
@@ -791,21 +804,21 @@ document.write(`
 </div>
 </section>
 <section id="enrich-your-progress-bars-with-rich">
-<h2><span class="section-number">2.1.11. </span>Enrich your progress bars with <code class="docutils literal notranslate"><span class="pre">rich</span></code><a class="headerlink" href="#enrich-your-progress-bars-with-rich" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.11. </span>Enrich your progress bars with <code class="docutils literal notranslate"><span class="pre">rich</span></code><a class="headerlink" href="#enrich-your-progress-bars-with-rich" title="Link to this heading">#</a></h2>
 <p>Do you want a more colorful output for progress bars?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">rich</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">rich</span></code> offers a beautiful progress bar, instead of tqdm’s boring output.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">rich.progress.track</span></code>, you can get a colorful output.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install rich
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rich</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rich.progress</span> <span class="kn">import</span> <span class="n">track</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rich.progress</span><span class="w"> </span><span class="kn">import</span> <span class="n">track</span>
 <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">track</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">25000000</span><span class="p">)):</span>
     <span class="c1"># Do something</span>
     <span class="k">pass</span>
@@ -815,14 +828,14 @@ document.write(`
 </div>
 </section>
 <section id="set-the-description-for-tqdm-bars">
-<h2><span class="section-number">2.1.12. </span>Set the description for <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> bars<a class="headerlink" href="#set-the-description-for-tqdm-bars" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.12. </span>Set the description for <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> bars<a class="headerlink" href="#set-the-description-for-tqdm-bars" title="Link to this heading">#</a></h2>
 <p>When you work with progress bars, you will probably use 𝐭𝐪𝐝𝐦.</p>
 <p>Do you know you can add descriptions to your bar?</p>
 <p>You can do that with <code class="docutils literal notranslate"><span class="pre">set_description()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tqdm</span>
-<span class="kn">import</span> <span class="nn">glob</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tqdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
 
 <span class="n">files</span> <span class="o">=</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;sample_data/*.csv&quot;</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
@@ -833,20 +846,20 @@ document.write(`
 </div>
 </section>
 <section id="convert-emojis-to-text-with-emot">
-<h2><span class="section-number">2.1.13. </span>Convert Emojis to Text with <code class="docutils literal notranslate"><span class="pre">emot</span></code><a class="headerlink" href="#convert-emojis-to-text-with-emot" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.13. </span>Convert Emojis to Text with <code class="docutils literal notranslate"><span class="pre">emot</span></code><a class="headerlink" href="#convert-emojis-to-text-with-emot" title="Link to this heading">#</a></h2>
 <p>Analyzing emojis and emoticons in texts can give you useful insights.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">emot</span></code>, you can convert emoticons into words.</p>
 <p>Especially useful for sentiment analysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install emot
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">emot</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">emot</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">emot</span> 
 <span class="n">emot_obj</span> <span class="o">=</span> <span class="n">emot</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">emot</span><span class="p">()</span>
 <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;I love python ☮ 🙂 ❤ :-) :-( :-)))&quot;</span> 
 <span class="n">emot_obj</span><span class="o">.</span><span class="n">emoji</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> 
@@ -856,20 +869,20 @@ document.write(`
 </div>
 </section>
 <section id="print-hardware-information-and-version-numbers">
-<h2><span class="section-number">2.1.14. </span>Print hardware information and version numbers<a class="headerlink" href="#print-hardware-information-and-version-numbers" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.14. </span>Print hardware information and version numbers<a class="headerlink" href="#print-hardware-information-and-version-numbers" title="Link to this heading">#</a></h2>
 <p>When raising an issue, you should provide version numbers and hardware information.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">watermark</span></code>, you can do that easily.</p>
 <p>Just install the package and print.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install watermark
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">watermark</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">watermark</span> <span class="kn">import</span> <span class="n">watermark</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">watermark</span><span class="w"> </span><span class="kn">import</span> <span class="n">watermark</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">watermark</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -877,7 +890,7 @@ document.write(`
 </div>
 </section>
 <section id="cache-requests-with-requests-cache">
-<h2><span class="section-number">2.1.15. </span>Cache requests with <code class="docutils literal notranslate"><span class="pre">requests-cache</span></code><a class="headerlink" href="#cache-requests-with-requests-cache" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.15. </span>Cache requests with <code class="docutils literal notranslate"><span class="pre">requests-cache</span></code><a class="headerlink" href="#cache-requests-with-requests-cache" title="Link to this heading">#</a></h2>
 <p>Do you want better performance for requests?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">requests-cache</span></code>.</p>
 <p>It caches HTTP requests so you don’t have to make the same requests again and again.</p>
@@ -886,7 +899,7 @@ document.write(`
 <p>With <code class="docutils literal notranslate"><span class="pre">requests-cache</span></code>, this takes 1 second.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install requests-cache
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">requests</span><span class="o">-</span><span class="n">cache</span>
 </pre></div>
 </div>
 </div>
@@ -894,7 +907,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This takes 60 seconds</span>
-<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="n">session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">60</span><span class="p">):</span>
@@ -903,7 +916,7 @@ document.write(`
     
 
 <span class="c1"># This takes 1 second</span>
-<span class="kn">import</span> <span class="nn">requests_cache</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests_cache</span>
 
 <span class="n">session</span> <span class="o">=</span> <span class="n">requests_cache</span><span class="o">.</span><span class="n">CachedSession</span><span class="p">(</span><span class="s1">&#39;test_cache&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">60</span><span class="p">):</span>
@@ -914,21 +927,21 @@ document.write(`
 </div>
 </section>
 <section id="unify-messy-columns-with-unifyname">
-<h2><span class="section-number">2.1.16. </span>Unify messy columns with <code class="docutils literal notranslate"><span class="pre">unifyname</span></code><a class="headerlink" href="#unify-messy-columns-with-unifyname" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.16. </span>Unify messy columns with <code class="docutils literal notranslate"><span class="pre">unifyname</span></code><a class="headerlink" href="#unify-messy-columns-with-unifyname" title="Link to this heading">#</a></h2>
 <p>Do you want to unify messy string columns?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">unifyname</span></code>, based on fuzzy string matching.</p>
 <p>This small library cleans up your messy columns with 100s of different variations for one word.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install unifyname
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">unifyname</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">unifyname.utils</span> <span class="kn">import</span> <span class="n">unify_names</span><span class="p">,</span> <span class="n">deduplicate_list_string</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">unifyname.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">unify_names</span><span class="p">,</span> <span class="n">deduplicate_list_string</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 
@@ -943,48 +956,48 @@ document.write(`
 </div>
 </section>
 <section id="check-for-broken-links-in-a-website">
-<h2><span class="section-number">2.1.17. </span>Check for broken links in a website<a class="headerlink" href="#check-for-broken-links-in-a-website" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.17. </span>Check for broken links in a website<a class="headerlink" href="#check-for-broken-links-in-a-website" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">𝐥𝐢𝐧𝐤𝐜𝐡𝐞𝐜𝐤𝐞𝐫</span></code> is a Python library for recursively going through a website and checking for broken links.</p>
 <p>You may not have the time to do that manually.</p>
 <p>And broken links can harm your Search Engine Ranking.</p>
 <p>See below how easy it can be to set up and use.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install linkchecker
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">linkchecker</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!linkchecker https://www.example.com
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">linkchecker</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="matplotlib-for-your-terminal">
-<h2><span class="section-number">2.1.18. </span>Matplotlib for your Terminal<a class="headerlink" href="#matplotlib-for-your-terminal" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.18. </span>Matplotlib for your Terminal<a class="headerlink" href="#matplotlib-for-your-terminal" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">bashplotlib</span></code> is a little library that displays basic ASCII graphs in your terminal.</p>
 <p>It provides a quick way to visualize your data.</p>
 <p>Currently, <code class="docutils literal notranslate"><span class="pre">bashplotlib</span></code> only supports histogram and scatter plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install bashplotlib
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">bashplotlib</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!hist --file test.txt
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">hist</span> <span class="o">--</span><span class="n">file</span> <span class="n">test</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="display-a-dependency-tree-of-your-environment">
-<h2><span class="section-number">2.1.19. </span>Display a Dependency Tree of your Environment<a class="headerlink" href="#display-a-dependency-tree-of-your-environment" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.19. </span>Display a Dependency Tree of your Environment<a class="headerlink" href="#display-a-dependency-tree-of-your-environment" title="Link to this heading">#</a></h2>
 <p>Do you want to stop resolving dependency issues?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">pipdeptree</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">pipdeptree</span></code> displays your installed Python packages in the form of a dependency tree.</p>
@@ -992,21 +1005,21 @@ document.write(`
 <p>An alternative to tools like Poetry which resolves dependency issues for you automatically.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pipdeptree
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pipdeptree</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pipdeptree
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pipdeptree</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="sort-latex-acronyms-automatically">
-<h2><span class="section-number">2.1.20. </span>Sort LaTeX acronyms automatically<a class="headerlink" href="#sort-latex-acronyms-automatically" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.20. </span>Sort LaTeX acronyms automatically<a class="headerlink" href="#sort-latex-acronyms-automatically" title="Link to this heading">#</a></h2>
 <p>I wrote a small library (<code class="docutils literal notranslate"><span class="pre">acrosort-tex</span></code>) to sort LaTeX acronyms with one command automatically.</p>
 <p>It was a fun Sunday project where I really learned how easy it is to publish a package with Poetry.</p>
 <p>Currently, it only supports acronyms in the following format:</p>
@@ -1016,27 +1029,27 @@ document.write(`
 <p>Link to the repository: https://lnkd.in/eTF8qs5w</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install acrosort_tex
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">acrosort_tex</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!acrosort old.tex new.tex
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">acrosort</span> <span class="n">old</span><span class="o">.</span><span class="n">tex</span> <span class="n">new</span><span class="o">.</span><span class="n">tex</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="make-ascii-art-from-text">
-<h2><span class="section-number">2.1.21. </span>Make ASCII Art from Text<a class="headerlink" href="#make-ascii-art-from-text" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.21. </span>Make ASCII Art from Text<a class="headerlink" href="#make-ascii-art-from-text" title="Link to this heading">#</a></h2>
 <p>Create ASCII Art From Text in your Terminal</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">pyfiglet</span></code>, you can generate banner-like text with Python.</p>
 <p>This is a nice feature to introduce your users to your Python CLI apps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pyfiglet
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyfiglet</span>
 </pre></div>
 </div>
 </div>
@@ -1057,14 +1070,14 @@ document.write(`
 </div>
 </section>
 <section id="display-ner-with-spacy">
-<h2><span class="section-number">2.1.22. </span>Display NER with <code class="docutils literal notranslate"><span class="pre">spacy</span></code><a class="headerlink" href="#display-ner-with-spacy" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.22. </span>Display NER with <code class="docutils literal notranslate"><span class="pre">spacy</span></code><a class="headerlink" href="#display-ner-with-spacy" title="Link to this heading">#</a></h2>
 <p>If you want to perform and visualize Named-entity Recognition, use <code class="docutils literal notranslate"><span class="pre">spacy.displacy</span></code>.</p>
 <p>It makes NER and visualizing detected entities super easy.</p>
 <p><code class="docutils literal notranslate"><span class="pre">displacy</span></code> has some other cool tools like visualizing dependencies within a sentence or visualizing spans, so check it out.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
-<span class="kn">from</span> <span class="nn">spacy</span> <span class="kn">import</span> <span class="n">displacy</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">spacy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spacy</span><span class="w"> </span><span class="kn">import</span> <span class="n">displacy</span>
 
 <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Chelsea Football Club is an English professional football club based in Fulham, West London.</span><span class="se">\</span>
 <span class="s2">        Founded in 1905, they play their home games at Stamford Bridge. </span><span class="se">\</span>
@@ -1080,7 +1093,7 @@ document.write(`
 </div>
 </section>
 <section id="create-tikz-pictures-with-python">
-<h2><span class="section-number">2.1.23. </span>Create TikZ pictures with Python<a class="headerlink" href="#create-tikz-pictures-with-python" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.23. </span>Create TikZ pictures with Python<a class="headerlink" href="#create-tikz-pictures-with-python" title="Link to this heading">#</a></h2>
 <p>If you have ever written a paper in LaTeX, you probably used TikZ for your graphics.</p>
 <p>TikZ is probably the most powerful tool to create graphic elements.</p>
 <p>And notoriously hard to learn.</p>
@@ -1090,16 +1103,16 @@ document.write(`
 <p>Really useful when you don’t want the hassle with TikZ.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install tikzplotlib
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">tikzplotlib</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tikzplotlib</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tikzplotlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
 
@@ -1120,7 +1133,7 @@ document.write(`
 </div>
 </section>
 <section id="human-readable-regex-with-pregex">
-<h2><span class="section-number">2.1.24. </span>Human-readable RegEx with <code class="docutils literal notranslate"><span class="pre">PRegEx</span></code><a class="headerlink" href="#human-readable-regex-with-pregex" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.24. </span>Human-readable RegEx with <code class="docutils literal notranslate"><span class="pre">PRegEx</span></code><a class="headerlink" href="#human-readable-regex-with-pregex" title="Link to this heading">#</a></h2>
 <p>RegEx is notoriously nasty to read and write.</p>
 <p>For a human-readable alternative, try <code class="docutils literal notranslate"><span class="pre">PRegEx</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">PRegEx</span></code> is a Python library aiming to have an easy-to-remember syntax to write RegEx patterns.</p>
@@ -1128,11 +1141,11 @@ document.write(`
 <p>See below how we can write a pattern that matches any URL that ends with either “.com” or “.org” as well as any IP address for which a 4-digit port number is specified.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pregex.core.classes</span> <span class="kn">import</span> <span class="n">AnyLetter</span><span class="p">,</span> <span class="n">AnyDigit</span><span class="p">,</span> <span class="n">AnyFrom</span>
-<span class="kn">from</span> <span class="nn">pregex.core.quantifiers</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">AtLeastAtMost</span>
-<span class="kn">from</span> <span class="nn">pregex.core.operators</span> <span class="kn">import</span> <span class="n">Either</span>
-<span class="kn">from</span> <span class="nn">pregex.core.groups</span> <span class="kn">import</span> <span class="n">Capture</span>
-<span class="kn">from</span> <span class="nn">pregex.core.pre</span> <span class="kn">import</span> <span class="n">Pregex</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pregex.core.classes</span><span class="w"> </span><span class="kn">import</span> <span class="n">AnyLetter</span><span class="p">,</span> <span class="n">AnyDigit</span><span class="p">,</span> <span class="n">AnyFrom</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pregex.core.quantifiers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">AtLeastAtMost</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pregex.core.operators</span><span class="w"> </span><span class="kn">import</span> <span class="n">Either</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pregex.core.groups</span><span class="w"> </span><span class="kn">import</span> <span class="n">Capture</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pregex.core.pre</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pregex</span>
 
 <span class="n">http_protocol</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;http&#39;</span> <span class="o">+</span> <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;://&#39;</span><span class="p">)</span>
 
@@ -1164,7 +1177,7 @@ document.write(`
 </div>
 </section>
 <section id="perform-ocr-with-easyocr">
-<h2><span class="section-number">2.1.25. </span>Perform OCR with <code class="docutils literal notranslate"><span class="pre">easyOCR</span></code><a class="headerlink" href="#perform-ocr-with-easyocr" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.25. </span>Perform OCR with <code class="docutils literal notranslate"><span class="pre">easyOCR</span></code><a class="headerlink" href="#perform-ocr-with-easyocr" title="Link to this heading">#</a></h2>
 <p>Effortlessly extract text from Images with <code class="docutils literal notranslate"><span class="pre">EasyOCR</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">EasyOCR</span></code> is a Python library for Optical Character Recognition (OCR), built on top of PyTorch.</p>
 <p>It supports over 80 languages and writing scripts like Latin, Chinese, Arabic and Cyrillic.</p>
@@ -1172,14 +1185,14 @@ document.write(`
 <p>PS: Even if it’s working on CPU, running on GPU is recommended.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install easyocr
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">easyocr</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">easyocr</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">easyocr</span>
 
 <span class="n">reader</span> <span class="o">=</span> <span class="n">easyocr</span><span class="o">.</span><span class="n">Reader</span><span class="p">([</span><span class="s1">&#39;en&#39;</span><span class="p">])</span>
 <span class="n">image_path</span> <span class="o">=</span> <span class="s1">&#39;english_image.png&#39;</span>
@@ -1194,23 +1207,23 @@ document.write(`
 </div>
 </section>
 <section id="diagram-as-code-with-diagrams">
-<h2><span class="section-number">2.1.26. </span>Diagram-as-Code with <code class="docutils literal notranslate"><span class="pre">diagrams</span></code><a class="headerlink" href="#diagram-as-code-with-diagrams" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.26. </span>Diagram-as-Code with <code class="docutils literal notranslate"><span class="pre">diagrams</span></code><a class="headerlink" href="#diagram-as-code-with-diagrams" title="Link to this heading">#</a></h2>
 <p>With the package <code class="docutils literal notranslate"><span class="pre">diagrams</span></code>, you can draw various types of diagrams with Python code.</p>
 <p>It offers a simple syntax and nodes from many Cloud Providers like AWS, Azure or GCP.</p>
 <p>See below how easy it is to draw a simple architecture.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install diagrams
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">diagrams</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diagrams</span> <span class="kn">import</span> <span class="n">Diagram</span>
-<span class="kn">from</span> <span class="nn">diagrams.aws.compute</span> <span class="kn">import</span> <span class="n">EC2</span>
-<span class="kn">from</span> <span class="nn">diagrams.aws.database</span> <span class="kn">import</span> <span class="n">RDS</span>
-<span class="kn">from</span> <span class="nn">diagrams.aws.network</span> <span class="kn">import</span> <span class="n">ELB</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diagrams</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">diagrams.aws.compute</span><span class="w"> </span><span class="kn">import</span> <span class="n">EC2</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">diagrams.aws.database</span><span class="w"> </span><span class="kn">import</span> <span class="n">RDS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">diagrams.aws.network</span><span class="w"> </span><span class="kn">import</span> <span class="n">ELB</span>
 
 <span class="k">with</span> <span class="n">Diagram</span><span class="p">(</span><span class="s2">&quot;Grouped Workers&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;TB&quot;</span><span class="p">):</span>
     <span class="n">ELB</span><span class="p">(</span><span class="s2">&quot;lb&quot;</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="n">EC2</span><span class="p">(</span><span class="s2">&quot;worker1&quot;</span><span class="p">),</span>
@@ -1225,7 +1238,7 @@ document.write(`
 <p><img alt="Example of a small Architecture" src="../../_images/aws_im.png" /></p>
 </section>
 <section id="powerful-retry-functionality-with-tenacity">
-<h2><span class="section-number">2.1.27. </span>Powerful Retry Functionality with <code class="docutils literal notranslate"><span class="pre">tenacity</span></code><a class="headerlink" href="#powerful-retry-functionality-with-tenacity" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.27. </span>Powerful Retry Functionality with <code class="docutils literal notranslate"><span class="pre">tenacity</span></code><a class="headerlink" href="#powerful-retry-functionality-with-tenacity" title="Link to this heading">#</a></h2>
 <p>What, if an API call in your program fails?</p>
 <p>Because of, let’s say, instable internet connection?</p>
 <p>This is not so uncommon.</p>
@@ -1240,35 +1253,35 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install tenacity
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">tenacity</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tenacity</span> <span class="k">as</span> <span class="nn">t</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tenacity</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">t</span>
 
 <span class="c1"># Stop after N attempts</span>
 <span class="nd">@retry</span><span class="p">(</span><span class="n">stop</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">stop_after_attempt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="k">def</span> <span class="nf">stop_after_5_attempts</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">stop_after_5_attempts</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stopping after 5 attempts&quot;</span><span class="p">)</span>
     <span class="k">raise</span> <span class="ne">Exception</span>
     
 <span class="c1"># OR Condition</span>
 <span class="nd">@retry</span><span class="p">(</span><span class="n">stop</span><span class="o">=</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">stop_after_delay</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">|</span> <span class="n">t</span><span class="o">.</span><span class="n">stop_after_attempt</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
-<span class="k">def</span> <span class="nf">stop_after_10_s_or_5_retries</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">stop_after_10_s_or_5_retries</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stopping after 10 seconds or 5 retries&quot;</span><span class="p">)</span>
     <span class="k">raise</span> <span class="ne">Exception</span>
 <span class="c1"># Wait for X Seconds</span>
 <span class="nd">@retry</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">wait_fixed</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-<span class="k">def</span> <span class="nf">wait_2_s</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">wait_2_s</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wait 2 second between retries&quot;</span><span class="p">)</span>
     <span class="k">raise</span> <span class="ne">Exception</span>
     
 <span class="c1"># Retry for specific Exceptions</span>
 <span class="nd">@retry</span><span class="p">(</span><span class="n">retry</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">retry_if_exception_type</span><span class="p">(</span><span class="ne">IOError</span><span class="p">))</span>
-<span class="k">def</span> <span class="nf">might_io_error</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">might_io_error</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Retry forever with no wait if an IOError occurs, raise any other errors&quot;</span><span class="p">)</span>
     <span class="k">raise</span> <span class="ne">Exception</span>
 </pre></div>
@@ -1277,7 +1290,7 @@ document.write(`
 </div>
 </section>
 <section id="performant-graph-analysis-with-python-igraph">
-<h2><span class="section-number">2.1.28. </span>Performant Graph Analysis with <code class="docutils literal notranslate"><span class="pre">python-igraph</span></code><a class="headerlink" href="#performant-graph-analysis-with-python-igraph" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.28. </span>Performant Graph Analysis with <code class="docutils literal notranslate"><span class="pre">python-igraph</span></code><a class="headerlink" href="#performant-graph-analysis-with-python-igraph" title="Link to this heading">#</a></h2>
 <p>When you want to work with graphs in Python</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">python-igraph</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">python-igraph</span></code> offers a Python Interface to igraph, a fast and open source C library to manipulate and analyze graphs.</p>
@@ -1285,15 +1298,15 @@ document.write(`
 <p>It’s documentation also offers neat tutorials for different purposes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install igraph
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">igraph</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">igraph</span> <span class="k">as</span> <span class="nn">ig</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">igraph</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ig</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">g</span> <span class="o">=</span> <span class="n">ig</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span>
     <span class="mi">6</span><span class="p">,</span>
@@ -1320,42 +1333,42 @@ document.write(`
 </div>
 </section>
 <section id="speedtests-via-cli-with-speedtest-cli">
-<h2><span class="section-number">2.1.29. </span>Speedtests via CLI with <code class="docutils literal notranslate"><span class="pre">speedtest-cli</span></code><a class="headerlink" href="#speedtests-via-cli-with-speedtest-cli" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.29. </span>Speedtests via CLI with <code class="docutils literal notranslate"><span class="pre">speedtest-cli</span></code><a class="headerlink" href="#speedtests-via-cli-with-speedtest-cli" title="Link to this heading">#</a></h2>
 <p>If you want to test your internet bandwidth via your CLI</p>
 <p>try <code class="docutils literal notranslate"><span class="pre">speedtest-cli</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">speedtest-cli</span></code> tests your internet bandwidth via speedtest(dot)net.</p>
 <p>It’s installable via pip.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install speedtest-cli
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">speedtest</span><span class="o">-</span><span class="n">cli</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!speedtest-cli
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">speedtest</span><span class="o">-</span><span class="n">cli</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="minimalistic-database-for-python-with-tinydb">
-<h2><span class="section-number">2.1.30. </span>Minimalistic Database for Python with <code class="docutils literal notranslate"><span class="pre">tinydb</span></code><a class="headerlink" href="#minimalistic-database-for-python-with-tinydb" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.30. </span>Minimalistic Database for Python with <code class="docutils literal notranslate"><span class="pre">tinydb</span></code><a class="headerlink" href="#minimalistic-database-for-python-with-tinydb" title="Link to this heading">#</a></h2>
 <p>Do you search for a minimalistic document-oriented database in Python?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">tinydb</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">tinydb</span></code> is written in pure Python and offers a lightweight document-oriented database.</p>
 <p>It’s perfect for small apps and hobby projects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install tinydb
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">tinydb</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tinydb</span> <span class="kn">import</span> <span class="n">TinyDB</span><span class="p">,</span> <span class="n">Query</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tinydb</span><span class="w"> </span><span class="kn">import</span> <span class="n">TinyDB</span><span class="p">,</span> <span class="n">Query</span>
 
 <span class="n">db</span> <span class="o">=</span> <span class="n">TinyDB</span><span class="p">(</span><span class="s1">&#39;/path/to/db.json&#39;</span><span class="p">)</span>
 <span class="n">db</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span><span class="s1">&#39;int&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;char&#39;</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">})</span>
@@ -1366,7 +1379,7 @@ document.write(`
 </div>
 </section>
 <section id="calculate-code-metrics-with-radon">
-<h2><span class="section-number">2.1.31. </span>Calculate Code Metrics with <code class="docutils literal notranslate"><span class="pre">radon</span></code><a class="headerlink" href="#calculate-code-metrics-with-radon" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.31. </span>Calculate Code Metrics with <code class="docutils literal notranslate"><span class="pre">radon</span></code><a class="headerlink" href="#calculate-code-metrics-with-radon" title="Link to this heading">#</a></h2>
 <p>How do you ensure your codebase stays clean and maintainable?</p>
 <p>What if you can calculate how complex your codebase is?</p>
 <p>There are different metrics to do that:</p>
@@ -1379,21 +1392,21 @@ document.write(`
 <p>With <code class="docutils literal notranslate"><span class="pre">radon</span></code>, you can calculate those metrics described above in Python (or via CLI).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install radon
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">radon</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!radon cc example.py
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">radon</span> <span class="n">cc</span> <span class="n">example</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="better-alternative-to-requests">
-<h2><span class="section-number">2.1.32. </span>Better Alternative to <code class="docutils literal notranslate"><span class="pre">requests</span></code><a class="headerlink" href="#better-alternative-to-requests" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.32. </span>Better Alternative to <code class="docutils literal notranslate"><span class="pre">requests</span></code><a class="headerlink" href="#better-alternative-to-requests" title="Link to this heading">#</a></h2>
 <p>Want a better alternative to <code class="docutils literal notranslate"><span class="pre">requests</span></code>?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">httpx</span></code> for Python.</p>
 <p><code class="docutils literal notranslate"><span class="pre">httpx</span></code> is a modern alternative to <code class="docutils literal notranslate"><span class="pre">requests</span></code> to make HTTP requests (while having a similar API).</p>
@@ -1402,14 +1415,14 @@ document.write(`
 <p>Just try it for yourself.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install httpx
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">httpx</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">httpx</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/get&#39;</span><span class="p">)</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/put&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
@@ -1424,14 +1437,14 @@ document.write(`
 </div>
 </section>
 <section id="managing-configurations-with-python-dotenv">
-<h2><span class="section-number">2.1.33. </span>Managing Configurations with <code class="docutils literal notranslate"><span class="pre">python-dotenv</span></code><a class="headerlink" href="#managing-configurations-with-python-dotenv" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.33. </span>Managing Configurations with <code class="docutils literal notranslate"><span class="pre">python-dotenv</span></code><a class="headerlink" href="#managing-configurations-with-python-dotenv" title="Link to this heading">#</a></h2>
 <p>Struggling with managing your Python project’s configuration?</p>
 <p>Try python-dotenv.</p>
 <p>python-dotenv reads key-value pairs from a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file and can set them as environment variables.</p>
 <p>You don’t have to hard-code those in your code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install python-dotenv
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">dotenv</span>
 </pre></div>
 </div>
 </div>
@@ -1447,8 +1460,8 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span><span class="p">,</span> <span class="n">dotenv_values</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span><span class="p">,</span> <span class="n">dotenv_values</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="c1"># Set environment variables defined in .env</span>
 <span class="n">load_dotenv</span><span class="p">()</span>
@@ -1464,21 +1477,21 @@ document.write(`
 </div>
 </section>
 <section id="work-with-notion-via-python-with">
-<h2><span class="section-number">2.1.34. </span>Work with Notion via Python with<a class="headerlink" href="#work-with-notion-via-python-with" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.34. </span>Work with Notion via Python with<a class="headerlink" href="#work-with-notion-via-python-with" title="Link to this heading">#</a></h2>
 <p>Did you know you can interact with Notion via Python?</p>
 <p><code class="docutils literal notranslate"><span class="pre">notion-client</span></code> is a Python SDK for working with the Notion API.</p>
 <p>You can create databases, search for items, interact with pages, etc.</p>
 <p>Check the example below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install notion-client
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">notion</span><span class="o">-</span><span class="n">client</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">notion_client</span> <span class="kn">import</span> <span class="n">Client</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">notion_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">Client</span>
 
 <span class="n">notion</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="s2">&quot;&lt;NOTION_TOKEN&gt;&quot;</span><span class="p">)</span>
 
@@ -1501,13 +1514,13 @@ document.write(`
 </div>
 </section>
 <section id="sql-query-builder-in-python">
-<h2><span class="section-number">2.1.35. </span>SQL Query Builder in Python<a class="headerlink" href="#sql-query-builder-in-python" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.35. </span>SQL Query Builder in Python<a class="headerlink" href="#sql-query-builder-in-python" title="Link to this heading">#</a></h2>
 <p>You can build SQL queries in Python with pypika.</p>
 <p>pypika provides a simple interface to build SQL queries with an easy syntax.</p>
 <p>It supports nearly every SQL command.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pypika</span> <span class="kn">import</span> <span class="n">Tables</span><span class="p">,</span> <span class="n">Query</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pypika</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tables</span><span class="p">,</span> <span class="n">Query</span>
 
 <span class="n">history</span><span class="p">,</span> <span class="n">customers</span> <span class="o">=</span> <span class="n">Tables</span><span class="p">(</span><span class="s1">&#39;history&#39;</span><span class="p">,</span> <span class="s1">&#39;customers&#39;</span><span class="p">)</span>
 <span class="n">q</span> <span class="o">=</span> <span class="n">Query</span> \
@@ -1526,38 +1539,38 @@ document.write(`
 </div>
 </section>
 <section id="text-to-speech-generation-with-melotts">
-<h2><span class="section-number">2.1.36. </span>Text-to-Speech Generation with <code class="docutils literal notranslate"><span class="pre">MeloTTS</span></code><a class="headerlink" href="#text-to-speech-generation-with-melotts" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.36. </span>Text-to-Speech Generation with <code class="docutils literal notranslate"><span class="pre">MeloTTS</span></code><a class="headerlink" href="#text-to-speech-generation-with-melotts" title="Link to this heading">#</a></h2>
 <p>Do you want high-quality text-to-speech in Python?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">MeloTTS</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">MeloTTS</span></code> supports various languages for speech generation without needing a GPU.</p>
 <p>You can use it via CLI, Python API or Web UI.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!git clone https://github.com/myshell-ai/MeloTTS.git
-!cd MeloTTS
-!pip install -e .
-!python -m unidic download
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">myshell</span><span class="o">-</span><span class="n">ai</span><span class="o">/</span><span class="n">MeloTTS</span><span class="o">.</span><span class="n">git</span>
+<span class="err">!</span><span class="n">cd</span> <span class="n">MeloTTS</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+<span class="err">!</span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">unidic</span> <span class="n">download</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!melo &quot;Text to read&quot; output.wav --language EN
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">melo</span> <span class="s2">&quot;Text to read&quot;</span> <span class="n">output</span><span class="o">.</span><span class="n">wav</span> <span class="o">--</span><span class="n">language</span> <span class="n">EN</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!melo-ui
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">melo</span><span class="o">-</span><span class="n">ui</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">melo.api</span> <span class="kn">import</span> <span class="n">TTS</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">melo.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">TTS</span>
 
 <span class="n">speed</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;cpu&#39;</span>
@@ -1574,19 +1587,19 @@ document.write(`
 </div>
 </section>
 <section id="powerful-sql-parser-and-transpiler-with-sqlglot">
-<h2><span class="section-number">2.1.37. </span>Powerful SQL Parser and Transpiler with <code class="docutils literal notranslate"><span class="pre">SQLGlot</span></code><a class="headerlink" href="#powerful-sql-parser-and-transpiler-with-sqlglot" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.37. </span>Powerful SQL Parser and Transpiler with <code class="docutils literal notranslate"><span class="pre">SQLGlot</span></code><a class="headerlink" href="#powerful-sql-parser-and-transpiler-with-sqlglot" title="Link to this heading">#</a></h2>
 <p>With <code class="docutils literal notranslate"><span class="pre">SQLGlot</span></code>, you can parse, optimize, transpile and format SQL queries.</p>
 <p>You can even translate between 21 different flavours like DuckDB, Snowflake, Spark and Hive.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install sqlglot
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">sqlglot</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlglot</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlglot</span>
 
 <span class="n">sqlglot</span><span class="o">.</span><span class="n">transpile</span><span class="p">(</span><span class="s2">&quot;SELECT TOP 1 salary FROM employees WHERE age &gt; 30&quot;</span><span class="p">,</span> <span class="n">read</span><span class="o">=</span><span class="s2">&quot;tsql&quot;</span><span class="p">,</span> <span class="n">write</span><span class="o">=</span><span class="s2">&quot;hive&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="c1"># SELECT salary FROM employees WHERE age &gt; 30 LIMIT 1</span>
@@ -1599,21 +1612,21 @@ document.write(`
 </div>
 </section>
 <section id="prettify-python-errors-with-pretty-errors">
-<h2><span class="section-number">2.1.38. </span>Prettify Python Errors with <code class="docutils literal notranslate"><span class="pre">pretty_errors</span></code><a class="headerlink" href="#prettify-python-errors-with-pretty-errors" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.38. </span>Prettify Python Errors with <code class="docutils literal notranslate"><span class="pre">pretty_errors</span></code><a class="headerlink" href="#prettify-python-errors-with-pretty-errors" title="Link to this heading">#</a></h2>
 <p>Are you annoyed from the unclear Python error messages?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">pretty_errors</span></code>.</p>
 <p>It’s a library to prettify Python exception output to make it more readable and clear.</p>
 <p>It also allows you to configure the output like changing colors, separator character, displaying locals, etc..</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pretty_errors
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pretty_errors</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pretty_errors</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pretty_errors</span>
 
 <span class="c1"># Optional: Configurations</span>
 <span class="n">pretty_errors</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
@@ -1636,7 +1649,7 @@ document.write(`
 </div>
 </section>
 <section id="unified-python-dataframe-api-with-ibis">
-<h2><span class="section-number">2.1.39. </span>Unified Python DataFrame API with <code class="docutils literal notranslate"><span class="pre">ibis</span></code><a class="headerlink" href="#unified-python-dataframe-api-with-ibis" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.39. </span>Unified Python DataFrame API with <code class="docutils literal notranslate"><span class="pre">ibis</span></code><a class="headerlink" href="#unified-python-dataframe-api-with-ibis" title="Link to this heading">#</a></h2>
 <p>Are you annoyed by learning a new API for handling dataframes every week?</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">ibis</span></code>, you don’t have to anymore.</p>
 <p><code class="docutils literal notranslate"><span class="pre">ibis</span></code> defines a Python dataframe API which runs on over 20+ backends.</p>
@@ -1644,14 +1657,14 @@ document.write(`
 <p>You just have to install <code class="docutils literal notranslate"><span class="pre">ibis</span></code> with the corresponding backend, the rest stays the same.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install &#39;ibis-framework[duckdb]&#39;
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="s1">&#39;ibis-framework[duckdb]&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibis</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ibis</span>
 
 <span class="c1"># Set different backends</span>
 <span class="n">ibis</span><span class="o">.</span><span class="n">set_backend</span><span class="p">(</span><span class="s2">&quot;duckdb&quot;</span><span class="p">)</span> <span class="c1"># or ibis.set_backend(&quot;polars&quot;)</span>
@@ -1666,22 +1679,22 @@ document.write(`
 </div>
 </section>
 <section id="create-beautiful-tables-with-great-tables">
-<h2><span class="section-number">2.1.40. </span>Create Beautiful Tables with <code class="docutils literal notranslate"><span class="pre">great_tables</span></code><a class="headerlink" href="#create-beautiful-tables-with-great-tables" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.40. </span>Create Beautiful Tables with <code class="docutils literal notranslate"><span class="pre">great_tables</span></code><a class="headerlink" href="#create-beautiful-tables-with-great-tables" title="Link to this heading">#</a></h2>
 <p>Do you want to create nice-looking tables in Python?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">great_tables</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">great_tables</span></code> lets you create beautiful and high-quality tables with an easy API.</p>
 <p>You can use the pre-defined table components like footer, header, and table body by bringing your dataframe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install great_tables
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">great_tables</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">great_tables</span> <span class="kn">import</span> <span class="n">GT</span>
-<span class="kn">from</span> <span class="nn">great_tables.data</span> <span class="kn">import</span> <span class="n">sp500</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">great_tables</span><span class="w"> </span><span class="kn">import</span> <span class="n">GT</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">great_tables.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">sp500</span>
 
 <span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;2010-06-07&quot;</span>
 <span class="n">end_date</span> <span class="o">=</span> <span class="s2">&quot;2010-06-14&quot;</span>
@@ -1700,21 +1713,21 @@ document.write(`
 </div>
 </section>
 <section id="data-quality-checks-for-dataframes-with-cuallee">
-<h2><span class="section-number">2.1.41. </span>Data Quality Checks for Dataframes with <code class="docutils literal notranslate"><span class="pre">cuallee</span></code><a class="headerlink" href="#data-quality-checks-for-dataframes-with-cuallee" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.41. </span>Data Quality Checks for Dataframes with <code class="docutils literal notranslate"><span class="pre">cuallee</span></code><a class="headerlink" href="#data-quality-checks-for-dataframes-with-cuallee" title="Link to this heading">#</a></h2>
 <p>Do you want to make quality checks for your dataframes?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">cuallee</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">cuallee</span></code> provides an API to validate your dataframe for common things like completeness, dates, anomalies or membership.</p>
 <p><code class="docutils literal notranslate"><span class="pre">cuallee</span></code> supports the most popular libraries and providers like Polars, DuckDB, BigQuery, and Snowflake.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install cuallee
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">cuallee</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cuallee</span> <span class="kn">import</span> <span class="n">Check</span><span class="p">,</span> <span class="n">CheckLevel</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cuallee</span><span class="w"> </span><span class="kn">import</span> <span class="n">Check</span><span class="p">,</span> <span class="n">CheckLevel</span>
 
 <span class="n">check</span> <span class="o">=</span> <span class="n">Check</span><span class="p">(</span><span class="n">CheckLevel</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span> <span class="s2">&quot;Completeness&quot;</span><span class="p">)</span>
 <span class="p">(</span>
@@ -1751,25 +1764,25 @@ document.write(`
 </div>
 </section>
 <section id="ocr-line-detection-and-layout-analysis-with-surya">
-<h2><span class="section-number">2.1.42. </span>OCR, Line Detection and Layout Analysis with <code class="docutils literal notranslate"><span class="pre">surya</span></code><a class="headerlink" href="#ocr-line-detection-and-layout-analysis-with-surya" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.42. </span>OCR, Line Detection and Layout Analysis with <code class="docutils literal notranslate"><span class="pre">surya</span></code><a class="headerlink" href="#ocr-line-detection-and-layout-analysis-with-surya" title="Link to this heading">#</a></h2>
 <p>Do you need an open-source OCR package?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">surya</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">surya</span></code> is an OCR + layout analysis + line detection library for Python, supporting over 90 languages.</p>
 <p>A great alternative to popular libraries like easyocr.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install surya-ocr
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">surya</span><span class="o">-</span><span class="n">ocr</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">from</span> <span class="nn">surya.ocr</span> <span class="kn">import</span> <span class="n">run_ocr</span>
-<span class="kn">from</span> <span class="nn">surya.model.detection</span> <span class="kn">import</span> <span class="n">segformer</span>
-<span class="kn">from</span> <span class="nn">surya.model.recognition.model</span> <span class="kn">import</span> <span class="n">load_model</span>
-<span class="kn">from</span> <span class="nn">surya.model.recognition.processor</span> <span class="kn">import</span> <span class="n">load_processor</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">surya.ocr</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_ocr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">surya.model.detection</span><span class="w"> </span><span class="kn">import</span> <span class="n">segformer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">surya.model.recognition.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">surya.model.recognition.processor</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_processor</span>
 
 <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">IMAGE_PATH</span><span class="p">)</span>
 <span class="n">langs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;en&quot;</span><span class="p">]</span>
@@ -1783,19 +1796,19 @@ document.write(`
 </div>
 </section>
 <section id="decode-encode-jwts-with-pyjwt">
-<h2><span class="section-number">2.1.43. </span>Decode/Encode JWTs with <code class="docutils literal notranslate"><span class="pre">PyJWT</span></code><a class="headerlink" href="#decode-encode-jwts-with-pyjwt" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.43. </span>Decode/Encode JWTs with <code class="docutils literal notranslate"><span class="pre">PyJWT</span></code><a class="headerlink" href="#decode-encode-jwts-with-pyjwt" title="Link to this heading">#</a></h2>
 <p>For working with JWT in Python, use <code class="docutils literal notranslate"><span class="pre">PyJWT</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">PyJWT</span></code> is a Python library for encoding/decoding JWTs easily.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pyjwt
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyjwt</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jwt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">jwt</span>
 <span class="n">encoded_jwt</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">({</span><span class="s2">&quot;some&quot;</span><span class="p">:</span> <span class="s2">&quot;payload&quot;</span><span class="p">},</span> <span class="s2">&quot;secret&quot;</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;HS256&quot;</span><span class="p">)</span>
 <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoded_jwt</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;HS256&quot;</span><span class="p">])</span>
 </pre></div>
@@ -1804,20 +1817,20 @@ document.write(`
 </div>
 </section>
 <section id="convert-html-to-markdown-with-markdownify">
-<h2><span class="section-number">2.1.44. </span>Convert HTML to Markdown with <code class="docutils literal notranslate"><span class="pre">markdownify</span></code><a class="headerlink" href="#convert-html-to-markdown-with-markdownify" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.44. </span>Convert HTML to Markdown with <code class="docutils literal notranslate"><span class="pre">markdownify</span></code><a class="headerlink" href="#convert-html-to-markdown-with-markdownify" title="Link to this heading">#</a></h2>
 <p>To convert HTML to Markdown with Python, use <code class="docutils literal notranslate"><span class="pre">markdownify</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">markdownify</span></code> is a Python library which provides a simple function to convert HTML to markdown.</p>
 <p>It also supports many options like stripping out elements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install markdownify
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">markdownify</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdownify</span> <span class="kn">import</span> <span class="n">markdownify</span> <span class="k">as</span> <span class="n">md</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">markdownify</span><span class="w"> </span><span class="kn">import</span> <span class="n">markdownify</span> <span class="k">as</span> <span class="n">md</span>
 <span class="n">md</span><span class="p">(</span><span class="s1">&#39;&lt;b&gt;Yay&lt;/b&gt; &lt;a href=&quot;http://github.com&quot;&gt;GitHub&lt;/a&gt;&#39;</span><span class="p">)</span>  
 <span class="c1"># Output: &#39;**Yay** [GitHub](http://github.com)&#39;</span>
 </pre></div>
@@ -1826,27 +1839,27 @@ document.write(`
 </div>
 </section>
 <section id="build-web-apps-with-mesop">
-<h2><span class="section-number">2.1.45. </span>Build Web Apps with <code class="docutils literal notranslate"><span class="pre">mesop</span></code><a class="headerlink" href="#build-web-apps-with-mesop" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.45. </span>Build Web Apps with <code class="docutils literal notranslate"><span class="pre">mesop</span></code><a class="headerlink" href="#build-web-apps-with-mesop" title="Link to this heading">#</a></h2>
 <p>Google Devs published a new open-source Streamlit competitor.</p>
 <p>It’s called <code class="docutils literal notranslate"><span class="pre">mesop</span></code> to build web apps in Python rapidly.</p>
 <p>It provides ready-to-use components or you can build your ones, without writing HTML/CSS/JS code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install mesop
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">mesop</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mesop</span> <span class="k">as</span> <span class="nn">me</span>
-<span class="kn">import</span> <span class="nn">mesop.labs</span> <span class="k">as</span> <span class="nn">mel</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mesop</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">me</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mesop.labs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mel</span>
 
 <span class="nd">@me</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;/chat&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">chat</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">chat</span><span class="p">():</span>
   <span class="n">mel</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">mel</span><span class="o">.</span><span class="n">ChatMessage</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">mel</span><span class="o">.</span><span class="n">ChatMessage</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
   <span class="k">return</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">prompt</span>
 </pre></div>
 </div>
@@ -1854,29 +1867,29 @@ document.write(`
 </div>
 </section>
 <section id="anonymize-pii-data-with-presidio">
-<h2><span class="section-number">2.1.46. </span>Anonymize PII Data with <code class="docutils literal notranslate"><span class="pre">presidio</span></code><a class="headerlink" href="#anonymize-pii-data-with-presidio" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.46. </span>Anonymize PII Data with <code class="docutils literal notranslate"><span class="pre">presidio</span></code><a class="headerlink" href="#anonymize-pii-data-with-presidio" title="Link to this heading">#</a></h2>
 <p>Working with PII data can be a neckbreaker in some cases.</p>
 <p>Luckily, for fast anonymization, you can use presidio.</p>
 <p>presidio handles anonymization of popular entities like names, phone numbers, credit card numbers or Bitcoin wallets.</p>
 <p>It can even handle text in images!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install presidio_analyzer presidio_anonymizer
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">presidio_analyzer</span> <span class="n">presidio_anonymizer</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!python -m spacy download en_core_web_lg
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">spacy</span> <span class="n">download</span> <span class="n">en_core_web_lg</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">presidio_analyzer</span> <span class="kn">import</span> <span class="n">AnalyzerEngine</span>
-<span class="kn">from</span> <span class="nn">presidio_anonymizer</span> <span class="kn">import</span> <span class="n">AnonymizerEngine</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">presidio_analyzer</span><span class="w"> </span><span class="kn">import</span> <span class="n">AnalyzerEngine</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">presidio_anonymizer</span><span class="w"> </span><span class="kn">import</span> <span class="n">AnonymizerEngine</span>
 
 <span class="n">text_to_anonymize</span> <span class="o">=</span> <span class="s2">&quot;His name is Mr. Jones. His phone number is 212-555-5555.&quot;</span>
 
@@ -1896,7 +1909,7 @@ document.write(`
 </div>
 </section>
 <section id="extract-skills-from-job-postings-with-skillner">
-<h2><span class="section-number">2.1.47. </span>Extract Skills from Job Postings with <code class="docutils literal notranslate"><span class="pre">skillner</span></code><a class="headerlink" href="#extract-skills-from-job-postings-with-skillner" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.47. </span>Extract Skills from Job Postings with <code class="docutils literal notranslate"><span class="pre">skillner</span></code><a class="headerlink" href="#extract-skills-from-job-postings-with-skillner" title="Link to this heading">#</a></h2>
 <p>Extracting skills from unstructured data can be difficult.</p>
 <p>With 𝐬𝐤𝐢𝐥𝐥𝐧𝐞𝐫 it doesn’t have to be.</p>
 <p>𝐬𝐤𝐢𝐥𝐥𝐧𝐞𝐫 extracts skills and certifications from data based on an open source skills database.</p>
@@ -1904,18 +1917,18 @@ document.write(`
 <p>Of course, you could also run an LLM on job ads, but do you need it?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install skillNer
-!python -m spacy download en_core_web_lg
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">skillNer</span>
+<span class="err">!</span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">spacy</span> <span class="n">download</span> <span class="n">en_core_web_lg</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
-<span class="kn">from</span> <span class="nn">spacy.matcher</span> <span class="kn">import</span> <span class="n">PhraseMatcher</span>
-<span class="kn">from</span> <span class="nn">skillNer.general_params</span> <span class="kn">import</span> <span class="n">SKILL_DB</span>
-<span class="kn">from</span> <span class="nn">skillNer.skill_extractor_class</span> <span class="kn">import</span> <span class="n">SkillExtractor</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">spacy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spacy.matcher</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhraseMatcher</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skillNer.general_params</span><span class="w"> </span><span class="kn">import</span> <span class="n">SKILL_DB</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skillNer.skill_extractor_class</span><span class="w"> </span><span class="kn">import</span> <span class="n">SkillExtractor</span>
 
 <span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_lg&quot;</span><span class="p">)</span>
 <span class="n">skill_extractor</span> <span class="o">=</span> <span class="n">SkillExtractor</span><span class="p">(</span><span class="n">nlp</span><span class="p">,</span> <span class="n">SKILL_DB</span><span class="p">,</span> <span class="n">PhraseMatcher</span><span class="p">)</span>
@@ -1935,7 +1948,7 @@ document.write(`
 </div>
 </section>
 <section id="rate-limiting-fastapi-with-slowapi">
-<h2><span class="section-number">2.1.48. </span>Rate Limiting FastAPI with <code class="docutils literal notranslate"><span class="pre">slowapi</span></code><a class="headerlink" href="#rate-limiting-fastapi-with-slowapi" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.48. </span>Rate Limiting FastAPI with <code class="docutils literal notranslate"><span class="pre">slowapi</span></code><a class="headerlink" href="#rate-limiting-fastapi-with-slowapi" title="Link to this heading">#</a></h2>
 <p>Preventing abuse of your API is crucial.</p>
 <p>To implement rate limiting for FastAPI, you can use <code class="docutils literal notranslate"><span class="pre">slowapi</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">slowapi</span></code> offers utility functions to limit your FastAPI or Starlette app based on e.g. the IP address.</p>
@@ -1943,17 +1956,17 @@ document.write(`
 <p>A note from the author: This is alpha quality code still, the API may change, and things may fall apart while you try it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install slowapi
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">slowapi</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
-<span class="kn">from</span> <span class="nn">slowapi</span> <span class="kn">import</span> <span class="n">Limiter</span><span class="p">,</span> <span class="n">_rate_limit_exceeded_handler</span>
-<span class="kn">from</span> <span class="nn">slowapi.util</span> <span class="kn">import</span> <span class="n">get_remote_address</span>
-<span class="kn">from</span> <span class="nn">slowapi.errors</span> <span class="kn">import</span> <span class="n">RateLimitExceeded</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">slowapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">Limiter</span><span class="p">,</span> <span class="n">_rate_limit_exceeded_handler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">slowapi.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_remote_address</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">slowapi.errors</span><span class="w"> </span><span class="kn">import</span> <span class="n">RateLimitExceeded</span>
 
 <span class="c1"># Limiting based on user&#39;s IP address</span>
 <span class="n">limiter</span> <span class="o">=</span> <span class="n">Limiter</span><span class="p">(</span><span class="n">key_func</span><span class="o">=</span><span class="n">get_remote_address</span><span class="p">)</span>
@@ -1963,7 +1976,7 @@ document.write(`
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/home&quot;</span><span class="p">)</span>
 <span class="nd">@limiter</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="s2">&quot;5/minute&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">hello</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;response&quot;</span><span class="p">:</span><span class="s2">&quot;Hello&quot;</span><span class="p">}</span>
 </pre></div>
 </div>
@@ -1971,12 +1984,12 @@ document.write(`
 </div>
 </section>
 <section id="create-cli-out-of-any-python-object-with-fire">
-<h2><span class="section-number">2.1.49. </span>Create CLI out of any Python Object with <code class="docutils literal notranslate"><span class="pre">fire</span></code><a class="headerlink" href="#create-cli-out-of-any-python-object-with-fire" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.49. </span>Create CLI out of any Python Object with <code class="docutils literal notranslate"><span class="pre">fire</span></code><a class="headerlink" href="#create-cli-out-of-any-python-object-with-fire" title="Link to this heading">#</a></h2>
 <p>Transform any Python object into a CLI with <code class="docutils literal notranslate"><span class="pre">fire</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">fire</span></code> is a neat library for turning your Python object into a CLI and making the transition between Python and Bash easier.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install fire
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">fire</span>
 </pre></div>
 </div>
 </div>
@@ -1984,9 +1997,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello.py</span>
-<span class="kn">import</span> <span class="nn">fire</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">fire</span>
 
-<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;World&quot;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;World&quot;</span><span class="p">):</span>
   <span class="k">return</span> <span class="s2">&quot;Hello </span><span class="si">%s</span><span class="s2">!&quot;</span> <span class="o">%</span> <span class="n">name</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
@@ -1997,14 +2010,14 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!python hello.py --name=David
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">python</span> <span class="n">hello</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">David</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="environment-variables-management-with-pydantic-settings">
-<h2><span class="section-number">2.1.50. </span>Environment Variables Management with <code class="docutils literal notranslate"><span class="pre">pydantic-settings</span></code><a class="headerlink" href="#environment-variables-management-with-pydantic-settings" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.50. </span>Environment Variables Management with <code class="docutils literal notranslate"><span class="pre">pydantic-settings</span></code><a class="headerlink" href="#environment-variables-management-with-pydantic-settings" title="Link to this heading">#</a></h2>
 <p>Is this the best way to work with environment variables?</p>
 <p><strong>pydantic-settings</strong> makes it so easy to work with your environment variables in an easy way.</p>
 <p>Why it’s a great tool:</p>
@@ -2017,27 +2030,27 @@ document.write(`
 <p>For your settings, just create a class which inherits from <strong>BaseSettings</strong> and define your variables there.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pydantic-settings
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pydantic</span><span class="o">-</span><span class="n">settings</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pydantic_settings</span> <span class="kn">import</span> <span class="n">BaseSettings</span><span class="p">,</span> <span class="n">SettingsConfigDict</span>
-<span class="kn">from</span> <span class="nn">pydanctic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
-<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic_settings</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseSettings</span><span class="p">,</span> <span class="n">SettingsConfigDict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydanctic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
 
-<span class="k">class</span> <span class="nc">Environment</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Environment</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
     <span class="n">DEV</span> <span class="o">=</span> <span class="s1">&#39;dev&#39;</span>
     <span class="n">STAGING</span> <span class="o">=</span> <span class="s1">&#39;staging&#39;</span>
     <span class="n">PROD</span> <span class="o">=</span> <span class="s1">&#39;prod&#39;</span>
     
-<span class="k">class</span> <span class="nc">RedisSettings</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RedisSettings</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">host</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">port</span><span class="p">:</span> <span class="nb">int</span>
 
-<span class="k">class</span> <span class="nc">AppSettings</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AppSettings</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
     <span class="n">model_config</span> <span class="o">=</span> <span class="n">SettingsConfigDict</span><span class="p">(</span><span class="n">env_file</span><span class="o">=</span><span class="s1">&#39;.env&#39;</span><span class="p">)</span>
     
     <span class="n">redis</span><span class="p">:</span> <span class="n">RedisSettings</span>
@@ -2062,7 +2075,7 @@ document.write(`
 </div>
 </section>
 <section id="deduplicate-huge-datasets-with-semhash">
-<h2><span class="section-number">2.1.51. </span>Deduplicate Huge Datasets with <code class="docutils literal notranslate"><span class="pre">semhash</span></code><a class="headerlink" href="#deduplicate-huge-datasets-with-semhash" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.51. </span>Deduplicate Huge Datasets with <code class="docutils literal notranslate"><span class="pre">semhash</span></code><a class="headerlink" href="#deduplicate-huge-datasets-with-semhash" title="Link to this heading">#</a></h2>
 <p>Deduplicate your data at lightning speed in Python! 🔥</p>
 <p>Having duplicates in your dataset is annoying and needs to be removed as they do not contribute positively to model training.</p>
 <p>But they can be difficult to detect, especially semantic duplicates.</p>
@@ -2073,15 +2086,15 @@ document.write(`
 <p>You can, of course, use any model supported by sentence-transformers, or bring your own model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install semhash
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">semhash</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
-<span class="kn">from</span> <span class="nn">semhash</span> <span class="kn">import</span> <span class="n">SemHash</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dataset</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">semhash</span><span class="w"> </span><span class="kn">import</span> <span class="n">SemHash</span>
 
 <span class="n">texts</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;ag_news&quot;</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">)[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span>
 
@@ -2094,7 +2107,7 @@ document.write(`
 </div>
 </section>
 <section id="fast-http-server-robyn">
-<h2><span class="section-number">2.1.52. </span>Fast HTTP Server: <code class="docutils literal notranslate"><span class="pre">robyn</span></code><a class="headerlink" href="#fast-http-server-robyn" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.52. </span>Fast HTTP Server: <code class="docutils literal notranslate"><span class="pre">robyn</span></code><a class="headerlink" href="#fast-http-server-robyn" title="Link to this heading">#</a></h2>
 <p>Do you need a lightweight alternative to FastAPI?</p>
 <p>Try out 𝗿𝗼𝗯𝘆𝗻.</p>
 <p>𝗿𝗼𝗯𝘆𝗻 is a fast and lightweight web framework written in Rust (like everything else these days).</p>
@@ -2102,7 +2115,7 @@ document.write(`
 <p>With a similar syntax and a great documentation, 𝗿𝗼𝗯𝘆𝗻 makes it easy to switch from other frameworks.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install robyn
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">robyn</span>
 </pre></div>
 </div>
 </div>
@@ -2110,12 +2123,12 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># app.py</span>
-<span class="kn">from</span> <span class="nn">robyn</span> <span class="kn">import</span> <span class="n">Robyn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">robyn</span><span class="w"> </span><span class="kn">import</span> <span class="n">Robyn</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Robyn</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">hello_world</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="k">return</span> <span class="s2">&quot;Hello, world!&quot;</span>
 
 <span class="n">app</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">)</span>
@@ -2125,14 +2138,14 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!python app.py
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">python</span> <span class="n">app</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="gzip-compression-with-fastapi">
-<h2><span class="section-number">2.1.53. </span>GZip Compression with FastAPI<a class="headerlink" href="#gzip-compression-with-fastapi" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.53. </span>GZip Compression with FastAPI<a class="headerlink" href="#gzip-compression-with-fastapi" title="Link to this heading">#</a></h2>
 <p>One small trick to optimize your FastAPI application.
 (with 2 lines of code!)</p>
 <p>Whenever your API sends larger amounts of data, GZip compression helps in improving latency and reducing bandwidth usage.</p>
@@ -2141,15 +2154,15 @@ document.write(`
 -&gt; Adjust the <strong>compresslevel</strong> parameter to control how fast the compression is vs how big the compressed file will be.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
-<span class="kn">from</span> <span class="nn">starlette.middleware.gzip</span> <span class="kn">import</span> <span class="n">GZipMiddleware</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">starlette.middleware.gzip</span><span class="w"> </span><span class="kn">import</span> <span class="n">GZipMiddleware</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
 
 <span class="n">app</span><span class="o">.</span><span class="n">add_middleware</span><span class="p">(</span><span class="n">GZipMiddleware</span><span class="p">,</span> <span class="n">minimum_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">compresslevel</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/large-data&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">get_large_data</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_large_data</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)]}</span>
     
 
@@ -2188,8 +2201,8 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="index.html"
@@ -2217,6 +2230,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -2298,9 +2312,10 @@ By Banias Baabe
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -2324,8 +2339,8 @@ By Banias Baabe
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

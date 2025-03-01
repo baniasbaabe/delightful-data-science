@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>5.8. Time Series &#8212; Python &amp; Chill</title>
   
@@ -15,56 +14,51 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/machinelearning/timeseries';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="5.9. Preprocessing" href="preprocessing.html" />
@@ -78,28 +72,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +110,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,6 +138,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../README.html">
@@ -153,7 +153,18 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Python & Chill</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -164,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../codequality/index.html">1. Code Quality</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../codequality/index.html">1. Code Quality</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../codequality/automation.html">1.1. Automation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../codequality/cicd.html">1.2. CI/CD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../codequality/codestyle.html">1.3. Code Style</a></li>
@@ -173,20 +184,20 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../codequality/typing.html">1.6. Typing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../codequality/principles.html">1.7. Principles for Code Quality</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../cooltools/index.html">2. Cool Tools</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cooltools/index.html">2. Cool Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../cooltools/Chapter.html">2.1. Cool Tools</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Jupyter Notebook Tips and Tricks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../documentation/Chapter.html">4.1. Documentation</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">5. Machine Learning</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">5. Machine Learning</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dataaugmentation.html">5.1. Data Augmentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="deployment.html">5.2. Deployment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="eda.html">5.3. EDA</a></li>
@@ -197,50 +208,50 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">5.8. Time Series</a></li>
 <li class="toctree-l2"><a class="reference internal" href="preprocessing.html">5.9. Preprocessing</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../llm/index.html">6. LLM</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../llm/index.html">6. LLM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../llm/Chapter.html">6.1. LLM</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">7. NumPy Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">7. NumPy Tips and Tricks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../numpy/Chapter.html">7.1. NumPy Tips and Tricks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/index.html">8. Pandas Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/index.html">8. Pandas Tricks and Tips</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/Chapter.html">8.1. Pandas Tips and Tricks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/additionallibs.html">8.2. Utility Libraries for Pandas</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../polars/index.html">9. Polars</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../polars/index.html">9. Polars</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../polars/Chapter.html">9.1. Polars Tips &amp; Tricks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">10. Python Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pythontricks/index.html">10. Python Tips and Tricks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pythontricks/Chapter.html">10.1. Pure Python + Built-in libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pythontricks/utility.html">10.2. Utilities for Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pythontricks/tooling.html">10.3. Tooling for Python Projects</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">11. Scraping Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">11. Scraping Tips and Tricks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../selenium/Chapter.html">11.1. Scraping Tips and Tricks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../terraform/index.html">12. Terraform</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../terraform/index.html">12. Terraform</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../terraform/Chapter.html">12.1. Terraform</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">13. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">13. Testing in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">13.1. Testing</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../sql/index.html">14. SQL Tips &amp; Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sql/index.html">14. SQL Tips &amp; Tricks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../sql/Chapter.html">14.1. SQL Tips &amp; Tricks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">15. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">15. Miscellaneous</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Miscellaneous/Chapter.html">15.1. Miscellaneous</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -256,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -265,14 +276,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -394,26 +405,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -454,12 +467,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="time-series">
-<h1><span class="section-number">5.8. </span>Time Series<a class="headerlink" href="#time-series" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5.8. </span>Time Series<a class="headerlink" href="#time-series" title="Link to this heading">#</a></h1>
 <section id="check-seasonality-automatically-with-darts">
-<h2><span class="section-number">5.8.1. </span>Check Seasonality automatically with <code class="docutils literal notranslate"><span class="pre">darts</span></code><a class="headerlink" href="#check-seasonality-automatically-with-darts" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.1. </span>Check Seasonality automatically with <code class="docutils literal notranslate"><span class="pre">darts</span></code><a class="headerlink" href="#check-seasonality-automatically-with-darts" title="Link to this heading">#</a></h2>
 <p>Seasonality describes a pattern that repeats regularly over time.</p>
 <p>Identifying and understanding the seasonality in time series can boost the performance of your model.</p>
 <p>But you don’t have to find the seasonality effect and period by yourself.</p>
@@ -468,15 +481,15 @@ document.write(`
 <p>In the example below, it will return a seasonal period of 12 (Air Passenger Dataset has a monthly frequency).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install darts
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">darts</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">darts.utils.statistics</span> <span class="kn">import</span> <span class="n">check_seasonality</span>
-<span class="kn">from</span> <span class="nn">darts.datasets</span> <span class="kn">import</span> <span class="n">AirPassengersDataset</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">darts.utils.statistics</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_seasonality</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">darts.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">AirPassengersDataset</span>
 
 <span class="n">ts</span> <span class="o">=</span> <span class="n">AirPassangersDataset</span><span class="p">()</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 
@@ -487,7 +500,7 @@ document.write(`
 </div>
 </section>
 <section id="cross-validation-for-time-series-data-with-timeseriessplit">
-<h2><span class="section-number">5.8.2. </span>Cross-validation for Time Series Data with <code class="docutils literal notranslate"><span class="pre">TimeSeriesSplit</span></code><a class="headerlink" href="#cross-validation-for-time-series-data-with-timeseriessplit" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.2. </span>Cross-validation for Time Series Data with <code class="docutils literal notranslate"><span class="pre">TimeSeriesSplit</span></code><a class="headerlink" href="#cross-validation-for-time-series-data-with-timeseriessplit" title="Link to this heading">#</a></h2>
 <p>How to do Cross-Validation with Time Series?</p>
 <p>Using standard K-Fold Cross-Validation will not work.</p>
 <p>In this case, you would simply partition the data into k folds, and then train and evaluate the model k times, each time using a different fold as the test set and the rest of the data as the training set.</p>
@@ -498,8 +511,8 @@ document.write(`
 <p>This gives you a more accurate and less biased assessment of the model’s performance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">TimeSeriesSplit</span><span class="p">,</span> <span class="n">cross_validate</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingRegressor</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">TimeSeriesSplit</span><span class="p">,</span> <span class="n">cross_validate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">GradientBoostingRegressor</span>
 
 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="o">...</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">GradientBoostingRegressor</span><span class="p">()</span>
@@ -513,7 +526,7 @@ document.write(`
 </div>
 </section>
 <section id="more-cross-validation-with-tscv">
-<h2><span class="section-number">5.8.3. </span>More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code><a class="headerlink" href="#more-cross-validation-with-tscv" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.3. </span>More Cross-Validation with <code class="docutils literal notranslate"><span class="pre">tscv</span></code><a class="headerlink" href="#more-cross-validation-with-tscv" title="Link to this heading">#</a></h2>
 <p>How to do Cross-Validation with Time Series?</p>
 <p>Using standard K-Fold Cross-Validation will not work.</p>
 <p>In this case, you would simply partition the data into k folds, and then train and evaluate the model k times, each time using a different fold as the test set and the rest of the data as the training set.</p>
@@ -529,14 +542,14 @@ document.write(`
 <p>This gives you a more accurate and less biased assessment of the model’s performance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install tscv
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">tscv</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tscv</span> <span class="kn">import</span> <span class="n">GapRollForward</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tscv</span><span class="w"> </span><span class="kn">import</span> <span class="n">GapRollForward</span>
 <span class="n">cv</span> <span class="o">=</span> <span class="n">GapRollForward</span><span class="p">(</span><span class="n">min_train_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">gap_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_test_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">cv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;train:&quot;</span><span class="p">,</span> <span class="n">train</span><span class="p">,</span> <span class="s2">&quot;test:&quot;</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span>
@@ -546,24 +559,24 @@ document.write(`
 </div>
 </section>
 <section id="time-series-forecasting-with-machine-learning-with-mlforecast">
-<h2><span class="section-number">5.8.4. </span>Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code><a class="headerlink" href="#time-series-forecasting-with-machine-learning-with-mlforecast" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.4. </span>Time Series Forecasting with Machine Learning with <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code><a class="headerlink" href="#time-series-forecasting-with-machine-learning-with-mlforecast" title="Link to this heading">#</a></h2>
 <p>Do you want to perform powerful time series forecasting?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">mlforecast</span></code> by Nixtla.</p>
 <p><code class="docutils literal notranslate"><span class="pre">mlforecast</span></code> lets you run Machine Learning models for time series forecasting, even on remote clusters like Ray or Spark.</p>
 <p>Feature Engineering, support for exogenous variables, and probabilistic forecasting are also included.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install mlforecast
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">mlforecast</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lightgbm</span> <span class="k">as</span> <span class="nn">lgb</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">lightgbm</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">lgb</span>
 
-<span class="kn">from</span> <span class="nn">mlforecast</span> <span class="kn">import</span> <span class="n">MLForecast</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mlforecast</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLForecast</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
 
 <span class="n">mlf</span> <span class="o">=</span> <span class="n">MLForecast</span><span class="p">(</span>
     <span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="n">LinearRegression</span><span class="p">(),</span> <span class="n">lgb</span><span class="o">.</span><span class="n">LGBMRegressor</span><span class="p">()],</span>
@@ -578,23 +591,23 @@ document.write(`
 </div>
 </section>
 <section id="lightning-fast-time-series-forecasting-with-statsforecast">
-<h2><span class="section-number">5.8.5. </span>Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code><a class="headerlink" href="#lightning-fast-time-series-forecasting-with-statsforecast" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.5. </span>Lightning Fast Time Series Forecasting with <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code><a class="headerlink" href="#lightning-fast-time-series-forecasting-with-statsforecast" title="Link to this heading">#</a></h2>
 <p>Do you want to perform lightning fast time series forecasting?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">statsforecast</span></code> by Nixtla.</p>
 <p><code class="docutils literal notranslate"><span class="pre">statsforecast</span></code> lets you run statistical models on your time series data.</p>
 <p>It’s up to 20x faster than existing libraries like pmdarima and statsmodels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install statsforecast
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">statsforecast</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsforecast</span> <span class="kn">import</span> <span class="n">StatsForecast</span>
-<span class="kn">from</span> <span class="nn">statsforecast.models</span> <span class="kn">import</span> <span class="n">AutoARIMA</span>
-<span class="kn">from</span> <span class="nn">statsforecast.utils</span> <span class="kn">import</span> <span class="n">AirPassengersDF</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsforecast</span><span class="w"> </span><span class="kn">import</span> <span class="n">StatsForecast</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsforecast.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoARIMA</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsforecast.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">AirPassengersDF</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">AirPassengersDF</span>
 <span class="n">sf</span> <span class="o">=</span> <span class="n">StatsForecast</span><span class="p">(</span>
@@ -610,7 +623,7 @@ document.write(`
 </div>
 </section>
 <section id="time-series-with-polars-backend-with-functime">
-<h2><span class="section-number">5.8.6. </span>Time Series with Polars Backend with <code class="docutils literal notranslate"><span class="pre">functime</span></code><a class="headerlink" href="#time-series-with-polars-backend-with-functime" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.6. </span>Time Series with Polars Backend with <code class="docutils literal notranslate"><span class="pre">functime</span></code><a class="headerlink" href="#time-series-with-polars-backend-with-functime" title="Link to this heading">#</a></h2>
 <p>Fast time-series forecasting with <code class="docutils literal notranslate"><span class="pre">functime</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">functime</span></code> is a Python library for time series forecasting and feature extraction, built with Polars.</p>
 <p>Since it uses lazy Polars dataframes, <code class="docutils literal notranslate"><span class="pre">functime</span></code> speeds up forecasting and feature engineering.</p>
@@ -619,17 +632,17 @@ document.write(`
 <p>Check it out!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install functime
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">functime</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
-<span class="kn">from</span> <span class="nn">functime.cross_validation</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">functime.forecasting</span> <span class="kn">import</span> <span class="n">linear_model</span>
-<span class="kn">from</span> <span class="nn">functime.metrics</span> <span class="kn">import</span> <span class="n">mase</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functime.cross_validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functime.forecasting</span><span class="w"> </span><span class="kn">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functime.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mase</span>
 
 <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">test_size</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
 
@@ -646,7 +659,7 @@ document.write(`
 </div>
 </section>
 <section id="time-series-forecasting-with-deep-learning-with-neuralforecast">
-<h2><span class="section-number">5.8.7. </span>Time Series Forecasting with Deep Learning with <code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code><a class="headerlink" href="#time-series-forecasting-with-deep-learning-with-neuralforecast" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.7. </span>Time Series Forecasting with Deep Learning with <code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code><a class="headerlink" href="#time-series-forecasting-with-deep-learning-with-neuralforecast" title="Link to this heading">#</a></h2>
 <p>Do you want to perform powerful time series forecasting?</p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code> by nixtla.</p>
 <p><code class="docutils literal notranslate"><span class="pre">neuralforecast</span></code> lets you run Deep Learning models for time series forecasting with models like N-BEATS or N-HiTS.</p>
@@ -654,18 +667,18 @@ document.write(`
 <p>Check the example below!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install neuralforecast
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">neuralforecast</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="kn">from</span> <span class="nn">neuralforecast</span> <span class="kn">import</span> <span class="n">NeuralForecast</span>
-<span class="kn">from</span> <span class="nn">neuralforecast.models</span> <span class="kn">import</span> <span class="n">NBEATS</span><span class="p">,</span> <span class="n">NHITS</span>
-<span class="kn">from</span> <span class="nn">neuralforecast.utils</span> <span class="kn">import</span> <span class="n">AirPassengersDF</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neuralforecast</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeuralForecast</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neuralforecast.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">NBEATS</span><span class="p">,</span> <span class="n">NHITS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neuralforecast.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">AirPassengersDF</span>
 
 <span class="n">Y_df</span> <span class="o">=</span> <span class="n">AirPassengersDF</span>
 <span class="n">Y_train_df</span> <span class="o">=</span> <span class="n">Y_df</span><span class="p">[</span><span class="n">Y_df</span><span class="o">.</span><span class="n">ds</span><span class="o">&lt;=</span><span class="s1">&#39;1959-12-31&#39;</span><span class="p">]</span>
@@ -684,19 +697,19 @@ document.write(`
 </div>
 </section>
 <section id="efficient-preprocessing-and-feature-engineering-with-temporian">
-<h2><span class="section-number">5.8.8. </span>Efficient Preprocessing and Feature Engineering with <code class="docutils literal notranslate"><span class="pre">temporian</span></code><a class="headerlink" href="#efficient-preprocessing-and-feature-engineering-with-temporian" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.8. </span>Efficient Preprocessing and Feature Engineering with <code class="docutils literal notranslate"><span class="pre">temporian</span></code><a class="headerlink" href="#efficient-preprocessing-and-feature-engineering-with-temporian" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">temporian</span></code> is a Python library for preprocessing and feature engineering temporal data to feed into ML libraries like XGBoost, Scikit-learn or PyTorch.</p>
 <p>It handles various types of temporal data like single- and multivariate data or flat- and multi-index data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install temporian
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">temporian</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">temporian</span> <span class="k">as</span> <span class="nn">tp</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">temporian</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tp</span>
 
 <span class="n">sales</span> <span class="o">=</span> <span class="n">tp</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="s2">&quot;sales.csv&quot;</span><span class="p">)</span>
 
@@ -714,21 +727,21 @@ document.write(`
 </div>
 </section>
 <section id="change-point-detection-with-ruptures">
-<h2><span class="section-number">5.8.9. </span>Change Point Detection with <code class="docutils literal notranslate"><span class="pre">ruptures</span></code><a class="headerlink" href="#change-point-detection-with-ruptures" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.9. </span>Change Point Detection with <code class="docutils literal notranslate"><span class="pre">ruptures</span></code><a class="headerlink" href="#change-point-detection-with-ruptures" title="Link to this heading">#</a></h2>
 <p>Change point detection was never easier in Python with `ruptures``</p>
 <p><code class="docutils literal notranslate"><span class="pre">ruptures</span></code> is a library which provides methods for detecting and displaying off-line change points.</p>
 <p>It offers multiple exact and approximation detection methods.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install ruptures
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">ruptures</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">ruptures</span> <span class="k">as</span> <span class="nn">rpt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ruptures</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rpt</span>
 
 <span class="c1"># Generate signal</span>
 <span class="n">n_samples</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span>
@@ -748,25 +761,25 @@ document.write(`
 </div>
 </section>
 <section id="probabilistic-machine-learning-with-skpro">
-<h2><span class="section-number">5.8.10. </span>Probabilistic Machine Learning with <code class="docutils literal notranslate"><span class="pre">skpro</span></code><a class="headerlink" href="#probabilistic-machine-learning-with-skpro" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.10. </span>Probabilistic Machine Learning with <code class="docutils literal notranslate"><span class="pre">skpro</span></code><a class="headerlink" href="#probabilistic-machine-learning-with-skpro" title="Link to this heading">#</a></h2>
 <p>Use supervised probabilistic prediction like a pro with <code class="docutils literal notranslate"><span class="pre">skpro</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">skpro</span></code> is a scikit-learn-like library for probabilistic predictions and evaluations.</p>
 <p>It supports tabular regressors, survival prediction, and reductions to turn scikit-learn regressors into probabilistic <code class="docutils literal notranslate"><span class="pre">skpro</span></code> regressors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install skpro
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">skpro</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_diabetes</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_diabetes</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 
-<span class="kn">from</span> <span class="nn">skpro.regression.residual</span> <span class="kn">import</span> <span class="n">ResidualDouble</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skpro.regression.residual</span><span class="w"> </span><span class="kn">import</span> <span class="n">ResidualDouble</span>
 
 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_diabetes</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_new</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -792,7 +805,7 @@ document.write(`
 </div>
 </section>
 <section id="evaluating-forecasts-with-fev">
-<h2><span class="section-number">5.8.11. </span>Evaluating Forecasts with <code class="docutils literal notranslate"><span class="pre">fev</span></code><a class="headerlink" href="#evaluating-forecasts-with-fev" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8.11. </span>Evaluating Forecasts with <code class="docutils literal notranslate"><span class="pre">fev</span></code><a class="headerlink" href="#evaluating-forecasts-with-fev" title="Link to this heading">#</a></h2>
 <p>Time Series Forecasting without evaluation is guessing, not knowing.</p>
 <p>Make your life easier and use <strong>fev</strong>.</p>
 <p><strong>fev</strong> is a new Python library aiming to benchmark forecasting models easily.</p>
@@ -800,14 +813,14 @@ document.write(`
 <p>It supports point and even probabilistic forecasts which is crucial in today’s world.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install fev
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">fev</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fev</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">fev</span>
 
 <span class="c1"># Create Task</span>
 <span class="n">task</span> <span class="o">=</span> <span class="n">fev</span><span class="o">.</span><span class="n">Task</span><span class="p">(</span>
@@ -818,7 +831,7 @@ document.write(`
 <span class="c1"># Load data</span>
 <span class="n">past_data</span><span class="p">,</span> <span class="n">future_data</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">get_input_data</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">naive_forecast</span><span class="p">(</span><span class="n">y</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">horizon</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">naive_forecast</span><span class="p">(</span><span class="n">y</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">horizon</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">horizon</span><span class="p">)]</span>
 
 <span class="c1"># Make predictions</span>
@@ -865,8 +878,8 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="outlierdetection.html"
@@ -894,6 +907,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -933,9 +947,10 @@ By Banias Baabe
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -959,8 +974,8 @@ By Banias Baabe
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

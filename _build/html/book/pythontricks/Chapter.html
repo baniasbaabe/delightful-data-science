@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>10.1. Pure Python + Built-in libraries &#8212; Python &amp; Chill</title>
   
@@ -15,56 +14,51 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/pythontricks/Chapter';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="10.2. Utilities for Python" href="utility.html" />
@@ -78,28 +72,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +110,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,6 +138,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../README.html">
@@ -153,7 +153,18 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Python & Chill</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -164,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../codequality/index.html">1. Code Quality</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../codequality/index.html">1. Code Quality</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../codequality/automation.html">1.1. Automation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../codequality/cicd.html">1.2. CI/CD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../codequality/codestyle.html">1.3. Code Style</a></li>
@@ -173,20 +184,20 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../codequality/typing.html">1.6. Typing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../codequality/principles.html">1.7. Principles for Code Quality</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../cooltools/index.html">2. Cool Tools</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cooltools/index.html">2. Cool Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../cooltools/Chapter.html">2.1. Cool Tools</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../jupyternotebook/index.html">3. Jupyter Notebook Tricks and Tips</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../jupyternotebook/Chapter.html">3.1. Jupyter Notebook Tips and Tricks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../documentation/index.html">4. Documentation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../documentation/Chapter.html">4.1. Documentation</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../machinelearning/index.html">5. Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../machinelearning/index.html">5. Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../machinelearning/dataaugmentation.html">5.1. Data Augmentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../machinelearning/deployment.html">5.2. Deployment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../machinelearning/eda.html">5.3. EDA</a></li>
@@ -197,50 +208,50 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../machinelearning/timeseries.html">5.8. Time Series</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../machinelearning/preprocessing.html">5.9. Preprocessing</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../llm/index.html">6. LLM</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../llm/index.html">6. LLM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../llm/Chapter.html">6.1. LLM</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">7. NumPy Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numpy/index.html">7. NumPy Tips and Tricks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../numpy/Chapter.html">7.1. NumPy Tips and Tricks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/index.html">8. Pandas Tricks and Tips</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/index.html">8. Pandas Tricks and Tips</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/Chapter.html">8.1. Pandas Tips and Tricks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/additionallibs.html">8.2. Utility Libraries for Pandas</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../polars/index.html">9. Polars</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../polars/index.html">9. Polars</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../polars/Chapter.html">9.1. Polars Tips &amp; Tricks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">10. Python Tips and Tricks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">10. Python Tips and Tricks</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">10.1. Pure Python + Built-in libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utility.html">10.2. Utilities for Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tooling.html">10.3. Tooling for Python Projects</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">11. Scraping Tips and Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../selenium/index.html">11. Scraping Tips and Tricks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../selenium/Chapter.html">11.1. Scraping Tips and Tricks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../terraform/index.html">12. Terraform</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../terraform/index.html">12. Terraform</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../terraform/Chapter.html">12.1. Terraform</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">13. Testing in Python</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../testing/index.html">13. Testing in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../testing/Chapter.html">13.1. Testing</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../sql/index.html">14. SQL Tips &amp; Tricks</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sql/index.html">14. SQL Tips &amp; Tricks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../sql/Chapter.html">14.1. SQL Tips &amp; Tricks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">15. Miscellaneous</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous/index.html">15. Miscellaneous</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Miscellaneous/Chapter.html">15.1. Miscellaneous</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -256,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -265,14 +276,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -394,26 +405,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -473,12 +486,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="pure-python-built-in-libraries">
-<h1><span class="section-number">10.1. </span>Pure Python + Built-in libraries<a class="headerlink" href="#pure-python-built-in-libraries" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">10.1. </span>Pure Python + Built-in libraries<a class="headerlink" href="#pure-python-built-in-libraries" title="Link to this heading">#</a></h1>
 <section id="make-your-numbers-more-readable">
-<h2><span class="section-number">10.1.1. </span>Make your numbers more readable<a class="headerlink" href="#make-your-numbers-more-readable" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.1. </span>Make your numbers more readable<a class="headerlink" href="#make-your-numbers-more-readable" title="Link to this heading">#</a></h2>
 <p>Do you want to make your numbers in Python more readable?</p>
 <p>Use underscores such as <code class="docutils literal notranslate"><span class="pre">1_000_000</span></code>.</p>
 <p>Underscores in numbers in Python are used to make large numbers more readable.</p>
@@ -496,7 +509,7 @@ document.write(`
 </div>
 </section>
 <section id="get-query-parameters-with-urllib-parse">
-<h2><span class="section-number">10.1.2. </span>Get Query Parameters with <code class="docutils literal notranslate"><span class="pre">urllib.parse</span></code><a class="headerlink" href="#get-query-parameters-with-urllib-parse" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.2. </span>Get Query Parameters with <code class="docutils literal notranslate"><span class="pre">urllib.parse</span></code><a class="headerlink" href="#get-query-parameters-with-urllib-parse" title="Link to this heading">#</a></h2>
 <p>How to extract query parameters from an URL in Python?</p>
 <p>Query parameters are the extra pieces of information you can add to a URL to change how a website behaves.</p>
 <p>They come after a ‘q’ character in the URL and are made up of key-value pairs.</p>
@@ -506,7 +519,7 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">urllib</span></code> provides functions to extract the query and its parameters for you.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">parse</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">urllib</span><span class="w"> </span><span class="kn">import</span> <span class="n">parse</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://play.google.com/store/apps/details?id=com.happy.mood.diary&amp;hl=de&amp;gl=US&#39;</span>
 
 <span class="c1"># Outputs &quot;id=com.happy.mood.diary&amp;hl=de&amp;gl=US&quot;</span>
@@ -520,7 +533,7 @@ document.write(`
 </div>
 </section>
 <section id="zip-iterables-to-the-longest-iterable">
-<h2><span class="section-number">10.1.3. </span>Zip iterables to the longest iterable<a class="headerlink" href="#zip-iterables-to-the-longest-iterable" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.3. </span>Zip iterables to the longest iterable<a class="headerlink" href="#zip-iterables-to-the-longest-iterable" title="Link to this heading">#</a></h2>
 <p>Don’t use <code class="docutils literal notranslate"><span class="pre">zip()</span></code> in Python.</p>
 <p>When you have, let’s say, two lists of unequal length, zip() will return
 an iterable with as many elements as the shortest list.</p>
@@ -529,7 +542,7 @@ an iterable with as many elements as the shortest list.</p>
 <p>You will not lose any elements!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">zip_longest</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">zip_longest</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
@@ -559,7 +572,7 @@ an iterable with as many elements as the shortest list.</p>
 </div>
 </section>
 <section id="improve-readability-with-named-slices">
-<h2><span class="section-number">10.1.4. </span>Improve readability with Named slices<a class="headerlink" href="#improve-readability-with-named-slices" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.4. </span>Improve readability with Named slices<a class="headerlink" href="#improve-readability-with-named-slices" title="Link to this heading">#</a></h2>
 <p>Do you want to make your code more readable in Python?</p>
 <p>Use <strong>named slices</strong>.</p>
 <p>They are reusable and make your code less messy.</p>
@@ -581,13 +594,13 @@ an iterable with as many elements as the shortest list.</p>
 </div>
 </section>
 <section id="pythonic-way-for-matrix-multiplication">
-<h2><span class="section-number">10.1.5. </span>Pythonic way for matrix multiplication<a class="headerlink" href="#pythonic-way-for-matrix-multiplication" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.5. </span>Pythonic way for matrix multiplication<a class="headerlink" href="#pythonic-way-for-matrix-multiplication" title="Link to this heading">#</a></h2>
 <p>Did you know the ‘&#64;’ operator performs 𝐦𝐚𝐭𝐫𝐢𝐱 𝐦𝐮𝐥𝐭𝐢𝐩𝐥𝐢𝐜𝐚𝐭𝐢𝐨𝐧 in Python?</p>
 <p>Normally, you would use <code class="docutils literal notranslate"><span class="pre">numpy.matmul()</span></code>.</p>
 <p>But since Python 3.5, you can also use the ‘&#64;’ operator as a more readable way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">a</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
               <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
@@ -604,7 +617,7 @@ an iterable with as many elements as the shortest list.</p>
 </div>
 </section>
 <section id="use-guard-clauses-for-better-if-statements">
-<h2><span class="section-number">10.1.6. </span>Use Guard Clauses for better If statements<a class="headerlink" href="#use-guard-clauses-for-better-if-statements" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.6. </span>Use Guard Clauses for better If statements<a class="headerlink" href="#use-guard-clauses-for-better-if-statements" title="Link to this heading">#</a></h2>
 <p>Stop nesting your If-statements.</p>
 <p>Instead, use the <strong>Guard Clause</strong> technique.</p>
 <p>The <strong>Guard Clause</strong> pattern says you should terminate a block of code early by checking for invalid inputs or edge cases at the beginning of your functions.</p>
@@ -612,7 +625,7 @@ an iterable with as many elements as the shortest list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Old way</span>
-<span class="k">def</span> <span class="nf">calculate_price</span><span class="p">(</span><span class="n">quantity</span><span class="p">,</span> <span class="n">price_per_unit</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_price</span><span class="p">(</span><span class="n">quantity</span><span class="p">,</span> <span class="n">price_per_unit</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">quantity</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">price_per_unit</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">quantity</span> <span class="o">*</span> <span class="n">price_per_unit</span>
@@ -622,7 +635,7 @@ an iterable with as many elements as the shortest list.</p>
         <span class="k">return</span> <span class="kc">None</span>
     
 <span class="c1"># Better way with Guard Clause</span>
-<span class="k">def</span> <span class="nf">calculate_price</span><span class="p">(</span><span class="n">quantity</span><span class="p">,</span> <span class="n">price_per_unit</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_price</span><span class="p">(</span><span class="n">quantity</span><span class="p">,</span> <span class="n">price_per_unit</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">quantity</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">None</span>
     <span class="k">if</span> <span class="n">price_per_unit</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
@@ -634,14 +647,14 @@ an iterable with as many elements as the shortest list.</p>
 </div>
 </section>
 <section id="hide-password-input-from-user">
-<h2><span class="section-number">10.1.7. </span>Hide Password Input from User<a class="headerlink" href="#hide-password-input-from-user" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.7. </span>Hide Password Input from User<a class="headerlink" href="#hide-password-input-from-user" title="Link to this heading">#</a></h2>
 <p>Do your Python Command-line apps include collecting secret keys or passwords?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">getpass</span></code>, from the Python Standard Library.</p>
 <p><code class="docutils literal notranslate"><span class="pre">getpass</span></code> ensures the user’s inputs will not be echoed back to the screen.</p>
 <p>A cool tool for your next Command-line app!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">getpass</span>
 
 <span class="n">username</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">()</span>
 
@@ -656,13 +669,13 @@ an iterable with as many elements as the shortest list.</p>
 </div>
 </section>
 <section id="turn-classes-into-callables">
-<h2><span class="section-number">10.1.8. </span>Turn Classes into Callables<a class="headerlink" href="#turn-classes-into-callables" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.8. </span>Turn Classes into Callables<a class="headerlink" href="#turn-classes-into-callables" title="Link to this heading">#</a></h2>
 <p>Did you know you can have callable objects in Python?</p>
 <p>You have to override the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method to call the object like a function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Example</span><span class="p">:</span>
-  <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Example</span><span class="p">:</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I was called!&quot;</span><span class="p">)</span>
     
 <span class="n">example_instance</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
@@ -673,13 +686,13 @@ an iterable with as many elements as the shortest list.</p>
 </div>
 </section>
 <section id="wrap-text-with-textwrap">
-<h2><span class="section-number">10.1.9. </span>Wrap Text with <code class="docutils literal notranslate"><span class="pre">textwrap</span></code><a class="headerlink" href="#wrap-text-with-textwrap" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.9. </span>Wrap Text with <code class="docutils literal notranslate"><span class="pre">textwrap</span></code><a class="headerlink" href="#wrap-text-with-textwrap" title="Link to this heading">#</a></h2>
 <p>Do you want to format your text output easily?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">textwrap</span></code>!</p>
 <p><code class="docutils literal notranslate"><span class="pre">textwrap</span></code> lets you wrap paragraphs, adjust line widths and handle indentation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">textwrap</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">textwrap</span>
 
 <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec tellus vitae turpis tempus porttitor. Fusce cursus nisi eu urna pharetra, a congue ex aliquet. Quisque vitae consequat nulla, nec bibendum risus.&quot;</span>
 
@@ -694,17 +707,17 @@ an iterable with as many elements as the shortest list.</p>
 </div>
 </section>
 <section id="add-lru-caching-to-your-functions">
-<h2><span class="section-number">10.1.10. </span>Add LRU Caching to your Functions<a class="headerlink" href="#add-lru-caching-to-your-functions" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.10. </span>Add LRU Caching to your Functions<a class="headerlink" href="#add-lru-caching-to-your-functions" title="Link to this heading">#</a></h2>
 <p>Python offers a neat way to add caching to functions.</p>
 <p>You just need to add the <code class="docutils literal notranslate"><span class="pre">lru_cache</span></code> decorator from <code class="docutils literal notranslate"><span class="pre">functools</span></code>.</p>
 <p>It takes a <code class="docutils literal notranslate"><span class="pre">maxsize</span></code> argument that specifies the maximum number of results to cache.</p>
 <p>When the function is called with the same arguments, it first checks the cache and returns the cached result if available.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">lru_cache</span>
 
 <span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span>
     <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
@@ -716,16 +729,16 @@ an iterable with as many elements as the shortest list.</p>
 </div>
 </section>
 <section id="cache-methods-in-classes-with-functools-cached-property">
-<h2><span class="section-number">10.1.11. </span>Cache Methods in Classes with <code class="docutils literal notranslate"><span class="pre">functools.cached_property</span></code><a class="headerlink" href="#cache-methods-in-classes-with-functools-cached-property" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.11. </span>Cache Methods in Classes with <code class="docutils literal notranslate"><span class="pre">functools.cached_property</span></code><a class="headerlink" href="#cache-methods-in-classes-with-functools-cached-property" title="Link to this heading">#</a></h2>
 <p>To cache the result of a method of a class, use <code class="docutils literal notranslate"><span class="pre">functools.cached_property</span></code>.</p>
 <p>It transforms a method into a property where its value is computed only once and then cached.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cached_property</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">cached_property</span>
 
-<span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
     <span class="nd">@cached_property</span>
-    <span class="k">def</span> <span class="nf">expensive_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">expensive_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Perform some expensive computation here</span>
         <span class="k">return</span> <span class="n">result</span>
 
@@ -738,7 +751,7 @@ an iterable with as many elements as the shortest list.</p>
 </div>
 </section>
 <section id="for-else-loops-in-python">
-<h2><span class="section-number">10.1.12. </span>For-Else Loops in Python<a class="headerlink" href="#for-else-loops-in-python" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.12. </span>For-Else Loops in Python<a class="headerlink" href="#for-else-loops-in-python" title="Link to this heading">#</a></h2>
 <p>You probably know about If-Else.</p>
 <p>But do you know about <code class="docutils literal notranslate"><span class="pre">For-Else</span></code>?</p>
 <p>You can add an else-block which will be executed only if the loop completes all its iterations without executing a break statement.</p>
@@ -759,7 +772,7 @@ an iterable with as many elements as the shortest list.</p>
 </div>
 </section>
 <section id="heaps-in-python">
-<h2><span class="section-number">10.1.13. </span>Heaps in Python<a class="headerlink" href="#heaps-in-python" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.13. </span>Heaps in Python<a class="headerlink" href="#heaps-in-python" title="Link to this heading">#</a></h2>
 <p>Want an efficient way to retrieve the N smallest/largest elements in Python?</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">𝐡𝐞𝐚𝐩𝐪</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">𝐡𝐞𝐚𝐩𝐪</span></code> is a standard library for working with heaps.</p>
@@ -768,7 +781,7 @@ an iterable with as many elements as the shortest list.</p>
 <p>Therefore, retrieving the N smallest/largest elements can be done in a fast way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">heapq</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">heapq</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 
@@ -783,7 +796,7 @@ an iterable with as many elements as the shortest list.</p>
 </div>
 </section>
 <section id="difference-between-str-and-repr">
-<h2><span class="section-number">10.1.14. </span>Difference between <code class="docutils literal notranslate"><span class="pre">__str__</span></code> and <code class="docutils literal notranslate"><span class="pre">__repr__</span></code><a class="headerlink" href="#difference-between-str-and-repr" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.14. </span>Difference between <code class="docutils literal notranslate"><span class="pre">__str__</span></code> and <code class="docutils literal notranslate"><span class="pre">__repr__</span></code><a class="headerlink" href="#difference-between-str-and-repr" title="Link to this heading">#</a></h2>
 <p>Do you know the difference between <code class="docutils literal notranslate"><span class="pre">__𝐬𝐭𝐫__</span></code> and <code class="docutils literal notranslate"><span class="pre">__𝐫𝐞𝐩𝐫__</span></code>?</p>
 <p>In Python, both methods are used to define string representations of an
 object.</p>
@@ -794,7 +807,7 @@ object.</p>
 <p>We see that the <code class="docutils literal notranslate"><span class="pre">__𝐫𝐞𝐩𝐫__</span></code> method of the datetime class has a detailed and unambiguous output.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
  
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;str:&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">today</span><span class="p">))</span>
@@ -809,7 +822,7 @@ object.</p>
 </div>
 </section>
 <section id="neat-way-to-merge-dictionaries">
-<h2><span class="section-number">10.1.15. </span>Neat Way to Merge Dictionaries<a class="headerlink" href="#neat-way-to-merge-dictionaries" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.15. </span>Neat Way to Merge Dictionaries<a class="headerlink" href="#neat-way-to-merge-dictionaries" title="Link to this heading">#</a></h2>
 <p>Do you need a clean way to merge two dictionaries in Python?</p>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">|</span></code> operator (available since Python 3.9)</p>
 <p>Unlike other methods (like the .update method or unpacking), it offers a neat way to merge dictionaries.</p>
@@ -826,13 +839,13 @@ object.</p>
 </div>
 </section>
 <section id="switch-case-statements-in-python">
-<h2><span class="section-number">10.1.16. </span>Switch Case Statements in Python<a class="headerlink" href="#switch-case-statements-in-python" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.16. </span>Switch Case Statements in Python<a class="headerlink" href="#switch-case-statements-in-python" title="Link to this heading">#</a></h2>
 <p>Did you know Python has switch-cases too?</p>
 <p>They’re called match-case and it was introduced in Python 3.10+.</p>
 <p>It allows you to perform (complex) pattern matching on values and execute code blocks based on the matched patterns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">match_example</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">match_example</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
     <span class="k">match</span> <span class="n">value</span><span class="p">:</span>
         <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value is 1&quot;</span><span class="p">)</span>
@@ -853,7 +866,7 @@ object.</p>
 </div>
 </section>
 <section id="walrus-operator-in-python">
-<h2><span class="section-number">10.1.17. </span>Walrus Operator in Python<a class="headerlink" href="#walrus-operator-in-python" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.17. </span>Walrus Operator in Python<a class="headerlink" href="#walrus-operator-in-python" title="Link to this heading">#</a></h2>
 <p>Do you know about the Walrus operator in Python?</p>
 <p>The Walrus operator allows you to assign a value to a variable as part of an expression.</p>
 <div class="cell docutils container">
@@ -881,14 +894,14 @@ object.</p>
 </div>
 </section>
 <section id="count-occurrences-in-an-iterable-with-counter">
-<h2><span class="section-number">10.1.18. </span>Count Occurrences in an Iterable with <code class="docutils literal notranslate"><span class="pre">Counter</span></code><a class="headerlink" href="#count-occurrences-in-an-iterable-with-counter" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.18. </span>Count Occurrences in an Iterable with <code class="docutils literal notranslate"><span class="pre">Counter</span></code><a class="headerlink" href="#count-occurrences-in-an-iterable-with-counter" title="Link to this heading">#</a></h2>
 <p>Don’t count the occurrences of elements in your list manually.</p>
 <p>Instead, use <code class="docutils literal notranslate"><span class="pre">collections.Counter</span></code> in Python.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Counter</span></code> is used for counting the occurrences of elements in an iterable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># With Counter</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
 
 <span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;kiwi&quot;</span><span class="p">]</span>
 
@@ -917,14 +930,14 @@ object.</p>
 </div>
 </section>
 <section id="set-default-values-for-dictionaries-with-defaultdict">
-<h2><span class="section-number">10.1.19. </span>Set Default Values for Dictionaries with <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code><a class="headerlink" href="#set-default-values-for-dictionaries-with-defaultdict" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.19. </span>Set Default Values for Dictionaries with <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code><a class="headerlink" href="#set-default-values-for-dictionaries-with-defaultdict" title="Link to this heading">#</a></h2>
 <p>Don’t use dictionaries in Python.</p>
 <p>Instead use <code class="docutils literal notranslate"><span class="pre">defaultdicts</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">defaultdict</span></code> is similar to dictionaries, but it allows you to set a default value for new keys that haven’t been added yet.</p>
 <p>This is useful when you want to perform operations without checking if a key exists.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
       
 <span class="n">d</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 
@@ -947,13 +960,13 @@ object.</p>
 </div>
 </section>
 <section id="more-structured-tuples-with-namedtuple">
-<h2><span class="section-number">10.1.20. </span>More Structured Tuples with <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code><a class="headerlink" href="#more-structured-tuples-with-namedtuple" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.20. </span>More Structured Tuples with <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code><a class="headerlink" href="#more-structured-tuples-with-namedtuple" title="Link to this heading">#</a></h2>
 <p>You don’t know about <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code>?</p>
 <p><code class="docutils literal notranslate"><span class="pre">namedtuple</span></code> are similar to regular tuples, but have named fields.</p>
 <p>This makes them more self-documenting and easier to work with.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">namedtuple</span>
  
 <span class="n">Point</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Point&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">3.2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
@@ -964,7 +977,7 @@ object.</p>
 </div>
 </section>
 <section id="mutable-default-values-for-function-arguments">
-<h2><span class="section-number">10.1.21. </span>Mutable Default Values for Function Arguments<a class="headerlink" href="#mutable-default-values-for-function-arguments" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.21. </span>Mutable Default Values for Function Arguments<a class="headerlink" href="#mutable-default-values-for-function-arguments" title="Link to this heading">#</a></h2>
 <p>One big mistake in Python:</p>
 <p>Using mutable default values for function arguments.</p>
 <p>When using mutable objects like a list as a default value, you have to be careful.</p>
@@ -973,7 +986,7 @@ object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dangerous behaviour:</span>
-<span class="k">def</span> <span class="nf">increment_numbers</span><span class="p">(</span><span class="n">numbers</span><span class="o">=</span><span class="p">[]):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">increment_numbers</span><span class="p">(</span><span class="n">numbers</span><span class="o">=</span><span class="p">[]):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
         <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Numbers: </span><span class="si">{</span><span class="n">numbers</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -983,7 +996,7 @@ object.</p>
 
 
 <span class="c1"># Better:</span>
-<span class="k">def</span> <span class="nf">increment_numbers</span><span class="p">(</span><span class="n">numbers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">increment_numbers</span><span class="p">(</span><span class="n">numbers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">numbers</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
@@ -998,7 +1011,7 @@ object.</p>
 </div>
 </section>
 <section id="optimize-your-python-objects-with-slots">
-<h2><span class="section-number">10.1.22. </span>Optimize Your Python Objects with <code class="docutils literal notranslate"><span class="pre">__slots__</span></code><a class="headerlink" href="#optimize-your-python-objects-with-slots" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.22. </span>Optimize Your Python Objects with <code class="docutils literal notranslate"><span class="pre">__slots__</span></code><a class="headerlink" href="#optimize-your-python-objects-with-slots" title="Link to this heading">#</a></h2>
 <p>Optimize your Python classes with this trick.</p>
 <p>When creating objects, a dynamic dictionary is created too to store instance attributes.</p>
 <p>But, what if you know all of your attributes beforehand?</p>
@@ -1007,10 +1020,10 @@ object.</p>
 <p>See below how setting a new instance attribute will throw an error.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">:</span>
     <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
 
@@ -1022,7 +1035,7 @@ object.</p>
 </div>
 </section>
 <section id="modify-print-statements">
-<h2><span class="section-number">10.1.23. </span>Modify Print Statements<a class="headerlink" href="#modify-print-statements" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.23. </span>Modify Print Statements<a class="headerlink" href="#modify-print-statements" title="Link to this heading">#</a></h2>
 <p>When printing multiple elements in Python, it starts a new line by default.</p>
 <p>But, you can change this default to whatever you like by setting the <code class="docutils literal notranslate"><span class="pre">end</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p>
 <p>See below where we change the <code class="docutils literal notranslate"><span class="pre">end</span></code> parameter to space.</p>
@@ -1038,18 +1051,18 @@ object.</p>
 </div>
 </section>
 <section id="type-variables-in-python-3-12">
-<h2><span class="section-number">10.1.24. </span>Type Variables in Python 3.12<a class="headerlink" href="#type-variables-in-python-3-12" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.24. </span>Type Variables in Python 3.12<a class="headerlink" href="#type-variables-in-python-3-12" title="Link to this heading">#</a></h2>
 <p>One cool feature in Python 3.12:</p>
 <p>The support for Type Variables.</p>
 <p>You can use them to parametrize generic classes and functions.</p>
 <p>See below for a small example where our generic class is parametrized by T which we indicate with [T].</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Stack</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Stack</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1057,7 +1070,7 @@ object.</p>
 </div>
 </section>
 <section id="enumerations-in-python">
-<h2><span class="section-number">10.1.25. </span>Enumerations in Python<a class="headerlink" href="#enumerations-in-python" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.25. </span>Enumerations in Python<a class="headerlink" href="#enumerations-in-python" title="Link to this heading">#</a></h2>
 <p>To make your Python Code cleaner, use <code class="docutils literal notranslate"><span class="pre">Enums</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Enums</span></code> (or enumerations) are a way to represent a set of named values as symbolic names.</p>
 <p>It provides a way to work with meaningful names instead of raw integers or weird string constants.</p>
@@ -1065,9 +1078,9 @@ object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Option 1</span>
-<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">auto</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">auto</span>
 
-<span class="k">class</span> <span class="nc">Color</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Color</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
     <span class="n">RED</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">GREEN</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="n">BLUE</span> <span class="o">=</span> <span class="mi">3</span>
@@ -1075,7 +1088,7 @@ object.</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># Output: 1</span>
 
 <span class="c1"># Option 2: auto() assigns unique values starting by 1</span>
-<span class="k">class</span> <span class="nc">Status</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Status</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
     <span class="n">PENDING</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
     <span class="n">APPROVED</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
     <span class="n">REJECTED</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
@@ -1087,14 +1100,14 @@ object.</p>
 </div>
 </section>
 <section id="never-use-eval">
-<h2><span class="section-number">10.1.26. </span>Never use <code class="docutils literal notranslate"><span class="pre">eval</span></code><a class="headerlink" href="#never-use-eval" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.26. </span>Never use <code class="docutils literal notranslate"><span class="pre">eval</span></code><a class="headerlink" href="#never-use-eval" title="Link to this heading">#</a></h2>
 <p>One big mistake in Python:</p>
 <p>Using <code class="docutils literal notranslate"><span class="pre">eval</span></code> in your code.</p>
 <p><code class="docutils literal notranslate"><span class="pre">eval</span></code>, like the name suggests, evaluates a Python expression.</p>
 <p>The big problem: One could inject malicious code which will be evaluated.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">expression</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate</span><span class="p">(</span><span class="n">expression</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">eval</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
     
 <span class="nb">print</span><span class="p">(</span><span class="n">calculate</span><span class="p">(</span><span class="s2">&quot;5 + 5&quot;</span><span class="p">))</span>
@@ -1107,7 +1120,7 @@ object.</p>
 </div>
 </section>
 <section id="never-use-import">
-<h2><span class="section-number">10.1.27. </span>Never use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code><a class="headerlink" href="#never-use-import" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.27. </span>Never use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code><a class="headerlink" href="#never-use-import" title="Link to this heading">#</a></h2>
 <p>One nooby Python mistake:</p>
 <p>Running <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>.</p>
 <p>You will only pollute your namespace, leading to potential naming conflicts.</p>
@@ -1116,17 +1129,17 @@ object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ugly</span>
-<span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">module</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1"># Better</span>
-<span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="n">Class1</span><span class="p">,</span> <span class="n">Class2</span><span class="p">,</span> <span class="n">Class3</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">module</span><span class="w"> </span><span class="kn">import</span> <span class="n">Class1</span><span class="p">,</span> <span class="n">Class2</span><span class="p">,</span> <span class="n">Class3</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="control-what-gets-imported">
-<h2><span class="section-number">10.1.28. </span>Control What Gets Imported<a class="headerlink" href="#control-what-gets-imported" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.28. </span>Control What Gets Imported<a class="headerlink" href="#control-what-gets-imported" title="Link to this heading">#</a></h2>
 <p>How to control what gets imported when you use <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module</span> <span class="pre">import</span> <span class="pre">*</span></code> in Python?</p>
 <p><code class="docutils literal notranslate"><span class="pre">__all__</span></code> lets you specify which symbols should be imported when you run <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module</span> <span class="pre">import</span> <span class="pre">*</span></code>.</p>
 <p>By defining <code class="docutils literal notranslate"><span class="pre">__all__</span></code> in your module, you can explicitly control what gets exposed.</p>
@@ -1135,17 +1148,17 @@ object.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># mymodule.py</span>
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;my_function&#39;</span><span class="p">,</span> <span class="s1">&#39;MyClass&#39;</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">my_function</span><span class="p">():</span>
     <span class="k">pass</span>
 
-<span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
     <span class="k">pass</span>
 
-<span class="k">def</span> <span class="nf">internal_helper</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">internal_helper</span><span class="p">():</span>
     <span class="k">pass</span>
 
 <span class="c1"># main.py</span>
-<span class="kn">from</span> <span class="nn">mymodule</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mymodule</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">my_function</span><span class="p">()</span>
 <span class="n">internal_helper</span><span class="p">()</span> <span class="c1"># Error</span>
@@ -1155,14 +1168,14 @@ object.</p>
 </div>
 </section>
 <section id="make-fields-keyword-only-in-dataclasses">
-<h2><span class="section-number">10.1.29. </span>Make Fields Keyword-Only in <code class="docutils literal notranslate"><span class="pre">dataclasses</span></code><a class="headerlink" href="#make-fields-keyword-only-in-dataclasses" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.29. </span>Make Fields Keyword-Only in <code class="docutils literal notranslate"><span class="pre">dataclasses</span></code><a class="headerlink" href="#make-fields-keyword-only-in-dataclasses" title="Link to this heading">#</a></h2>
 <p>If you want to have keyword-only fields in Python, use the <code class="docutils literal notranslate"><span class="pre">kw_only</span></code> option from <code class="docutils literal notranslate"><span class="pre">dataclasses</span></code>.</p>
 <p>This will throw an error whenever you set parameters without the keyword.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 <span class="nd">@dataclass</span><span class="p">(</span><span class="n">kw_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">class</span> <span class="nc">Example</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Example</span><span class="p">:</span>
     <span class="n">a</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">b</span><span class="p">:</span> <span class="nb">int</span>
 
@@ -1174,7 +1187,7 @@ object.</p>
 </div>
 </section>
 <section id="keyword-only-and-positional-only-arguments">
-<h2><span class="section-number">10.1.30. </span>Keyword-only and Positional-only Arguments<a class="headerlink" href="#keyword-only-and-positional-only-arguments" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1.30. </span>Keyword-only and Positional-only Arguments<a class="headerlink" href="#keyword-only-and-positional-only-arguments" title="Link to this heading">#</a></h2>
 <p>How do you define keyword-only and positional arguments in Python?</p>
 <ul class="simple">
 <li><p>𝗞𝗲𝘆𝘄𝗼𝗿𝗱-𝗼𝗻𝗹𝘆 arguments: Specified after an 𝗮𝘀𝘁𝗲𝗿𝗶𝘀𝗸 in the function definition. Perfect for readability and when passing optional arguments to a function.</p></li>
@@ -1183,7 +1196,7 @@ object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keyword-only</span>
-<span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
 
 <span class="c1"># This works:</span>
@@ -1193,7 +1206,7 @@ object.</p>
 <span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
 
 <span class="c1"># Positional-only</span>
-<span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
 
 <span class="c1"># This works:</span>
@@ -1235,8 +1248,8 @@ object.</p>
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="index.html"
@@ -1264,6 +1277,7 @@ object.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1322,9 +1336,10 @@ By Banias Baabe
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1348,8 +1363,8 @@ By Banias Baabe
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
