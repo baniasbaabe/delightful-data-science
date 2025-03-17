@@ -30,6 +30,7 @@ chapters:
       - file: book/machinelearning/featureselection.ipynb
       - file: book/machinelearning/getdata.ipynb
       - file: book/machinelearning/modeltraining.ipynb
+      - file: book/machinelearning/explainableai.ipynb
       - file: book/machinelearning/outlierdetection.ipynb
       - file: book/machinelearning/timeseries.ipynb
       - file: book/machinelearning/preprocessing.ipynb
